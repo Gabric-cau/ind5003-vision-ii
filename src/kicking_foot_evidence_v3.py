@@ -139,7 +139,12 @@ def kicking_foot_evidence_v3(normal_samples, mirrored_samples, contact_bracket, 
                               *, stationary_ball_observations, departure_ball_observations,
                               camera_transforms=None, parameters=None):
     parameters = parameters or EvidenceParameters()
-    if len(stationary_ball_observations) < V3_POLICY['min_stationary_samples']:
+    first, departure = contact_bracket
+    stationary_window = sorted([row for row in stationary_ball_observations
+                                if isinstance(row.get('frame'), int)
+                                and first-round(.15*fps) <= row['frame'] <= first],
+                               key=lambda row: row['frame'])
+    if len(stationary_window) < V3_POLICY['min_stationary_samples']:
         return dict(schema_version='fresh-foot-kinematic-v3', candidate='unknown',
                     status='fewer_than_three_stationary_source_observations',
                     new_neural_inference=False, human_verified=False, accuracy_validated=False)
@@ -147,7 +152,6 @@ def kicking_foot_evidence_v3(normal_samples, mirrored_samples, contact_bracket, 
         return dict(schema_version='fresh-foot-kinematic-v3', candidate='unknown',
                     status='missing_two_source_departure_observations', new_neural_inference=False,
                     human_verified=False, accuracy_validated=False)
-    first, departure = contact_bracket
     def _coerce(rows):
         return [dict(row, keypoints=row.get('keypoints', row.get('points')),
                      keypoint_confidences=row.get('keypoint_confidences', row.get('confidence')))
@@ -159,6 +163,7 @@ def kicking_foot_evidence_v3(normal_samples, mirrored_samples, contact_bracket, 
     base = dict(schema_version='fresh-foot-kinematic-v3', candidate='unknown', status='unknown',
                 contact_bracket_frames=list(contact_bracket), source_fps=float(fps),
                 stationary_ball_observations=stationary_ball_observations,
+                stationary_window_observations=stationary_window,
                 causal_departure_observations=departure_ball_observations,
                 stationary_target_definition='last actual stationary source detection, fixed counterfactual spot',
                 departure_used_as_distance_target=False, nearest_side_used_as_label=False,
@@ -168,7 +173,7 @@ def kicking_foot_evidence_v3(normal_samples, mirrored_samples, contact_bracket, 
         base['status'] = 'temporal_anatomical_channel_ambiguity'
         return base
     bracket = [int(first), int(departure)]
-    views = {name: _view(rows, stationary_ball_observations, bracket,
+    views = {name: _view(rows, stationary_window, bracket,
                          fps, matrices=camera_transforms, parameters=parameters)
              for name, rows in (('normal', normal), ('mirrored_inverse_mapped', mirror))}
     base['views'] = views
