@@ -6,7 +6,15 @@
 
 原项目：[RX422040/vision-ii-penalty-analysis](https://github.com/RX422040/vision-ii-penalty-analysis)，基于提交 `f3eb946a1595c084af33edfbc2452b016736bc30`。模型、历史实验、缓存和早期算法来自原小组项目；本轮新增结果整合、EDA 防护、运行迁移、稳定器与球终点修复。仓库保留提交历史，不把原作者的工作重新标成个人独立完成。
 
-## 先看这些文件
+## 当前 4090 冻结入口
+
+本轮在实验室 RTX 4090 上对同一批 39 个课程事件完成了 source-bound 全量复跑。当前冻结包的候选覆盖是：触球 33、步数 32、门将预移动 29、门将图像方向 23、非空球轨迹 33、触球前地面点 32、目标机位 11、条件性图像平面高度信号 6、比分板结果 35；慢动作自动判定和事件最终球位置均为 0。严格高度的物理米制结果为 0，未知值没有被当作零。
+
+比分板分支在 35/39 段有可重复的 source-only 候选；冻结预测与独立审计参考在这 35 段开发样本上 35/35 一致。这个数字不是 held-out 准确率，也不是人工真值；报告、JSON 和逐段证据均保留未知、冲突和覆盖率。
+
+当前入口：[`docs/README_FRESH_2026.md`](docs/README_FRESH_2026.md)、[`final_bundle_v1`](outputs/fresh_course_experiment/final_bundle_v1/)、[`final_eda_v1`](outputs/fresh_course_experiment/final_eda_v1/)、[`REPORT_FRESH_REVIEW_DRAFT.pdf`](outputs/fresh_course_experiment/report_v1/REPORT_FRESH_REVIEW_DRAFT.pdf)、[`review_v1/index.html`](outputs/fresh_course_experiment/review_v1/index.html)。
+
+## 历史归档入口（非当前结果）
 
 | 内容 | 入口 |
 |---|---|
@@ -84,7 +92,7 @@ python run_project.py eda --features-csv outputs/my_bundle/features_39.csv --out
 
 ## 模型推理和实验室 4090
 
-本轮没有完成新的真实视频模型推理，也没有训练模型。实验室 `lab4090` 的一次只读 SSH 检查超时；当前本机也缺少 Ultralytics 和可用 FFmpeg，所以 GPU 运行能力仍需在实验室实测。
+本段是历史 macOS 复现路线，不能代表当前状态。当前 39 段 source-bound 模型推理已经在实验室 `lab4090` 的 RTX 4090 上完成；模型、CUDA、源视频哈希和运行收据记录在 [`docs/LAB_RUNTIME_2026-10-12.json`](docs/LAB_RUNTIME_2026-10-12.json) 与 fresh protocol 中。下面的旧依赖说明仅用于复现历史 CPU 结构化结果。
 
 先安装与实验室驱动兼容的 CUDA PyTorch、Ultralytics 和系统 FFmpeg，再恢复补包、放入来源匹配的 rawclip。原 `requirements-pycharm.txt` 是 Windows CPU 环境快照，不能直接当作已经验证的 Linux CUDA 配置。
 
