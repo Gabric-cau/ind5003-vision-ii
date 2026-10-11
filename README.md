@@ -1,28 +1,57 @@
 # IND5003 Vision II — Football Penalty Analysis
 
-## GitHub 源码仓库（2026-10-11）
+## GitHub 完整分析文件下载（2026-10-11）
 
 GitHub 项目地址：<https://github.com/RX422040/vision-ii-penalty-analysis>。
-这个仓库保留源码、测试、配置、Notebook、文档、标注来源记录和选定的检测缓存/实验结果。
-原视频、模型权重、FFmpeg 二进制、虚拟环境、生成的视频/图片和完整交付 ZIP 保存在本地完整工程包中；
-它们没有放入普通 Git 提交。GitHub 仓库不能直接代替课程要求的全部代码与数据交付包。
+仓库保留源码、测试、配置、Notebook、文档、标注来源记录和选定的检测缓存/实验结果。
+另外，`project_files/visionii-support-01.zip`、`project_files/visionii-support-02.zip`
+通过 **Git LFS** 保存此前未上传的模型权重、FFmpeg、完整历史输出/缓存/报告媒体、
+Notebook 存档及遗漏的 SAM2 辅助文件。两包合计约 **3.58 GB**，还原后新增文件约 **4.69 GB**。
+`docs/git_supplement_manifest.json` 记录全部 26,892 个补充文件及 SHA-256。
+这批文件来自已校验的完整工程导出，补齐当前及历史分析的文件；不代表已在新电脑逐项重跑全部历史脚本。
+
+**原始视频仍由项目成员单独提供**：把已共享的切片原文件放到 `data/raw_clips/`，
+保留文件名及原视频字节。历史工程有 49 个新旧切片，其中当前批量分析使用 39 个 canonical 切片。
+重新切片才需要另外提供 `data/full_videos/`。虚拟环境、IDE 配置和临时工作目录不随仓库分发。
+仓库是私有的，队友须先获得仓库访问权限。
+
+### 克隆并还原（Windows / PyCharm）
+
+先安装 [Git LFS](https://git-lfs.com/)，再运行：
 
 ```powershell
+git lfs install
 git clone https://github.com/RX422040/vision-ii-penalty-analysis.git
 cd vision-ii-penalty-analysis
+git lfs pull
+python -X utf8 restore_project_files.py
 ```
 
-在 PyCharm 中运行 Git 克隆版之前，从已导出的
-`VisionII_Full_Project_2026-10-11.zip` 解压目录复制下面三个目录到克隆项目的同名位置：
+还原脚本只使用 Python 标准库，先校验两个压缩包，再解压到项目同名目录，
+最后校验每个补充文件。它会复用字节一致的现有文件，默认拒绝覆盖已经改动的文件。
+末尾出现 `"all_file_hashes_match": true` 表示补充文件齐全；再次核对可运行：
 
-- `data/raw_clips/`：实际点球视频；必须保留与检测缓存对应的原文件。
-- `models/weights/`：4 个模型权重。
-- `outputs/review_tools/`：回放导出使用的 FFmpeg。
+```powershell
+python -X utf8 restore_project_files.py --check
+```
 
-重新切片时还需要完整包里的 `data/full_videos/`。数据及权重的本地相对路径与大小见
-`docs/git_external_files_manifest.json`。然后按下方 PyCharm 说明设置解释器、安装依赖并执行
-`python -X utf8 run_project.py check`。
-历史实验默认路径可能还需要完整包中对应的输出目录；Git 中保留的缓存并不覆盖所有旧实验。
+如果提示只下载了 Git LFS pointer，请安装 Git LFS 后重新执行 `git lfs install`、`git lfs pull`。
+仅点击网页的 **Code → Download ZIP** 不保证包含 LFS 实体文件，优先使用上面的克隆命令。
+Git LFS 下载受仓库账号额度限制；不要把只有百余字节的指针文件当作真正的压缩包。
+压缩包和还原文件加上源码共需约 9 GB 磁盘空间，Python 环境及原视频另计。
+
+随后在 PyCharm 中打开克隆目录，配置解释器，安装依赖，放好 raw clips，并检查：
+
+```powershell
+python -m pip install -r requirements-pycharm.txt
+python -X utf8 run_project.py check
+python -X utf8 run_project.py replay-ball --output-dir outputs/my_ball_run
+```
+
+**迁移边界**：部分历史脚本/缓存记录了原机器绝对路径，运行旧实验时仍可能要改为队友的路径。
+`requirements-pycharm.txt` 是实际使用过的版本记录，尚未在全新环境验证完整安装。
+历史 OCR 等实验另见对应的 `requirements-jersey.txt` 等文件；SAM2 源码通过普通 Git 和补充包一起保留。
+本次上传的 FFmpeg 是 Windows x64 版，其他系统需要替换运行工具。
 当前结果仍是实验候选，不能把输出覆盖率、测试通过数或 AI 画面判断写成已验证准确率。
 
 ## PyCharm 运行与完整工程导出（2026-10-11）
