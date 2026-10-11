@@ -19,10 +19,10 @@
 
 ## 从 GitHub 下载完整项目
 
-### 1. 准备工具和访问权限
+### 1. 准备工具
 
 - 使用 Windows 64 位，安装 Python、Git for Windows 和 Git LFS。
-- 仓库是私有仓库，队友的 GitHub 账号需要有仓库访问权限。
+- 仓库是公开仓库，无需协作者邀请或登录即可查看和下载。
 - 主流程已有运行记录的环境是 Windows CPU / Python 3.14.7；依赖记录见 [requirements-pycharm.txt](requirements-pycharm.txt)。该文件尚未经过全新环境安装验证。
 - 项目文件、LFS 缓存和还原文件建议预留约 **13 GB** 空间；Python 环境及原视频还需要额外空间。
 
@@ -230,7 +230,7 @@ python -X utf8 scripts/run_style_aware_steps.py --output-dir outputs/my_style_ru
 
 | 情况 | 怎么处理 |
 |---|---|
-| 无法克隆、Release 无法打开 | 核对 GitHub 登录账号及私有仓库访问权限 |
+| 无法克隆、Release 无法打开 | 核对仓库网址和网络连接；公开仓库无需协作者邀请 |
 | 补充包只有很小的文本文件 | 执行 `git lfs pull`，或从 Release 下载两个真实 ZIP |
 | 还原提示 checksum mismatch | 重新下载对应包，不要跳过校验 |
 | 还原提示已有文件不同 | 保存本地改动，在新目录克隆还原；只有明确要替换时才使用 `--overwrite` |
