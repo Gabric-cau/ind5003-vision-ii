@@ -12,6 +12,8 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from scripts.camera_timing_features import load_model,infer,get_frame
 from src.camera_timing_v2 import assign_kit_roles
+from src.project_paths import resolve_project_video
+from src.runtime import add_runtime_arguments, resolve_device, inference_provenance
 
 BASE=ROOT/'outputs/camera_timing_retest_2026-10-10_01'
 DEFAULT=ROOT/'outputs/camera_partial_alignment_2026-10-11'
@@ -30,9 +32,13 @@ def main():
     parser.add_argument('--output-dir',type=Path,default=DEFAULT)
     parser.add_argument('--cohort',choices=('pilot','remaining','all'),default='all')
     parser.add_argument('--resume',action='store_true')
+    add_runtime_arguments(parser,ffmpeg=False)
+    parser.add_argument('--source-dir',type=Path,default=ROOT/'data/raw_clips')
+    parser.add_argument('--baseline-dir',type=Path,default=BASE)
     args=parser.parse_args();out=args.output_dir.resolve()
     if out==BASE or out.is_relative_to(BASE):raise ValueError('Use a separate experiment directory')
-    package=read(BASE/'camera_timings_candidates.json')
+    base=args.baseline_dir.resolve();device=resolve_device(args.device)
+    package=read(base/'camera_timings_candidates.json')
     ids=[c['clip_id'] for c in package['clips']]
     selected=[c for c in package['clips'] if args.cohort=='all' or ((c['clip_id'] in PILOT)==(args.cohort=='pilot'))]
     protocol={'sampling_fps_target':10,'reference_window_sec':[-1.4,1.0],'query_max_seconds':8,
@@ -40,10 +46,12 @@ def main():
       'pose_confidence':.4,'role_policy':'unchanged torso kit matching; exactly one role candidate per frame',
       'identity_verified':False,'pilot_clips':PILOT,'remaining_is_independent_holdout':False,
       'canonical_clips':ids,'outcome_labels_read':False,'human_labels_created':False,
-      'extraction_script_sha256':sha(__file__),'baseline_json_sha256':sha(BASE/'camera_timings_candidates.json'),
+      'extraction_script_sha256':sha(__file__),'baseline_json_sha256':sha(base/'camera_timings_candidates.json'),
       'weights_sha256':sha(ROOT/'models/weights/yolo11n_pose.pt'),
       'inference_helper_sha256':sha(ROOT/'scripts/camera_timing_features.py'),
-      'role_code_sha256':sha(ROOT/'src/camera_timing_v2.py')}
+      'role_code_sha256':sha(ROOT/'src/camera_timing_v2.py'),
+      'runtime':inference_provenance(args.device,device,[ROOT/'models/weights/yolo11n_pose.pt']),
+      'source_dir':str(args.source_dir.resolve())}
     if (out/'extraction_protocol.json').exists():
         if read(out/'extraction_protocol.json')!=json.loads(json.dumps(protocol)):raise ValueError('Protocol changed')
     else:save(out/'extraction_protocol.json',protocol)
@@ -55,20 +63,20 @@ def main():
             cached=read(target)
             if cached['protocol_sha256']!=sha(out/'extraction_protocol.json'):raise ValueError('Cache mismatch')
             continue
-        features=read(BASE/'features'/f'{cid}.json');refs=features['references'];cf=refs['contact_frame_candidate']
+        features=read(base/'features'/f'{cid}.json');refs=features['references'];cf=refs['contact_frame_candidate']
         for name,value in refs['upstream_sha256'].items():
             if sha(ROOT/name)!=value:raise ValueError('Upstream source changed: '+name)
-        original=Path(clip['raw_video_path'])
+        original=resolve_project_video(ROOT,clip['raw_video_path'],cid,args.source_dir)
         if sha(original)!=clip['source_sha256']:raise ValueError('Original video changed')
         reference=next((s for s in clip['segments'] if s['start_frame']<=cf<s['end_frame_exclusive']),None)
         choices=[s for s in clip['segments'] if s['start_frame']>cf and any(v in ELIGIBLE for v in s['sample_votes'])]
         data={'clip_id':cid,'protocol_sha256':sha(out/'extraction_protocol.json'),'source_sha256':sha(original),
-              'features_sha256':sha(BASE/'features'/f'{cid}.json'),'contact_frame_candidate':cf,
+              'features_sha256':sha(base/'features'/f'{cid}.json'),'contact_frame_candidate':cf,
               'fps':clip['fps'],'reference_segment_id':reference['segment_id'] if reference else None,
               'query_segment_ids':[s['segment_id'] for s in choices], 'segments':[],
               'human_verified':False,'identity_verified':False,'accuracy_validated':False}
         if reference and choices:
-            if model is None:model=load_model()
+            if model is None:model=load_model(device)
             cap=cv2.VideoCapture(str(original));fps=clip['fps']
             for shot in [reference]+choices:
                 if shot==reference:
@@ -83,7 +91,7 @@ def main():
                       'role_counts':{role:sum(p['role']==role+'_candidate' for p in people) for role in ('kicker','keeper')}})
                 data['segments'].append({'segment_id':shot['segment_id'],'start_frame':start,'end_frame_exclusive':end,
                       'view_candidate_unchanged':shot['view_candidate'],'baseline_sample_votes':shot['sample_votes'],
-                      'baseline_action_tested':str(shot['segment_id']) in read(BASE/'action_v3'/f'{cid}.json')['evidence'],
+                      'baseline_action_tested':str(shot['segment_id']) in read(base/'action_v3'/f'{cid}.json')['evidence'],
                       'frames':frames})
             cap.release()
         if sha(original)!=data['source_sha256']:raise ValueError('Original changed during inference')

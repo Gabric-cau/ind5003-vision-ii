@@ -10,6 +10,7 @@ import sys
 import tempfile
 import webbrowser
 from datetime import datetime
+from src.runtime import add_runtime_arguments, resolve_device, resolve_ffmpeg
 
 ROOT = Path(__file__).resolve().parent
 BALL_REVIEW = ROOT / 'outputs/ball_goal_all_events_v2_2026-10-11'
@@ -24,7 +25,7 @@ TEST_MODULES = [
 def bootstrap():
     # Existing local environments used Python 3.14; never load their compiled
     # packages into another Python minor version. Exported ZIP has no .venv.
-    if sys.version_info[:2] == (3, 14):
+    if sys.platform == 'win32' and sys.version_info[:2] == (3, 14):
         local = ROOT / '.venv/Lib/site-packages'
         if local.is_dir() and str(local) not in sys.path:
             sys.path.append(str(local))
@@ -32,9 +33,15 @@ def bootstrap():
                 [os.environ.get('PYTHONPATH'), str(local)]))
 
 
-def canonical_ids():
-    data = json.loads((ROOT / 'outputs/ball_mask_review_ready_2026-10-11/protocol.json').read_text(encoding='utf-8'))
-    ids = data['canonical_clips']
+def canonical_ids(input_dir=None):
+    folder = input_dir or ROOT / 'outputs/ball_mask_review_ready_2026-10-11/inputs'
+    protocol = folder.parent / 'protocol.json'
+    if protocol.is_file():
+        ids = json.loads(protocol.read_text(encoding='utf-8'))['canonical_clips']
+    else:
+        import yaml
+        manifest=yaml.safe_load((ROOT/'configs/penalty_slicing_manifest.yaml').read_text(encoding='utf-8'))
+        ids=[f"{match}_p{row['number']:02d}_{row['kicker']}" for match,info in manifest.items() for row in info['penalties']]
     if len(ids) != 39 or len(set(ids)) != 39:
         raise ValueError('Canonical manifest must contain exactly 39 distinct clips')
     return ids
@@ -67,7 +74,7 @@ def test_ball(log=None):
         raise RuntimeError('Ball and portability tests failed; see the log above')
 
 
-def check():
+def check(args):
     print(f'Project: {ROOT}\nPython: {sys.executable}\nVersion: {sys.version.split()[0]}')
     required = {'numpy':'NumPy', 'cv2':'OpenCV', 'PIL':'Pillow', 'yaml':'PyYAML', 'torch':'PyTorch', 'ultralytics':'Ultralytics'}
     failures = []
@@ -83,20 +90,27 @@ def check():
             print(f'Optional/full-project {module}: {getattr(package,"__version__","imported")}')
         except Exception:
             print(f'Optional/full-project {module}: not installed; use requirements-pycharm.txt if needed')
-    ids = canonical_ids()
+    try:
+        ids = canonical_ids(args.ball_input_dir)
+    except (ImportError, FileNotFoundError, ValueError) as exc:
+        ids=[];failures.append(f'Canonical manifest unavailable: {exc}')
     from src.project_paths import resolve_project_video
     for cid in ids:
-        resolve_project_video(ROOT, '', cid)
-        for folder in ['ball_detection_all_2026-10-11/detections','ball_narrow_channel_2026-10-11/results',
-                       'ball_mask_review_ready_2026-10-11/inputs','ball_goal_all_fresh_contact_2026-10-11']:
-            if not (ROOT / 'outputs' / folder / f'{cid}.json').is_file():
+        try:
+            resolve_project_video(ROOT, '', cid, args.source_dir)
+        except FileNotFoundError as exc:
+            failures.append(str(exc))
+        for folder in [args.ball_cache_dir, args.track_dir, args.ball_input_dir, args.fresh_dir]:
+            if not (folder / f'{cid}.json').is_file():
                 failures.append(f'Missing cache {folder}/{cid}.json')
     for name in ['yolo11n_object_detection.pt','yolo11n_pose.pt','yolo11m_pose.pt','sam2.1_hiera_tiny.pt']:
         if not (ROOT / 'models/weights' / name).is_file():
             failures.append(f'Missing model {name}')
-    ffmpeg = ROOT / 'outputs/review_tools/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe'
-    if not ffmpeg.is_file():
-        failures.append('Packaged FFmpeg binary is missing')
+    try:
+        print(f'Device: {resolve_device(args.device)}')
+        print(f'FFmpeg: {resolve_ffmpeg(args.ffmpeg, ROOT)}')
+    except (RuntimeError, FileNotFoundError) as exc:
+        failures.append(str(exc))
     if failures:
         raise RuntimeError('\n'.join(failures) + '\nInstall dependencies with: python -m pip install -r requirements-pycharm.txt')
     print('READY: 39 clips, 39 sets of ball caches, four model weights, FFmpeg and required ball imports.')
@@ -104,33 +118,44 @@ def check():
 
 def replay_ball(args):
     target = new_output(args.output_dir, args.mode)
-    ids = canonical_ids()
-    fresh = FRESH_CACHE
+    ids = canonical_ids(args.ball_input_dir)
+    fresh = args.fresh_dir
+    ffmpeg = resolve_ffmpeg(args.ffmpeg, ROOT)
+    device = resolve_device(args.device) if args.mode == 'refresh-ball' else None
     if args.mode == 'refresh-ball':
         fresh = target.with_name(target.name + '_fresh')
         if fresh.exists():
             raise FileExistsError(fresh)
-        invoke('scripts.cache_ball_keeper_contact', '--output-dir', fresh, '--clips', *ids)
+        invoke('scripts.cache_ball_keeper_contact', '--output-dir', fresh, '--device', device,
+               '--source-dir', args.source_dir, '--ball-cache-dir', args.ball_cache_dir,
+               '--track-dir', args.track_dir, '--clips', *ids)
     test_temp=ROOT/'tmp';test_temp.mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='visionii_tests_',dir=test_temp) as temp:
         log = Path(temp) / 'ball_tests.log'
         test_ball(log)
         invoke('scripts.detect_all_ball_goals', '--fresh-dir', fresh, '--output-dir', target,
+               '--ffmpeg', ffmpeg, '--source-dir', args.source_dir,
+               '--ball-cache-dir', args.ball_cache_dir, '--track-dir', args.track_dir,
+               '--input-dir', args.ball_input_dir, '--audit-media-dir', args.audit_media_dir,
                '--new-inference-clips', '39' if args.mode == 'refresh-ball' else '0')
         # Reuse the already-reviewed source-image judgments, never as algorithm
         # input. Fail if the source clips differ from that original assessment.
         import shutil
-        review = json.loads((BALL_REVIEW/'review_summary.json').read_text(encoding='utf-8'))
+        review = json.loads((args.review_dir/'review_summary.json').read_text(encoding='utf-8'))
         for row in review['rows']:
             result = json.loads((target/'results'/f'{row["clip_id"]}.json').read_text(encoding='utf-8'))
             if result['source_sha256'] != row['source_sha256']:
                 raise ValueError('Saved AI assessment belongs to different source video bytes')
-        shutil.copy2(BALL_REVIEW/'visual_assessment.json', target/'visual_assessment.json')
+        shutil.copy2(args.review_dir/'visual_assessment.json', target/'visual_assessment.json')
         invoke('scripts.finalize_all_ball_goal_review', '--output-dir', target,
-               '--dense-source-dir', BALL_REVIEW/'media', '--test-log', log)
+               '--dense-source-dir', args.review_dir/'media', '--test-log', log)
     run_info = {
         'mode':args.mode,'project_root':str(ROOT),'python':sys.executable,
-        'source_videos_resolved_under_exported_project':True,
+        'source_dir':str(args.source_dir),'requested_device':args.device,'device':device,'ffmpeg':ffmpeg,
+        'ball_cache_dir':str(args.ball_cache_dir),'track_dir':str(args.track_dir),
+        'ball_input_dir':str(args.ball_input_dir),
+        'inference_scope':'short_goal_area_contact_window' if device else 'cached_event_replay',
+        'complete_raw_to_all_reconstruction':False,
         'new_neural_inference_clips':39 if args.mode=='refresh-ball' else 0,
         'saved_ai_source_assessments_reused_for_display_only':True,
         'human_verified':False,'accuracy_validated':False,
@@ -141,20 +166,33 @@ def replay_ball(args):
         webbrowser.open((target/'report.html').as_uri())
 
 
-def main():
+def build_parser():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('mode', nargs='?', default='check', choices=['check','report','test-ball','replay-ball','refresh-ball','steps','camera','goalkeeper','notebook'])
+    p.add_argument('mode', nargs='?', default='check', choices=['check','report','test-ball','replay-ball','refresh-ball','steps','camera','goalkeeper','notebook','final-results','eda'])
     p.add_argument('--output-dir', help='New directory under outputs; default is a timestamped directory')
     p.add_argument('--open', action='store_true', help='Open the resulting HTML in your default browser')
-    args = p.parse_args()
+    add_runtime_arguments(p)
+    p.add_argument('--source-dir', type=Path, default=ROOT/'data/raw_clips')
+    p.add_argument('--ball-cache-dir', type=Path, default=ROOT/'outputs/ball_detection_all_2026-10-11/detections')
+    p.add_argument('--track-dir', type=Path, default=ROOT/'outputs/ball_narrow_channel_2026-10-11/results')
+    p.add_argument('--ball-input-dir', type=Path, default=ROOT/'outputs/ball_mask_review_ready_2026-10-11/inputs')
+    p.add_argument('--fresh-dir', type=Path, default=FRESH_CACHE)
+    p.add_argument('--audit-media-dir', type=Path, default=ROOT/'outputs/ball_goal_event_audit_2026-10-11/media')
+    p.add_argument('--review-dir', type=Path, default=BALL_REVIEW)
+    p.add_argument('--features-csv', type=Path, default=ROOT/'outputs/final_analysis/features_39.csv')
+    return p
+
+
+def main(argv=None):
+    args = build_parser().parse_args(argv)
     os.chdir(ROOT)
     bootstrap()
     if args.mode == 'check':
-        check()
+        check(args)
     elif args.mode == 'report':
-        print(BALL_REVIEW/'report.html')
+        print(args.review_dir/'report.html')
         if args.open:
-            webbrowser.open((BALL_REVIEW/'report.html').as_uri())
+            webbrowser.open((args.review_dir/'report.html').as_uri())
     elif args.mode == 'test-ball':
         test_ball()
     elif args.mode in ['replay-ball','refresh-ball']:
@@ -163,11 +201,19 @@ def main():
         subprocess.run([sys.executable,'-m','jupyterlab',str(ROOT/'notebooks')],cwd=ROOT,check=True)
     elif args.mode == 'steps':
         out = new_output(args.output_dir,args.mode)
-        invoke('scripts.run_step_counting','--output-csv',out/'penalty_step_counts.csv','--diagnostics-json',out/'step_diagnostics.json')
+        invoke('scripts.run_step_counting','--output-csv',out/'penalty_step_counts.csv','--diagnostics-json',out/'step_diagnostics.json',
+               '--device',args.device,'--clips-dir',args.source_dir)
     elif args.mode == 'camera':
-        invoke('scripts.run_camera_timing_analysis','--stage','all','--output-dir',new_output(args.output_dir,args.mode))
+        invoke('scripts.run_camera_timing_analysis','--stage','all','--output-dir',new_output(args.output_dir,args.mode),
+               '--device',args.device,'--source-dir',args.source_dir)
     elif args.mode == 'goalkeeper':
-        invoke('scripts.run_goalkeeper_height_phase','--output-dir',new_output(args.output_dir,args.mode),'--clips',*canonical_ids())
+        invoke('scripts.run_goalkeeper_height_phase','--output-dir',new_output(args.output_dir,args.mode),
+               '--device',args.device,'--ffmpeg',resolve_ffmpeg(args.ffmpeg,ROOT),
+               '--source-dir',args.source_dir,'--clips',*canonical_ids(args.ball_input_dir))
+    elif args.mode == 'final-results':
+        invoke('scripts.build_final_results','--root',ROOT,'--output-dir',new_output(args.output_dir,args.mode))
+    elif args.mode == 'eda':
+        invoke('src.eda_analysis','--features-csv',args.features_csv,'--output-dir',new_output(args.output_dir,args.mode))
 
 
 if __name__ == '__main__':

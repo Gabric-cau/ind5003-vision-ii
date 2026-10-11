@@ -10,12 +10,13 @@ from src.goal_plane_rectification import fit_goal_plane,project_image_point
 from src.ball_keeper_rebound import associate_keeper_rebound
 from src.ball_goal_decision import classify_goal_evidence
 from src.project_paths import resolve_project_video
+from src.runtime import resolve_ffmpeg, add_runtime_arguments
 from scripts.review_ball_keeper_rebound import keeper_regions
 from scripts.build_ball_detection_seed_evidence import evidence_tile
 cv2.setNumThreads(2)
 CACHE=ROOT/'outputs/ball_detection_all_2026-10-11/detections'
 OLD=ROOT/'outputs/ball_narrow_channel_2026-10-11/results'
-FFMPEG=ROOT/'outputs/review_tools/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe'
+INPUT=ROOT/'outputs/ball_mask_review_ready_2026-10-11/inputs'
 def load(p):return json.loads(Path(p).read_text(encoding='utf-8'))
 def save(p,v):Path(p).write_text(json.dumps(v,ensure_ascii=False,indent=2,allow_nan=False),encoding='utf-8')
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
@@ -31,12 +32,12 @@ def pixel_evidence(q,raw):
     return {**q,'rebound_current_white_support':ratio>=.20,'current_white_ratio':ratio}
 
 
-def arrival_evidence(path,c,frames,fingerprints,old):
+def arrival_evidence(path,c,frames,fingerprints,old,input_dir=INPUT):
     seed=old['seed'];origin=np.median([q['stabilized_xy'] for q in seed],axis=0)
     # Goal reference gate uses the same source-independent geometry as the
     # earlier focus phase. It does not estimate the physical goal-line depth.
     gate=old['phase'].get('goal_area_gate_progress_px')
-    goal=np.array(load(ROOT/'outputs/ball_mask_review_ready_2026-10-11/inputs'/f'{c["clip_id"]}.json')['goal_center'])
+    goal=np.array(load(input_dir/f'{c["clip_id"]}.json')['goal_center'])
     direction=goal-origin;direction=direction/max(1e-8,np.linalg.norm(direction))
     baseline=c['goal_proposals'].get(str(c['kick_frame']),{}).get('selected')
     result=[]
@@ -70,9 +71,10 @@ def arrival_evidence(path,c,frames,fingerprints,old):
     return result
 
 
-def process(cid,index,out,freshdir):
-    c,old,fresh=load(CACHE/f'{cid}.json'),load(OLD/f'{cid}.json'),load(freshdir/f'{cid}.json')
-    c['video_path']=str(resolve_project_video(ROOT,c['video_path'],cid))
+def process(cid,index,out,freshdir,ball_cache_dir=CACHE,track_dir=OLD,input_dir=INPUT,
+            source_dir=None,ffmpeg=None,audit_media_dir=None):
+    c,old,fresh=load(ball_cache_dir/f'{cid}.json'),load(track_dir/f'{cid}.json'),load(freshdir/f'{cid}.json')
+    c['video_path']=str(resolve_project_video(ROOT,c['video_path'],cid,source_dir))
     assert sha(c['video_path'])==c['source_sha256']==old['source_sha256']==fresh['source_sha256']
     start,end=fresh['start_frame'],fresh['end_frame_exclusive'];boundary=old['phase']['main_end_frame']
     cap=cv2.VideoCapture(c['video_path']);cap.set(1,start);frames={};fingerprints={};prev=None;last_hash=None
@@ -91,11 +93,12 @@ def process(cid,index,out,freshdir):
         path,rebound=associate_keeper_rebound(prefix,pool,regions,c['fps'],frame_fingerprints=fingerprints)
     else:path,rebound=prefix,{'turn_confirmed':False,'reason':'insufficient_incoming_prefix'}
     if not rebound['turn_confirmed']:path=[p for p in old['trajectory'] if p['frame']<end]
-    observations=arrival_evidence(path,c,frames,fingerprints,old)
+    observations=arrival_evidence(path,c,frames,fingerprints,old,input_dir)
     decision=classify_goal_evidence(observations,boundary,rebound)
     result={'clip_id':cid,'event_id':index,'source_video_path':c['video_path'],
-        'source_sha256':sha(c['video_path']),'source_cache_sha256':sha(CACHE/f'{cid}.json'),
-        'fresh_candidates_sha256':sha(freshdir/f'{cid}.json'),'old_track_sha256':sha(OLD/f'{cid}.json'),
+        'source_sha256':sha(c['video_path']),'source_cache_sha256':sha(ball_cache_dir/f'{cid}.json'),
+        'fresh_candidates_sha256':sha(freshdir/f'{cid}.json'),'old_track_sha256':sha(track_dir/f'{cid}.json'),
+        'input_sha256':sha(input_dir/f'{cid}.json'),'fresh_runtime':fresh.get('runtime'),
         'trajectory':path,'rebound':rebound,'rule_decision':decision,'arrival_evidence':observations,
         'short_window':[start,end],'boundary_frame':boundary,'fps':c['fps'],
         'visual_review':{'status':'pending','outcome':'unknown','human_verified':False},
@@ -105,7 +108,7 @@ def process(cid,index,out,freshdir):
     # A silent source replay: only the event window, with old and new candidates
     # separate. No event label is rendered before the visual review is written.
     dest=out/'media'/f'{cid}.mp4'
-    proc=subprocess.Popen([str(FFMPEG),'-hide_banner','-loglevel','error','-n','-f','rawvideo',
+    proc=subprocess.Popen([resolve_ffmpeg(ffmpeg,ROOT),'-hide_banner','-loglevel','error','-n','-f','rawvideo',
       '-pix_fmt','bgr24','-s','1120x640','-r',str(c['fps']/3),'-i','pipe:0','-an',
       '-c:v','libx264','-threads','2','-crf','20','-pix_fmt','yuv420p','-movflags','+faststart',str(dest)],
       stdin=subprocess.PIPE,stderr=subprocess.PIPE)
@@ -133,8 +136,10 @@ def process(cid,index,out,freshdir):
         for k,(_,tile,_) in enumerate(group):panel.paste(tile,(k%4*300,k//4*270))
         panel.save(out/'media'/f'event_{index:02d}_selected_{j//8+1}.jpg',quality=94)
     # Preserve the exact raw panels being independently visually reviewed.
-    rawpanel=ROOT/'outputs/ball_goal_event_audit_2026-10-11/media'/f'event_{index:02d}.jpg'
-    (out/'media'/rawpanel.name).write_bytes(rawpanel.read_bytes())
+    audit_media_dir=audit_media_dir or ROOT/'outputs/ball_goal_event_audit_2026-10-11/media'
+    rawpanel=audit_media_dir/f'event_{index:02d}.jpg'
+    if rawpanel.is_file():
+        (out/'media'/rawpanel.name).write_bytes(rawpanel.read_bytes())
     vc=cv2.VideoCapture(str(dest));decoded=0
     while True:
         ok,_=vc.read()
@@ -144,28 +149,41 @@ def process(cid,index,out,freshdir):
     print(f'{index:02d}/39 {cid}: {decision["rule_outcome"]}; {rebound["reason"]}',flush=True)
     return {'event_id':index,'clip_id':cid,'rule_outcome':decision['rule_outcome'],
             'reason':decision['reason'],'rebound_supported':rebound['turn_confirmed'],
-            'video_decoded_frames':decoded,'visual_outcome':'unknown'}
+            'video_decoded_frames':decoded,'visual_outcome':'unknown',
+            'historical_audit_panel_available':rawpanel.is_file()}
 
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--output-dir',type=Path,required=True)
     parser.add_argument('--fresh-dir',type=Path,required=True)
     parser.add_argument('--new-inference-clips',type=int,choices=range(40),default=0)
+    add_runtime_arguments(parser)
+    parser.add_argument('--source-dir',type=Path,default=ROOT/'data/raw_clips')
+    parser.add_argument('--ball-cache-dir',type=Path,default=CACHE)
+    parser.add_argument('--track-dir',type=Path,default=OLD)
+    parser.add_argument('--input-dir',type=Path,default=INPUT)
+    parser.add_argument('--audit-media-dir',type=Path,default=ROOT/'outputs/ball_goal_event_audit_2026-10-11/media')
     args=parser.parse_args()
+    ffmpeg=resolve_ffmpeg(args.ffmpeg,ROOT)
     out=args.output_dir.resolve();out.mkdir(exist_ok=False)
     for folder in ['results','media','source_snapshot']:(out/folder).mkdir()
-    ids=load(ROOT/'outputs/ball_mask_review_ready_2026-10-11/protocol.json')['canonical_clips']
+    from run_project import canonical_ids
+    ids=canonical_ids(args.input_dir)
     assert len(ids)==len(set(ids))==39
-    files=[Path(__file__),ROOT/'src/ball_goal_decision.py',ROOT/'src/ball_keeper_rebound.py',ROOT/'src/project_paths.py',
+    files=[Path(__file__),ROOT/'src/ball_goal_decision.py',ROOT/'src/ball_keeper_rebound.py',ROOT/'src/project_paths.py',ROOT/'src/runtime.py',
        ROOT/'scripts/review_ball_keeper_rebound.py',ROOT/'scripts/cache_ball_keeper_contact.py']
     for p in files:(out/'source_snapshot'/p.name).write_bytes(p.read_bytes())
     save(out/'protocol.json',{'created_at':datetime.now(timezone.utc).isoformat(),'canonical_clips':ids,
         'fresh_candidates_dir':str(args.fresh_dir.resolve()),'outcome_labels_used_for_algorithm':False,
+        'ball_cache_dir':str(args.ball_cache_dir.resolve()),'track_dir':str(args.track_dir.resolve()),
+        'input_dir':str(args.input_dir.resolve()),'source_dir':str(args.source_dir.resolve()),'ffmpeg':ffmpeg,
+        'device':None,'inference_scope':'cached_event_rules','complete_raw_to_all_reconstruction':False,
         'manual_ball_points_used':False,'visual_review_used_for_algorithm':False,
         'rule_labels_are_suggestions':True,'human_verified':False,'accuracy_validated':False,
         'new_neural_inference_clips':args.new_inference_clips,'reused_fresh_neural_inference_clips':39-args.new_inference_clips,
         'code_sha256':{str(p.relative_to(ROOT)):sha(p) for p in files}})
-    rows=[process(cid,i,out,args.fresh_dir.resolve()) for i,cid in enumerate(ids,1)]
+    rows=[process(cid,i,out,args.fresh_dir.resolve(),args.ball_cache_dir,args.track_dir,args.input_dir,
+                  args.source_dir,ffmpeg,args.audit_media_dir) for i,cid in enumerate(ids,1)]
     save(out/'summary.json',{'rows':rows,'clips':39,'all_sources_decoded':True,'accuracy_validated':False,
         'human_verified':False,'visual_review_status':'pending'})
 

@@ -7,6 +7,8 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from src.camera_timing_v2 import jersey_hist,hist_distance,goal_camera_hypotheses,pose_action_feature,playback_evidence
 from src.goal_geometry import detect_goal_frame
+from src.project_paths import resolve_project_file
+from src.runtime import resolve_device
 
 VERSION='pose_kit_geometry_v1'
 BASE=ROOT/'outputs/optimization_evening_2026-10-09'
@@ -16,17 +18,19 @@ def read(path):return json.loads(Path(path).read_text(encoding='utf-8'))
 def digest(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def load_model():
-    # Keep the active interpreter's torch/numpy ahead of project additions.
-    sys.path.append(str(ROOT/'.venv/Lib/site-packages'))
+def load_model(device='auto',model_path=None):
     import torch
     torch.set_num_threads(2)
     from ultralytics import YOLO
-    return YOLO(str(ROOT/'models/weights/yolo11n_pose.pt'))
+    model_path=Path(model_path or ROOT/'models/weights/yolo11n_pose.pt')
+    model=YOLO(str(model_path))
+    model._visionii_device=resolve_device(device,torch)
+    model._visionii_weights_path=model_path
+    return model
 
 
-def infer(model,frame):
-    result=model.predict(frame,imgsz=960,conf=.25,verbose=False,device='cpu')[0]
+def infer(model,frame,device=None):
+    result=model.predict(frame,imgsz=960,conf=.25,verbose=False,device=device or getattr(model,'_visionii_device','cpu'))[0]
     if result.keypoints is None:return []
     boxes=result.boxes.xyxy.cpu().numpy();kp=result.keypoints.xy.cpu().numpy();kc=result.keypoints.conf.cpu().numpy()
     h,w=frame.shape[:2];rows=[]
@@ -44,10 +48,11 @@ def get_frame(cap,fid):
     return frame
 
 
-def build_references(scan,cap,model):
+def build_references(scan,cap,model,base_dir=None):
     """Use prior automatic role candidates, with hashed provenance, not labels."""
-    cid=scan['clip_id'];step_path=BASE/'steps_v4/classified'/f'{cid}.json'
-    step=read(step_path);pose_path=Path(step['terminal_provenance']['selected_pose_path']);pose=read(pose_path)
+    base_dir=Path(base_dir or BASE)
+    cid=scan['clip_id'];step_path=base_dir/'steps_v4/classified'/f'{cid}.json'
+    step=read(step_path);pose_path=resolve_project_file(ROOT,step['terminal_provenance']['selected_pose_path']);pose=read(pose_path)
     contact=step['contact'].get('contact_frame');track_id=step['contact'].get('contact_associated_track_id')
     track=next((t for t in pose['tracks'] if t['track_id']==track_id),None)
     if track is None:
@@ -58,9 +63,13 @@ def build_references(scan,cap,model):
     for o in selected:
         frame=get_frame(cap,o['frame']);hist=jersey_hist(frame,o['bbox'],o['keypoints'],o['keypoint_confidences'])
         if hist is not None:kicker.append(hist)
-    keeper=[];keeper_samples=[];gk_path=BASE/'goal_appearance_v2'/f'{cid}.json'
+    keeper=[];keeper_samples=[];gk_path=base_dir/'goal_appearance_v2'/f'{cid}.json'
     gk=read(gk_path);pre=(gk.get('selected_candidate') or {}).get('pre_trajectory',[])
-    declared_gk_pose=Path(gk['source_pose_path']);gk_pose_path=declared_gk_pose if declared_gk_pose.exists() else pose_path
+    try:
+        declared_gk_pose=resolve_project_file(ROOT,gk['source_pose_path']);declared_available=True
+    except FileNotFoundError:
+        declared_gk_pose=pose_path;declared_available=False
+    gk_pose_path=declared_gk_pose
     gk_pose=read(gk_pose_path)
     from src.goalkeeper_pipeline import _centre_and_scale
     for index in sorted(set([len(pre)//4,len(pre)//2,3*len(pre)//4])) if pre else []:
@@ -80,9 +89,10 @@ def build_references(scan,cap,model):
             'kicker_reference_frames':[o['frame'] for o in selected],'keeper_reference_samples':keeper_samples,
             'human_verified':False,'identity_method':'upstream automatic role + torso HSV appearance; same-kit people unresolved',
             'reference_policy':'exact_source_observation_hip_association_v2',
-            'declared_keeper_pose_available':declared_gk_pose.exists(),
-            'reference_warning':None if declared_gk_pose.exists() else 'Declared keeper pose missing; exact-match search in retained kicker pose only; may abstain.',
-            'upstream_sha256':{str(p.relative_to(ROOT)):digest(p) for p in (step_path,pose_path,gk_path,gk_pose_path)}}
+            'declared_keeper_pose_available':declared_available,
+            'reference_warning':None if declared_available else 'Declared keeper pose missing; exact-match search in retained kicker pose only; may abstain.',
+            'upstream_sha256':{str(p.relative_to(ROOT)) if p.is_relative_to(ROOT) else str(p):digest(p)
+                               for p in (step_path,pose_path,gk_path,gk_pose_path)}}
 
 
 def assign_roles(people,refs):
@@ -96,10 +106,11 @@ def assign_roles(people,refs):
     return people
 
 
-def extract_features(scan,out,model,resume=False):
+def extract_features(scan,out,model,resume=False,base_dir=None):
     path=out/'features'/f"{scan['clip_id']}.json"
     signature={'version':VERSION,'source_sha256':scan['source_sha256'],'scan_sha256':digest(out/'scan'/f"{scan['clip_id']}.json"),
-               'weights_sha256':digest(ROOT/'models/weights/yolo11n_pose.pt'),'feature_script_sha256':digest(__file__)}
+               'weights_sha256':digest(getattr(model,'_visionii_weights_path',ROOT/'models/weights/yolo11n_pose.pt')),
+               'device':getattr(model,'_visionii_device','cpu'),'feature_script_sha256':digest(__file__)}
     if path.exists():
         if not resume:raise FileExistsError(path)
         result=read(path)
@@ -107,7 +118,7 @@ def extract_features(scan,out,model,resume=False):
         for name,value in result['references']['upstream_sha256'].items():
             if digest(ROOT/name)!=value:raise ValueError('Upstream candidate changed')
         return result
-    cap=cv2.VideoCapture(scan['video_path']);refs=build_references(scan,cap,model);segments=[]
+    cap=cv2.VideoCapture(scan['video_path']);refs=build_references(scan,cap,model,base_dir);segments=[]
     for segment in scan['segments']:
         samples=[]
         for fid in segment['sample_frame_ids']:
@@ -133,6 +144,7 @@ def extract_action(scan,features,model,out,resume=False):
     features=relabel_cached_features(features)
     path=out/'action_v3'/f"{scan['clip_id']}.json"
     signature={'features_sha256':digest(out/'features'/f"{scan['clip_id']}.json"),'version':VERSION,
+               'device':getattr(model,'_visionii_device','cpu'),
                'feature_script_sha256':digest(__file__),'classifier_sha256':digest(ROOT/'src/camera_timing_v2.py'),
                'reference_update_sha256':digest(refs_path) if refs_path.exists() else None,
                'context_update_sha256':digest(context_path) if context_path.exists() else None}

@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "total_events": 39,
+  "scope": "development_records_not_held_out",
+  "accuracy_validated": false,
+  "reference_sources_independently_verified": false,
+  "candidate_coverage": {
+    "kicking_foot_candidate": 39,
+    "step_count_candidate": 39,
+    "goalkeeper_pre_movement_candidate": 33,
+    "goalkeeper_direction_candidate": 36,
+    "goalkeeper_height_candidate": 0,
+    "goalkeeper_height_proxy_candidate": 6,
+    "ball_rule_outcome": 26,
+    "ball_trajectory_point_count": 39,
+    "reference_outcome": 39,
+    "camera_interval_count": 39
+  },
+  "coverage_by_match": {
+    "col_eng": {
+      "events": 10,
+      "available": {
+        "kicking_foot_candidate": 10,
+        "step_count_candidate": 10,
+        "goalkeeper_pre_movement_candidate": 9,
+        "goalkeeper_direction_candidate": 10,
+        "goalkeeper_height_candidate": 0,
+        "goalkeeper_height_proxy_candidate": 2,
+        "ball_rule_outcome": 7,
+        "ball_trajectory_point_count": 10,
+        "reference_outcome": 10,
+        "camera_interval_count": 10
+      }
+    },
+    "cro_den": {
+      "events": 10,
+      "available": {
+        "kicking_foot_candidate": 10,
+        "step_count_candidate": 10,
+        "goalkeeper_pre_movement_candidate": 9,
+        "goalkeeper_direction_candidate": 9,
+        "goalkeeper_height_candidate": 0,
+        "goalkeeper_height_proxy_candidate": 2,
+        "ball_rule_outcome": 7,
+        "ball_trajectory_point_count": 10,
+        "reference_outcome": 10,
+        "camera_interval_count": 10
+      }
+    },
+    "esp_rus": {
+      "events": 9,
+      "available": {
+        "kicking_foot_candidate": 9,
+        "step_count_candidate": 9,
+        "goalkeeper_pre_movement_candidate": 5,
+        "goalkeeper_direction_candidate": 7,
+        "goalkeeper_height_candidate": 0,
+        "goalkeeper_height_proxy_candidate": 1,
+        "ball_rule_outcome": 7,
+        "ball_trajectory_point_count": 9,
+        "reference_outcome": 9,
+        "camera_interval_count": 9
+      }
+    },
+    "rus_cro": {
+      "events": 10,
+      "available": {
+        "kicking_foot_candidate": 10,
+        "step_count_candidate": 10,
+        "goalkeeper_pre_movement_candidate": 10,
+        "goalkeeper_direction_candidate": 10,
+        "goalkeeper_height_candidate": 0,
+        "goalkeeper_height_proxy_candidate": 1,
+        "ball_rule_outcome": 5,
+        "ball_trajectory_point_count": 10,
+        "reference_outcome": 10,
+        "camera_interval_count": 10
+      }
+    }
+  },
+  "validated_coverage": {
+    "step_count_verified": 0,
+    "runup_ground_plane_validated": 0,
+    "ball_final_position_verified": 0
+  },
+  "steps": {
+    "available": 39,
+    "missing": 0,
+    "distribution": {
+      "2": 1,
+      "3": 5,
+      "4": 8,
+      "5": 6,
+      "6": 12,
+      "7": 3,
+      "8": 2,
+      "14": 1,
+      "15": 1
+    },
+    "known_partial_events": 1,
+    "partial_flag_missing": 0,
+    "known_partial_ids": [
+      "rus_cro_p02_brozovic_cro11"
+    ],
+    "parameter_sensitivity": {
+      "available": 39,
+      "zero_width": 4,
+      "median_width": 2.0
+    },
+    "group_effect_estimate": null,
+    "group_effect_status": "insufficient_independent_labels_and_partial_events"
+  },
+  "ball_reference_comparison": {
+    "reference_available": 39,
+    "rule_decided": 26,
+    "covered": 26,
+    "abstentions": 13,
+    "coverage": 0.6666666666666666,
+    "matching": 23,
+    "covered_reference_agreement": 0.8846153846153846,
+    "status": "descriptive_reference_comparison",
+    "confusion_matrix": {
+      "goal": {
+        "goal": 18,
+        "no_goal": 1
+      },
+      "no_goal": {
+        "goal": 2,
+        "no_goal": 5
+      }
+    },
+    "conflict_ids": [
+      "esp_rus_p02_smolov_rus10",
+      "esp_rus_p05_koke_esp8",
+      "rus_cro_p01_smolov_rus10"
+    ],
+    "unknown_reasons": {
+      "insufficient_ball_identity_or_arrival_evidence": 13
+    },
+    "held_out_accuracy": null
+  },
+  "input_table_sha256": "0af2d0157fc76e8032eb78c81217ee7773bf5ae2a3bd822369b4d37f79aa7c70"
+}

@@ -1,0 +1,12 @@
+schema_version: 1
+manifest: configs/penalty_slicing_manifest.yaml
+canonical_results: outputs/optimization_evening_2026-10-09/integration/canonical_results_39.json
+ball_results_dir: outputs/ball_goal_all_events_v2_2026-10-11/results
+goalkeeper_height_summary: outputs/goalkeeper_height_phase_2026-10-11/release_v2/summary.json
+goalkeeper_baseline_csv: data/processed/penalty_goalkeeper_features.csv
+outcome_references: data/annotations/penalty_outcomes.csv
+foot_references: data/annotations/kicking_foot_user_review_goal_right_2026-10-11.json
+foot_development_evaluation: outputs/goal_right_foot_redetection_2026-10-11/run_v2/evaluation.json
+# Optional: absent assets are recorded as unavailable, never as zero intervals.
+camera_intervals: outputs/camera_timing_2026-10-10/release/camera_timings_candidates.csv
+camera_intervals_json: outputs/camera_timing_2026-10-10/release/camera_timings_candidates.json

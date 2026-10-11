@@ -1,0 +1,21 @@
+name: Saved-Result Analysis
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: requirements-analysis.txt
+      - run: python -m pip install -r requirements-analysis.txt
+      - run: python -m pytest -q tests/test_final_results.py tests/test_final_eda.py tests/test_verify_final_bundle.py
+      - run: python -m scripts.verify_final_bundle --require-eda
+      - run: python -m scripts.build_final_results --output-dir outputs/ci_analysis
+      - run: python -m src.eda_analysis --features-csv outputs/ci_analysis/features_39.csv --output-dir outputs/ci_analysis/eda

@@ -62,10 +62,14 @@ def _stabilize_trajectories(
     person_boxes_by_frame: Optional[Mapping[int, Sequence[Sequence[float]]]] = None,
     use_field_mask: bool = False,
 ) -> Tuple[List[Tuple[float, float, float, float]], List[Tuple[float, float, float, float]], float]:
-    """Map pose coordinates into the first frame using robust background flow."""
+    """Return only the prefix with a complete camera chain into the first frame.
 
-    if not pre or not post:
-        return list(map(tuple, pre)), list(map(tuple, post)), 0.0
+    A missing decoded frame or failed pair cannot be repaired by applying the
+    next pair: its displacement relative to the first frame is then unknown.
+    """
+
+    if not pre and not post:
+        return [], [], 0.0
     import cv2
 
     all_rows = list(pre) + list(post)
@@ -76,57 +80,60 @@ def _stabilize_trajectories(
     ok, previous = capture.read()
     if not ok:
         capture.release()
-        return list(map(tuple, pre)), list(map(tuple, post)), 0.0
+        return [], [], 0.0
     previous_bgr = previous
     previous = cv2.resize(cv2.cvtColor(previous, cv2.COLOR_BGR2GRAY), None, fx=0.5, fy=0.5)
     transforms: Dict[int, np.ndarray] = {start: np.eye(3, dtype=float)}
     forward = np.eye(3, dtype=float)
     successes = 0
-    attempts = 0
-    for frame_id in range(start + 1, end + 1):
-        ok, frame = capture.read()
-        if not ok:
-            transforms[frame_id] = np.linalg.inv(forward)
-            continue
-        current = cv2.resize(cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY), None, fx=0.5, fy=0.5)
-        feature_mask = None
-        if use_field_mask:
-            from src.field_masks import background_feature_mask
-            feature_mask, _ = background_feature_mask(
-                previous_bgr, (person_boxes_by_frame or {}).get(frame_id - 1, []))
-            feature_mask = cv2.resize(feature_mask, (previous.shape[1], previous.shape[0]), interpolation=cv2.INTER_NEAREST)
-        corners = cv2.goodFeaturesToTrack(previous, maxCorners=500, qualityLevel=0.01, minDistance=8, mask=feature_mask)
-        matrix = None
-        attempts += 1
-        if corners is not None and len(corners) >= 8:
-            tracked, status, _ = cv2.calcOpticalFlowPyrLK(previous, current, corners, None)
-            if tracked is not None:
-                valid = status.reshape(-1).astype(bool)
-                if np.sum(valid) >= 8:
-                    matrix, _ = cv2.estimateAffinePartial2D(
-                        corners[valid], tracked[valid], method=cv2.RANSAC, ransacReprojThreshold=2.0
-                    )
-        if matrix is not None and np.all(np.isfinite(matrix)):
+    try:
+        for frame_id in range(start + 1, end + 1):
+            ok, frame = capture.read()
+            if not ok:
+                break
+            current = cv2.resize(cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY), None, fx=0.5, fy=0.5)
+            feature_mask = None
+            if use_field_mask:
+                from src.field_masks import background_feature_mask
+                feature_mask, _ = background_feature_mask(
+                    previous_bgr, (person_boxes_by_frame or {}).get(frame_id - 1, []))
+                feature_mask = cv2.resize(feature_mask, (previous.shape[1], previous.shape[0]), interpolation=cv2.INTER_NEAREST)
+            corners = cv2.goodFeaturesToTrack(previous, maxCorners=500, qualityLevel=0.01, minDistance=8, mask=feature_mask)
+            matrix = None
+            if corners is not None and len(corners) >= 8:
+                tracked, status, _ = cv2.calcOpticalFlowPyrLK(previous, current, corners, None)
+                if tracked is not None and status is not None:
+                    valid = status.reshape(-1).astype(bool)
+                    if np.sum(valid) >= 8:
+                        matrix, _ = cv2.estimateAffinePartial2D(
+                            corners[valid], tracked[valid], method=cv2.RANSAC, ransacReprojThreshold=2.0
+                        )
+            if (matrix is None or not np.all(np.isfinite(matrix))
+                    or abs(float(np.linalg.det(matrix[:, :2]))) < 1e-9):
+                break
             full = np.eye(3, dtype=float)
             full[:2] = matrix
             forward = full @ forward
             successes += 1
-        transforms[frame_id] = np.linalg.inv(forward)
-        previous = current
-        previous_bgr = frame
-    capture.release()
+            transforms[frame_id] = np.linalg.inv(forward)
+            previous = current
+            previous_bgr = frame
+    finally:
+        capture.release()
 
     def convert(rows):
         converted = []
         for row in rows:
             frame_id = int(round(float(row[0]) * fps))
-            transform = transforms.get(frame_id, np.eye(3, dtype=float))
+            transform = transforms.get(frame_id)
+            if transform is None:
+                continue
             point = transform @ np.asarray([float(row[1]) * 0.5, float(row[2]) * 0.5, 1.0])
             linear_scale = math.sqrt(abs(float(np.linalg.det(transform[:2, :2]))))
             converted.append((float(row[0]), float(point[0] * 2.0), float(point[1] * 2.0), float(row[3]) * linear_scale))
         return converted
 
-    success_rate = successes / max(1, attempts)
+    success_rate = successes / max(1, end - start)
     return convert(pre), convert(post), float(success_rate)
 
 
@@ -485,6 +492,8 @@ def analyze_goalkeeper_result(
         tracking_policy=tracking_policy,
     )
     warnings: List[str] = []
+    pre_stabilization_complete = False
+    dive_stabilization_complete = False
     if selected is None:
         warnings.append("no_qualified_goalkeeper_track")
         features = extractor.analyze([], [], pre_window_sec=pre_window_sec, post_window_sec=post_window_sec)
@@ -507,10 +516,22 @@ def analyze_goalkeeper_result(
             pre_window_sec=pre_window_sec,
             post_window_sec=post_window_sec,
         )
+        pre_stabilization_complete = bool(selected["pre_trajectory"]) and len(stable_pre) == len(selected["pre_trajectory"])
+        post_stabilization_complete = bool(selected["post_trajectory"]) and len(stable_post) == len(selected["post_trajectory"])
+        dive_stabilization_complete = pre_stabilization_complete and post_stabilization_complete
+        if not dive_stabilization_complete:
+            warnings.append("incomplete_camera_reference_chain")
+            unknown_features = extractor.analyze([], [], pre_window_sec=pre_window_sec, post_window_sec=post_window_sec)
+            for key, value in unknown_features.items():
+                if key.startswith("dive_") or (not pre_stabilization_complete and key.startswith("gk_prekick_")):
+                    features[key] = value
+            features["dive_displacement_body"] = None
+            features["review_required"] = True
         selected_id = str(selected["track_id"])
         selected["stabilized_pre_trajectory"] = stable_pre
         selected["stabilized_post_trajectory"] = stable_post
         selected["stabilization_success_rate"] = round(stabilization_success, 4)
+        selected["camera_reference_chain_complete"] = dive_stabilization_complete
         if stabilization_success < 0.75:
             warnings.append("low_camera_stabilization_success")
         if selected["pre_coverage"] < 0.50:
@@ -535,6 +556,8 @@ def analyze_goalkeeper_result(
         "kick_frame_source": kick_frame_source,
         "tracking_policy": tracking_policy,
         "goalkeeper_track_id": selected_id,
+        "gk_prekick_stabilization_complete": pre_stabilization_complete,
+        "dive_stabilization_complete": dive_stabilization_complete,
         **features,
         "review_required": review_required,
         "auto_accepted": bool(not review_required),
@@ -549,6 +572,7 @@ CSV_FIELDS = [
     "status", "fps", "kick_frame", "kick_frame_confidence", "kick_frame_source",
     "goalkeeper_track_id", "goalkeeper_identity_reviewed", "goalkeeper_identity_confidence",
     "input_annotation_status",
+    "gk_prekick_stabilization_complete", "dive_stabilization_complete",
     "gk_prekick_movement_level", "gk_prekick_mean_speed_px_s",
     "gk_prekick_speed_body_s", "gk_prekick_lateral_range_body", "gk_prekick_coverage",
     "gk_prekick_confidence", "dive_direction", "dive_height", "dive_lateral_displacement_body",

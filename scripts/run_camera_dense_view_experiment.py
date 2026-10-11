@@ -5,6 +5,7 @@ import argparse,json,sys
 import cv2
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
 from scripts.run_camera_partial_pose_experiment import DEFAULT,BASE,read,save,sha
+from src.project_paths import resolve_project_video
 from scripts.camera_timing_context import near_net
 from src.goal_geometry import detect_goal_frame
 from src.camera_timing_v2 import goal_camera_hypotheses,classify_view
@@ -14,6 +15,8 @@ from src.camera_view_intervals import supported_intervals
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output-dir',type=Path,default=DEFAULT/'dense_views_v1')
     p.add_argument('--measurements',type=Path,default=DEFAULT/'measurements');p.add_argument('--resume',action='store_true')
+    p.add_argument('--source-dir',type=Path,default=ROOT/'data/raw_clips')
+    p.add_argument('--baseline-dir',type=Path,default=BASE)
     a=p.parse_args();out=a.output_dir.resolve();out.mkdir(parents=True,exist_ok=True)
     cfg={'dense_stride':3,'min_samples':4,'min_duration_sec':.6,'max_gap_sec':.35,
          'script_sha256':sha(__file__),'view_code_sha256':sha(ROOT/'src/camera_timing_v2.py'),
@@ -23,7 +26,7 @@ def main():
     if (out/'protocol.json').exists():
         if read(out/'protocol.json')!=cfg:raise ValueError('Protocol changed')
     else:save(out/'protocol.json',cfg)
-    package=read(BASE/'camera_timings_candidates.json');rows=[];cv2.setNumThreads(2)
+    package=read(a.baseline_dir/'camera_timings_candidates.json');rows=[];cv2.setNumThreads(2)
     for clip in package['clips']:
         cid=clip['clip_id'];target=out/'clips'/f'{cid}.json';measurement_path=a.measurements/f'{cid}.json'
         m=read(measurement_path)
@@ -32,7 +35,7 @@ def main():
             cached=read(target)
             if cached['measurement_sha256']!=sha(measurement_path):raise ValueError('Measurements changed')
             rows.extend(cached['intervals']);continue
-        path=Path(clip['raw_video_path'])
+        path=resolve_project_video(ROOT,clip['raw_video_path'],cid,a.source_dir)
         if sha(path)!=clip['source_sha256']:raise ValueError('Source changed')
         cap=cv2.VideoCapture(str(path));segments=[];intervals=[]
         for s in m['segments']:

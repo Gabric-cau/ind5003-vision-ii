@@ -1,0 +1,47 @@
+{
+  "verification_date": "2026-10-12",
+  "full_test_suite": {
+    "command": "python -m pytest -q",
+    "python_version": "3.13.15",
+    "environment": "existing_workspace_virtualenv",
+    "passed": 544,
+    "subtests_passed": 5,
+    "failed": 0
+  },
+  "isolated_analysis_environment": {
+    "requirements": "requirements-analysis.txt",
+    "installation_completed": true,
+    "pip_check_passed": true,
+    "focused_tests_passed": 43,
+    "canonical_builder_executed": true,
+    "eda_executed": true,
+    "notebook_code_cells_executed": 5,
+    "notebook_execution_errors": 0
+  },
+  "bundle_consistency": {
+    "events": 39,
+    "input_artifact_hashes_checked": 49,
+    "csv_json_consistent": true,
+    "evaluation_independently_recomputed": true,
+    "eda_independently_recomputed": true,
+    "camera_intervals": 197,
+    "camera_member_hashes_match_upstream_manifest": true
+  },
+  "report_review_draft": {
+    "pdf_pages": 6,
+    "sections": 6,
+    "figures": 3,
+    "body_font": "Times New Roman",
+    "body_font_points": 11,
+    "caption_footer_font_points": 10,
+    "submitted": false
+  },
+  "evidence_limits": {
+    "raw_source_video_hashes_verified": false,
+    "new_real_video_inference_performed": false,
+    "gpu_inference_verified": false,
+    "independent_holdout_accuracy_verified": false,
+    "human_review_template_completed": false,
+    "lab_ssh_check": "single_read_only_attempt_timed_out"
+  }
+}

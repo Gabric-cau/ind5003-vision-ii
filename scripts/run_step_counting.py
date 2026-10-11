@@ -37,6 +37,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Count each penalty taker's run-up steps from the canonical clip manifest."
     )
+    from src.runtime import add_runtime_arguments
+    add_runtime_arguments(parser, ffmpeg=False)
     parser.add_argument("--field-mask", action="store_true", help="Experimental HSV on-field candidate prior; accuracy not yet validated.")
     parser.add_argument("--shot-selection", choices=("first_viable", "first"), default="first_viable",
                         help="Search camera shots for a qualifying pose track; 'first' retains the legacy policy.")
@@ -109,6 +111,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         raise AssertionError("argparse exits above") from exc
 
     from src.step_pipeline import process_manifest_steps
+    from src.runtime import resolve_device, inference_provenance, file_sha256
+    import json
+    device = resolve_device(args.device)
 
     args.output_csv.parent.mkdir(parents=True, exist_ok=True)
     args.diagnostics_json.parent.mkdir(parents=True, exist_ok=True)
@@ -123,11 +128,18 @@ def main(argv: Sequence[str] | None = None) -> int:
         model=model,
         output_csv=str(args.output_csv),
         diagnostics_json=str(args.diagnostics_json),
-        predict_kwargs={"imgsz": args.imgsz, "conf": args.conf},
+        predict_kwargs={"imgsz": args.imgsz, "conf": args.conf, "device": device},
         use_field_mask=args.field_mask,
         shot_selection=args.shot_selection,
     )
     result_rows = list(results or [])
+    model_paths = [Path(args.model)] if Path(args.model).is_file() else []
+    source_paths = [Path(row['video_path']) for row in result_rows
+                    if row.get('video_path') and Path(row['video_path']).is_file()]
+    protocol = inference_provenance(args.device,device,model_paths,source_paths)
+    protocol.update(model_requested=args.model,manifest_sha256=file_sha256(args.manifest),
+                    inference_scope='base_pose_and_step_counting',all_optimized_steps_recomputed=False)
+    args.diagnostics_json.with_suffix('.runtime.json').write_text(json.dumps(protocol,indent=2),encoding='utf-8')
     rows, auto_accepted, review_required, failures = _summary_counts(result_rows)
 
     print("\nStep-counting summary")

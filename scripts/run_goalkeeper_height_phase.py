@@ -12,6 +12,7 @@ from src.goalkeeper_sam2 import mask_qc, mask_geometry
 from src.goalkeeper_mask_experiment import pose_seed, camera_affine
 from src.goalkeeper_role_association import unrotate_pose
 from src.goalkeeper_dive_phase import pose_measurement, analyse_phases, mask_phase_candidates
+from src.runtime import add_runtime_arguments, resolve_device, resolve_ffmpeg, inference_provenance
 BASE = ROOT / 'outputs/goalkeeper_sam2_update_2026-10-11/results_v4_release'
 DISPLAY = ROOT / 'outputs/goalkeeper_user_review_2026-10-11/goalkeeper_display_results_39.json'
 
@@ -109,7 +110,7 @@ def silhouette_rows(data,masks,qc,matrices):
     return rows
 
 
-def infer_poses(data,masks,qc,model,out):
+def infer_poses(data,masks,qc,model,out,device='cpu',image_size=512):
     results = {}; jobs = []; contexts = []
     for f,img in data['frames'].items():
         if not qc[f]['connected_identity_candidate_prefix']:
@@ -131,7 +132,7 @@ def infer_poses(data,masks,qc,model,out):
             view = faded if angle == 0 else cv2.rotate(faded,cv2.ROTATE_90_CLOCKWISE if angle == 90 else cv2.ROTATE_90_COUNTERCLOCKWISE)
             jobs.append(view); contexts.append((f,angle,faded.shape[1],faded.shape[0],x0,y0))
     for start in range(0,len(jobs),12):
-        predictions = model.predict(jobs[start:start+12],imgsz=512,device='cpu',conf=.08,iou=.8,max_det=10,verbose=False)
+        predictions = model.predict(jobs[start:start+12],imgsz=image_size,device=device,conf=.08,iou=.8,max_det=10,verbose=False)
         for context,p in zip(contexts[start:start+12],predictions):
             f,angle,w,h,x0,y0 = context
             if p.boxes is None or p.keypoints is None:
@@ -194,7 +195,7 @@ def measurements(data,masks,qc,matrices,poses,out):
     return samples,calibration
 
 
-def render(data,masks,qc,e,out):
+def render(data,masks,qc,e,out,ffmpeg=None):
     path = out/'phase_staging.mp4'; writer = cv2.VideoWriter(str(path),cv2.VideoWriter_fourcc(*'mp4v'),data['pose']['fps'],(960,600))
     if not writer.isOpened(): raise ValueError('Video writer unavailable')
     contacts = {s['frame']:s for s in e.get('samples',[])}
@@ -220,7 +221,7 @@ def render(data,masks,qc,e,out):
         if f in landmarks:
             cv2.imwrite(str(out/f'phase_f{f}.jpg'),canvas); montage.append(canvas)
     writer.release(); video = out/'goalkeeper_phase_review.mp4'
-    ff = ROOT/'outputs/review_tools/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe'
+    ff = resolve_ffmpeg(ffmpeg,ROOT)
     subprocess.run([str(ff),'-y','-i',str(path),'-c:v','libx264','-pix_fmt','yuv420p','-movflags','+faststart','-an',str(video)],check=True,capture_output=True)
     cap = cv2.VideoCapture(str(video)); count = 0
     while cap.read()[0]: count += 1
@@ -235,16 +236,33 @@ def main():
     parser = argparse.ArgumentParser(); parser.add_argument('--clips',nargs='*'); parser.add_argument('--post-sec',type=float,default=2.)
     parser.add_argument('--output-dir',type=Path,required=True); parser.add_argument('--resume',action='store_true')
     parser.add_argument('--cache-run',type=Path)
+    add_runtime_arguments(parser)
+    parser.add_argument('--source-dir',type=Path,default=ROOT/'data/raw_clips')
+    parser.add_argument('--baseline-dir',type=Path,default=BASE)
+    parser.add_argument('--direction-dir',type=Path,default=ROOT/'outputs/goalkeeper_pose_direction_2026-10-11/results_v3_final')
+    parser.add_argument('--appearance-dir',type=Path,default=ROOT/'outputs/optimization_evening_2026-10-09/goal_appearance_v2')
+    parser.add_argument('--display-file',type=Path,default=DISPLAY)
+    parser.add_argument('--pose-model',type=Path,default=ROOT/'models/weights/yolo11m_pose.pt')
+    parser.add_argument('--sam2-model',type=Path,default=ROOT/'models/weights/sam2.1_hiera_tiny.pt')
+    parser.add_argument('--image-size',type=int,choices=[512,1024],default=512)
+    parser.add_argument('--pose-image-size',type=int,default=512)
     a = parser.parse_args(); out = a.output_dir.resolve(); out.mkdir(parents=True,exist_ok=True)
-    baseline = read(BASE/'summary.json'); byid = {r['clip_id']:r for r in baseline['rows']}
+    if a.pose_image_size <= 0: parser.error('--pose-image-size must be positive')
+    device=resolve_device(a.device);ffmpeg=resolve_ffmpeg(a.ffmpeg,ROOT)
+    baseline = read(a.baseline_dir/'summary.json'); byid = {r['clip_id']:r for r in baseline['rows']}
     ids = a.clips or [r['clip_id'] for r in baseline['rows'] if r['dive_height']=='unknown']
     if any(cid not in byid for cid in ids): raise ValueError('Noncanonical clip')
     code = ['src/goalkeeper_dive_phase.py','scripts/run_goalkeeper_height_phase.py','scripts/run_goalkeeper_sam2_update.py',
-            'src/goalkeeper_sam2.py','src/goalkeeper_role_association.py','src/goalkeeper_mask_experiment.py']
-    protocol = dict(policy='phase_height_experiment_v2',clips=ids,post_sec=a.post_sec,image_size=512,cache_run=str(a.cache_run) if a.cache_run else None,
-                    model_sha256=sha(ROOT/'models/weights/sam2.1_hiera_tiny.pt'),
-                    pose_model_sha256=sha(ROOT/'models/weights/yolo11m_pose.pt'),code_sha256={n:sha(ROOT/n) for n in code},
-                    baseline_sha256=sha(BASE/'summary.json'),no_human_labels_used_for_inference=True,
+            'src/goalkeeper_sam2.py','src/goalkeeper_role_association.py','src/goalkeeper_mask_experiment.py',
+            'src/runtime.py','src/project_paths.py','scripts/run_goalkeeper_role_experiment.py']
+    protocol = dict(policy='phase_height_experiment_v2',clips=ids,post_sec=a.post_sec,image_size=a.image_size,
+                    pose_image_size=a.pose_image_size,cache_run=str(a.cache_run) if a.cache_run else None,
+                    model_sha256=sha(a.sam2_model),
+                    pose_model_sha256=sha(a.pose_model),code_sha256={n:sha(ROOT/n) for n in code},
+                    runtime=inference_provenance(a.device,device,[a.sam2_model,a.pose_model]),ffmpeg=ffmpeg,
+                    source_dir=str(a.source_dir.resolve()),direction_dir=str(a.direction_dir.resolve()),
+                    appearance_dir=str(a.appearance_dir.resolve()),
+                    baseline_sha256=sha(a.baseline_dir/'summary.json'),no_human_labels_used_for_inference=True,
                     directions_preserved=True,accuracy_estimate=None)
     if (out/'protocol.json').exists():
         if not a.resume or read(out/'protocol.json') != protocol: raise FileExistsError('Changed protocol requires new output folder')
@@ -252,33 +270,36 @@ def main():
         save(out/'protocol.json',protocol)
         for n in code:
             p = out/'source_snapshot'/n; p.parent.mkdir(parents=True,exist_ok=True); shutil.copy2(ROOT/n,p)
-    sys.path.insert(0,str(ROOT/'.deps_goalkeeper_segmentation')); sys.path.append(str(ROOT/'.venv/Lib/site-packages'))
+    sys.path.insert(0,str(ROOT/'.deps_goalkeeper_segmentation'))
     import torch
     torch.set_num_threads(3); cv2.setNumThreads(2)
     from sam2.build_sam import build_sam2_video_predictor
     from ultralytics import YOLO
-    predictor = build_sam2_video_predictor('configs/sam2.1/sam2.1_hiera_t.yaml',str(ROOT/'models/weights/sam2.1_hiera_tiny.pt'),
-                    device='cpu',apply_postprocessing=False,hydra_overrides_extra=['++model.image_size=512'])
-    model = YOLO(str(ROOT/'models/weights/yolo11m_pose.pt')); results = []
+    predictor = build_sam2_video_predictor('configs/sam2.1/sam2.1_hiera_t.yaml',str(a.sam2_model),
+                    device=device,apply_postprocessing=False,hydra_overrides_extra=[f'++model.image_size={a.image_size}'])
+    model = YOLO(str(a.pose_model)); results = []
     for cid in ids:
         dest = out/'clips'/cid; dest.mkdir(parents=True,exist_ok=True)
         if a.resume and (dest/'result.json').exists():
             if any(sha(Path(p)) != h for p,h in read(dest/'input_hashes.json').items()): raise ValueError('Changed input')
             results.append(read(dest/'result.json')); continue
         print('START '+cid,flush=True); started = time.monotonic()
-        baseline_record,data,role = prepare(cid,dest)
-        inputhashes = {str(BASE/byid[cid]['result_file']):sha(BASE/byid[cid]['result_file'])}
+        baseline_record,data,role = prepare(cid,dest,device,a.source_dir,a.direction_dir,a.appearance_dir,a.pose_model)
+        inputhashes = {str(a.baseline_dir/byid[cid]['result_file']):sha(a.baseline_dir/byid[cid]['result_file'])}
+        reused=False
         if data is None:
             e = dict(height_candidate='unknown',height_supported=False,complete_first_dive_observed=False,
                      reasons=[role.get('reason')],identity_verified=False,accuracy_estimate=None)
         else:
             inputhashes.update({str(data['pose_path']):sha(data['pose_path']),str(Path(data['pose']['video_path'])):sha(Path(data['pose']['video_path']))})
+            inputhashes.update({str(p):sha(p) for p in data['source_inputs']})
             gray,excluded,shrink = extend(data,baseline_record['kick_frame'],a.post_sec)
             cache = a.cache_run/'clips'/cid if a.cache_run else None
             reused = False
             if cache and (cache/'segmentation.json').exists():
                 cs = read(cache/'segmentation.json'); cp = read(a.cache_run/'protocol.json')
-                if cs['roi'] != data['roi'] or cs['frame_window'] != [data['first'],data['last']] or cp['model_sha256'] != protocol['model_sha256']:
+                if (cs['roi'] != data['roi'] or cs['frame_window'] != [data['first'],data['last']]
+                    or cs['image_size'] != a.image_size or cp['model_sha256'] != protocol['model_sha256']):
                     raise ValueError('Cache video-window/crop/model mismatch')
                 if cs['initial_prompt']['bbox'] != data['initial']['bbox']: raise ValueError('Cache prompt mismatch')
                 for idx,img in enumerate(data['frames'].values()):
@@ -288,13 +309,14 @@ def main():
                 masks = {f:(cv2.imread(str(dest/'masks'/f'{f:05}.png'),0)>0).astype(np.uint8) for f in data['frames']}
                 save(dest/'segmentation.json',dict(cs,reused_pixel_identical_cache=str(cache))); reused = True
             else:
-                masks = segment(data,dest,predictor,512)
+                masks = segment(data,dest,predictor,a.image_size)
             matrices,qc,camera,stop = motion_and_qc(data,masks,gray,excluded,shrink,dest)
-            if reused and cp['pose_model_sha256'] == protocol['pose_model_sha256']:
+            if (reused and cp['pose_model_sha256'] == protocol['pose_model_sha256']
+                and cp.get('pose_image_size',512) == a.pose_image_size):
                 poses = {int(f):v for f,v in read(cache/'pose_candidates.json').items()}
                 save(dest/'pose_candidates.json',poses)
             else:
-                poses = infer_poses(data,masks,qc,model,dest)
+                poses = infer_poses(data,masks,qc,model,dest,device,a.pose_image_size)
             samples,cal = measurements(data,masks,qc,matrices,poses,dest)
             if samples is None:
                 e = dict(height_candidate='unknown',height_supported=False,complete_first_dive_observed=False,
@@ -315,7 +337,7 @@ def main():
             e.update(frame_window=[data['first'],data['last']],requested_end_frame=data['requested_last'],
                      connected_mask_frames=sum(q['connected_identity_candidate_prefix'] for q in qc.values()),
                      total_mask_frames=len(masks),tracking_stop_reason=stop,source_censored=data['right_censored'])
-            save(dest/'phase_evidence.json',e); render(data,masks,qc,e,dest)
+            save(dest/'phase_evidence.json',e); render(data,masks,qc,e,dest,ffmpeg)
             del masks,data,gray,excluded,poses; gc.collect()
         result = dict(clip_id=cid,previous_height=byid[cid]['dive_height'],height_candidate=e['height_candidate'],
                       height_supported=e['height_supported'],complete_first_dive_observed=e['complete_first_dive_observed'],
@@ -323,11 +345,13 @@ def main():
                       complete_silhouette_phase_candidate=e.get('silhouette_phase',{}).get('complete_first_dive_candidate',False),
                       phase_evidence=e,review_required=True,accuracy_estimate=None,elapsed_seconds=time.monotonic()-started,
                       review_video=f'clips/{cid}/goalkeeper_phase_review.mp4' if (dest/'goalkeeper_phase_review.mp4').exists() else None)
+        result.update(runtime=protocol['runtime'],segmentation_reused=reused)
         save(dest/'input_hashes.json',inputhashes); save(dest/'result.json',result); results.append(result)
         save(out/'progress.json',dict(completed=len(results),total=len(ids),rows=results))
         print(json.dumps({k:v for k,v in result.items() if k!='phase_evidence'},ensure_ascii=False),flush=True)
     # Display feedback is read only AFTER inference, solely to preserve direction.
-    display = read(DISPLAY); updates = {r['clip_id']:r for r in results}; rows = []
+    display = read(a.display_file) if a.display_file.is_file() else baseline
+    updates = {r['clip_id']:r for r in results}; rows = []
     for original in display['rows']:
         row = dict(original); trial = updates.get(row['clip_id'])
         row.update(previous_height=row['dive_height'],phase_height_candidate=trial['height_candidate'] if trial else None,

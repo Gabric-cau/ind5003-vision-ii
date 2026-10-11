@@ -1,0 +1,136 @@
+{
+  "status": "recovered_manifest_verified",
+  "source_url": "https://github.com/RX422040/vision-ii-penalty-analysis/releases/download/v2026.10.11-assets/visionii-support-01.zip",
+  "release_tag": "v2026.10.11-assets",
+  "archive_bytes": 1843387957,
+  "archive_full_sha256_verified": false,
+  "method": "remotezip 0.12.6 with explicit HTTP Range and 200 MiB cap",
+  "new_neural_inference": false,
+  "human_verified": false,
+  "probe_attempts": [
+    {
+      "range": "bytes=-65536",
+      "status": 501
+    },
+    {
+      "range": "bytes=1843322421-1843387956",
+      "status": 206,
+      "response_payload_bytes_read": 65536
+    }
+  ],
+  "members": [
+    {
+      "path": "outputs/camera_timing_2026-10-10/release/camera_timings_candidates.csv",
+      "bytes": 73884,
+      "sha256": "0b2181dcd76d6a1d092f0427fd8f7aa9a965ead2d70ff3734474cf94ab4f4c46",
+      "compressed_bytes": 7510,
+      "manifest_match": true
+    },
+    {
+      "path": "outputs/camera_timing_2026-10-10/release/camera_timings_candidates.json",
+      "bytes": 474381,
+      "sha256": "9fdd7d6d9586259bc67215c7266a08501214bbc27cd86ebd43991bd421c09812",
+      "compressed_bytes": 21674,
+      "manifest_match": true
+    }
+  ],
+  "csv_schema": {
+    "fieldnames": [
+      "clip_id",
+      "segment_id",
+      "start_frame",
+      "end_frame_exclusive",
+      "start_time_sec",
+      "end_time_sec",
+      "source_match_start_sec",
+      "source_match_end_sec",
+      "view_candidate",
+      "task_class_candidate",
+      "verified_task_class",
+      "human_verified",
+      "review_required",
+      "boundary_start_kind",
+      "boundary_start_uncertainty_sec",
+      "playback_status",
+      "source_sha256",
+      "evidence_reasons"
+    ],
+    "rows": 197,
+    "clip_id_field_present": true,
+    "unique_clip_count": 39,
+    "clip_ids": [
+      "col_eng_p01_falcao_col9",
+      "col_eng_p02_kane_eng9",
+      "col_eng_p03_cuadrado_col11",
+      "col_eng_p04_rashford_eng19",
+      "col_eng_p05_muriel_col14",
+      "col_eng_p06_henderson_eng8",
+      "col_eng_p07_uribe_col15",
+      "col_eng_p08_trippier_eng12",
+      "col_eng_p09_bacca_col7",
+      "col_eng_p10_dier_eng4",
+      "cro_den_p01_eriksen_den10",
+      "cro_den_p02_badelj_cro19",
+      "cro_den_p03_kjaer_den4",
+      "cro_den_p04_kramaric_cro9",
+      "cro_den_p05_krohndehli_den2",
+      "cro_den_p06_modric_cro10",
+      "cro_den_p07_schone_den19",
+      "cro_den_p08_pivaric_cro22",
+      "cro_den_p09_jorgensen_den9",
+      "cro_den_p10_rakitic_cro7",
+      "esp_rus_p01_iniesta_esp6",
+      "esp_rus_p02_smolov_rus10",
+      "esp_rus_p03_pique_esp3",
+      "esp_rus_p04_ignashevich_rus4",
+      "esp_rus_p05_koke_esp8",
+      "esp_rus_p06_golovin_rus17",
+      "esp_rus_p07_ramos_esp15",
+      "esp_rus_p08_cheryshev_rus6",
+      "esp_rus_p09_aspas_esp17",
+      "rus_cro_p01_smolov_rus10",
+      "rus_cro_p02_brozovic_cro11",
+      "rus_cro_p03_dzagoev_rus9",
+      "rus_cro_p04_kovacic_cro8",
+      "rus_cro_p05_fernandes_rus2",
+      "rus_cro_p06_modric_cro10",
+      "rus_cro_p07_ignashevich_rus4",
+      "rus_cro_p08_vida_cro21",
+      "rus_cro_p09_kuzyaev_rus7",
+      "rus_cro_p10_rakitic_cro7"
+    ]
+  },
+  "json_top_level_keys": [
+    "classifier_sha256",
+    "clips",
+    "notes",
+    "schema_version",
+    "summary",
+    "task_classes"
+  ],
+  "range_requests": [
+    {
+      "range": "bytes=1841290805-1843387956",
+      "status": 206,
+      "content_range": "bytes 1841290805-1843387956/1843387957",
+      "content_length": "2097152",
+      "final_host": "release-assets.githubusercontent.com"
+    },
+    {
+      "range": "bytes=1422689096-1422696737",
+      "status": 206,
+      "content_range": "bytes 1422689096-1422696737/1843387957",
+      "content_length": "7642",
+      "final_host": "release-assets.githubusercontent.com"
+    },
+    {
+      "range": "bytes=1422696738-1422718544",
+      "status": 206,
+      "content_range": "bytes 1422696738-1422718544/1843387957",
+      "content_length": "21807",
+      "final_host": "release-assets.githubusercontent.com"
+    }
+  ],
+  "requested_bytes": 2192137,
+  "response_payload_bytes_read": 2192137
+}

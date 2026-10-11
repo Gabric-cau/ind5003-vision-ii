@@ -40,23 +40,44 @@ class BallOutcomeExtractor:
         frame_height: Optional[int] = None,
         expected_frames: Optional[int] = None,
         confidences: Optional[Sequence[float]] = None,
+        event_end_time_sec: Optional[float] = None,
+        event_end_verified: bool = False,
         **_: Any,
     ) -> Dict[str, Any]:
-        """Summarise an observed ball track without inventing missing points."""
+        """Keep the last observation separate from a verified event endpoint.
 
+        Endpoint verification is supplied by the caller; this tracker does not
+        infer that an event ended merely because observations stopped.
+        """
+
+        if event_end_verified and event_end_time_sec is None:
+            raise ValueError("A verified event endpoint requires event_end_time_sec")
+        if event_end_time_sec is not None and not math.isfinite(event_end_time_sec):
+            raise ValueError("event_end_time_sec must be finite")
+        if not math.isfinite(fps) or fps <= 0:
+            raise ValueError("fps must be finite and positive")
         samples = self._clean_samples(raw_ball_positions)
         if not samples:
             return {
-                "ball_speed_px_s": 0.0,
-                "ball_median_speed_px_s": 0.0,
-                "ball_peak_speed_px_s": 0.0,
-                "ball_path_length_px": 0.0,
-                "ball_displacement_px": 0.0,
+                "ball_speed_px_s": None,
+                "ball_median_speed_px_s": None,
+                "ball_peak_speed_px_s": None,
+                "ball_path_length_px": None,
+                "ball_displacement_px": None,
                 "ball_track_points": 0,
                 "ball_track_coverage": 0.0,
                 "ball_track_confidence": 0.0,
-                "final_position": (0.0, 0.0),
-                "final_position_normalized": (0.0, 0.0),
+                "final_position": None,
+                "final_position_normalized": None,
+                "final_position_semantics": "last_observed_position",
+                "final_position_valid_as_event_endpoint": False,
+                "last_observed_position": None,
+                "last_observed_position_normalized": None,
+                "last_observed_time_sec": None,
+                "event_final_position": None,
+                "event_final_position_normalized": None,
+                "event_final_position_status": "no_observations",
+                "event_end_time_sec": event_end_time_sec,
                 "ball_review_required": True,
             }
 
@@ -79,8 +100,23 @@ class BallOutcomeExtractor:
             float(value) for value in (confidences or []) if value is not None and math.isfinite(float(value))
         ]
         track_confidence = float(np.median(valid_confidences)) if valid_confidences else 0.0
-        norm_x = final_x / frame_width if frame_width else 0.0
-        norm_y = final_y / frame_height if frame_height else 0.0
+        def normalized(x, y):
+            if not frame_width or not frame_height or frame_width <= 0 or frame_height <= 0:
+                return None
+            return (round(x / frame_width, 5), round(y / frame_height, 5))
+
+        last_position = (round(final_x, 2), round(final_y, 2))
+        endpoint = None
+        endpoint_sample = None
+        endpoint_status = "unverified"
+        if event_end_verified:
+            candidate = min(samples, key=lambda sample: abs(sample[0] - event_end_time_sec))
+            if abs(candidate[0] - event_end_time_sec) <= 0.5 / fps + 1e-9:
+                endpoint_sample = candidate
+                endpoint = (round(candidate[1], 2), round(candidate[2], 2))
+                endpoint_status = "verified_observation"
+            else:
+                endpoint_status = "verified_time_unobserved"
         displacement = float(np.hypot(final_x - samples[0][1], final_y - samples[0][2]))
         review_required = bool(len(samples) < 3 or coverage < 0.12 or displacement < 35.0)
         return {
@@ -92,14 +128,23 @@ class BallOutcomeExtractor:
             "ball_track_points": len(samples),
             "ball_track_coverage": round(coverage, 4),
             "ball_track_confidence": round(track_confidence, 4),
-            "final_position": (round(final_x, 2), round(final_y, 2)),
-            "final_position_normalized": (round(norm_x, 5), round(norm_y, 5)),
+            "final_position": last_position,
+            "final_position_normalized": normalized(final_x, final_y),
+            "final_position_semantics": "last_observed_position",
+            "final_position_valid_as_event_endpoint": endpoint_sample == samples[-1],
+            "last_observed_position": last_position,
+            "last_observed_position_normalized": normalized(final_x, final_y),
+            "last_observed_time_sec": samples[-1][0],
+            "event_final_position": endpoint,
+            "event_final_position_normalized": normalized(*endpoint) if endpoint is not None else None,
+            "event_final_position_status": endpoint_status,
+            "event_end_time_sec": event_end_time_sec,
             "ball_review_required": review_required,
         }
 
     def determine_outcome(
         self,
-        final_ball_pos: Tuple[float, float],
+        final_ball_pos: Optional[Tuple[float, float]],
         gk_contact: bool = False,
         *,
         observed_outcome: Optional[str] = None,
@@ -107,17 +152,25 @@ class BallOutcomeExtractor:
         """Return an observed label when supplied, plus an auditable target zone."""
 
         xmin, ymin, xmax, ymax = self.goal_bbox
-        bx, by = map(float, final_ball_pos)
-        is_inside = xmin <= bx <= xmax and ymin <= by <= ymax
+        position = np.asarray(final_ball_pos, dtype=float) if final_ball_pos is not None else np.empty(0)
+        position_available = position.shape == (2,) and np.isfinite(position).all()
+        bx, by = position if position_available else (None, None)
+        is_inside = bool(xmin <= bx <= xmax and ymin <= by <= ymax) if position_available else None
         if observed_outcome is not None:
             observed_outcome = observed_outcome.strip().lower()
             if observed_outcome not in {"goal", "no_goal"}:
                 raise ValueError("observed_outcome must be 'goal' or 'no_goal'")
             outcome = observed_outcome
             source = "observed_annotation"
-        else:
+        elif position_available:
             outcome = "goal" if is_inside and not gk_contact else "no_goal"
             source = "geometry_fallback"
+        else:
+            outcome = "unknown"
+            source = "missing_ball_observation"
+        if not position_available:
+            return {"outcome": outcome, "outcome_source": source,
+                    "final_inside_goal_bbox": None, "target_zone": "unknown"}
         rel_x = (bx - xmin) / (xmax - xmin) if xmax > xmin else 0.5
         rel_y = (by - ymin) / (ymax - ymin) if ymax > ymin else 0.5
         col = "left" if rel_x < 0.33 else ("right" if rel_x > 0.67 else "center")

@@ -18,7 +18,6 @@ import time
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-sys.path.append(str(ROOT / ".venv/Lib/site-packages"))
 import cv2
 import numpy as np
 import torch
@@ -31,12 +30,13 @@ from src.event_ball_tracking import select_stationary_seed
 from src.goal_geometry import detect_goal_frame
 from src.goal_plane_rectification import project_image_point
 from src.motion_stabilization import estimate_background_motion
+from src.project_paths import resolve_project_file, resolve_project_video
+from src.runtime import add_runtime_arguments, resolve_device, resolve_ffmpeg, inference_provenance
 from scripts.probe_goal_event_tracking import motion_blobs, source_time_indices
 from scripts.run_ball_continuity_probe import collision_geometry
 
 BASE = ROOT / "outputs/optimization_evening_2026-10-09"
 WEIGHTS = ROOT / "models/weights/yolo11n_object_detection.pt"
-FFMPEG = ROOT / "outputs/review_tools/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe"
 cv2.setNumThreads(3)
 torch.set_num_threads(3)
 
@@ -59,14 +59,14 @@ def canonical_ids():
             for r in info["penalties"]]
 
 
-def detect_clip(cid, model, batch_size):
-    step_path = BASE / "steps_v4/classified" / (cid + ".json")
+def detect_clip(cid, model, batch_size, device='cpu',source_dir=None,steps_dir=None,image_size=1280,model_path=WEIGHTS):
+    step_path = (steps_dir or BASE / "steps_v4/classified") / (cid + ".json")
     step = load(step_path)
     contact = step["contact"]
     kick, fps = contact["contact_frame"], step["fps"]
-    pose_path = Path(step["terminal_provenance"]["selected_pose_path"])
+    pose_path = resolve_project_file(ROOT,step["terminal_provenance"]["selected_pose_path"])
     pose = load(pose_path)
-    source = Path(step["video_path"])
+    source = resolve_project_video(ROOT,step["video_path"],cid,source_dir)
     before = sha(source)
     start = max(step["shot_start_frame"], kick - round(.4 * fps))
     end = min(step["shot_end_frame_exclusive"], kick + round(2.3 * fps) + 1)
@@ -88,8 +88,8 @@ def detect_clip(cid, model, batch_size):
     for mode, predictor in modes:
         for j in range(0, len(frames), batch_size):
             batch = frames[j:j + batch_size]
-            pred = predictor.predict(batch, imgsz=1280, conf=.01, classes=[32],
-                                     device="cpu", verbose=False)
+            pred = predictor.predict(batch, imgsz=image_size, conf=.01, classes=[32],
+                                     device=device, verbose=False)
             det = _extract_detections(ids[j:j + batch_size], pred, batch)
             for fid, ds in det.items():
                 all_dets[fid].extend({**d, "sources": [mode]} for d in ds)
@@ -132,11 +132,13 @@ def detect_clip(cid, model, batch_size):
             "goal_roi": roi, "goal_proposals": geometries, "camera": camera, "detections": all_dets,
             "source_paths": {"step": str(step_path), "pose": str(pose_path)},
             "fresh_model_inference": True, "old_ball_trajectory_input": False,
+            "runtime":inference_provenance(device,device,[model_path],[source],torch),
+            "input_sha256":{str(p):sha(p) for p in (step_path,pose_path)},
             "modes": [m for m, _ in modes]}
 
 
 def anchors_and_goal(cache):
-    pose = load(cache["source_paths"]["pose"])
+    pose = load(resolve_project_file(ROOT,cache["source_paths"]["pose"]))
     track = next((t for t in pose["tracks"] if t["track_id"] == cache["contact"]["contact_associated_track_id"]), {})
     anchors = []
     for obs in track.get("observations", []):
@@ -209,7 +211,7 @@ def crop_zoom(frame, xy, size=180):
     return cv2.resize(crop, (size, size), interpolation=cv2.INTER_NEAREST)
 
 
-def render(cache, result, dest):
+def render(cache, result, dest,ffmpeg=None):
     cid = cache["clip_id"]
     path = result["variants"]["detector_and_motion"]["trajectory"]
     pure = result["variants"]["detector_only"]["trajectory"]
@@ -219,7 +221,7 @@ def render(cache, result, dest):
     samples = [min(cache["end_frame_exclusive"] - 1, max(cache["start_frame"], cache["kick_frame"] + n))
                for n in (-5, 0, 5, 10, 20, 40)]
     video = dest / (cid + ".mp4")
-    cmd = [str(FFMPEG), "-hide_banner", "-loglevel", "error", "-n", "-f", "rawvideo",
+    cmd = [resolve_ffmpeg(ffmpeg,ROOT), "-hide_banner", "-loglevel", "error", "-n", "-f", "rawvideo",
            "-pix_fmt", "bgr24", "-s", "900x460", "-r", str(cache["fps"] / 3), "-i", "pipe:0",
            "-an", "-c:v", "libx264", "-threads", "2", "-crf", "21", "-preset", "fast",
            "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(video)]
@@ -333,7 +335,15 @@ def main():
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--batch-size", type=int, default=8)
     parser.add_argument("--resume", action="store_true")
+    add_runtime_arguments(parser)
+    parser.add_argument("--source-dir",type=Path,default=ROOT/"data/raw_clips")
+    parser.add_argument("--steps-dir",type=Path,default=BASE/"steps_v4/classified")
+    parser.add_argument("--model",type=Path,default=WEIGHTS)
+    parser.add_argument("--image-size",type=int,default=1280)
     args = parser.parse_args()
+    if args.image_size <= 0 or args.batch_size <= 0:
+        parser.error("Image size and batch size must be positive")
+    device=resolve_device(args.device,torch);ffmpeg=resolve_ffmpeg(args.ffmpeg,ROOT)
     out = args.output_dir
     if out.exists() and not args.resume:
         raise FileExistsError(out)
@@ -342,10 +352,12 @@ def main():
         (out / folder).mkdir(exist_ok=True)
     ids = canonical_ids()
     assert len(ids) == len(set(ids)) == 39
-    assert all((BASE / "steps_v4/classified" / (cid + ".json")).exists() for cid in ids)
+    assert all((args.steps_dir / (cid + ".json")).exists() for cid in ids)
     protocol = {"created_at": datetime.now(timezone.utc).isoformat(), "canonical_clips": ids,
-        "weights": str(WEIGHTS), "weights_sha256": sha(WEIGHTS), "fresh_model_inference": True,
-        "detector_class": 32, "conf": .01, "imgsz": 1280, "device": "cpu", "threads": 3,
+        "weights": str(args.model), "weights_sha256": sha(args.model), "fresh_model_inference": True,
+        "detector_class": 32, "conf": .01, "imgsz": args.image_size, "device": device, "threads": 3,
+        "runtime":inference_provenance(args.device,device,[args.model],torch_module=torch),"ffmpeg":ffmpeg,
+        "steps_dir":str(args.steps_dir.resolve()),"source_dir":str(args.source_dir.resolve()),
         "old_ball_trajectory_input": False, "outcome_labels_read": False, "manual_ball_seed_input": False,
         "semantic_masks_used": False, "automatic_contact_and_pose_proposals_used": True,
         "window_policy": "automatic kick minus0.4s plus2.3s bounded by primary shot",
@@ -353,7 +365,7 @@ def main():
         "config": ContinuityConfig().__dict__}
     sources = [Path(__file__), ROOT / "src/ball_continuity.py", ROOT / "src/event_ball_tracking.py",
                ROOT / "src/goal_event_tracker_v2.py", ROOT / "src/ball_pipeline.py",
-               ROOT / "scripts/probe_goal_event_tracking.py"]
+               ROOT / "scripts/probe_goal_event_tracking.py",ROOT/"src/runtime.py",ROOT/"src/project_paths.py"]
     protocol["code_sha256"] = {str(p.relative_to(ROOT)): sha(p) for p in sources}
     if not args.resume:
         save(out / "protocol.json", protocol)
@@ -361,9 +373,10 @@ def main():
             (out / "source_snapshot" / p.name).write_bytes(p.read_bytes())
     else:
         previous = load(out / "protocol.json")
-        if previous["code_sha256"] != protocol["code_sha256"] or previous["weights_sha256"] != protocol["weights_sha256"]:
-            raise ValueError("Resume code/weights changed")
-    model = YOLO(str(WEIGHTS))
+        keys=("code_sha256","weights_sha256","imgsz","device","steps_dir","source_dir")
+        if any(previous.get(key)!=protocol[key] for key in keys):
+            raise ValueError("Resume code/weights/runtime changed")
+    model = YOLO(str(args.model))
     rows, errors = [], []
     for index, cid in enumerate(ids, 1):
         begun = time.monotonic()
@@ -372,14 +385,24 @@ def main():
         try:
             if args.resume and result_path.exists():
                 r = load(result_path)
+                source=resolve_project_video(ROOT,'',cid,args.source_dir)
+                if sha(source)!=r["source_sha256"]:
+                    raise ValueError("Resumed result belongs to different source video")
                 rows.append(r["summary"])
                 continue
             print(f"[{index}/39] {cid} fresh detection start", flush=True)
-            cache = load(cache_path) if args.resume and cache_path.exists() else detect_clip(cid, model, args.batch_size)
+            cache = load(cache_path) if args.resume and cache_path.exists() else detect_clip(cid, model, args.batch_size,
+                                      device,args.source_dir,args.steps_dir,args.image_size,args.model)
+            cache["video_path"]=str(resolve_project_video(ROOT,cache["video_path"],cid,args.source_dir))
+            if sha(cache["video_path"])!=cache["source_sha256"]:
+                raise ValueError("Detection cache belongs to different source video")
+            for recorded,digest in cache.get("input_sha256",{}).items():
+                if sha(resolve_project_file(ROOT,recorded))!=digest:
+                    raise ValueError("Cached pose/contact evidence changed")
             save(cache_path, cache)
             cache = load(cache_path)  # Normalize source-frame dictionary keys for replay.
             result = associate(cache)
-            media = render(cache, result, out / "media")
+            media = render(cache, result, out / "media",ffmpeg)
             assert sha(Path(cache["video_path"])) == cache["source_sha256"]
             a, b = result["variants"]["detector_only"], result["variants"]["detector_and_motion"]
             row = {"clip_id": cid, "seed_points": len(result["stationary_seed"]),
@@ -390,7 +413,8 @@ def main():
                    "tracking_status": b["tracking"]["tracking_status"], "camera_status": cache["camera"]["status"],
                    "start_frame": cache["start_frame"], "end_frame_exclusive": cache["end_frame_exclusive"],
                    "kick_frame": cache["kick_frame"], "elapsed_seconds": round(time.monotonic() - begun, 2), **media}
-            result.update(cache_path=str(cache_path), source_sha256_verified=True,
+            result.update(cache_path=str(cache_path), source_sha256=cache['source_sha256'],
+                          runtime=cache.get('runtime'),input_sha256=cache.get('input_sha256',{}),source_sha256_verified=True,
                           fresh_model_inference=True, summary=row)
             save(result_path, result)
             rows.append(row)

@@ -465,6 +465,9 @@ def process_ball_outcomes(
         )
         outcome_annotation = outcome_rows[clip_id]
         final_position = track_features["final_position"]
+        normalized_position = track_features["final_position_normalized"]
+        event_position = track_features["event_final_position"]
+        event_normalized = track_features["event_final_position_normalized"]
         outcome = extractor.determine_outcome(final_position, observed_outcome=outcome_annotation["outcome"])
         selection_review = bool(
             selection.get("reason") != "selected"
@@ -489,10 +492,16 @@ def process_ball_outcomes(
             "ball_track_start_frame": int(track[0]["frame"]) if track else None,
             "ball_track_end_frame": int(track[-1]["frame"]) if track else None,
             **track_features,
-            "final_position_x_px": final_position[0],
-            "final_position_y_px": final_position[1],
-            "final_position_x_norm": track_features["final_position_normalized"][0],
-            "final_position_y_norm": track_features["final_position_normalized"][1],
+            "final_position_x_px": final_position[0] if final_position is not None else None,
+            "final_position_y_px": final_position[1] if final_position is not None else None,
+            "final_position_x_norm": normalized_position[0] if normalized_position is not None else None,
+            "final_position_y_norm": normalized_position[1] if normalized_position is not None else None,
+            "last_observed_position_x_px": final_position[0] if final_position is not None else None,
+            "last_observed_position_y_px": final_position[1] if final_position is not None else None,
+            "event_final_position_x_px": event_position[0] if event_position is not None else None,
+            "event_final_position_y_px": event_position[1] if event_position is not None else None,
+            "event_final_position_x_norm": event_normalized[0] if event_normalized is not None else None,
+            "event_final_position_y_norm": event_normalized[1] if event_normalized is not None else None,
             "outcome": outcome["outcome"],
             "outcome_detail": outcome_annotation["outcome_detail"],
             "outcome_confidence": outcome_annotation["confidence"],
@@ -503,6 +512,10 @@ def process_ball_outcomes(
         # Tuple-valued fields are represented by explicit scalar CSV columns.
         row.pop("final_position")
         row.pop("final_position_normalized")
+        row.pop("last_observed_position")
+        row.pop("last_observed_position_normalized")
+        row.pop("event_final_position")
+        row.pop("event_final_position_normalized")
         features.append(row)
         rich_results.append(
             {

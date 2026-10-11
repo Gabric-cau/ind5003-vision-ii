@@ -10,6 +10,7 @@ from src.goalkeeper_role_association import select_goalkeeper_role,associate_loc
 from src.person_appearance import torso_histogram
 from src.goalkeeper_pipeline import _candidate_summary
 from src.goalkeeper_pose_direction import pose_direction_evidence
+from src.runtime import inference_provenance
 
 
 def geometries_for(pose,kick):
@@ -24,10 +25,9 @@ def geometries_for(pose,kick):
     cap.release();return geometry
 
 
-def fresh_pose(base,kick,geometry,dest,model_path,imgsz,rotations):
+def fresh_pose(base,kick,geometry,dest,model_path,imgsz,rotations,device='cpu'):
     import torch
     torch.set_num_threads(3)
-    sys.path.append(str(ROOT/'.venv/Lib/site-packages'))
     from ultralytics import YOLO
     from src.step_pipeline import _build_tracks
     if not model_path.is_file():raise FileNotFoundError(model_path)
@@ -48,7 +48,7 @@ def fresh_pose(base,kick,geometry,dest,model_path,imgsz,rotations):
             for angle in rotations:
                 view=img if angle==0 else cv2.rotate(img,cv2.ROTATE_90_CLOCKWISE if angle==90 else cv2.ROTATE_90_COUNTERCLOCKWISE)
                 views.append(view);contexts.append((f,angle,img.shape[1],img.shape[0]))
-        predictions=model.predict(views,imgsz=imgsz,device='cpu',conf=.08,iou=.80,max_det=40,verbose=False)
+        predictions=model.predict(views,imgsz=imgsz,device=device,conf=.08,iou=.80,max_det=40,verbose=False)
         for (f,angle,cw,ch),p in zip(contexts,predictions):
             detections=byframe[f]
             if p.boxes is not None and p.keypoints is not None:
@@ -67,7 +67,8 @@ def fresh_pose(base,kick,geometry,dest,model_path,imgsz,rotations):
     pose={k:base[k] for k in ('clip_id','video_path','fps','frame_width','frame_height')}
     pose.update(tracks=list(tracks.values()),pose_frames=pf,selected_track_id=None,
                 inference=dict(model_path=str(model_path),model_sha256=sha(model_path),imgsz=imgsz,conf=.08,nms_iou=.80,
-                               roi=roi,rotations=rotations,frame_window=[first,end],elapsed_seconds=time.monotonic()-started))
+                               roi=roi,rotations=rotations,frame_window=[first,end],elapsed_seconds=time.monotonic()-started,
+                               runtime=inference_provenance(device,device,[model_path],[base['video_path']],torch)))
     save(dest,pose);return pose
 
 

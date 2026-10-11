@@ -1,3 +1,6 @@
+"""Archived synthetic demonstration; use build_final_results for empirical EDA."""
+
+import argparse
 import os
 import glob
 import yaml
@@ -18,6 +21,8 @@ def process_single_penalty_clip(
         config: Dict[str, Any],
         homography: PitchHomographyTransformer
 ) -> Dict[str, Any]:
+    if not config.get("synthetic_demo_authorized", False):
+        raise ValueError("This archived extractor uses synthetic trajectories; explicit demo authorization is required")
     video_name = os.path.basename(video_path)
     clip_id = os.path.splitext(video_name)[0]
     print(f"[*] Extracting features from clip: {video_name}")
@@ -81,6 +86,7 @@ def process_single_penalty_clip(
     )
 
     return {
+        "evidence_type": "synthetic_demo",
         "clip_id": clip_id,
         "video_path": video_path,
         "duration_sec": duration,
@@ -124,6 +130,7 @@ def generate_synthetic_benchmark(output_dir: str):
                 [True, False], p=[0.88, 0.12])
 
             records.append({
+                "evidence_type": "synthetic_demo",
                 "clip_id": clip_id,
                 "match": match_code,
                 "kicker_footedness": footedness,
@@ -153,14 +160,17 @@ def generate_synthetic_benchmark(output_dir: str):
     print(f"[+] Benchmark feature datasets generated in: {output_dir} (39 penalty kicks)")
 
 
-def run_pipeline(config_path: str = "configs/config.yaml"):
+def run_pipeline(config_path: str = "configs/config.yaml", *, demo: bool = False):
+    if not demo:
+        raise RuntimeError("Archived synthetic pipeline disabled. Use python -m scripts.build_final_results; --demo is for demonstrations only")
     config = {}
     if os.path.exists(config_path):
         with open(config_path, "r", encoding="utf-8") as f:
             config = yaml.safe_load(f) or {}
 
     raw_dir = config.get("data", {}).get("raw_video_dir", "data/raw_clips")
-    proc_dir = config.get("data", {}).get("processed_dir", "data/processed")
+    config["synthetic_demo_authorized"] = True
+    proc_dir = "outputs/synthetic_demo"
     os.makedirs(proc_dir, exist_ok=True)
 
     video_files = sorted(glob.glob(os.path.join(raw_dir, "*.mp4")) + glob.glob(os.path.join(raw_dir, "*.avi")))
@@ -203,4 +213,8 @@ def run_pipeline(config_path: str = "configs/config.yaml"):
 
 
 if __name__ == "__main__":
-    run_pipeline()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--demo", action="store_true")
+    parser.add_argument("--config", default="configs/config.yaml")
+    args = parser.parse_args()
+    run_pipeline(args.config, demo=args.demo)

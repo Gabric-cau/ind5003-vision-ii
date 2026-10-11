@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "total_events": 39,
+  "data_scope": "development",
+  "held_out_test": false,
+  "independent_holdout": false,
+  "accuracy_validated": false,
+  "reference_source_verified": false,
+  "reference_sources_independently_verified": false,
+  "ball_rule_reference_comparison": {
+    "total": 39,
+    "covered": 26,
+    "coverage": 0.6666666666666666,
+    "matching": 23,
+    "covered_agreement": 0.8846153846153846,
+    "all_event_agreement": 0.5897435897435898,
+    "confusion_matrix": {
+      "goal": {
+        "goal": 18,
+        "no_goal": 1,
+        "unknown": 7
+      },
+      "no_goal": {
+        "goal": 2,
+        "no_goal": 5,
+        "unknown": 6
+      }
+    },
+    "conflicts": [
+      {
+        "clip_id": "esp_rus_p02_smolov_rus10",
+        "event_id": 22,
+        "prediction": "no_goal",
+        "reference": "goal"
+      },
+      {
+        "clip_id": "esp_rus_p05_koke_esp8",
+        "event_id": 25,
+        "prediction": "goal",
+        "reference": "no_goal"
+      },
+      {
+        "clip_id": "rus_cro_p01_smolov_rus10",
+        "event_id": 30,
+        "prediction": "goal",
+        "reference": "no_goal"
+      }
+    ],
+    "interpretation": "development_reference_agreement_not_test_accuracy"
+  },
+  "candidate_coverage": {
+    "kicking_foot_candidate": 39,
+    "kicking_foot_stable_candidate": 1,
+    "step_count_candidate": 39,
+    "goalkeeper_pre_movement_candidate": 33,
+    "goalkeeper_direction_candidate": 36,
+    "goalkeeper_height_candidate": 0,
+    "goalkeeper_height_proxy_candidate": 6,
+    "ball_rule_outcome": 26
+  },
+  "validated_coverage": {
+    "step_count_verified": 0,
+    "runup_ground_plane_validated": 0,
+    "goalkeeper_direction_validated": 0,
+    "goalkeeper_height_validated": 0,
+    "goalkeeper_pre_movement_validated": 0,
+    "ball_trajectory_validated": 0,
+    "ball_final_position_verified": 0,
+    "kicking_foot_user_reference_records": 10
+  },
+  "foot_development_comparison": {
+    "total": 10,
+    "comparisons": {
+      "old": {
+        "correct": 5,
+        "incorrect": 4,
+        "unknown": 1,
+        "total": 10
+      },
+      "previous_experiment": {
+        "correct": 3,
+        "incorrect": 7,
+        "unknown": 0,
+        "total": 10
+      },
+      "fresh_normal_motion": {
+        "correct": 4,
+        "incorrect": 3,
+        "unknown": 3,
+        "total": 10
+      },
+      "fresh_mirrored_motion": {
+        "correct": 3,
+        "incorrect": 4,
+        "unknown": 3,
+        "total": 10
+      },
+      "strict_contact_fusion": {
+        "correct": 0,
+        "incorrect": 0,
+        "unknown": 10,
+        "total": 10
+      },
+      "literal_screen_side": {
+        "correct": 9,
+        "incorrect": 1,
+        "unknown": 0,
+        "total": 10
+      },
+      "projected_goal_axis": {
+        "correct": 9,
+        "incorrect": 0,
+        "unknown": 1,
+        "total": 10
+      },
+      "followthrough_consensus": {
+        "correct": 2,
+        "incorrect": 1,
+        "unknown": 7,
+        "total": 10
+      },
+      "pose_axis_crosschecked": {
+        "correct": 2,
+        "incorrect": 0,
+        "unknown": 8,
+        "total": 10
+      },
+      "camera_scoped_shortcut": {
+        "correct": 10,
+        "incorrect": 0,
+        "unknown": 0,
+        "total": 10
+      }
+    },
+    "held_out_test": false,
+    "interpretation": "method_selection_cohort_not_generalization_accuracy"
+  },
+  "missing_optional_inputs": [],
+  "camera_interval_diagnostics": {
+    "available": true,
+    "total_intervals": 197,
+    "clips_with_intervals": 39,
+    "clips_with_course_class_candidates": 9,
+    "task_class_candidate_counts": {
+      "unknown": 187,
+      "back_of_kicker": 3,
+      "angle_45_right": 7
+    },
+    "playback_status_counts": {
+      "unknown": 197
+    },
+    "human_verified_intervals": 0,
+    "interpretation": "saved_candidate_intervals_not_new_inference_or_class_accuracy"
+  },
+  "research_questions": {
+    "RQ1": "How does feature observability vary across the four matches?",
+    "RQ2": "How sensitive are candidate step counts to parameter choices and partial run-ups?",
+    "RQ3": "When do ball rules abstain or disagree with stored outcome references?"
+  },
+  "limitations": [
+    "Stored results reused; no new raw-video inference in this bundle",
+    "Raw source hashes are claims from upstream until individually checked",
+    "Keeper pre-movement must be recomputed with the repaired stabilizer",
+    "Strict phase heights and verified event endpoints remain unavailable",
+    "No independent holdout accuracy can be calculated"
+  ]
+}

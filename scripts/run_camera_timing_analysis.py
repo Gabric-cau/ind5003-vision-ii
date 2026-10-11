@@ -6,6 +6,8 @@ import argparse,hashlib,json,sys
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
 import cv2,numpy as np,yaml
 from src.camera_timing_v2 import scan_video,SCAN_VERSION
+from src.project_paths import resolve_project_video
+from src.runtime import add_runtime_arguments, resolve_device, inference_provenance
 cv2.setNumThreads(2)
 
 
@@ -20,13 +22,14 @@ def metadata():
             for match,value in manifest.items() for p in value['penalties']}
 
 
-def scan(cid,meta,out,resume):
-    path=out/'scan'/(cid+'.json');video=ROOT/'data/raw_clips'/(cid+'.mp4');digest=sha(video)
+def scan(cid,meta,out,resume,source_dir=None):
+    path=out/'scan'/(cid+'.json');video=resolve_project_video(ROOT,'',cid,source_dir);digest=sha(video)
     if path.exists():
         if not resume:raise FileExistsError(path)
         existing=load(path)
         if existing['source_sha256']!=digest:raise ValueError('Cached source mismatch')
         if existing['boundary_method']!=SCAN_VERSION:raise ValueError('Detector version changed; use a new output directory')
+        existing['video_path']=str(video)
         return existing
     result=scan_video(video);result.update(clip_id=cid,video_path=str(video),source_sha256=digest,manifest=meta,
         source_outcome_labels_read=False,human_verified=False,scan_code_sha256=sha(ROOT/'src/camera_timing_v2.py'))
@@ -56,27 +59,48 @@ def scan(cid,meta,out,resume):
 def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--stage',choices=['scan','features','references','context','action','export','all'],default='all')
     parser.add_argument('--output-dir',type=Path,default=ROOT/'outputs/camera_timing_2026-10-10/release')
-    parser.add_argument('--clips',nargs='+');parser.add_argument('--resume',action='store_true');args=parser.parse_args()
+    parser.add_argument('--clips',nargs='+');parser.add_argument('--resume',action='store_true')
+    add_runtime_arguments(parser,ffmpeg=False)
+    parser.add_argument('--source-dir',type=Path,default=ROOT/'data/raw_clips')
+    parser.add_argument('--upstream-dir',type=Path,default=ROOT/'outputs/optimization_evening_2026-10-09')
+    parser.add_argument('--pose-model',type=Path,default=ROOT/'models/weights/yolo11n_pose.pt')
+    args=parser.parse_args()
     manifest=metadata();ids=args.clips or list(manifest)
     out=args.output_dir.resolve();model=None
     if args.stage in ('features','action','all'):
         from scripts.camera_timing_features import load_model,extract_features,extract_action
-        model=load_model()
+        device=resolve_device(args.device)
+        model=load_model(device,args.pose_model)
+        protocol=inference_provenance(args.device,device,[args.pose_model],
+                    [resolve_project_video(ROOT,'',cid,args.source_dir) for cid in ids])
+        protocol.update(source_dir=str(args.source_dir.resolve()),upstream_dir=str(args.upstream_dir.resolve()),
+                        inference_scope='camera_pose_and_action_candidates',accuracy_validated=False)
+        protocol_path=out/'runtime.json'
+        if protocol_path.exists():
+            previous=load(protocol_path)
+            if any(previous.get(key)!=value for key,value in protocol.items() if key!='source_sha256'):
+                raise ValueError('Camera runtime changed; choose a new output directory')
+            for path,digest in protocol['source_sha256'].items():
+                if path in previous['source_sha256'] and previous['source_sha256'][path]!=digest:
+                    raise ValueError('Camera source bytes changed')
+            protocol['source_sha256']={**previous['source_sha256'],**protocol['source_sha256']}
+        save(protocol_path,protocol)
     for cid in ids:
         if cid not in manifest:parser.error('Clip is not in the canonical manifest: '+cid)
-        if args.stage in ('scan','all'):item=scan(cid,manifest[cid],out,args.resume)
+        if args.stage in ('scan','all'):item=scan(cid,manifest[cid],out,args.resume,args.source_dir)
         else:
             item=load(out/'scan'/f'{cid}.json')
+            item['video_path']=str(resolve_project_video(ROOT,item['video_path'],cid,args.source_dir))
             if sha(Path(item['video_path']))!=item['source_sha256']:raise ValueError('Source video hash mismatch')
         if args.stage in ('features','all'):
-            result=extract_features(item,out,model,args.resume);save(out/'features'/f'{cid}.json',result)
+            result=extract_features(item,out,model,args.resume,args.upstream_dir);save(out/'features'/f'{cid}.json',result)
             print(json.dumps({'stage':'features','clip':cid,'segments':len(result['segments'])}),flush=True)
         if args.stage=='references':
             from scripts.camera_timing_features import build_references
             path=out/'references_v2'/f'{cid}.json'
             if path.exists() and not args.resume:raise FileExistsError(path)
             if not path.exists():
-                cap=cv2.VideoCapture(item['video_path']);refs=build_references(item,cap,None);cap.release();save(path,refs)
+                cap=cv2.VideoCapture(item['video_path']);refs=build_references(item,cap,None,args.upstream_dir);cap.release();save(path,refs)
             print(json.dumps({'stage':'references','clip':cid,'keeper_refs':len(load(path)['keeper_histograms'])}),flush=True)
         if args.stage in ('context','all'):
             from scripts.camera_timing_context import extract
