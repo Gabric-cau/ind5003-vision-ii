@@ -38,7 +38,11 @@ python -X utf8 restore_project_files.py --check
 如果提示只下载了 Git LFS pointer，请安装 Git LFS 后重新执行 `git lfs install`、`git lfs pull`。
 仅点击网页的 **Code → Download ZIP** 不保证包含 LFS 实体文件，优先使用上面的克隆命令。
 Git LFS 下载受仓库账号额度限制；不要把只有百余字节的指针文件当作真正的压缩包。
-压缩包和还原文件加上源码共需约 9 GB 磁盘空间，Python 环境及原视频另计。
+如果遇到 LFS 下载额度限制，可从同一仓库的
+[分析补充文件 Release](https://github.com/RX422040/vision-ii-penalty-analysis/releases/tag/v2026.10.11-assets)
+下载两个 ZIP，放进克隆项目的 `project_files/` 目录，替换指针文件后执行同一个还原命令。
+两包各自是完整 ZIP，不需要合并。
+Git LFS 缓存、工作目录中的压缩包、还原文件及源码共需约 13 GB 磁盘空间，Python 环境及原视频另计。
 
 随后在 PyCharm 中打开克隆目录，配置解释器，安装依赖，放好 raw clips，并检查：
 
@@ -52,6 +56,11 @@ python -X utf8 run_project.py replay-ball --output-dir outputs/my_ball_run
 `requirements-pycharm.txt` 是实际使用过的版本记录，尚未在全新环境验证完整安装。
 历史 OCR 等实验另见对应的 `requirements-jersey.txt` 等文件；SAM2 源码通过普通 Git 和补充包一起保留。
 本次上传的 FFmpeg 是 Windows x64 版，其他系统需要替换运行工具。
+本次已验证：新克隆目录还原 26,892 个补充文件且全部 SHA-256 一致；
+补齐另行共享的原切片后，使用原电脑已有 Python 环境完成 `check` 和 39 段缓存球事件回放，
+72 项球模块/路径测试通过，39 段回放共 1,433 帧全部解码。
+另外，5 项还原脚本测试通过。以上验证没有重新运行全部 YOLO 推理，也没有验证全新依赖环境或全部历史实验。
+验证记录见 `outputs/pycharm_export_validation_2026-10-11/git_clone_restoration_validation.json`。
 当前结果仍是实验候选，不能把输出覆盖率、测试通过数或 AI 画面判断写成已验证准确率。
 
 ## PyCharm 运行与完整工程导出（2026-10-11）
