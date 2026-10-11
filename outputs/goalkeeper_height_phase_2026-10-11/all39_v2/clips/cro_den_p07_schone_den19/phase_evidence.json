@@ -1,0 +1,755 @@
+{
+  "policy": "first_dive_prelanding_hip_clearance_v1",
+  "height_candidate": "unknown",
+  "height_supported": false,
+  "complete_first_dive_observed": true,
+  "physical_height_metres": null,
+  "coordinate_system": "camera_stabilized_image_plane",
+  "identity_verified": false,
+  "accuracy_estimate": null,
+  "reasons": [
+    "too_few_prelanding_samples"
+  ],
+  "phases": [
+    {
+      "name": "preparation",
+      "start_frame": 52,
+      "end_frame": 66
+    },
+    {
+      "name": "push_off_or_lunge",
+      "start_frame": 62,
+      "end_frame": 64
+    },
+    {
+      "name": "extension_before_ground_contact",
+      "start_frame": 62,
+      "end_frame": 68
+    },
+    {
+      "name": "ground_contact_and_landing",
+      "start_frame": 69,
+      "end_frame": 98
+    }
+  ],
+  "thresholds": {
+    "min_pose_confidence": 0.4,
+    "onset_shift_body": 0.15,
+    "onset_lean_degrees": 30,
+    "landing_hip_clearance_body": 0.3,
+    "landing_bottom_clearance_body": 0.05,
+    "min_sustained_samples": 3,
+    "max_sample_gap_sec": 0.15,
+    "low_height_below_body": 0.35,
+    "high_height_above_body": 0.75,
+    "category_boundary_margin_body": 0.04
+  },
+  "samples": [
+    {
+      "frame": 52,
+      "hip": [
+        915.1898956298828,
+        391.9751968383789
+      ],
+      "shoulder": [
+        910.9919147491455,
+        365.60515785217285
+      ],
+      "hip_clearance_body": 0.3869019181872784,
+      "torso_lean_degrees": 9.045304806941694,
+      "wrist_clearance_body": 0.39866861762800065,
+      "min_confidence": 0.9956684112548828,
+      "source": "sam2_roi_rotation_0",
+      "bottom_clearance_body": -0.02199815012604527
+    },
+    {
+      "frame": 53,
+      "hip": [
+        913.935136760603,
+        393.03599118617274
+      ],
+      "shoulder": [
+        909.1182016773827,
+        365.9258656988836
+      ],
+      "hip_clearance_body": 0.37205425679873944,
+      "torso_lean_degrees": 10.075183639202438,
+      "wrist_clearance_body": 0.3907715138593016,
+      "min_confidence": 0.9876915812492371,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.026760280711227984
+    },
+    {
+      "frame": 54,
+      "hip": [
+        912.8332803654473,
+        393.6909345742704
+      ],
+      "shoulder": [
+        907.9886258152396,
+        365.73429739091625
+      ],
+      "hip_clearance_body": 0.36189237371264904,
+      "torso_lean_degrees": 9.831250830480093,
+      "wrist_clearance_body": 0.3869929630341113,
+      "min_confidence": 0.9966262578964233,
+      "source": "sam2_roi_rotation_0",
+      "bottom_clearance_body": -0.026764639425183034
+    },
+    {
+      "frame": 55,
+      "hip": [
+        910.9247892517483,
+        393.4661223016054
+      ],
+      "shoulder": [
+        904.8169969909,
+        367.67695639290076
+      ],
+      "hip_clearance_body": 0.3584271296726283,
+      "torso_lean_degrees": 13.324177659873415,
+      "wrist_clearance_body": 0.37625316635086153,
+      "min_confidence": 0.9943045973777771,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.01961616724917861
+    },
+    {
+      "frame": 56,
+      "hip": [
+        910.9355713227533,
+        393.4240267518944
+      ],
+      "shoulder": [
+        904.7028386642178,
+        367.8810064659495
+      ],
+      "hip_clearance_body": 0.3588977078410088,
+      "torso_lean_degrees": 13.712735868793136,
+      "wrist_clearance_body": 0.37796838495024965,
+      "min_confidence": 0.9942654967308044,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.019616514897531856
+    },
+    {
+      "frame": 57,
+      "hip": [
+        911.5137988921958,
+        394.55887940767485
+      ],
+      "shoulder": [
+        902.3338544567489,
+        370.5656962668472
+      ],
+      "hip_clearance_body": 0.3488535344381325,
+      "torso_lean_degrees": 20.9371684755214,
+      "wrist_clearance_body": 0.3259256297240053,
+      "min_confidence": 0.9897311329841614,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.026409210914941562
+    },
+    {
+      "frame": 59,
+      "hip": [
+        907.4320916090156,
+        398.583982067944
+      ],
+      "shoulder": [
+        898.7714636875374,
+        377.24527588765466
+      ],
+      "hip_clearance_body": 0.2945810594401019,
+      "torso_lean_degrees": 22.090497804601256,
+      "wrist_clearance_body": 0.38205159596021243,
+      "min_confidence": 0.9698512554168701,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.06624013770475837
+    },
+    {
+      "frame": 60,
+      "hip": [
+        907.1494875249098,
+        401.6707085542374
+      ],
+      "shoulder": [
+        895.8197196232221,
+        381.43581038014406
+      ],
+      "hip_clearance_body": 0.2616198692146496,
+      "torso_lean_degrees": 29.24499992556062,
+      "wrist_clearance_body": 0.3209554584154903,
+      "min_confidence": 0.9597461819648743,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.07666265475329713
+    },
+    {
+      "frame": 61,
+      "hip": [
+        907.1663138385154,
+        401.65645901415326
+      ],
+      "shoulder": [
+        895.8067777891472,
+        381.42167256771165
+      ],
+      "hip_clearance_body": 0.26181922893843135,
+      "torso_lean_degrees": 29.30926630785529,
+      "wrist_clearance_body": 0.32090575907721874,
+      "min_confidence": 0.959380030632019,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.07363900328020018
+    },
+    {
+      "frame": 62,
+      "hip": [
+        904.9944410070245,
+        403.65354006776556
+      ],
+      "shoulder": [
+        891.3333505256116,
+        384.72850984307087
+      ],
+      "hip_clearance_body": 0.23444548246370187,
+      "torso_lean_degrees": 35.823748787702755,
+      "wrist_clearance_body": 0.2916347719915668,
+      "min_confidence": 0.9560888409614563,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.0758716835749199
+    },
+    {
+      "frame": 63,
+      "hip": [
+        904.0903762378939,
+        405.8503372707281
+      ],
+      "shoulder": [
+        889.382356802454,
+        386.55938682871533
+      ],
+      "hip_clearance_body": 0.20884980846147816,
+      "torso_lean_degrees": 37.323021968191284,
+      "wrist_clearance_body": 0.33183338951667457,
+      "min_confidence": 0.9415726065635681,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.07582850547867055
+    },
+    {
+      "frame": 65,
+      "hip": [
+        898.8549729234383,
+        405.55119489825904
+      ],
+      "shoulder": [
+        882.9258206219074,
+        386.3203840269203
+      ],
+      "hip_clearance_body": 0.19604121693316717,
+      "torso_lean_degrees": 39.63543262662561,
+      "wrist_clearance_body": 0.3745375021779465,
+      "min_confidence": 0.9168887734413147,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.07592837077162784
+    },
+    {
+      "frame": 67,
+      "hip": [
+        884.8033589906966,
+        406.1705575828828
+      ],
+      "shoulder": [
+        869.798126276827,
+        385.53101780366154
+      ],
+      "hip_clearance_body": 0.14687212487825835,
+      "torso_lean_degrees": 36.017673493814776,
+      "wrist_clearance_body": 0.26801005343665035,
+      "min_confidence": 0.8999240398406982,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.08428737236013287
+    },
+    {
+      "frame": 69,
+      "hip": [
+        878.618001671845,
+        403.39801265664744
+      ],
+      "shoulder": [
+        857.8321069599808,
+        383.5251015759832
+      ],
+      "hip_clearance_body": 0.15689824756680595,
+      "torso_lean_degrees": 46.28634667459053,
+      "wrist_clearance_body": 0.25318390009319375,
+      "min_confidence": 0.9250269532203674,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.22602178168075843
+    },
+    {
+      "frame": 70,
+      "hip": [
+        871.6725285246941,
+        400.5675914671659
+      ],
+      "shoulder": [
+        850.6519362801257,
+        383.20772524494856
+      ],
+      "hip_clearance_body": 0.1652149433618327,
+      "torso_lean_degrees": 50.44838626756302,
+      "wrist_clearance_body": 0.3030180894264899,
+      "min_confidence": 0.9017407894134521,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.22911956093136335
+    },
+    {
+      "frame": 71,
+      "hip": [
+        871.5428764209548,
+        400.64959645354344
+      ],
+      "shoulder": [
+        850.7295044435685,
+        383.1818493047897
+      ],
+      "hip_clearance_body": 0.16396785179109677,
+      "torso_lean_degrees": 49.994743151315404,
+      "wrist_clearance_body": 0.31122188692591496,
+      "min_confidence": 0.9015498757362366,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.2291341969497393
+    },
+    {
+      "frame": 72,
+      "hip": [
+        865.2326752223166,
+        399.5273657126711
+      ],
+      "shoulder": [
+        846.2450446100427,
+        382.88444531833295
+      ],
+      "hip_clearance_body": 0.1564511385190899,
+      "torso_lean_degrees": 48.764987563661634,
+      "wrist_clearance_body": 0.22011696114227475,
+      "min_confidence": 0.9085681438446045,
+      "source": "sam2_roi_rotation_0",
+      "bottom_clearance_body": -0.2332853733733503
+    },
+    {
+      "frame": 73,
+      "hip": [
+        860.6034465958647,
+        395.684117655984
+      ],
+      "shoulder": [
+        838.8405456150629,
+        380.4925874560163
+      ],
+      "hip_clearance_body": 0.18234437023379432,
+      "torso_lean_degrees": 55.08314414405523,
+      "wrist_clearance_body": 0.10449982406087331,
+      "min_confidence": 0.9084884524345398,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.22374619225176703
+    },
+    {
+      "frame": 74,
+      "hip": [
+        854.4201819832651,
+        398.40592283374724
+      ],
+      "shoulder": [
+        834.7946808951192,
+        379.3955051166744
+      ],
+      "hip_clearance_body": 0.1352357924520111,
+      "torso_lean_degrees": 45.91207108477211,
+      "wrist_clearance_body": 0.1483233161006608,
+      "min_confidence": 0.9609915018081665,
+      "source": "sam2_roi_rotation_0",
+      "bottom_clearance_body": -0.22706304666841656
+    },
+    {
+      "frame": 75,
+      "hip": [
+        846.8524428076562,
+        396.55064573274035
+      ],
+      "shoulder": [
+        826.4007056829696,
+        375.58364915793504
+      ],
+      "hip_clearance_body": 0.13151885267968003,
+      "torso_lean_degrees": 44.28726287839623,
+      "wrist_clearance_body": 0.20152610771056578,
+      "min_confidence": 0.9391947984695435,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.21964061198539025
+    },
+    {
+      "frame": 76,
+      "hip": [
+        840.9579866164097,
+        403.41698904177434
+      ],
+      "shoulder": [
+        824.1337318062874,
+        375.4463370179965
+      ],
+      "hip_clearance_body": 0.04218541224875267,
+      "torso_lean_degrees": 31.026769627533906,
+      "wrist_clearance_body": 0.24708367355816105,
+      "min_confidence": 0.9533755779266357,
+      "source": "sam2_roi_rotation_0",
+      "bottom_clearance_body": -0.20410236404838453
+    },
+    {
+      "frame": 77,
+      "hip": [
+        830.4598059060693,
+        400.5233768760077
+      ],
+      "shoulder": [
+        809.7542245030501,
+        374.37693864507906
+      ],
+      "hip_clearance_body": 0.040356322040756315,
+      "torso_lean_degrees": 38.375994963098854,
+      "wrist_clearance_body": 0.2560053261154159,
+      "min_confidence": 0.8857471942901611,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.16303466500818709
+    },
+    {
+      "frame": 78,
+      "hip": [
+        820.3186330075548,
+        399.0347181613088
+      ],
+      "shoulder": [
+        803.4586719558922,
+        372.31446996521095
+      ],
+      "hip_clearance_body": 0.025001340245655364,
+      "torso_lean_degrees": 32.2511349122304,
+      "wrist_clearance_body": 0.2700473517796682,
+      "min_confidence": 0.9707638025283813,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.09702553343076781
+    },
+    {
+      "frame": 79,
+      "hip": [
+        820.4303832622505,
+        399.19348584638226
+      ],
+      "shoulder": [
+        803.8684323399129,
+        372.41542100766515
+      ],
+      "hip_clearance_body": 0.023689968373891698,
+      "torso_lean_degrees": 31.73635432147898,
+      "wrist_clearance_body": 0.2707305872462932,
+      "min_confidence": 0.9694485068321228,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.10000617025377885
+    },
+    {
+      "frame": 80,
+      "hip": [
+        809.4767730112096,
+        401.0699011151492
+      ],
+      "shoulder": [
+        805.2712687698763,
+        373.5414376167489
+      ],
+      "hip_clearance_body": -0.02913211027748844,
+      "torso_lean_degrees": 8.685880208896833,
+      "wrist_clearance_body": 0.2224774206457547,
+      "min_confidence": 0.9130420088768005,
+      "source": "sam2_roi_rotation_0",
+      "bottom_clearance_body": -0.16328311231355186
+    },
+    {
+      "frame": 81,
+      "hip": [
+        806.3197447633738,
+        400.5204254189225
+      ],
+      "shoulder": [
+        795.659636684557,
+        373.95795330439597
+      ],
+      "hip_clearance_body": -0.033017380687639125,
+      "torso_lean_degrees": 21.866683907993963,
+      "wrist_clearance_body": 0.18779887212679425,
+      "min_confidence": 0.8997356295585632,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.22362027463350156
+    },
+    {
+      "frame": 82,
+      "hip": [
+        797.4614375716096,
+        402.879144737923
+      ],
+      "shoulder": [
+        792.5632750031132,
+        376.3584672335091
+      ],
+      "hip_clearance_body": -0.08448406913663997,
+      "torso_lean_degrees": 10.464165786393206,
+      "wrist_clearance_body": 0.12002061086059493,
+      "min_confidence": 0.9621633887290955,
+      "source": "sam2_roi_rotation_0",
+      "bottom_clearance_body": -0.30435397529997993
+    },
+    {
+      "frame": 83,
+      "hip": [
+        792.0467483166163,
+        407.8637232514419
+      ],
+      "shoulder": [
+        784.1916903924566,
+        379.6533980565923
+      ],
+      "hip_clearance_body": -0.15278835498853965,
+      "torso_lean_degrees": 15.55965938087787,
+      "wrist_clearance_body": 0.053544286615606444,
+      "min_confidence": 0.8678455352783203,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.36636079903839225
+    },
+    {
+      "frame": 84,
+      "hip": [
+        782.2258596534577,
+        406.28821173719064
+      ],
+      "shoulder": [
+        780.8688684267861,
+        382.7782345876865
+      ],
+      "hip_clearance_body": -0.16626615945530593,
+      "torso_lean_degrees": 3.3034357552827442,
+      "wrist_clearance_body": -0.07468327703231672,
+      "min_confidence": 0.9164057970046997,
+      "source": "sam2_roi_rotation_0",
+      "bottom_clearance_body": -0.42586783936181816
+    },
+    {
+      "frame": 85,
+      "hip": [
+        784.933967029729,
+        409.9275171090835
+      ],
+      "shoulder": [
+        778.0553122132358,
+        382.4233653865908
+      ],
+      "hip_clearance_body": -0.19588008360362605,
+      "torso_lean_degrees": 14.041374095575005,
+      "wrist_clearance_body": -0.0756444066044018,
+      "min_confidence": 0.8780941963195801,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.42586679989945275
+    },
+    {
+      "frame": 86,
+      "hip": [
+        776.1740407317266,
+        408.0773378722687
+      ],
+      "shoulder": [
+        774.8447150614122,
+        387.69517235233843
+      ],
+      "hip_clearance_body": -0.2032752090238611,
+      "torso_lean_degrees": 3.7315481709457416,
+      "wrist_clearance_body": -0.1527065658576181,
+      "min_confidence": 0.9208582639694214,
+      "source": "sam2_roi_rotation_0",
+      "bottom_clearance_body": -0.44799530327430936
+    },
+    {
+      "frame": 87,
+      "hip": [
+        771.308186559828,
+        418.2942301113354
+      ],
+      "shoulder": [
+        766.8330686901785,
+        394.239785712618
+      ],
+      "hip_clearance_body": -0.32432650709752864,
+      "torso_lean_degrees": 10.538889963716203,
+      "wrist_clearance_body": -0.2580484584557388,
+      "min_confidence": 0.8614222407341003,
+      "source": "original_seed_track",
+      "bottom_clearance_body": -0.47752991409357154
+    },
+    {
+      "frame": 88,
+      "hip": [
+        762.7833427183165,
+        418.8754211465418
+      ],
+      "shoulder": [
+        762.1750694458862,
+        399.03766811295833
+      ],
+      "hip_clearance_body": -0.356292973029247,
+      "torso_lean_degrees": 1.7562762847350732,
+      "wrist_clearance_body": -0.38401936385787616,
+      "min_confidence": 0.7904854416847229,
+      "source": "sam2_roi_rotation_0",
+      "bottom_clearance_body": -0.4681909147504732
+    },
+    {
+      "frame": 92,
+      "hip": [
+        763.0944138375838,
+        410.6004566892693
+      ],
+      "shoulder": [
+        747.5787461729917,
+        408.43971912690347
+      ],
+      "hip_clearance_body": -0.2692877134706137,
+      "torso_lean_degrees": 82.071884619274,
+      "wrist_clearance_body": -0.1944138174699406,
+      "min_confidence": 0.6405436396598816,
+      "source": "sam2_roi_rotation_90",
+      "bottom_clearance_body": -0.4559262071878958
+    },
+    {
+      "frame": 96,
+      "hip": [
+        756.8422784570653,
+        413.56674305059903
+      ],
+      "shoulder": [
+        738.5575741852124,
+        412.7540707953354
+      ],
+      "hip_clearance_body": -0.3191483079115741,
+      "torso_lean_degrees": 87.45513703829022,
+      "wrist_clearance_body": -0.24604692411649043,
+      "min_confidence": 0.5719819068908691,
+      "source": "sam2_roi_rotation_90",
+      "bottom_clearance_body": -0.4427672430441107
+    },
+    {
+      "frame": 98,
+      "hip": [
+        753.7977888562741,
+        411.46719280812334
+      ],
+      "shoulder": [
+        733.4700180258733,
+        411.23509995467936
+      ],
+      "hip_clearance_body": -0.30657064877046214,
+      "torso_lean_degrees": 89.34585236747311,
+      "wrist_clearance_body": -0.4974122833449569,
+      "min_confidence": 0.811979353427887,
+      "source": "sam2_roi_rotation_90",
+      "bottom_clearance_body": -0.5074292242523304
+    }
+  ],
+  "tracking_stop_reason": "silhouette_reaches_roi_boundary",
+  "source_censored": false,
+  "connected_pose_frames": [
+    61,
+    62,
+    63,
+    65,
+    67,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    92,
+    96,
+    98
+  ],
+  "onset_frame": 62,
+  "landing_frame": 69,
+  "extension_frames": [],
+  "landing_frames_excluded_from_height": true,
+  "reference": {
+    "ground_line": [
+      0.2923827331831983,
+      161.59169663880675
+    ],
+    "body_scale_px": 96.15414428710938,
+    "source": "pre-kick ankles and goal-line slope in stabilized image coordinates",
+    "physical_ground_plane_calibrated": false,
+    "reference_frames": [
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66
+    ]
+  },
+  "silhouette_phase": {
+    "policy": "silhouette_settling_contact_bracket_v1",
+    "supported": false,
+    "height_proxy_candidate": "unknown",
+    "phases": [
+      {
+        "name": "push_off_or_lunge_candidate",
+        "start_frame": 64,
+        "end_frame": 98
+      }
+    ],
+    "reasons": [
+      "no_sustained_compact_lower_edge_settling"
+    ],
+    "physical_ground_plane_calibrated": false,
+    "complete_first_dive_candidate": false,
+    "source": "SAM2 visible silhouette, not ankle contact ground truth",
+    "height_definition": "pre-landing silhouette centroid clearance / pre-kick body height",
+    "ground_path_assumption": "linear projected contact path between last upright and settled silhouette",
+    "identity_verified": false,
+    "accuracy_estimate": null,
+    "requires_review": true,
+    "onset_frame": 64,
+    "landing_frame": null
+  },
+  "frame_window": [
+    52,
+    127
+  ],
+  "requested_end_frame": 127,
+  "connected_mask_frames": 47,
+  "total_mask_frames": 76
+}

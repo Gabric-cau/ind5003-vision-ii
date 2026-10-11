@@ -1,0 +1,66 @@
+# Local interpreters, editor state, caches and temporary files
+/.venv/
+/venv/
+/.idea/
+/.pytest_cache/
+/.tmp*/
+/tmp/
+**/__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+
+# Installed binary dependency copies (SAM2's small source tree is retained)
+/.deps_ball_mask/
+/.deps_jersey/
+/.deps_mask/
+
+# Original footage, model weights, generated media and packaged deliverables
+/data/full_videos/
+/data/raw_clips/
+/models/weights/
+/deliverables/
+/notebooks/archive/
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.pt
+*.pth
+*.onnx
+*.exe
+*.dll
+*.pyd
+*.whl
+*.zip
+*.7z
+
+# Keep current reproducibility inputs and results, rather than every experiment.
+/outputs/*
+!/outputs/ball_detection_all_2026-10-11/
+!/outputs/ball_goal_all_events_v2_2026-10-11/
+!/outputs/ball_goal_all_fresh_contact_2026-10-11/
+!/outputs/ball_mask_review_ready_2026-10-11/
+!/outputs/ball_narrow_channel_2026-10-11/
+!/outputs/ball_keeper_rebound_review_ready_2026-10-11/
+!/outputs/camera_partial_alignment_2026-10-11/
+!/outputs/goalkeeper_height_phase_2026-10-11/
+!/outputs/goalkeeper_sam2_update_2026-10-11/
+!/outputs/goal_right_foot_redetection_2026-10-11/
+!/outputs/pycharm_export_validation_2026-10-11/
+!/outputs/optimization_evening_2026-10-09/
+/outputs/optimization_evening_2026-10-09/*
+!/outputs/optimization_evening_2026-10-09/integration/
+/outputs/**/source_snapshot/
+/outputs/**/frames/
+/outputs/**/crops/
+/outputs/**/mask_frames/
+/outputs/**/*.jpg
+/outputs/**/*.jpeg
+/outputs/**/*.png
+!/outputs/optimization_evening_2026-10-09/integration/actual39_diagnostics.png
+
+# The complete local archive preserves historical outputs omitted from Git.

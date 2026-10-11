@@ -1,0 +1,105 @@
+{
+  "clip_id": "cro_den_p01_eriksen_den10",
+  "automatic_candidate": {
+    "candidate": "unknown",
+    "status": "conflicting_or_insufficient_anatomical_evidence",
+    "requires_review": true,
+    "component_labels": [
+      "left",
+      "right"
+    ]
+  },
+  "normal_evidence": {
+    "motion_candidate": "left",
+    "contact_candidate": "unknown",
+    "requires_review": true,
+    "window": [
+      71,
+      80
+    ],
+    "observed_samples": 10,
+    "feet": {
+      "left": {
+        "max_motion_px": 43.21536318498732,
+        "median_motion_px": 3.5939274816310838,
+        "min_ball_distance_px": 10.770804487203838,
+        "motion_pairs": 9,
+        "contact_samples": 5
+      },
+      "right": {
+        "max_motion_px": 19.801826088741034,
+        "median_motion_px": 10.411888496575997,
+        "min_ball_distance_px": 6.699937353950061,
+        "motion_pairs": 9,
+        "contact_samples": 5
+      }
+    },
+    "motion_ratio": 2.182392825354567,
+    "ball_distance_margin_px": 4.070867133253778
+  },
+  "mirrored_evidence": {
+    "motion_candidate": "unknown",
+    "contact_candidate": "right",
+    "requires_review": true,
+    "window": [
+      71,
+      80
+    ],
+    "observed_samples": 10,
+    "feet": {
+      "left": {
+        "max_motion_px": 20.287510284113097,
+        "median_motion_px": 4.905938227328916,
+        "min_ball_distance_px": 11.457300300779602,
+        "motion_pairs": 9,
+        "contact_samples": 5
+      },
+      "right": {
+        "max_motion_px": 17.26335683769859,
+        "median_motion_px": 10.599985882944656,
+        "min_ball_distance_px": 3.129394983382455,
+        "motion_pairs": 9,
+        "contact_samples": 5
+      }
+    },
+    "motion_ratio": 1.1751776016012458,
+    "ball_distance_margin_px": 8.327905317397146
+  },
+  "approach_heuristics": {
+    "screen_x_candidate": "right",
+    "screen_x_offset_px": -108.05440290931239,
+    "goal_axis_candidate": "right",
+    "ground_calibrated": false,
+    "contact_observed_by_this_rule": false,
+    "scope": "Hypotheses from approach, not an anatomical guarantee",
+    "signed_projected_lateral_offset_px": -21.86049223967742
+  },
+  "source_video": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\cro_den_p01_eriksen_den10.mp4",
+  "source_video_sha256": "84510d1879eaca8231355447170e68228fb14cfcfdc07f9e2acd12e506f1bcec",
+  "contact_bracket_frames": [
+    75,
+    77
+  ],
+  "old_contact_frame": 75,
+  "stationary_ball_reference": [
+    456.87739479946,
+    503.28760006834
+  ],
+  "goal_ground_midpoint_uncalibrated": [
+    955.5,
+    448.0
+  ],
+  "observed_original_pose_frames": 22,
+  "observed_mirrored_pose_frames": 22,
+  "raw_pose_file": "poses/cro_den_p01_eriksen_den10.json",
+  "reviewer_labels_used": false,
+  "accuracy_estimate": null,
+  "input_sha256": {
+    "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\cro_den_p01_eriksen_den10.json": "a3c920f4cd53b80b935a709dd0abba2efcaa8f32536f82caf33f564b11118f1e",
+    "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\shot_repair_2026-10-09\\all_clips_final\\cro_den_p01_eriksen_den10.json": "99ddd74768db05f7ab1afd6625ec292788252919b94987805ad2f67e213d599e",
+    "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\ball_mask_review_ready_2026-10-11\\results\\cro_den_p01_eriksen_den10.json": "468a9fabb098dccd670fc97d270a0464b712198ec99a33e270aeedf7a361fda7",
+    "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\ball_detection_all_2026-10-11\\detections\\cro_den_p01_eriksen_den10.json": "7d3b82068cc56c178feae1953c6fdfb8061a446cc80b2555939c5c9788ebecd0",
+    "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_geometry_v3\\cro_den_p01_eriksen_den10.json": "357830a22d3fd620cd3ec372dfd4ac6f062a32e1c7de9e4eca47d5fb5beeaeb8"
+  },
+  "elapsed_seconds": 6.364542499999516
+}

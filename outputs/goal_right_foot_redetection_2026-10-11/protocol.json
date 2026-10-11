@@ -1,0 +1,29 @@
+{
+  "cohort": [
+    "cro_den_p01_eriksen_den10",
+    "cro_den_p02_badelj_cro19",
+    "cro_den_p03_kjaer_den4",
+    "cro_den_p04_kramaric_cro9",
+    "cro_den_p05_krohndehli_den2",
+    "cro_den_p06_modric_cro10",
+    "cro_den_p07_schone_den19",
+    "cro_den_p08_pivaric_cro22",
+    "cro_den_p09_jorgensen_den9",
+    "cro_den_p10_rakitic_cro7"
+  ],
+  "scope": "10 camera-group development clips; user labels not read by inference",
+  "new_neural_inference": true,
+  "weights": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\models\\weights\\yolo11m_pose.pt",
+  "weights_sha256": "29b17eaf3a3117cbea906090dbedf9159f7c6a49db58ec8b99ed2dfde1cf6eb2",
+  "imgsz": 640,
+  "configurations": [
+    "normal ROI",
+    "horizontally reflected ROI with inverse pixel AND channel mapping"
+  ],
+  "handwritten_foot_labels_used": false,
+  "approach_heuristic_not_anatomical_guarantee": true,
+  "source_sha256": {
+    "scripts\\run_goal_right_foot_redetection.py": "4a05c6ae39a9b490f62b1266745ee3300dbabbced08d6bd7d7e9c39415b4de91",
+    "src\\kicking_foot_redetection.py": "cd6b0c987c8b67a6ae514c1350873e040dd1bc22b5359020d941ecf4ee941a72"
+  }
+}

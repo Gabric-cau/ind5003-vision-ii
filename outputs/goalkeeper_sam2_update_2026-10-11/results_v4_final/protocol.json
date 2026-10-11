@@ -1,0 +1,20 @@
+{
+  "policy": "sam2_anatomical_fallback_v4_final",
+  "sam2_source": "https://github.com/facebookresearch/sam2",
+  "sam2_commit": "2b90b9f5ceec907a1c18123530e92e794ad901a4",
+  "model_sha256": "7402e0d864fa82708a20fbd15bc84245c2f26dff0eb43a4b5b93452deb34be69",
+  "pose_model_sha256": "29b17eaf3a3117cbea906090dbedf9159f7c6a49db58ec8b99ed2dfde1cf6eb2",
+  "sam2_image_size": "Cuadrado body1024/head512, other body512",
+  "original_default_image_size": 1024,
+  "note": "512 is an explicit CPU-speed setting evaluated here, not claimed equal to 1024 accuracy.",
+  "source_sha256": {
+    "src/goalkeeper_sam2.py": "b40931b8be7ef154047f3d4c807e085f3f4736539ce8e54a5c1b9651cd6634f0",
+    "src/goalkeeper_sam2_head_tracking.py": "94d47e4cbaeedf0f7a5420d1d27bb654b5749e508cebafc7a4f22c82f6d9270d",
+    "scripts/run_goalkeeper_sam2_update.py": "43798e427165717ee701e497956aede886d60cae086596b944a043bc0a5137c4",
+    "scripts/probe_goalkeeper_sam2_head_part.py": "0237e6205745dec1e3beb7351e54bf32ce37328434c3e4a8bbd068cde5f8de57",
+    "scripts/finalize_goalkeeper_sam2_update.py": "a836fe3f5cbed7995bc821a6fea605f90ac7e3f89a4a3677ea3cd04f34b7a209",
+    "tests/test_goalkeeper_sam2.py": "d2a9b699a32571d22feb8162f4878152aa2c57b285fcfe93a03cc9ab2d8d84fc"
+  },
+  "no_human_labels_read": true,
+  "accuracy_estimate": null
+}

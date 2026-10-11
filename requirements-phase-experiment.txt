@@ -1,0 +1,15 @@
+# Observed core package versions for the 2026-10-09 phase experiment.
+# This is not a claim that the historical project's full requirements were used.
+# Actual run: Windows, Python 3.14.7; Torch CPU; existing local YOLO weights.
+numpy==2.4.6
+scipy==1.17.1
+opencv-python==4.13.0.92
+ultralytics==8.4.137
+torch==2.13.0
+torchvision==0.28.0
+# Video packaging invokes an existing ffmpeg executable; no runtime imageio dependency.
+# Standard-library unittest runs the selected tests; pytest is not needed for that runner.
+# Terminal-footwork reanalysis uses cached pose/contact evidence and adds no packages.
+# It needs only NumPy/SciPy/OpenCV plus the standard library; no YOLO inference rerun.
+# Style-aware step reporting adds no packages; the optional viewer notebook uses
+# IPython already present in the project's existing Jupyter environment.

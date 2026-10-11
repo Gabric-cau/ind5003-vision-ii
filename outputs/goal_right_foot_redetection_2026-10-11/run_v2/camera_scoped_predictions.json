@@ -1,0 +1,122 @@
+{
+  "cohort_gate": [
+    "cro_den_p01_eriksen_den10",
+    "cro_den_p02_badelj_cro19",
+    "cro_den_p03_kjaer_den4",
+    "cro_den_p04_kramaric_cro9",
+    "cro_den_p05_krohndehli_den2",
+    "cro_den_p06_modric_cro10",
+    "cro_den_p07_schone_den19",
+    "cro_den_p08_pivaric_cro22",
+    "cro_den_p09_jorgensen_den9",
+    "cro_den_p10_rakitic_cro7"
+  ],
+  "camera_gate": "AI-reviewed goal-right primary shot layout only",
+  "policy": "Candidate prior, not automatic globally accepted anatomical label",
+  "rows": [
+    {
+      "clip_id": "cro_den_p01_eriksen_den10",
+      "experimental_kicking_foot_candidate": "right",
+      "method": "projected_goal_axis_approach_prior",
+      "requires_review": true,
+      "anatomical_pose_crosscheck_candidate": "unknown",
+      "pose_vs_approach_conflict": false,
+      "shoe_ball_contact_verified": false,
+      "reviewer_labels_used_for_prediction": false
+    },
+    {
+      "clip_id": "cro_den_p02_badelj_cro19",
+      "experimental_kicking_foot_candidate": "right",
+      "method": "screen_x_fallback_weaker_prior",
+      "requires_review": true,
+      "anatomical_pose_crosscheck_candidate": "unknown",
+      "pose_vs_approach_conflict": false,
+      "shoe_ball_contact_verified": false,
+      "reviewer_labels_used_for_prediction": false
+    },
+    {
+      "clip_id": "cro_den_p03_kjaer_den4",
+      "experimental_kicking_foot_candidate": "right",
+      "method": "projected_goal_axis_approach_prior",
+      "requires_review": true,
+      "anatomical_pose_crosscheck_candidate": "unknown",
+      "pose_vs_approach_conflict": false,
+      "shoe_ball_contact_verified": false,
+      "reviewer_labels_used_for_prediction": false
+    },
+    {
+      "clip_id": "cro_den_p04_kramaric_cro9",
+      "experimental_kicking_foot_candidate": "right",
+      "method": "projected_goal_axis_approach_prior",
+      "requires_review": true,
+      "anatomical_pose_crosscheck_candidate": "left",
+      "pose_vs_approach_conflict": true,
+      "shoe_ball_contact_verified": false,
+      "reviewer_labels_used_for_prediction": false
+    },
+    {
+      "clip_id": "cro_den_p05_krohndehli_den2",
+      "experimental_kicking_foot_candidate": "right",
+      "method": "projected_goal_axis_approach_prior",
+      "requires_review": true,
+      "anatomical_pose_crosscheck_candidate": "right",
+      "pose_vs_approach_conflict": false,
+      "shoe_ball_contact_verified": false,
+      "reviewer_labels_used_for_prediction": false
+    },
+    {
+      "clip_id": "cro_den_p06_modric_cro10",
+      "experimental_kicking_foot_candidate": "right",
+      "method": "projected_goal_axis_approach_prior",
+      "requires_review": true,
+      "anatomical_pose_crosscheck_candidate": "unknown",
+      "pose_vs_approach_conflict": false,
+      "shoe_ball_contact_verified": false,
+      "reviewer_labels_used_for_prediction": false
+    },
+    {
+      "clip_id": "cro_den_p07_schone_den19",
+      "experimental_kicking_foot_candidate": "right",
+      "method": "projected_goal_axis_approach_prior",
+      "requires_review": true,
+      "anatomical_pose_crosscheck_candidate": "right",
+      "pose_vs_approach_conflict": false,
+      "shoe_ball_contact_verified": false,
+      "reviewer_labels_used_for_prediction": false
+    },
+    {
+      "clip_id": "cro_den_p08_pivaric_cro22",
+      "experimental_kicking_foot_candidate": "left",
+      "method": "projected_goal_axis_approach_prior",
+      "requires_review": true,
+      "anatomical_pose_crosscheck_candidate": "unknown",
+      "pose_vs_approach_conflict": false,
+      "shoe_ball_contact_verified": false,
+      "reviewer_labels_used_for_prediction": false
+    },
+    {
+      "clip_id": "cro_den_p09_jorgensen_den9",
+      "experimental_kicking_foot_candidate": "right",
+      "method": "projected_goal_axis_approach_prior",
+      "requires_review": true,
+      "anatomical_pose_crosscheck_candidate": "unknown",
+      "pose_vs_approach_conflict": false,
+      "shoe_ball_contact_verified": false,
+      "reviewer_labels_used_for_prediction": false
+    },
+    {
+      "clip_id": "cro_den_p10_rakitic_cro7",
+      "experimental_kicking_foot_candidate": "right",
+      "method": "projected_goal_axis_approach_prior",
+      "requires_review": true,
+      "anatomical_pose_crosscheck_candidate": "unknown",
+      "pose_vs_approach_conflict": false,
+      "shoe_ball_contact_verified": false,
+      "reviewer_labels_used_for_prediction": false
+    }
+  ],
+  "source_sha256": {
+    "scripts\\finalize_goal_right_foot_redetection.py": "8d5d246be635f0da72c8369f1fde04b8bbd5696e1ed201d69e8e01b4d2e6420a",
+    "src\\kicking_foot_redetection.py": "ed587b59177377f538b33d03cb2b273070b6fc5c23ba42305078236eff26734d"
+  }
+}

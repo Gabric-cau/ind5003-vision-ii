@@ -1,0 +1,973 @@
+{
+  "policy": "pre_kick_ankle_goal_line_weighted_role_v1",
+  "status": "candidate_supported",
+  "seed_track_id": 10,
+  "candidates": [
+    {
+      "track_id": 10,
+      "score": 0.9317142024578909,
+      "eligible": true,
+      "components": {
+        "foot_goal_line": 0.9280252497014205,
+        "body_goal_mouth": 1.0,
+        "pre_visibility": 1,
+        "wrist_ready_pose": 0.7489905263703858
+      },
+      "samples": [
+        {
+          "frame": 133,
+          "foot_distance_goal_height": 0.03912376088732758,
+          "ankle_distances_goal_height": [
+            0.03912376088732758,
+            0.04928237608281015
+          ],
+          "goal_line_projection": 0.48992884823763616,
+          "body_goal_mouth": 1.0,
+          "wrist_ready_pose": 0.7902461034467116,
+          "body_height_goal_height": 0.5646354236436647,
+          "reasons": [],
+          "eligible": true
+        },
+        {
+          "frame": 135,
+          "foot_distance_goal_height": 0.04286813142678931,
+          "ankle_distances_goal_height": [
+            0.04286813142678931,
+            0.051142401967204175
+          ],
+          "goal_line_projection": 0.48916298061390384,
+          "body_goal_mouth": 1.0,
+          "wrist_ready_pose": 0.7744017130429783,
+          "body_height_goal_height": 0.5668798598060595,
+          "reasons": [],
+          "eligible": true
+        },
+        {
+          "frame": 137,
+          "foot_distance_goal_height": 0.05008454131826062,
+          "ankle_distances_goal_height": [
+            0.05008454131826062,
+            0.053199833127041525
+          ],
+          "goal_line_projection": 0.49311602749264716,
+          "body_goal_mouth": 1.0,
+          "wrist_ready_pose": 0.7923635787480696,
+          "body_height_goal_height": 0.5685227743552287,
+          "reasons": [],
+          "eligible": true
+        },
+        {
+          "frame": 139,
+          "foot_distance_goal_height": 0.05041613971687112,
+          "ankle_distances_goal_height": [
+            0.05041613971687112,
+            0.056904387883522284
+          ],
+          "goal_line_projection": 0.48262328546980604,
+          "body_goal_mouth": 1.0,
+          "wrist_ready_pose": 0.6632404561470656,
+          "body_height_goal_height": 0.5675892890254154,
+          "reasons": [],
+          "eligible": true
+        },
+        {
+          "frame": 141,
+          "foot_distance_goal_height": 0.008283083988140379,
+          "ankle_distances_goal_height": [
+            0.008283083988140379,
+            0.01451742795527949
+          ],
+          "goal_line_projection": 0.479280087655017,
+          "body_goal_mouth": 1.0,
+          "wrist_ready_pose": 0.6443949745675873,
+          "body_height_goal_height": 0.5765389508627372,
+          "reasons": [],
+          "eligible": true
+        },
+        {
+          "frame": 143,
+          "foot_distance_goal_height": 0.007034337080096991,
+          "ankle_distances_goal_height": [
+            0.007034337080096991,
+            0.0092408801978022
+          ],
+          "goal_line_projection": 0.48581832547914716,
+          "body_goal_mouth": 1.0,
+          "wrist_ready_pose": 0.7235793396977932,
+          "body_height_goal_height": 0.5583558546114854,
+          "reasons": [],
+          "eligible": true
+        }
+      ],
+      "median_foot_distance_goal_height": 0.04099594615705844,
+      "rejection_reasons": [],
+      "same_person_source_ids": [
+        10
+      ]
+    },
+    {
+      "track_id": 11,
+      "score": 0.24650595278966242,
+      "eligible": false,
+      "components": {
+        "foot_goal_line": 0.00010837331345508468,
+        "body_goal_mouth": 0.3333333333333333,
+        "pre_visibility": 1,
+        "wrist_ready_pose": 0.797742621349227
+      },
+      "samples": [
+        {
+          "frame": 133,
+          "foot_distance_goal_height": 0.44568668868199757,
+          "ankle_distances_goal_height": [
+            0.44568668868199757,
+            0.4844252019516601
+          ],
+          "goal_line_projection": 0.5240054469711923,
+          "body_goal_mouth": 1.0,
+          "wrist_ready_pose": 0.8175238171440796,
+          "body_height_goal_height": 0.7762130940868465,
+          "reasons": [
+            "feet_far_from_goal_line"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 135,
+          "foot_distance_goal_height": 0.451734658333936,
+          "ankle_distances_goal_height": [
+            0.451734658333936,
+            0.49763031143528896
+          ],
+          "goal_line_projection": 0.5183739325823484,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.803027744857115,
+          "body_height_goal_height": 0.787033634211634,
+          "reasons": [
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 137,
+          "foot_distance_goal_height": 0.4559160275397669,
+          "ankle_distances_goal_height": [
+            0.4559160275397669,
+            0.5009199244511221
+          ],
+          "goal_line_projection": 0.5191238389822079,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.7892607171933247,
+          "body_height_goal_height": 0.7832490657506108,
+          "reasons": [
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 139,
+          "foot_distance_goal_height": 0.4547384971756756,
+          "ankle_distances_goal_height": [
+            0.4547384971756756,
+            0.49753937106870105
+          ],
+          "goal_line_projection": 0.5162336414750388,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.792457497841339,
+          "body_height_goal_height": 0.7936606105369858,
+          "reasons": [
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 141,
+          "foot_distance_goal_height": 0.45827468853968195,
+          "ankle_distances_goal_height": [
+            0.45827468853968195,
+            0.49834510759553646
+          ],
+          "goal_line_projection": 0.5143540092571973,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.7879145897625427,
+          "body_height_goal_height": 0.7810253963836541,
+          "reasons": [
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 143,
+          "foot_distance_goal_height": 0.4515218364824206,
+          "ankle_distances_goal_height": [
+            0.4515218364824206,
+            0.4896933918711679
+          ],
+          "goal_line_projection": 0.5116523322995833,
+          "body_goal_mouth": 1.0,
+          "wrist_ready_pose": 0.8048611494884983,
+          "body_height_goal_height": 0.7803653525705386,
+          "reasons": [
+            "feet_far_from_goal_line"
+          ],
+          "eligible": false
+        }
+      ],
+      "median_foot_distance_goal_height": 0.4532365777548058,
+      "rejection_reasons": [
+        "feet_far_from_goal_line",
+        "torso_outside_goal_mouth"
+      ],
+      "same_person_source_ids": [
+        11
+      ]
+    },
+    {
+      "track_id": 17,
+      "score": 0.16734828016768769,
+      "eligible": false,
+      "components": {
+        "foot_goal_line": 3.8873745074015e-08,
+        "body_goal_mouth": 0.0,
+        "pre_visibility": 1,
+        "wrist_ready_pose": 0.6734825684344063
+      },
+      "samples": [
+        {
+          "frame": 133,
+          "foot_distance_goal_height": 0.6131327386617308,
+          "ankle_distances_goal_height": [
+            0.6164697633092195,
+            0.6131327386617308
+          ],
+          "goal_line_projection": 1.2526617241068068,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.6734825684344063,
+          "body_height_goal_height": 0.47553730674282335,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 135,
+          "foot_distance_goal_height": 0.620840821268475,
+          "ankle_distances_goal_height": [
+            0.6220622578498939,
+            0.620840821268475
+          ],
+          "goal_line_projection": 1.247468850457453,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": null,
+          "body_height_goal_height": 0.48041173169089907,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 137,
+          "foot_distance_goal_height": 0.6183787748169041,
+          "ankle_distances_goal_height": [
+            0.619993307239549,
+            0.6183787748169041
+          ],
+          "goal_line_projection": 1.2391690984441768,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": null,
+          "body_height_goal_height": 0.4816754779847219,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 139,
+          "foot_distance_goal_height": 0.6224937690361904,
+          "ankle_distances_goal_height": [
+            0.6235706337674316,
+            0.6224937690361904
+          ],
+          "goal_line_projection": 1.2339959580886326,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": null,
+          "body_height_goal_height": 0.4809024665929094,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 141,
+          "foot_distance_goal_height": 0.6178290787752623,
+          "ankle_distances_goal_height": [
+            0.6233429193438594,
+            0.6178290787752623
+          ],
+          "goal_line_projection": 1.2445268047310474,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": null,
+          "body_height_goal_height": 0.4814907331153465,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 143,
+          "foot_distance_goal_height": 0.6215334055461005,
+          "ankle_distances_goal_height": [
+            0.6252240954853723,
+            0.6215334055461005
+          ],
+          "goal_line_projection": 1.2292506747114176,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": null,
+          "body_height_goal_height": 0.47549118840500115,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        }
+      ],
+      "median_foot_distance_goal_height": 0.6196097980426896,
+      "rejection_reasons": [
+        "feet_far_from_goal_line",
+        "feet_outside_goal_span",
+        "torso_outside_goal_mouth"
+      ],
+      "same_person_source_ids": [
+        17
+      ]
+    },
+    {
+      "track_id": 16,
+      "score": 0.16478418060708225,
+      "eligible": false,
+      "components": {
+        "foot_goal_line": 7.26334676584196e-08,
+        "body_goal_mouth": 0.0,
+        "pre_visibility": 1,
+        "wrist_ready_pose": 0.6478413702700165
+      },
+      "samples": [
+        {
+          "frame": 133,
+          "foot_distance_goal_height": 0.5931562376444338,
+          "ankle_distances_goal_height": [
+            0.5931562376444338,
+            0.5948996330951305
+          ],
+          "goal_line_projection": 1.1542550453225489,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.6353346840957494,
+          "body_height_goal_height": 0.4902150293253697,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 135,
+          "foot_distance_goal_height": 0.6027087742774003,
+          "ankle_distances_goal_height": [
+            0.6031033894157215,
+            0.6027087742774003
+          ],
+          "goal_line_projection": 1.1523785393379344,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.65312953553327,
+          "body_height_goal_height": 0.4958496452898496,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 137,
+          "foot_distance_goal_height": 0.6086212118669615,
+          "ankle_distances_goal_height": [
+            0.6086212118669615,
+            0.6102352184870329
+          ],
+          "goal_line_projection": 1.1497224952122154,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.6449216761219263,
+          "body_height_goal_height": 0.4951625612396159,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 139,
+          "foot_distance_goal_height": 0.6087431827781397,
+          "ankle_distances_goal_height": [
+            0.6087431827781397,
+            0.6117555753894159
+          ],
+          "goal_line_projection": 1.147587413699764,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.6732261726828059,
+          "body_height_goal_height": 0.49392680880389633,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 141,
+          "foot_distance_goal_height": 0.6076869740331527,
+          "ankle_distances_goal_height": [
+            0.6076869740331527,
+            0.6083947332388139
+          ],
+          "goal_line_projection": 1.1501007509555965,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.6409100688378948,
+          "body_height_goal_height": 0.4996645838553072,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 143,
+          "foot_distance_goal_height": 0.6112487386213175,
+          "ankle_distances_goal_height": [
+            0.6112487386213175,
+            0.6139124375351742
+          ],
+          "goal_line_projection": 1.1391126111252978,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.6507610644181069,
+          "body_height_goal_height": 0.49440286349502316,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        }
+      ],
+      "median_foot_distance_goal_height": 0.6081540929500571,
+      "rejection_reasons": [
+        "feet_far_from_goal_line",
+        "feet_outside_goal_span",
+        "torso_outside_goal_mouth"
+      ],
+      "same_person_source_ids": [
+        16
+      ]
+    },
+    {
+      "track_id": 1,
+      "score": 0.15775849098898462,
+      "eligible": false,
+      "components": {
+        "foot_goal_line": 1.1097237182074846e-14,
+        "body_goal_mouth": 0.0,
+        "pre_visibility": 1,
+        "wrist_ready_pose": 0.5775849098897794
+      },
+      "samples": [
+        {
+          "frame": 133,
+          "foot_distance_goal_height": 0.8701917700544026,
+          "ankle_distances_goal_height": [
+            0.8701917700544026,
+            0.8717707453701043
+          ],
+          "goal_line_projection": -0.3455859150867496,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.5976179777839514,
+          "body_height_goal_height": 0.5754004947408395,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 135,
+          "foot_distance_goal_height": 0.8487947892111204,
+          "ankle_distances_goal_height": [
+            0.8487947892111204,
+            0.8554778289045648
+          ],
+          "goal_line_projection": -0.35213854789352295,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": null,
+          "body_height_goal_height": 0.586000439570892,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 137,
+          "foot_distance_goal_height": 0.8391082453305082,
+          "ankle_distances_goal_height": [
+            0.8391082453305082,
+            0.8472646667227578
+          ],
+          "goal_line_projection": -0.3475693437915438,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": null,
+          "body_height_goal_height": 0.5853602487380317,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 139,
+          "foot_distance_goal_height": 0.8443875234319568,
+          "ankle_distances_goal_height": [
+            0.8443875234319568,
+            0.8575891529033364
+          ],
+          "goal_line_projection": -0.3457383880518372,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.5575518419956075,
+          "body_height_goal_height": 0.5842650208292128,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 141,
+          "foot_distance_goal_height": 0.851760184851188,
+          "ankle_distances_goal_height": [
+            0.851760184851188,
+            0.8643367514665646
+          ],
+          "goal_line_projection": -0.3571296241905757,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": null,
+          "body_height_goal_height": 0.5767514291789021,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 143,
+          "foot_distance_goal_height": 0.8706649804840816,
+          "ankle_distances_goal_height": [
+            0.8706649804840816,
+            0.8845320326419073
+          ],
+          "goal_line_projection": -0.3448027030649412,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": null,
+          "body_height_goal_height": 0.5700548085689096,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        }
+      ],
+      "median_foot_distance_goal_height": 0.8502774870311542,
+      "rejection_reasons": [
+        "feet_far_from_goal_line",
+        "feet_outside_goal_span",
+        "torso_outside_goal_mouth"
+      ],
+      "same_person_source_ids": [
+        1
+      ]
+    },
+    {
+      "track_id": 44,
+      "score": 0.14374330091906,
+      "eligible": false,
+      "components": {
+        "foot_goal_line": 1.380881240889946e-26,
+        "body_goal_mouth": 0.0,
+        "pre_visibility": 0.8333333333333334,
+        "wrist_ready_pose": 0.6040996758572668
+      },
+      "samples": [
+        {
+          "frame": 133,
+          "foot_distance_goal_height": 1.1349514583709657,
+          "ankle_distances_goal_height": [
+            1.1349514583709657,
+            1.1362031303777516
+          ],
+          "goal_line_projection": -0.2266487367788191,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.6393810773657197,
+          "body_height_goal_height": 0.6304203762347877,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 135,
+          "foot_distance_goal_height": 1.1631245990286978,
+          "ankle_distances_goal_height": [
+            1.1631245990286978,
+            1.1697690921389308
+          ],
+          "goal_line_projection": -0.2305466488586683,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.6023414837436751,
+          "body_height_goal_height": 0.6231749253787928,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 137,
+          "foot_distance_goal_height": 1.1574761497317563,
+          "ankle_distances_goal_height": [
+            1.1574761497317563,
+            1.1621373515453035
+          ],
+          "goal_line_projection": -0.22550310501027288,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.6035748049565065,
+          "body_height_goal_height": 0.6225739242274945,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 139,
+          "foot_distance_goal_height": 1.1565903886884314,
+          "ankle_distances_goal_height": [
+            1.1565903886884314,
+            1.1660530990971842
+          ],
+          "goal_line_projection": -0.2207922909430462,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.6040996758572668,
+          "body_height_goal_height": 0.5999846639512461,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 141,
+          "foot_distance_goal_height": 1.1760859410022853,
+          "ankle_distances_goal_height": [
+            1.1760859410022853,
+            1.180500200204022
+          ],
+          "goal_line_projection": -0.23448835586050779,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.6120453038835237,
+          "body_height_goal_height": 0.6031740430823012,
+          "reasons": [
+            "feet_outside_goal_span",
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        }
+      ],
+      "median_foot_distance_goal_height": 1.1574761497317563,
+      "rejection_reasons": [
+        "feet_far_from_goal_line",
+        "feet_outside_goal_span",
+        "torso_outside_goal_mouth"
+      ],
+      "same_person_source_ids": [
+        44
+      ]
+    },
+    {
+      "track_id": 6,
+      "score": 0.14374174419827657,
+      "eligible": false,
+      "components": {
+        "foot_goal_line": 7.515421523659875e-21,
+        "body_goal_mouth": 0.0,
+        "pre_visibility": 0.8333333333333334,
+        "wrist_ready_pose": 0.6040841086494322
+      },
+      "samples": [
+        {
+          "frame": 133,
+          "foot_distance_goal_height": 1.0235299437521201,
+          "ankle_distances_goal_height": [
+            1.0235299437521201,
+            1.0291480233278476
+          ],
+          "goal_line_projection": 0.3835953580808006,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.6293784385001553,
+          "body_height_goal_height": 0.5367918564615429,
+          "reasons": [
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 135,
+          "foot_distance_goal_height": 1.0364304638895845,
+          "ankle_distances_goal_height": [
+            1.0416369367558234,
+            1.0364304638895845
+          ],
+          "goal_line_projection": 0.38591478422297776,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.5976556094446586,
+          "body_height_goal_height": 0.5376532727858959,
+          "reasons": [
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 137,
+          "foot_distance_goal_height": 1.0198089829214037,
+          "ankle_distances_goal_height": [
+            1.0252873893749446,
+            1.0198089829214037
+          ],
+          "goal_line_projection": 0.38455154426658594,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.6040841086494322,
+          "body_height_goal_height": 0.5371501262106717,
+          "reasons": [
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 141,
+          "foot_distance_goal_height": 1.0146146704568983,
+          "ankle_distances_goal_height": [
+            1.0146146704568983,
+            1.024328496364744
+          ],
+          "goal_line_projection": 0.3777784128871221,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.584426707103424,
+          "body_height_goal_height": 0.524521189401419,
+          "reasons": [
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        },
+        {
+          "frame": 143,
+          "foot_distance_goal_height": 1.0210729265856004,
+          "ankle_distances_goal_height": [
+            1.0210729265856004,
+            1.0264533558654427
+          ],
+          "goal_line_projection": 0.37189475550345075,
+          "body_goal_mouth": 0.0,
+          "wrist_ready_pose": 0.6180575702306417,
+          "body_height_goal_height": 0.5054989614409149,
+          "reasons": [
+            "feet_far_from_goal_line",
+            "torso_outside_goal_mouth"
+          ],
+          "eligible": false
+        }
+      ],
+      "median_foot_distance_goal_height": 1.0210729265856004,
+      "rejection_reasons": [
+        "feet_far_from_goal_line",
+        "torso_outside_goal_mouth"
+      ],
+      "same_person_source_ids": [
+        6
+      ]
+    }
+  ],
+  "excluded_pre_person_ids": [
+    11,
+    17,
+    16,
+    1,
+    44,
+    6
+  ],
+  "weights": {
+    "foot_goal_line": 0.6,
+    "body_goal_mouth": 0.2,
+    "wrist_ready_pose": 0.1,
+    "pre_visibility": 0.1
+  },
+  "geometry_sample_frames": [
+    133,
+    135,
+    137,
+    139,
+    141,
+    143
+  ],
+  "human_verified": false,
+  "identity_verified": false,
+  "calibrated_probability": false,
+  "reason": "multi_frame_feet_on_goal_line_with_auxiliary_pose",
+  "distinct_goal_person_candidates": [
+    {
+      "track_id": 10,
+      "score": 0.9317142024578909,
+      "eligible": true,
+      "components": {
+        "foot_goal_line": 0.9280252497014205,
+        "body_goal_mouth": 1.0,
+        "pre_visibility": 1,
+        "wrist_ready_pose": 0.7489905263703858
+      },
+      "samples": [
+        {
+          "frame": 133,
+          "foot_distance_goal_height": 0.03912376088732758,
+          "ankle_distances_goal_height": [
+            0.03912376088732758,
+            0.04928237608281015
+          ],
+          "goal_line_projection": 0.48992884823763616,
+          "body_goal_mouth": 1.0,
+          "wrist_ready_pose": 0.7902461034467116,
+          "body_height_goal_height": 0.5646354236436647,
+          "reasons": [],
+          "eligible": true
+        },
+        {
+          "frame": 135,
+          "foot_distance_goal_height": 0.04286813142678931,
+          "ankle_distances_goal_height": [
+            0.04286813142678931,
+            0.051142401967204175
+          ],
+          "goal_line_projection": 0.48916298061390384,
+          "body_goal_mouth": 1.0,
+          "wrist_ready_pose": 0.7744017130429783,
+          "body_height_goal_height": 0.5668798598060595,
+          "reasons": [],
+          "eligible": true
+        },
+        {
+          "frame": 137,
+          "foot_distance_goal_height": 0.05008454131826062,
+          "ankle_distances_goal_height": [
+            0.05008454131826062,
+            0.053199833127041525
+          ],
+          "goal_line_projection": 0.49311602749264716,
+          "body_goal_mouth": 1.0,
+          "wrist_ready_pose": 0.7923635787480696,
+          "body_height_goal_height": 0.5685227743552287,
+          "reasons": [],
+          "eligible": true
+        },
+        {
+          "frame": 139,
+          "foot_distance_goal_height": 0.05041613971687112,
+          "ankle_distances_goal_height": [
+            0.05041613971687112,
+            0.056904387883522284
+          ],
+          "goal_line_projection": 0.48262328546980604,
+          "body_goal_mouth": 1.0,
+          "wrist_ready_pose": 0.6632404561470656,
+          "body_height_goal_height": 0.5675892890254154,
+          "reasons": [],
+          "eligible": true
+        },
+        {
+          "frame": 141,
+          "foot_distance_goal_height": 0.008283083988140379,
+          "ankle_distances_goal_height": [
+            0.008283083988140379,
+            0.01451742795527949
+          ],
+          "goal_line_projection": 0.479280087655017,
+          "body_goal_mouth": 1.0,
+          "wrist_ready_pose": 0.6443949745675873,
+          "body_height_goal_height": 0.5765389508627372,
+          "reasons": [],
+          "eligible": true
+        },
+        {
+          "frame": 143,
+          "foot_distance_goal_height": 0.007034337080096991,
+          "ankle_distances_goal_height": [
+            0.007034337080096991,
+            0.0092408801978022
+          ],
+          "goal_line_projection": 0.48581832547914716,
+          "body_goal_mouth": 1.0,
+          "wrist_ready_pose": 0.7235793396977932,
+          "body_height_goal_height": 0.5583558546114854,
+          "reasons": [],
+          "eligible": true
+        }
+      ],
+      "median_foot_distance_goal_height": 0.04099594615705844,
+      "rejection_reasons": [],
+      "same_person_source_ids": [
+        10
+      ]
+    }
+  ],
+  "runner_up_margin": null,
+  "same_person_seed_ids": [
+    10
+  ],
+  "ambiguous_identity": false
+}

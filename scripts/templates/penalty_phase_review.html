@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>点球动作复核台 · Vision II</title>
+  <style>
+    :root{color-scheme:light;--ink:#203333;--muted:#576b6c;--border:#dce4e2;--paper:#f4f6f3;--teal:#216d64;--prep:#ddc28a;--init:#98cbb5;--approach:#41877b;--strike:#d47c68;--recovery:#a6b9d5;--unknown:#d9dfe2}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif}button,input,select{font:inherit}button,select,input[type=checkbox],input[type=range]{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.45}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #dc923c;outline-offset:3px}button{border:1px solid #b9c9c4;background:white;color:var(--ink);padding:7px 12px;border-radius:7px}button:hover:not(:disabled){border-color:var(--teal);background:#f0f7f3}a{color:var(--teal)}h1,h2,h3,p{margin:0}h1{font-size:27px;letter-spacing:.03em}h2{font-size:19px}h3{font-size:15px}small,.muted{color:var(--muted)}[hidden]{display:none!important}.shell{max-width:1360px;margin:0 auto;padding:26px 28px 40px}.top{display:flex;align-items:start;justify-content:space-between;gap:18px;margin-bottom:22px}.eyebrow{color:var(--teal);font-size:12px;font-weight:700;letter-spacing:.15em;margin-bottom:4px}.subtitle{color:var(--muted);margin-top:6px}.badge{display:inline-block;border:1px solid #c5d7cf;border-radius:5px;padding:4px 9px;font-size:12px;background:#eaf1ea;white-space:nowrap}.layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:22px;align-items:start}.panel{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px}.sidebar{position:sticky;top:18px}.field{display:block;margin-bottom:15px}.field>span{display:block;font-size:13px;font-weight:650;margin-bottom:6px}.field input[type=search],.field select{width:100%;padding:8px;border:1px solid #bfcfc8;border-radius:6px;background:#fff;color:var(--ink)}#clipSelect{height:268px;padding:3px;font-size:12px}#clipSelect option{padding:7px 5px}#clipSelect option:checked{background:#e4f0e8;color:#163e34}.check{display:flex;align-items:flex-start;gap:8px;margin:12px 0;font-size:13px}.check input{width:16px;height:16px;flex:0 0 auto;margin-top:4px;accent-color:var(--teal)}.sidebar-note{font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:14px;margin-top:14px}.main{min-width:0;display:grid;gap:16px}.viewer-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 0 12px}.viewer-head h2{font-size:20px}.clip-id{font-family:ui-monospace,Consolas,monospace;font-size:11px;color:var(--muted);overflow-wrap:anywhere}.video-wrap{position:relative;background:#142222;border-radius:8px;overflow:hidden;line-height:0}video{display:block;width:100%;height:auto;aspect-ratio:auto 16/9;background:#142222}canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.video-controls{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:12px 0 8px}.video-controls select{background:white;border:1px solid #b9c9c4;border-radius:6px;padding:7px}.readout{margin-left:auto;font:13px ui-monospace,Consolas,monospace;color:var(--muted);white-space:nowrap}.scrub{display:block;width:100%;accent-color:var(--teal);margin:10px 0}.viewer-footer{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted)}.notice{border-left:3px solid #d3a45b;padding:9px 12px;background:#fcf6eb;font-size:13px;color:#665331;border-radius:0 5px 5px 0}.error{background:#fff0ed;border:1px solid #cb786b;color:#8c3025;padding:12px;border-radius:7px;white-space:pre-line}.model-header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}.status-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}.status{padding:10px;background:#f5f7f4;border-radius:7px;font-size:12px}.status strong{display:block;font-size:15px;margin-top:2px}.jump-controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.jump-controls button{font-size:13px}.timeline-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:15px;font-size:12px;color:var(--muted)}.phase-track{position:relative;height:36px;background:var(--unknown);border:1px solid #c7d0cc;border-radius:5px;margin-top:7px;overflow:hidden}.phase-segment{position:absolute;top:0;height:100%;border:0;border-right:1px solid #ffffffb3;border-radius:0;padding:0 3px;overflow:hidden;white-space:nowrap;font-size:11px;color:#183131}.phase-segment.approach{color:white}.phase-segment:hover:not(:disabled){filter:brightness(.92);border-color:white}.needle{position:absolute;top:0;bottom:0;width:2px;background:#122e2b;pointer-events:none;z-index:5}.event-track{position:relative;min-height:31px;margin-top:4px;border-bottom:1px solid #dee5e1}.event-tick{position:absolute;top:0;width:12px;height:26px;transform:translateX(-50%);padding:0;border:none;border-radius:2px;background:transparent}.event-tick:before{content:"";position:absolute;left:5px;top:3px;width:2px;height:16px;background:#216d64}.event-tick.ambiguous:before{background:#b86931}.event-tick:hover:not(:disabled){background:#dcebe2}.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:11px;color:var(--muted);margin:9px 0}.legend span{display:inline-flex;align-items:center;gap:5px}.swatch{width:10px;height:10px;border-radius:2px;display:inline-block}.phase-now{font-size:12px;min-height:22px;color:var(--muted)}table{border-collapse:collapse;width:100%;font-size:13px;margin:10px 0}caption{text-align:left;font-weight:650;margin:10px 0 5px}th,td{text-align:right;padding:9px 7px;border-bottom:1px solid #e4eae7;vertical-align:top}th:first-child,td:first-child{text-align:left}thead th{font-size:12px;color:var(--muted);background:#f5f7f4}td.nominal,th.nominal{background:#f0f6ee}.table-wrap{overflow-x:auto}.table-note{font-size:12px;color:var(--muted)}.tags{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0}.tag{font-size:12px;background:#eff3f6;border:1px solid #d9e2e8;padding:4px 8px;border-radius:5px}.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.detail-grid ul{padding-left:18px;font-size:12px;color:var(--muted);margin:7px 0}.detail-grid li{margin:5px 0}.details{border-top:1px solid var(--border);margin-top:16px;padding-top:12px}.details summary{cursor:pointer;font-size:13px;font-weight:600}.event-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px;max-height:180px;overflow:auto}.event-list button{font-size:11px;padding:4px 7px}.event-list button.ambiguous{border-color:#d39d67;background:#fff5e7}.empty{padding:12px;color:var(--muted);font-size:13px}.blind-message{display:none;padding:13px 16px;border:1px dashed #95aaa1;border-radius:8px;background:#edf3ed;font-size:13px}body.blind [data-model]{display:none!important}body.blind .blind-message{display:block}.footnote{font-size:12px;color:var(--muted);margin-top:18px}.kbd{font:11px ui-monospace,Consolas,monospace;border:1px solid #cbd6d1;background:#fff;border-radius:3px;padding:1px 4px}.empty-data{margin-top:15px}
+    @media(max-width:900px){.shell{padding:20px 15px}.layout{grid-template-columns:1fr}.sidebar{position:static;display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.sidebar-note{grid-column:1/-1}#clipSelect{height:122px}.top{flex-direction:column;gap:8px}.detail-grid{grid-template-columns:1fr}.status-grid{grid-template-columns:1fr 1fr 1fr}.readout{width:100%;margin-left:0}}@media(max-width:520px){.shell{padding:14px 10px}.panel{padding:13px}h1{font-size:23px}.sidebar{grid-template-columns:1fr}.status-grid{grid-template-columns:1fr}.viewer-head{align-items:start;flex-direction:column}.video-controls button{font-size:12px;padding:6px 8px}th,td{padding:7px 5px;font-size:12px}.model-header{align-items:start;flex-direction:column}}
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header class="top">
+    <div><div class="eyebrow">VISION II · LOCAL REVIEW</div><h1>点球动作复核台</h1><p class="subtitle">先看完整原片，再检查人物、动作阶段与步伐候选。</p></div>
+    <span class="badge">算法候选 · 未经逐帧人工确认</span>
+  </header>
+  <div id="fatalError" class="error" role="alert" hidden></div>
+  <div class="layout" id="application">
+    <aside class="panel sidebar" aria-label="视频与复核设置">
+      <div>
+        <label class="field"><span id="clipCountLabel">选择视频</span><input id="clipSearch" type="search" placeholder="搜索球员或比赛" aria-label="搜索球员、比赛或视频编号"></label>
+        <label class="field"><span class="muted">球员 / 罚球序号</span><select id="clipSelect" size="9" aria-label="选择要复核的视频"></select></label>
+        <label class="field" id="styleFilterField" data-model hidden><span>按本次罚球方式筛选</span><select id="styleFilter"><option value="all">全部方式</option><option value="continuous_approach_candidate">连续助跑候选</option><option value="terminal_adjustment_candidate">末段调整候选</option><option value="undetermined">暂不能判断</option></select></label>
+      </div>
+      <div>
+        <label class="field" id="variantField" data-model><span>姿态版本（同一原视频）</span><select id="variantSelect"><option value="original">缓存姿态 · 基础版本</option><option value="refined">增强姿态 · 对照实验</option></select></label>
+        <label class="check"><input id="blindToggle" type="checkbox"><span><strong>盲看：隐藏算法结果</strong><br><small>隐藏计数、时间标记和姿态叠加，先独立判断。</small></span></label>
+        <label class="check" data-model><input id="overlayToggle" type="checkbox"><span>叠加关联人物框和脚踝估计<br><small>黄框：关联人物；蓝/粉点：左右踝估计。</small></span></label>
+      </div>
+      <p class="sidebar-note">此页面只读，不保存、上传或自动生成“人工复核”记录。可把你的观察反馈到聊天中。<br><br><span class="kbd">←</span> / <span class="kbd">→</span> 单帧移动；<span class="kbd">空格</span> 播放 / 暂停。输入框内不触发快捷键。</p>
+    </aside>
+    <main class="main">
+      <section class="panel" aria-label="完整视频播放器">
+        <div class="viewer-head"><div><h2 id="clipTitle">正在读取视频列表…</h2><p id="clipId" class="clip-id"></p></div><small id="clipPosition"></small></div>
+        <div class="video-wrap"><video id="video" controls preload="metadata" playsinline aria-label="点球完整原视频"></video><canvas id="overlay" aria-hidden="true"></canvas></div>
+        <div id="mediaError" class="error" role="alert" hidden></div>
+        <div class="video-controls">
+          <button id="previousFrame" type="button" aria-label="后退一帧">← 上一帧</button>
+          <button id="playPause" type="button">播放</button>
+          <button id="nextFrame" type="button" aria-label="前进一帧">下一帧 →</button>
+          <label for="speed" class="muted">速度</label><select id="speed"><option value="0.25">0.25×</option><option value="0.5" selected>0.5×</option><option value="1">1×</option></select>
+          <span id="timeReadout" class="readout">0.000 s · f0</span>
+        </div>
+        <input id="scrub" class="scrub" type="range" min="0" max="1" value="0" step="1" aria-label="按原视频帧号定位">
+        <div class="viewer-footer"><span>完整原片；后续回放未裁剪。帧号从 0 开始。</span><span id="overlayStatus" data-model></span></div>
+      </section>
+      <p class="blind-message">盲看已开启。当前只显示完整原视频和播放控件；算法结果没有被删除，关闭盲看即可对照。</p>
+      <section id="stepStylePanel" class="panel" data-model hidden aria-label="按本次罚球方式分析步数">
+        <div class="model-header"><h2>本次罚球方式与步数</h2><span class="badge">按单次罚球 · 不给球员固定贴标签</span></div>
+        <p id="styleOverview" class="table-note"></p>
+        <div class="status-grid"><div class="status">本次方式<strong id="attemptStyle"></strong></div><div class="status">名义助跑总候选<strong id="styleStepCount"></strong></div><div class="status">阈值与触球边界变化范围<strong id="styleCountRange"></strong></div></div>
+        <p id="styleCountPolicy" class="notice"></p>
+        <div class="table-wrap"><table id="styleCountBreakdown"><caption>计数归属：不按类型增删候选</caption><thead><tr><th>统计范围</th><th>本次候选数</th></tr></thead><tbody></tbody></table></div>
+        <p class="table-note">总数含单列的触球保护区候选；这些可能是落脚，也可能是摆腿，尚未确认。类型未定仍可保留总数。“—”不是0。参数范围不是置信区间或人工允许误差。前段直线/弧线独立描述，不决定步伐类型。</p>
+        <details class="details"><summary>为什么这样分类？查看证据与限制</summary><ul id="styleReasons" class="table-note"></ul><p id="styleRhythmEvidence" class="table-note"></p></details>
+      </section>
+      <section id="terminalPanel" class="panel" data-model hidden aria-label="前段路线与末段调整独立分析">
+        <div class="model-header"><h2>前段路线 × 末段节奏</h2><span class="badge">新版 · 两个独立维度</span></div>
+        <p class="notice">先排除触球附近的摆腿歧义，再寻找相对前段持续出现的节奏或推进量变化。不预设最后三步或五步，也不把脚踝轨迹当成脚踝控制。</p>
+        <div class="status-grid"><div class="status">路线背景<strong id="routeDescription"></strong></div><div class="status">末段调整<strong id="terminalDescription"></strong></div><div class="status">脚踝控制<strong>当前模型不可测</strong></div></div>
+        <p id="routeScope" class="table-note"></p>
+        <div class="jump-controls"><button id="jumpTerminalReview" type="button">回看末段搜索窗口</button><button id="jumpTerminal" type="button">跳到末段变化候选</button></div>
+        <div id="terminalTrack" class="phase-track" aria-label="末段分界与触球保护区"></div>
+        <p id="terminalBoundary" class="table-note"></p>
+        <div class="table-wrap"><table id="terminalCounts"><caption>总候选数保留，末段不强行分配</caption><thead><tr><th>统计范围</th><th>敏感</th><th class="nominal">中等</th><th>严格</th></tr></thead><tbody></tbody></table></div>
+        <p class="table-note">同一列的前段、末段、未发现分界、证据不足、姿态缺失、触球保护区互不重叠，相加等于名义助跑总候选。“—”不是 0；触球保护区可能含最后的真实支撑落脚，保留供复核，不擅自删除。</p>
+        <div id="terminalEvidence" class="tags"></div>
+        <ul id="terminalWarnings" class="table-note"></ul>
+        <details class="details"><summary>查看相邻候选间隔：节奏与图像推进量</summary><div class="table-wrap"><table id="terminalIntervals"><thead><tr><th>原片帧区间</th><th>间隔 / 秒</th><th>髋部推进 / 人物框高</th><th>区间支持</th></tr></thead><tbody></tbody></table></div><p class="table-note">推进量是稳定图像上两次候选之间的髋部位移，不是脚的真实步长；时间间隔也不是已验证步频。曲线路线使用局部位移，不按一个固定全局轴投影。</p></details>
+      </section>
+      <section id="modelPanel" class="panel" data-model aria-label="算法候选与不确定性">
+        <div class="model-header"><h2>算法候选对照</h2><span id="poseSource" class="badge"></span></div>
+        <p class="notice">下面是自动推断，不是标准答案。“候选”是脚踝运动信号中的峰谷，不等于已经确认落脚。触球锚点也可能接近支撑脚与球相遇的时刻，需看原片核对。</p>
+        <div class="status-grid"><div class="status">动作分段<strong id="phaseStatus"></strong></div><div class="status">触球附近证据<strong id="contactStatus"></strong></div><div class="status">镜头运动补偿<strong id="cameraStatus"></strong></div></div>
+        <div class="jump-controls"><button id="jumpShot" type="button">跳到分析镜头</button><button id="jumpOnset" type="button">跳到推断起步</button><button id="jumpContact" type="button">跳到触球附近候选</button></div>
+        <div class="timeline-head"><strong>阶段时间线（仅分析镜头）</strong><span id="timelineRange"></span></div>
+        <div id="phaseTrack" class="phase-track" aria-label="点击动作阶段跳转视频"><div id="timelineNeedle" class="needle" hidden></div></div>
+        <div id="eventTrack" class="event-track" aria-label="点击步伐候选跳转视频"></div>
+        <div class="legend" id="phaseLegend"></div>
+        <p id="phaseNow" class="phase-now"></p>
+        <p class="table-note">下方竖线为中等阈值候选；橙色表示落在触球不确定窗口内，不能直接当成助跑落脚。</p>
+        <div class="table-wrap"><table id="countTable"><caption>候选数量：阈值与动作阶段分开看</caption><thead><tr><th scope="col">统计范围</th><th scope="col">敏感</th><th scope="col" class="nominal">中等</th><th scope="col">严格</th></tr></thead><tbody></tbody></table></div>
+        <p id="countNote" class="table-note"></p>
+        <div class="detail-grid"><div><h3>可解释的动作描述</h3><div id="styleTags" class="tags"></div><p class="table-note">横移、弯曲和绕圈仅指图像平面的轨迹候选；不代表已确认的地面圆形路线或真实冲刺速度。准备期也可能包含站立等待。</p></div><div><h3>需要注意</h3><ul id="warnings"></ul></div></div>
+        <details class="details"><summary>逐项候选：点击回看附近帧</summary><div id="eventList" class="event-list"></div></details>
+        <details class="details"><summary>旧版参考与这条视频的复核提示（都不是逐帧真值）</summary><p id="baselineNote" class="table-note" style="margin-top:9px"></p><p id="userReference" class="notice" style="margin-top:9px" hidden></p></details>
+      </section>
+      <p class="footnote">本地离线复核工具 · 不调用外部服务 · 参数敏感性范围不是统计置信区间，也不是准确率。</p>
+    </main>
+  </div>
+</div>
+<script src="review-data.js"></script>
+<script>
+"use strict";
+(() => {
+  const $ = id => document.getElementById(id);
+  const data = window.PENALTY_PHASE_REVIEW;
+  if (!data || !Array.isArray(data.clips) || !data.clips.length) {
+    $("fatalError").hidden = false;
+    $("fatalError").textContent = "没有加载到复核数据。请确认此页面旁边有 review-data.js，并通过项目提供的本地服务器打开。";
+    $("application").hidden = true;
+    return;
+  }
+  const phases = {
+    preparation_adjustment:{label:"准备 / 调整",color:"var(--prep)"},
+    initiation:{label:"起步",color:"var(--init)"},
+    approach:{label:"助跑接近",color:"var(--approach)"},
+    strike:{label:"踢球附近",color:"var(--strike)"},
+    recovery:{label:"随动恢复",color:"var(--recovery)"},
+    unknown:{label:"不能确定",color:"var(--unknown)"}
+  };
+  const phaseLabel = value => (phases[value] || phases.unknown).label;
+  const phaseNames = {provisional:"候选分段 · 待复核",partially_segmented:"仅部分可分段",abstained:"证据不足，未强行分段"};
+  const evidenceNames = {supported:"证据支持（非人工确认）",tentative:"暂定 · 证据有限",ambiguous:"有歧义",abstained:"证据不足",unavailable:"不可用",partial:"不完整",unknown:"未确认"};
+  const countries = {col:"哥伦比亚",eng:"英格兰",cro:"克罗地亚",den:"丹麦",esp:"西班牙",rus:"俄罗斯"};
+  const styleNames = {
+    lateral_adjustment_relative_to_approach_image_plane:"相对助跑方向的横移候选",
+    curved_preparation_image_plane:"准备期弯曲轨迹候选",
+    curved_approach_image_plane:"助跑期弯曲轨迹候选",
+    loop_like_preparation_image_plane_candidate:"准备期绕圈状投影候选",
+    pace_increase_image_plane:"图像平面速度增加",
+    pause_or_stutter_image_plane_candidate:"短暂停顿 / 节奏变化候选",
+    multiple_small_ankle_excursion_candidates:"多次小幅脚踝运动候选",
+    dense_low_progress_movement_image_plane_candidate:"密集、低推进量动作候选（非真实步长）"
+  };
+  const terminalNames = {candidate_change:"发现末段变化候选",no_distinct_change_detected:"未发现清晰的末段分界",insufficient_evidence:"证据不足，暂不分配末段步数"};
+  const terminalTags = {rhythm_compression:"候选节奏变密",rhythm_lengthening:"候选节奏变慢",lower_projected_progress:"候选间髋部推进量减小"};
+  const attemptStyleNames = {continuous_approach_candidate:"连续助跑候选",terminal_adjustment_candidate:"末段调整候选",undetermined:"暂不能判断"};
+  const routeNames = {curved_image_plane:"弧线投影候选",approximately_straight_image_plane:"近似直线投影",mixed_or_indeterminate_image_plane:"路线形状未定"};
+  const roleNames = {before_terminal:"末段前候选",terminal_adjustment_candidate:"末段调整候选",contact_guard:"触球保护区",no_distinct_split:"未发现分界",unresolved_prestrike:"末段证据不足",pose_gap:"姿态缺失",pre_approach_context:"助跑前背景动作",at_or_after_nominal_contact:"名义触球后候选",unresolved:"归属未定"};
+  const warningNames = {
+    camera_motion_not_fully_resolved:"镜头运动没有完全消除，路径方向和弯曲判断可能受影响。",
+    early_body_motion_separated_by_net_progress_gate:"起步边界增加累计前进量检查，已将更早的微小身体运动分开；边界仍是候选。",
+    net_progress_confirmation_unavailable:"短窗口累计前进证据不足；起点只保留暂定，不能当成精确起步。",
+    camera_support_supplied_without_stabilized_coordinates:"没有可用的稳定坐标。",
+    substantial_box_scale_change_projection_or_zoom:"人物尺度变化明显，可能受透视或镜头变焦影响。",
+    incomplete_pose_coverage:"部分时段缺少可靠姿态。",
+    long_pose_gaps_not_interpolated:"长缺帧没有补造轨迹，相应区间保留不确定。",
+    short_pose_gaps_interpolated:"短缺帧使用插值，不是每一帧都有真实检测。",
+    insufficient_pose_track:"姿态轨迹不足，不能可靠分段。",
+    empty_pose_track:"没有可用的人物姿态轨迹。",
+    kick_anchor_missing_low_confidence_or_outside_track:"触球锚点缺失、置信不足或不在轨迹内。",
+    kick_anchor_in_pose_gap:"触球候选附近缺少可靠姿态。",
+    no_supported_terminal_approach_bout:"没有找到证据足够的连续接近球片段。",
+    approach_may_be_left_censored:"镜头开始时球员可能已在助跑，前面的步伐不可见。",
+    keypoint_confidences_unavailable:"部分关键点置信信息不可用。",
+    anatomical_landing_foot_unspecified:"峰谷方向不能可靠确定是哪只脚落地。",
+    kick_swing_near_contact_requires_review:"触球附近的候选可能来自摆腿，而不是落脚。",
+    extrema_are_not_verified_landing_contacts:"信号峰谷尚未确认对应真实落脚。",
+    same_count_across_thresholds_does_not_validate_count:"阈值变化后数量一致，也不能证明计数正确。",
+    ankle_phase_signal_too_small:"脚踝运动信号太弱。",
+    insufficient_valid_pose:"可用姿态不足。",
+    identity_or_contact_unresolved:"罚球者身份关联或触球附近证据未解决。",
+    ankle_phase_axis_ambiguous:"脚踝运动主方向不明确，候选会受投影方向影响。",
+    unanchored_scope_may_include_recovery:"没有可靠触球锚点，可见轨迹可能包括射门后动作。",
+    contact_anchor_unavailable_scope_not_known_precontact:"没有可靠触球锚点，不能把整段轨迹当作触球前动作。",
+    precontact_axis_may_include_kicking_swing:"用于估计脚部运动方向的时段可能包含踢球摆腿。",
+    experimental_not_human_verified:"此结果属于算法实验，未被人工逐帧确认。",
+    confidence_is_heuristic_not_calibrated:"置信分数是规则评分，不是经校准的正确概率。"
+  };
+  const original = new Map(data.clips.map(clip => [clip.clip_id, clip]));
+  const refined = new Map((data.refined_clips || []).map(clip => [clip.clip_id, clip]));
+  const ordered = Array.from(original.keys());
+  const video = $("video");
+  const canvas = $("overlay");
+  const context = canvas.getContext("2d");
+  const state = {clipId:null,clip:null,variant:"original",overlay:new Map(),labels:new Map(),pendingFrame:null};
+  const finite = value => typeof value === "number" && Number.isFinite(value);
+  const numeric = value => finite(value) ? String(value) : "—";
+  const seconds = (frame, fps) => finite(frame) && finite(fps) && fps > 0 ? (frame / fps).toFixed(2) + " s" : "—";
+  const friendly = cid => {
+    const match = cid.match(/^([a-z]+)_([a-z]+)_p(\d+)_(.+)_([a-z]+\d+)$/i);
+    if (!match) return cid;
+    const player = match[4].replace(/_/g," ").replace(/\b\w/g,c=>c.toUpperCase());
+    return {player,match:(countries[match[1]]||match[1])+"—"+(countries[match[2]]||match[2]),number:Number(match[3])};
+  };
+  const shortName = cid => { const v=friendly(cid); return typeof v==="string"?v:v.player+" · 第 "+v.number+" 球"; };
+  const fullName = cid => { const v=friendly(cid); return typeof v==="string"?v:v.player+" · "+v.match; };
+  function element(tag, text, className) {
+    const node=document.createElement(tag); if (text!==undefined) node.textContent=text; if(className)node.className=className; return node;
+  }
+  function filterClips() {
+    const q=$("clipSearch").value.trim().toLowerCase();
+    const type=$("styleFilter").value;
+    $("clipSelect").replaceChildren();
+    let shown=0;
+    ordered.forEach(cid=>{
+      if(q && !(cid+" "+fullName(cid)).toLowerCase().includes(q))return;
+      if(type!=="all"&&original.get(cid).step_analysis?.attempt_style!==type)return;
+      const option=element("option",shortName(cid));option.value=cid;option.title=fullName(cid);$("clipSelect").append(option);shown++;
+    });
+    $("clipSelect").value=state.clipId||"";
+    $("clipCountLabel").textContent="选择视频（"+shown+" / "+ordered.length+"）";
+  }
+  function maxFrame() {
+    const source=state.clip?.source_frame_count;
+    return Math.max(0,finite(source)?source-1:Math.floor((finite(video.duration)?video.duration:0)*(state.clip?.fps||30))-1);
+  }
+  function frameAtTime(time) {return Math.max(0,Math.min(maxFrame(),Math.floor(time*(state.clip?.fps||30)+0.0001)));}
+  function currentFrame() {return frameAtTime(video.currentTime);}
+  function seek(frame) {
+    if(!state.clip||!finite(frame))return;
+    const destination=Math.max(0,Math.min(maxFrame(),Math.round(frame)));
+    video.pause();
+    if(video.readyState<1){state.pendingFrame=destination;return;}
+    video.currentTime=(destination+0.001)/state.clip.fps;
+    $("scrub").value=String(destination);
+    updatePlayhead();
+  }
+  function mediaPrefix(){const prefix=data.media_prefix||"media/";return prefix.endsWith("/")?prefix:prefix+"/";}
+  function setClip(cid, preserveTime=false) {
+    if(!original.has(cid))return;
+    const same=cid===state.clipId;
+    const oldFrame=currentFrame();
+    const requested=$("variantSelect").value;
+    state.variant=requested==="refined"&&refined.has(cid)?"refined":"original";
+    state.clip=state.variant==="refined"?refined.get(cid):original.get(cid);
+    state.clipId=cid;
+    $("variantSelect").value=state.variant;
+    $("variantSelect").querySelector('[value="refined"]').disabled=!refined.has(cid);
+    $("variantField").hidden=refined.size===0;
+    $("clipSelect").value=cid;
+    $("clipTitle").textContent=fullName(cid);
+    $("clipId").textContent=cid;
+    $("clipPosition").textContent=(ordered.indexOf(cid)+1)+" / "+ordered.length;
+    state.overlay=new Map((state.clip.review_overlay||[]).map(item=>[item.frame,item]));
+    state.labels=new Map((state.clip.phase_result?.frame_labels||[]).map(item=>[item.frame,item]));
+    $("scrub").max=String(maxFrame());
+    $("mediaError").hidden=true;
+    if(!same){video.pause();video.src=mediaPrefix()+encodeURIComponent(cid)+".mp4";state.pendingFrame=0;video.load();}
+    else if(preserveTime){state.pendingFrame=null;seek(oldFrame);}
+    renderModel();updatePlayhead();
+  }
+  function renderModel() {
+    renderStepStyle();
+    renderTerminal();
+    const clip=state.clip, phase=clip.phase_result||{}, contact=clip.contact||{}, camera=clip.camera_motion||{};
+    $("poseSource").textContent=state.variant==="refined"?"增强姿态 · 实验对照":"缓存姿态 · 基础版本";
+    $("poseSource").title=clip.pose_source||"";
+    $("phaseStatus").textContent=phaseNames[phase.status]||phase.status||"未提供";
+    $("contactStatus").textContent=evidenceNames[contact.status]||contact.status||"未提供";
+    $("cameraStatus").textContent=camera.status==="supported"?"连续补偿可用（仍是二维）":camera.status==="partial"?"不完整 · 分段使用原坐标":"补偿不可用 / 未确认";
+    $("jumpOnset").disabled=!finite(phase.approach_start_frame);
+    $("jumpContact").disabled=!finite(contact.contact_frame);
+    $("jumpOnset").title=seconds(phase.approach_start_frame,clip.fps);
+    $("jumpContact").title="候选 f"+numeric(contact.contact_frame)+" · "+seconds(contact.contact_frame,clip.fps);
+    const a=clip.shot_start_frame||0,b=clip.shot_end_frame_exclusive||maxFrame()+1,span=Math.max(1,b-a);
+    $("timelineRange").textContent=seconds(a,clip.fps)+" — "+seconds(b,clip.fps)+" · f"+a+"–"+(b-1);
+    const phaseTrack=$("phaseTrack"),needle=$("timelineNeedle");phaseTrack.replaceChildren(needle);
+    (phase.segments||[]).forEach(segment=>{
+      const start=Math.max(a,segment.start_frame),end=Math.min(b,segment.end_frame);if(end<=start)return;
+      const description=phaseLabel(segment.phase)+" · f"+start+"–"+(end-1)+" · "+seconds(start,clip.fps);
+      const button=element("button",(end-start)/span>.095?phaseLabel(segment.phase):"","phase-segment "+segment.phase);
+      button.type="button";button.style.left=((start-a)/span*100)+"%";button.style.width=((end-start)/span*100)+"%";
+      button.style.background=(phases[segment.phase]||phases.unknown).color;button.title=description;button.setAttribute("aria-label","跳到"+description);button.addEventListener("click",()=>seek(start));phaseTrack.append(button);
+    });
+    $("phaseLegend").replaceChildren();
+    Object.values(phases).forEach(p=>{const label=element("span");const swatch=element("i",undefined,"swatch");swatch.style.background=p.color;label.append(swatch,document.createTextNode(p.label));$("phaseLegend").append(label);});
+    $("eventTrack").replaceChildren();$("eventList").replaceChildren();
+    const events=phase.events||clip.event_proposal?.events||[];
+    events.forEach((event,index)=>{
+      if(!finite(event.frame))return;
+      const ambiguous=Boolean(event.within_contact_uncertainty_window);
+      const terminalRole=clip.footwork_result?.events?.find(e=>e.frame===event.frame)?.role;
+      const label="#"+(index+1)+" · f"+event.frame+" · "+seconds(event.frame,clip.fps)+" · "+phaseLabel(event.phase)+(terminalRole?" · "+(roleNames[terminalRole]||terminalRole):"")+(ambiguous?" · 触球窗口有歧义":"");
+      if(event.frame>=a&&event.frame<b){const tick=element("button","","event-tick"+(ambiguous?" ambiguous":""));tick.type="button";tick.style.left=((event.frame-a)/span*100)+"%";tick.title=label;tick.setAttribute("aria-label","跳到候选 "+label);tick.addEventListener("click",()=>seek(event.frame));$("eventTrack").append(tick);}
+      const item=element("button",label,ambiguous?"ambiguous":"");item.type="button";item.addEventListener("click",()=>seek(event.frame));$("eventList").append(item);
+    });
+    if(!events.length){$("eventList").append(element("p","没有可用的中等阈值候选；不表示实际走了 0 步。","empty"));}
+    const variants=clip.count_sensitivity||{};
+    const definitions=[
+      ["全部可见候选",v=>v.all_visible_candidate_events??v.all_visible_precontact_candidates],
+      ["准备 / 调整期候选",v=>v.preparation_candidates],
+      ["助跑区间候选（名义边界）",v=>v.approach_candidates_including_precontact_strike_window],
+      ["触球窗口内有歧义",v=>v.contact_window_ambiguous_candidates],
+      ["阶段不能确定的候选",v=>v.unknown_candidates],
+      ["触球边界变化后的助跑候选",v=>{
+        const early=v.approach_count_with_early_contact_boundary,late=v.approach_count_with_late_contact_boundary;
+        return finite(early)&&finite(late)?Math.min(early,late)+"–"+Math.max(early,late):null;
+      }]
+    ];
+    const tbody=$("countTable").querySelector("tbody");tbody.replaceChildren();
+    definitions.forEach(([label,getter])=>{const row=element("tr");const th=element("th",label);th.scope="row";row.append(th);["sensitive","central","strict"].forEach(name=>{const value=getter(variants[name]||{});row.append(element("td",value===null||value===undefined?"—":String(value),name==="central"?"nominal":""));});tbody.append(row);});
+    $("countNote").textContent="“—”表示证据不足或未估计，不等于 0。敏感 / 中等 / 严格改变峰谷显著度；边界范围改变触球附近的截止位置。两者都是参数敏感性，不是置信区间。准备期、助跑区间与触球歧义行的范围不同，不应直接相加。";
+    $("styleTags").replaceChildren();
+    const tags=phase.style_tags||[];
+    if(!tags.length)$("styleTags").append(element("p","没有足够证据给出动作风格标签。","table-note"));
+    tags.forEach(tag=>{const node=element("span",styleNames[tag.tag]||tag.tag,"tag");node.title="候选 · "+seconds(tag.start_frame,clip.fps)+"–"+seconds(tag.end_frame,clip.fps)+" · 非人工确认";$("styleTags").append(node);});
+    const warnings=[...new Set([...(phase.warnings||[]),...(contact.warnings||[]),...(clip.event_proposal?.warnings||[])])];
+    $("warnings").replaceChildren();
+    const comparison=clip.pose_ablation_comparison;
+    if(comparison&&Math.abs(comparison.candidate_count_difference||0)>=2)$("warnings").append(element("li","姿态模型对照有明显分歧：原姿态 "+comparison.original_nominal_candidates+"，增强姿态 "+comparison.refined_nominal_candidates+" 个助跑候选；不能只选更符合预期的版本。"));
+    if(comparison&&Math.abs(comparison.onset_difference_frames||0)>4)$("warnings").append(element("li","两种姿态的起点相差 "+Math.abs(comparison.onset_difference_frames)+" 帧，超过默认边界提示宽度；起点需要复核。"));
+    if(comparison&&!comparison.style_tags_match)$("warnings").append(element("li","动作描述随姿态版本发生变化，不能把单版本风格标签当作定论。"));
+    if(camera.status!=="supported")$("warnings").append(element("li","镜头补偿未完整通过；当前路径分段可能使用原图坐标，不能据此确认真实横移、圆形路线或速度。"));
+    warnings.forEach(w=>$("warnings").append(element("li",warningNames[w]||("诊断标记："+w))));
+    if(!warnings.length)$("warnings").append(element("li","即使没有诊断警告，结果仍需人工复核，不能称为已验证正确。"));
+    const old=clip.baseline||{};
+    $("baselineNote").textContent="旧版自动候选："+numeric(old.step_count)+"；旧版踢球估计："+seconds(old.kick_frame,clip.fps)+"。人物关联"+(old.same_identity_as_contact_association?"与本次一致":"与本次不同或尚未确定，不能直接比较计数")+"。旧版输出不是人工标签，新版变化也不自动代表改进。";
+    $("userReference").hidden=!clip.user_reference;
+    if(clip.user_reference){const ref=clip.user_reference;$("userReference").textContent="这条视频的用户粗看意见：约 "+numeric(ref.approximate_steps)+" 步，可接受区间 "+(ref.acceptable_interval_this_clip_only||[]).join("–")+"。仅适用于这一条，不是精确逐帧真值，也没有确认各个落脚帧。";}
+  }
+  function renderStepStyle() {
+    const r=state.clip.step_analysis;
+    $("stepStylePanel").hidden=!r;$("styleFilterField").hidden=!r;if(!r)return;
+    const summary=data.summary,types=summary.attempt_styles||{};
+    $("styleOverview").textContent="基础姿态全 "+summary.clips+" 条：连续助跑候选 "+(types.continuous_approach_candidate||0)+"，末段调整候选 "+(types.terminal_adjustment_candidate||0)+"，暂不能判断 "+(types.undetermined||0)+"。其中 "+summary.count_available+" 条保留总候选数；类型未定不等于提取失败。筛选始终按基础姿态分类。";
+    $("attemptStyle").textContent=attemptStyleNames[r.attempt_style]||r.attempt_style;
+    $("styleStepCount").textContent=numeric(r.candidate_step_count);
+    const range=r.count_sensitivity.threshold_and_contact_range;
+    $("styleCountRange").textContent=range?range.join("–"):"—";
+    const policies={whole_continuous_approach:"连续助跑候选：整体计数，不强行拆出末段碎步。只表示可见候选节奏较连续，不证明完全没有调整；整体均匀的密集小步也可属于此类。",split_at_terminal_boundary:"末段调整候选：总数保持不变，另列末段前、末段和触球保护区。分界仍须复核。",whole_approach_type_unresolved:"本次方式暂不能判断：有总候选数就保留，但不强行分配连续型或末段型步数；未知不填0。"};
+    $("styleCountPolicy").textContent=policies[r.count_policy]||r.count_policy;
+    const rows=[["名义助跑总候选",r.candidate_step_count]];
+    const p=r.count_partition;
+    if(r.count_policy==="whole_continuous_approach")rows.push(["连续助跑范围（保护区外）",p.continuous_approach]);
+    else if(r.count_policy==="split_at_terminal_boundary")rows.push(["末段之前",p.before_terminal],["末段调整",p.terminal_adjustment]);
+    else rows.push(["类型未定，未拆分（保护区外）",p.type_unresolved]);
+    rows.push(["触球保护区（仍含在总数内）",p.contact_guard],["姿态缺失区（仍含在总数内）",p.pose_gap],["助跑前背景动作候选（不计入总数）",r.before_approach_context_candidates]);
+    const tbody=$("styleCountBreakdown").querySelector("tbody");tbody.replaceChildren();
+    rows.forEach(([name,value])=>{const row=element("tr");row.append(element("th",name),element("td",numeric(value)));tbody.append(row);});
+    const words={approach_or_contact_unresolved:"上游人物、触球或助跑范围未解决。",sustained_terminal_change_in_default_analysis:"默认分析发现持续的末段变化，保留其候选分界。",too_few_intervals_for_continuity:"至少需要两个可用间隔，当前不足。",candidate_intervals_missing_or_pose_gap:"候选间隔缺失或跨越了姿态缺帧。",continuity_pose_coverage_insufficient:"直接检测和可用姿态覆盖不足，不能把没检测到变化当成连续。",candidate_rhythm_not_regular_enough:"候选节奏不够稳定，但也未形成可信的末段变化分界。",pause_evidence_prevents_continuous_label:"有停顿候选，暂不能标为连续助跑。",parameter_variants_disagree_about_terminal_change:"参数变体中有末段变化证据，不能直接判为连续。",continuity_sensitivity_checks_incomplete:"敏感性对照不完整，暂不能给连续标签。",terminal_tail_not_observed:"末段尾部未充分观测。",candidate_axis_unreliable_for_terminal_split:"候选信号方向不够可靠。",regular_candidate_rhythm_with_pose_and_tail_support_no_change_evidence:"姿态/尾部观测与候选节奏满足连续型规则，参数对照未发现末段变化。",short_approach_regular_rhythm_not_a_proven_negative_change_test:"短助跑可显示较连续的候选节奏，但不足以拟合前后各两个间隔的变化点模型；不是已证明无调整。",terminal_parameter_sensitive:"末段判断对参数敏感。",tentative_contact_anchor:"触球锚点暂定，计数和类型同样暂定。",visible_approach_only_start_may_be_missing:"只分析可见助跑，镜头前可能还有动作；不补猜不可见步数。",contact_guard_candidates_remain_in_nominal_total:"触球保护区候选仍保留在名义总数中，未冒充确定落脚。",route_unresolved_style_describes_rhythm_not_true_field_path:"路线证据有限，这里只描述候选节奏，不推断真实场地路线。",count_changes_with_peak_threshold:"改变峰谷阈值会改变候选数，计数仍需复核。"};
+    const ul=$("styleReasons");ul.replaceChildren();
+    [...r.reasons,...r.cautions].forEach(x=>ul.append(element("li",words[x]||x)));
+    if(state.clip.pose_ablation_comparison?.attempt_style_match===false)ul.append(element("li","原姿态与增强姿态对本次方式的分类不同；两版并列，不择优冒充真值。"));
+    const e=r.evidence;
+    $("styleRhythmEvidence").textContent="候选间隔数："+numeric(e.candidate_intervals)+"；姿态支持："+(finite(e.pose_supported_fraction)?(100*e.pose_supported_fraction).toFixed(0)+"%":"—")+"；直接观测："+(finite(e.pose_observed_fraction)?(100*e.pose_observed_fraction).toFixed(0)+"%":"—")+"。连续型默认至少两个间隔、支持率≥90%、直接观测≥80%，间隔相对中位绝对偏差≤0.20；这些是未验证的工程阈值，不是准确率。";
+  }
+  function renderTerminal() {
+    const clip=state.clip,f=clip.footwork_result;
+    $("terminalPanel").hidden=!f;if(!f)return;
+    const t=f.terminal,r=f.route,w=f.analysis_window,s=f.sensitivity||{};
+    $("terminalDescription").textContent=terminalNames[t.status]||t.status;
+    $("routeDescription").textContent=r.tags.length?r.tags.map(x=>routeNames[x]||x).join(" / "):"路线证据不足";
+    $("routeScope").textContent=r.scope==="before_terminal_change"?"路线仅描述末段变化之前的可见助跑；弧线与末段碎步候选可以同时存在。":"未得到可靠的末段分界时，路线描述整个可见助跑，不能称为已经切出的前段。";
+    $("jumpTerminal").disabled=!finite(t.start_frame);
+    $("jumpTerminalReview").disabled=!w;
+    const track=$("terminalTrack");track.replaceChildren();
+    const a=clip.shot_start_frame,b=clip.shot_end_frame_exclusive,span=Math.max(1,b-a);
+    if(w){
+      const spans=[{start:w.approach_start_frame,end:t.start_frame??w.safe_end_frame_exclusive,label:finite(t.start_frame)?"末段前":"助跑（未确认末段分界）",color:"#b4c9bf"},
+        {start:t.start_frame,end:w.safe_end_frame_exclusive,label:"末段变化候选",color:"#e8be7a"},
+        {start:w.safe_end_frame_exclusive,end:w.nominal_contact_frame,label:"触球保护区",color:"#dfa591"}];
+      spans.forEach(x=>{if(!finite(x.start)||x.end<=x.start)return;const button=element("button",x.label,"phase-segment");button.type="button";button.style.left=((x.start-a)/span*100)+"%";button.style.width=((x.end-x.start)/span*100)+"%";button.style.background=x.color;button.title=x.label+" · f"+x.start+"–"+(x.end-1);button.addEventListener("click",()=>seek(x.start));track.append(button);});
+    }
+    const starts=s.candidate_start_range_frames;
+    $("terminalBoundary").textContent=finite(t.start_frame)?"名义末段分界：f"+t.start_frame+"（"+seconds(t.start_frame,clip.fps)+"）；比较了前后至少各两个候选间隔。边界处候选归末段；若不计该边界候选，末段为 "+numeric(f.counts.terminal_count_excluding_boundary_event)+" 个。"+(starts?" 参数/锚点变体中出现的分界：f"+starts.join("–")+"，不是置信区间。":""):"没有强制分界。候选不足、缺帧与未检测到变化是不同情况；最后几次可见脚部运动仍可回看。";
+    if(clip.step_analysis?.attempt_style==="continuous_approach_candidate"&&t.status==="insufficient_evidence")$("terminalBoundary").textContent+=" 上方仅描述短助跑的候选节奏较连续；本区严格变化点模型仍可能因前后间隔太少而证据不足，两者不等同。";
+    const rows=[["名义助跑总候选（保留）","nominal_approach_candidates"],["末段之前的候选","before_terminal_candidates"],["末段调整候选","terminal_adjustment_candidates"],["未发现清晰分界的候选","no_distinct_split_candidates"],["末段证据不足，未分配","unresolved_prestrike_candidates"],["姿态缺失区候选","pose_gap_candidates"],["触球保护区候选（单列）","contact_guard_candidates"]];
+    const body=$("terminalCounts").querySelector("tbody");body.replaceChildren();
+    rows.forEach(([label,key])=>{const tr=element("tr");tr.append(element("th",label));["sensitive","central","strict"].forEach(name=>tr.append(element("td",numeric(s.event_prominence?.[name]?.counts?.[key]),name==="central"?"nominal":"")));body.append(tr);});
+    const evidence=$("terminalEvidence");evidence.replaceChildren();
+    t.evidence.forEach(e=>{const units=e.units==="seconds"?"秒":"人物框高";evidence.append(element("span",(terminalTags[e.feature]||e.feature)+"：中位数 "+e.baseline_median.toFixed(3)+" → "+e.terminal_median.toFixed(3)+" "+units,"tag"));});
+    const warn=$("terminalWarnings");warn.replaceChildren();
+    const texts={approach_or_contact_unresolved:"人物、助跑或触球关联尚未解决。",route_and_progress_unavailable_camera_or_scale:"镜头/尺度条件不支持路线与推进量；只在可用时分析节奏。",candidate_axis_unreliable_for_terminal_split:"脚踝候选信号主方向不明确，暂不切出末段。",terminal_tail_not_observed:"末段尾部候选或姿态覆盖不足。",too_few_intervals_for_relative_change:"安全触球前候选间隔不足，无法比较前后各至少两个间隔。",boundary_event_shared_by_before_and_after_intervals:"分界候选也是前后间隔的共同端点，计数归属带有一候选的边界歧义。",terminal_split_uses_tentative_contact:"触球锚点仍是暂定，末段结论也依赖它。",terminal_classification_parameter_sensitive:"更换候选阈值、分段规则或触球锚点会改变末段结论。",terminal_boundary_parameter_sensitive:"参数变体的末段起点差异超过 0.15 秒，需重点复核。"};
+    f.warnings.forEach(x=>warn.append(element("li",texts[x]||x)));
+    const cmp=clip.pose_ablation_comparison;
+    if(cmp?.terminal_status_and_tags_match===false)warn.append(element("li","原姿态与增强姿态的末段分类不一致；本页保留两版，不自动选择更符合预期的一版。"));
+    if(Math.abs(cmp?.terminal_boundary_difference_frames||0)>.15*clip.fps)warn.append(element("li","两种姿态的末段分界相差 "+Math.abs(cmp.terminal_boundary_difference_frames)+" 帧。"));
+    warn.append(element("li","脚踝控制未测量：没有脚跟、脚尖和足部方向，不能报告踝角、锁踝或发力质量。"));
+    const intervals=$("terminalIntervals").querySelector("tbody");intervals.replaceChildren();
+    t.intervals.forEach(i=>{const tr=element("tr"),th=element("th"),btn=element("button","f"+i.start_frame+"–"+i.end_frame);btn.type="button";btn.addEventListener("click",()=>seek(i.start_frame));th.append(btn);tr.append(th,element("td",finite(i.candidate_interval_seconds)?i.candidate_interval_seconds.toFixed(3):"—"),element("td",finite(i.projected_hip_advance_box_heights)?i.projected_hip_advance_box_heights.toFixed(3):"—"),element("td",i.pose_supported?"有姿态支持（非真值）":"缺帧，不比较"));if(finite(t.start_frame)&&i.start_frame>=t.start_frame)tr.style.background="#fff4df";intervals.append(tr);});
+  }
+  function drawOverlay(frame) {
+    context.clearRect(0,0,canvas.width,canvas.height);
+    if($("blindToggle").checked||!$("overlayToggle").checked){$("overlayStatus").textContent="";return;}
+    const item=state.overlay.get(frame);
+    if(!item){$("overlayStatus").textContent="该帧没有姿态叠加，不补造人物位置。";return;}
+    $("overlayStatus").textContent="叠加为模型估计，不是人工标注。";
+    const width=video.videoWidth,height=video.videoHeight;if(!width||!height)return;
+    if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;}
+    const scale=Math.max(1,width/640);
+    if(Array.isArray(item.bbox)&&item.bbox.length===4&&item.bbox.every(finite)){
+      const [x1,y1,x2,y2]=item.bbox;context.strokeStyle="#ffe080";context.lineWidth=2*scale;context.strokeRect(x1,y1,x2-x1,y2-y1);
+    }
+    (item.ankles||[]).forEach((point,index)=>{
+      if(!Array.isArray(point)||point.length!==2||!point.every(finite)||(item.ankle_confidences?.[index]||0)<.35)return;
+      context.fillStyle=index===0?"#56d3ff":"#ff91cd";context.strokeStyle="#162727";context.lineWidth=scale;
+      context.beginPath();context.arc(point[0],point[1],4*scale,0,Math.PI*2);context.fill();context.stroke();
+    });
+  }
+  function updatePlayhead(presentedMediaTime) {
+    if(!state.clip)return;
+    const frame=finite(presentedMediaTime)?frameAtTime(presentedMediaTime):currentFrame(),fps=state.clip.fps;
+    $("timeReadout").textContent=video.currentTime.toFixed(3)+" s / "+(maxFrame()/fps).toFixed(2)+" s · f"+frame;
+    $("scrub").value=String(frame);$("scrub").setAttribute("aria-valuetext","第 "+frame+" 帧，"+(frame/fps).toFixed(2)+" 秒");
+    $("playPause").textContent=video.paused?"播放":"暂停";
+    const a=state.clip.shot_start_frame||0,b=state.clip.shot_end_frame_exclusive||maxFrame()+1;
+    const inside=frame>=a&&frame<b,needle=$("timelineNeedle");needle.hidden=!inside;
+    if(inside)needle.style.left=((frame-a)/Math.max(1,b-a)*100)+"%";
+    const label=state.labels.get(frame);
+    $("phaseNow").textContent=inside?"当前："+phaseLabel(label?.phase)+(label?.pose_interpolated?" · 此帧姿态经短缺帧插值":""):"当前在分析镜头以外；后续回放或其他镜头不显示动作分段。";
+    drawOverlay(frame);
+  }
+  function playPause(){if(video.paused){const attempt=video.play();if(attempt?.catch)attempt.catch(error=>{ $("mediaError").hidden=false;$("mediaError").textContent="播放未开始："+error.message; });}else video.pause();}
+  $("clipSearch").addEventListener("input",filterClips);
+  $("clipSelect").addEventListener("change",()=>setClip($("clipSelect").value));
+  $("variantSelect").addEventListener("change",()=>setClip(state.clipId,true));
+  $("blindToggle").addEventListener("change",()=>{document.body.classList.toggle("blind",$("blindToggle").checked);if($("blindToggle").checked){$("styleFilter").value="all";filterClips();}drawOverlay(currentFrame());});
+  $("styleFilter").addEventListener("change",()=>{filterClips();const options=Array.from($("clipSelect").options);if(options.length&&!options.some(o=>o.value===state.clipId))setClip(options[0].value);});
+  $("overlayToggle").addEventListener("change",()=>drawOverlay(currentFrame()));
+  $("previousFrame").addEventListener("click",()=>seek(currentFrame()-1));
+  $("nextFrame").addEventListener("click",()=>seek(currentFrame()+1));
+  $("playPause").addEventListener("click",playPause);
+  $("speed").addEventListener("change",()=>{video.playbackRate=Number($("speed").value);});
+  $("scrub").addEventListener("input",()=>seek(Number($("scrub").value)));
+  $("jumpShot").addEventListener("click",()=>seek(state.clip.shot_start_frame));
+  $("jumpOnset").addEventListener("click",()=>seek(state.clip.phase_result?.approach_start_frame));
+  $("jumpContact").addEventListener("click",()=>seek(state.clip.contact?.contact_frame));
+  $("jumpTerminal").addEventListener("click",()=>seek(state.clip.footwork_result?.terminal?.start_frame));
+  $("jumpTerminalReview").addEventListener("click",()=>seek(state.clip.footwork_result?.analysis_window?.search_start_frame));
+  video.addEventListener("loadedmetadata",()=>{canvas.width=video.videoWidth;canvas.height=video.videoHeight;video.playbackRate=Number($("speed").value);$("scrub").max=String(maxFrame());const pending=state.pendingFrame;state.pendingFrame=null;if(finite(pending))seek(pending);updatePlayhead();});
+  ["timeupdate","seeked","pause","play","ratechange"].forEach(name=>video.addEventListener(name,updatePlayhead));
+  video.addEventListener("error",()=>{const error=video.error;$("mediaError").hidden=false;$("mediaError").textContent="视频未能加载（错误码 "+(error?.code||"未知")+"）。请确认本地服务器正在运行，并且存在 media/"+state.clipId+".mp4。原视频需要可播放的 H.264 副本；刷新页面不会自动转码。";});
+  document.addEventListener("keydown",event=>{
+    if(event.altKey||event.ctrlKey||event.metaKey||event.target.closest("input,select,textarea,button,summary")||event.target.isContentEditable)return;
+    if(event.key==="ArrowLeft"){event.preventDefault();seek(currentFrame()-1);}
+    else if(event.key==="ArrowRight"){event.preventDefault();seek(currentFrame()+1);}
+    else if(event.code==="Space"){event.preventDefault();playPause();}
+  });
+  if("requestVideoFrameCallback" in video){const tick=(now,metadata)=>{updatePlayhead(metadata.mediaTime);video.requestVideoFrameCallback(tick);};video.requestVideoFrameCallback(tick);}
+  else{const tick=()=>{if(!video.paused)updatePlayhead();requestAnimationFrame(tick);};requestAnimationFrame(tick);}
+  filterClips();setClip(original.has("col_eng_p03_cuadrado_col11")?"col_eng_p03_cuadrado_col11":ordered[0]);
+})();
+</script>
+</body>
+</html>

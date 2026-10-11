@@ -1,0 +1,4177 @@
+{
+  "schema_version": "evening-evidence-join-v1",
+  "canonical_count": 39,
+  "generated_at_utc": "2026-10-09T08:29:59.228491+00:00",
+  "policy": "Candidate coverage, algorithmic QA, parameter stability and real accuracy are distinct.",
+  "deprecated_input_not_read": "data/processed/penalties_features.csv (49 demonstration rows)",
+  "human_ground_truth_records": 0,
+  "rows": [
+    {
+      "clip_id": "col_eng_p01_falcao_col9",
+      "match_key": "col_eng",
+      "match_title": "Colombia vs England (Round of 16)",
+      "kicker": "falcao_col9",
+      "team": "COL",
+      "penalty_number": 1,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\col_eng_p01_falcao_col9.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 3,
+        "v4_candidate_count": 3,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 2,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          1,
+          4
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\col_eng_p01_falcao_col9.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 49,
+        "contact_time_sec": 1.6333333333333333,
+        "interval_frames": [
+          46,
+          57
+        ],
+        "confidence": 0.9275,
+        "contact_associated_track_id": 1,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\col_eng_p01_falcao_col9.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "image_right",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "image_right",
+        "window_guarded_height": "low",
+        "guarded_qa_accepted": true,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 31,
+          "observed_fraction": 1.0,
+          "first_observed_frame": 49,
+          "last_observed_frame": 79,
+          "max_gap_frames": 1,
+          "reasons": [],
+          "window_supported": true,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\col_eng_p01_falcao_col9.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\col_eng_p01_falcao_col9.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "col_eng_p02_kane_eng9",
+      "match_key": "col_eng",
+      "match_title": "Colombia vs England (Round of 16)",
+      "kicker": "kane_eng9",
+      "team": "ENG",
+      "penalty_number": 2,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\col_eng_p02_kane_eng9.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 4,
+        "v4_candidate_count": 4,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 4,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          4,
+          5
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\col_eng_p02_kane_eng9.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 69,
+        "contact_time_sec": 2.3,
+        "interval_frames": [
+          66,
+          77
+        ],
+        "confidence": 0.7399,
+        "contact_associated_track_id": 1,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\col_eng_p02_kane_eng9.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "image_left",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 25,
+          "observed_fraction": 0.8065,
+          "first_observed_frame": 69,
+          "last_observed_frame": 99,
+          "max_gap_frames": 7,
+          "reasons": [
+            "postkick_observation_gap"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\col_eng_p02_kane_eng9.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\col_eng_p02_kane_eng9.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "col_eng_p03_cuadrado_col11",
+      "match_key": "col_eng",
+      "match_title": "Colombia vs England (Round of 16)",
+      "kicker": "cuadrado_col11",
+      "team": "COL",
+      "penalty_number": 3,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\col_eng_p03_cuadrado_col11.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 5,
+        "v4_candidate_count": 5,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 4,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          4,
+          7
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\col_eng_p03_cuadrado_col11.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 102,
+        "contact_time_sec": 3.4,
+        "interval_frames": [
+          99,
+          110
+        ],
+        "confidence": 0.9133,
+        "contact_associated_track_id": 1,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "left",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\col_eng_p03_cuadrado_col11.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "center",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": false,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 10,
+          "observed_fraction": 0.3226,
+          "first_observed_frame": 102,
+          "last_observed_frame": 111,
+          "max_gap_frames": 1,
+          "reasons": [
+            "right_censored_dive_window",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\col_eng_p03_cuadrado_col11.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": false,
+        "experiment_cohort_member": true,
+        "experimental_status": "experimental",
+        "fixed_full32_continuity_qa": true,
+        "experimental_source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\ball_extended_v3\\col_eng_p03_cuadrado_col11.json",
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\col_eng_p03_cuadrado_col11.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "col_eng_p04_rashford_eng19",
+      "match_key": "col_eng",
+      "match_title": "Colombia vs England (Round of 16)",
+      "kicker": "rashford_eng19",
+      "team": "ENG",
+      "penalty_number": 4,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\col_eng_p04_rashford_eng19.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 15,
+        "v4_candidate_count": 15,
+        "verified_count": null,
+        "attempt_style": "terminal_adjustment_candidate",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": 8,
+          "terminal_adjustment": 7,
+          "type_unresolved": null,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          15,
+          15
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\col_eng_p04_rashford_eng19.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 130,
+        "contact_time_sec": 4.333333333333333,
+        "interval_frames": [
+          127,
+          138
+        ],
+        "confidence": 0.7304,
+        "contact_associated_track_id": 3,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\col_eng_p04_rashford_eng19.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "center",
+        "experimental_candidate_height": "mid",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": false,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 12,
+          "observed_fraction": 0.3871,
+          "first_observed_frame": 130,
+          "last_observed_frame": 141,
+          "max_gap_frames": 1,
+          "reasons": [
+            "right_censored_dive_window",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\col_eng_p04_rashford_eng19.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": false,
+        "experiment_cohort_member": true,
+        "experimental_status": "experimental",
+        "fixed_full32_continuity_qa": true,
+        "experimental_source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\ball_extended_v3\\col_eng_p04_rashford_eng19.json",
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\col_eng_p04_rashford_eng19.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "col_eng_p05_muriel_col14",
+      "match_key": "col_eng",
+      "match_title": "Colombia vs England (Round of 16)",
+      "kicker": "muriel_col14",
+      "team": "COL",
+      "penalty_number": 5,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\col_eng_p05_muriel_col14.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 7,
+        "v4_candidate_count": 7,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 6,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          6,
+          7
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\col_eng_p05_muriel_col14.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 75,
+        "contact_time_sec": 2.5,
+        "interval_frames": [
+          72,
+          83
+        ],
+        "confidence": 0.6732,
+        "contact_associated_track_id": 3,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "left",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\col_eng_p05_muriel_col14.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "center",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "center",
+        "window_guarded_height": "low",
+        "guarded_qa_accepted": true,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 31,
+          "observed_fraction": 1.0,
+          "first_observed_frame": 75,
+          "last_observed_frame": 105,
+          "max_gap_frames": 1,
+          "reasons": [],
+          "window_supported": true,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\col_eng_p05_muriel_col14.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\col_eng_p05_muriel_col14.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "col_eng_p06_henderson_eng8",
+      "match_key": "col_eng",
+      "match_title": "Colombia vs England (Round of 16)",
+      "kicker": "henderson_eng8",
+      "team": "ENG",
+      "penalty_number": 6,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\col_eng_p06_henderson_eng8.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 6,
+        "v4_candidate_count": 6,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 5,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          3,
+          7
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\col_eng_p06_henderson_eng8.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 106,
+        "contact_time_sec": 3.533333333333333,
+        "interval_frames": [
+          103,
+          114
+        ],
+        "confidence": 0.9401,
+        "contact_associated_track_id": 1,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "left",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\col_eng_p06_henderson_eng8.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_right",
+        "experimental_candidate_height": "mid",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": false,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 8,
+          "observed_fraction": 0.2581,
+          "first_observed_frame": 106,
+          "last_observed_frame": 118,
+          "max_gap_frames": 5,
+          "reasons": [
+            "right_censored_dive_window",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\col_eng_p06_henderson_eng8.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": false,
+        "experiment_cohort_member": true,
+        "experimental_status": "experimental",
+        "fixed_full32_continuity_qa": true,
+        "experimental_source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\ball_extended_v3\\col_eng_p06_henderson_eng8.json",
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "no_goal",
+        "external_label_detail": "saved",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\col_eng_p06_henderson_eng8.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "col_eng_p07_uribe_col15",
+      "match_key": "col_eng",
+      "match_title": "Colombia vs England (Round of 16)",
+      "kicker": "uribe_col15",
+      "team": "COL",
+      "penalty_number": 7,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\col_eng_p07_uribe_col15.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 4,
+        "v4_candidate_count": 4,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 3,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          3,
+          5
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\col_eng_p07_uribe_col15.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 152,
+        "contact_time_sec": 5.066666666666666,
+        "interval_frames": [
+          149,
+          160
+        ],
+        "confidence": 0.7201,
+        "contact_associated_track_id": 1,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\col_eng_p07_uribe_col15.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_right",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 16,
+          "observed_fraction": 0.5161,
+          "first_observed_frame": 152,
+          "last_observed_frame": 168,
+          "max_gap_frames": 2,
+          "reasons": [
+            "right_censored_dive_window",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\col_eng_p07_uribe_col15.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": false,
+        "experiment_cohort_member": true,
+        "experimental_status": "experimental",
+        "fixed_full32_continuity_qa": true,
+        "experimental_source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\ball_extended_v3\\col_eng_p07_uribe_col15.json",
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "no_goal",
+        "external_label_detail": "crossbar",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\col_eng_p07_uribe_col15.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "col_eng_p08_trippier_eng12",
+      "match_key": "col_eng",
+      "match_title": "Colombia vs England (Round of 16)",
+      "kicker": "trippier_eng12",
+      "team": "ENG",
+      "penalty_number": 8,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\col_eng_p08_trippier_eng12.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 5,
+        "v4_candidate_count": 5,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 4,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          3,
+          5
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\col_eng_p08_trippier_eng12.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 78,
+        "contact_time_sec": 2.6,
+        "interval_frames": [
+          75,
+          86
+        ],
+        "confidence": 0.9275,
+        "contact_associated_track_id": 1,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "left",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\col_eng_p08_trippier_eng12.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "center",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 15,
+          "observed_fraction": 0.4839,
+          "first_observed_frame": 78,
+          "last_observed_frame": 92,
+          "max_gap_frames": 1,
+          "reasons": [
+            "right_censored_dive_window",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\col_eng_p08_trippier_eng12.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\col_eng_p08_trippier_eng12.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "col_eng_p09_bacca_col7",
+      "match_key": "col_eng",
+      "match_title": "Colombia vs England (Round of 16)",
+      "kicker": "bacca_col7",
+      "team": "COL",
+      "penalty_number": 9,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\col_eng_p09_bacca_col7.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": null,
+        "v4_candidate_count": 3,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 3,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          1,
+          4
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\col_eng_p09_bacca_col7.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 125,
+        "contact_time_sec": 4.166666666666667,
+        "interval_frames": [
+          122,
+          133
+        ],
+        "confidence": 0.737,
+        "contact_associated_track_id": 1,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "left",
+        "nominal_v4_candidate": "left",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\col_eng_p09_bacca_col7.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_right",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 21,
+          "observed_fraction": 0.6774,
+          "first_observed_frame": 125,
+          "last_observed_frame": 155,
+          "max_gap_frames": 6,
+          "reasons": [
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\col_eng_p09_bacca_col7.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": false,
+        "experiment_cohort_member": true,
+        "experimental_status": "experimental",
+        "fixed_full32_continuity_qa": true,
+        "experimental_source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\ball_extended_v3\\col_eng_p09_bacca_col7.json",
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "no_goal",
+        "external_label_detail": "saved",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\col_eng_p09_bacca_col7.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "col_eng_p10_dier_eng4",
+      "match_key": "col_eng",
+      "match_title": "Colombia vs England (Round of 16)",
+      "kicker": "dier_eng4",
+      "team": "ENG",
+      "penalty_number": 10,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\col_eng_p10_dier_eng4.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": null,
+        "v4_candidate_count": 3,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 2,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          3,
+          4
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\col_eng_p10_dier_eng4.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 115,
+        "contact_time_sec": 3.8333333333333335,
+        "interval_frames": [
+          112,
+          123
+        ],
+        "confidence": 0.9328,
+        "contact_associated_track_id": 1,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "left",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\col_eng_p10_dier_eng4.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "image_left",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 26,
+          "observed_fraction": 0.8387,
+          "first_observed_frame": 115,
+          "last_observed_frame": 141,
+          "max_gap_frames": 2,
+          "reasons": [
+            "right_censored_dive_window"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\col_eng_p10_dier_eng4.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": false,
+        "experiment_cohort_member": true,
+        "experimental_status": "experimental",
+        "fixed_full32_continuity_qa": true,
+        "experimental_source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\ball_extended_v3\\col_eng_p10_dier_eng4.json",
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\col_eng_p10_dier_eng4.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "cro_den_p01_eriksen_den10",
+      "match_key": "cro_den",
+      "match_title": "Croatia vs Denmark (Round of 16)",
+      "kicker": "eriksen_den10",
+      "team": "DEN",
+      "penalty_number": 1,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\cro_den_p01_eriksen_den10.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 6,
+        "v4_candidate_count": 6,
+        "verified_count": null,
+        "attempt_style": "continuous_approach_candidate",
+        "count_partition": {
+          "continuous_approach": 5,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": null,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          5,
+          6
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\cro_den_p01_eriksen_den10.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 75,
+        "contact_time_sec": 2.5,
+        "interval_frames": [
+          72,
+          83
+        ],
+        "confidence": 0.8974,
+        "contact_associated_track_id": 0,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated",
+          "camera_compensation_incomplete"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "left",
+        "nominal_v4_candidate": "left",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\cro_den_p01_eriksen_den10.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "image_left",
+        "experimental_candidate_height": "mid",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": false,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 12,
+          "observed_fraction": 0.3871,
+          "first_observed_frame": 75,
+          "last_observed_frame": 86,
+          "max_gap_frames": 1,
+          "reasons": [
+            "right_censored_dive_window",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\cro_den_p01_eriksen_den10.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "no_goal",
+        "external_label_detail": "saved",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\cro_den_p01_eriksen_den10.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "cro_den_p02_badelj_cro19",
+      "match_key": "cro_den",
+      "match_title": "Croatia vs Denmark (Round of 16)",
+      "kicker": "badelj_cro19",
+      "team": "CRO",
+      "penalty_number": 2,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\cro_den_p02_badelj_cro19.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 4,
+        "v4_candidate_count": 4,
+        "verified_count": null,
+        "attempt_style": "continuous_approach_candidate",
+        "count_partition": {
+          "continuous_approach": 4,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": null,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          4,
+          5
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\cro_den_p02_badelj_cro19.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 68,
+        "contact_time_sec": 2.2666666666666666,
+        "interval_frames": [
+          65,
+          76
+        ],
+        "confidence": 0.6616,
+        "contact_associated_track_id": 9,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated",
+          "camera_compensation_incomplete"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "left",
+        "nominal_v4_candidate": "left",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\cro_den_p02_badelj_cro19.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_left",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 15,
+          "observed_fraction": 0.4839,
+          "first_observed_frame": 68,
+          "last_observed_frame": 83,
+          "max_gap_frames": 2,
+          "reasons": [
+            "right_censored_dive_window",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\cro_den_p02_badelj_cro19.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "no_goal",
+        "external_label_detail": "saved",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\cro_den_p02_badelj_cro19.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "cro_den_p03_kjaer_den4",
+      "match_key": "cro_den",
+      "match_title": "Croatia vs Denmark (Round of 16)",
+      "kicker": "kjaer_den4",
+      "team": "DEN",
+      "penalty_number": 3,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\cro_den_p03_kjaer_den4.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 4,
+        "v4_candidate_count": 4,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 4,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          4,
+          4
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\cro_den_p03_kjaer_den4.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 72,
+        "contact_time_sec": 2.4,
+        "interval_frames": [
+          69,
+          80
+        ],
+        "confidence": 0.7423,
+        "contact_associated_track_id": 0,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated",
+          "camera_compensation_incomplete"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\cro_den_p03_kjaer_den4.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "image_left",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "image_left",
+        "window_guarded_height": "low",
+        "guarded_qa_accepted": true,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 31,
+          "observed_fraction": 1.0,
+          "first_observed_frame": 72,
+          "last_observed_frame": 102,
+          "max_gap_frames": 1,
+          "reasons": [],
+          "window_supported": true,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\cro_den_p03_kjaer_den4.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\cro_den_p03_kjaer_den4.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "cro_den_p04_kramaric_cro9",
+      "match_key": "cro_den",
+      "match_title": "Croatia vs Denmark (Round of 16)",
+      "kicker": "kramaric_cro9",
+      "team": "CRO",
+      "penalty_number": 4,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\cro_den_p04_kramaric_cro9.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": null,
+        "v4_candidate_count": 6,
+        "verified_count": null,
+        "attempt_style": "terminal_adjustment_candidate",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": 3,
+          "terminal_adjustment": 3,
+          "type_unresolved": null,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          6,
+          6
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\cro_den_p04_kramaric_cro9.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 70,
+        "contact_time_sec": 2.3333333333333335,
+        "interval_frames": [
+          67,
+          78
+        ],
+        "confidence": 0.9083,
+        "contact_associated_track_id": 0,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated",
+          "camera_compensation_incomplete"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "left",
+        "nominal_v4_candidate": "left",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\cro_den_p04_kramaric_cro9.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "unknown",
+        "experimental_candidate_height": "unknown",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": false,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 0,
+          "observed_fraction": 0.0,
+          "first_observed_frame": null,
+          "last_observed_frame": null,
+          "max_gap_frames": 0,
+          "reasons": [
+            "no_postkick_observations",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\cro_den_p04_kramaric_cro9.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\cro_den_p04_kramaric_cro9.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "cro_den_p05_krohndehli_den2",
+      "match_key": "cro_den",
+      "match_title": "Croatia vs Denmark (Round of 16)",
+      "kicker": "krohndehli_den2",
+      "team": "DEN",
+      "penalty_number": 5,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\cro_den_p05_krohndehli_den2.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 3,
+        "v4_candidate_count": 3,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 2,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          2,
+          4
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\cro_den_p05_krohndehli_den2.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 80,
+        "contact_time_sec": 2.6666666666666665,
+        "interval_frames": [
+          77,
+          88
+        ],
+        "confidence": 0.6719,
+        "contact_associated_track_id": 0,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated",
+          "camera_compensation_incomplete"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "left",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\cro_den_p05_krohndehli_den2.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "center",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "center",
+        "window_guarded_height": "low",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": false,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 31,
+          "observed_fraction": 1.0,
+          "first_observed_frame": 80,
+          "last_observed_frame": 110,
+          "max_gap_frames": 1,
+          "reasons": [],
+          "window_supported": true,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\cro_den_p05_krohndehli_den2.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\cro_den_p05_krohndehli_den2.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "cro_den_p06_modric_cro10",
+      "match_key": "cro_den",
+      "match_title": "Croatia vs Denmark (Round of 16)",
+      "kicker": "modric_cro10",
+      "team": "CRO",
+      "penalty_number": 6,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\cro_den_p06_modric_cro10.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": null,
+        "v4_candidate_count": 6,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 6,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          6,
+          7
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\cro_den_p06_modric_cro10.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 83,
+        "contact_time_sec": 2.7666666666666666,
+        "interval_frames": [
+          80,
+          91
+        ],
+        "confidence": 0.6865,
+        "contact_associated_track_id": 0,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "unknown",
+        "nominal_v4_candidate": "left",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\cro_den_p06_modric_cro10.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "image_right",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "image_right",
+        "window_guarded_height": "low",
+        "guarded_qa_accepted": true,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 29,
+          "observed_fraction": 0.9355,
+          "first_observed_frame": 83,
+          "last_observed_frame": 113,
+          "max_gap_frames": 2,
+          "reasons": [],
+          "window_supported": true,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\cro_den_p06_modric_cro10.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\cro_den_p06_modric_cro10.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "cro_den_p07_schone_den19",
+      "match_key": "cro_den",
+      "match_title": "Croatia vs Denmark (Round of 16)",
+      "kicker": "schone_den19",
+      "team": "DEN",
+      "penalty_number": 7,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\cro_den_p07_schone_den19.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 7,
+        "v4_candidate_count": 6,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 5,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          5,
+          7
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\cro_den_p07_schone_den19.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 67,
+        "contact_time_sec": 2.2333333333333334,
+        "interval_frames": [
+          64,
+          75
+        ],
+        "confidence": 0.8583,
+        "contact_associated_track_id": 0,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "left",
+        "parameter_stable_candidate": "left",
+        "parameter_stable": true,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\cro_den_p07_schone_den19.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "image_left",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 23,
+          "observed_fraction": 0.7419,
+          "first_observed_frame": 67,
+          "last_observed_frame": 89,
+          "max_gap_frames": 1,
+          "reasons": [
+            "right_censored_dive_window",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\cro_den_p07_schone_den19.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "no_goal",
+        "external_label_detail": "saved",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\cro_den_p07_schone_den19.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "cro_den_p08_pivaric_cro22",
+      "match_key": "cro_den",
+      "match_title": "Croatia vs Denmark (Round of 16)",
+      "kicker": "pivaric_cro22",
+      "team": "CRO",
+      "penalty_number": 8,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\cro_den_p08_pivaric_cro22.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 14,
+        "v4_candidate_count": 14,
+        "verified_count": null,
+        "attempt_style": "continuous_approach_candidate",
+        "count_partition": {
+          "continuous_approach": 13,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": null,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          13,
+          15
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\cro_den_p08_pivaric_cro22.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 145,
+        "contact_time_sec": 4.833333333333333,
+        "interval_frames": [
+          142,
+          153
+        ],
+        "confidence": 0.6664,
+        "contact_associated_track_id": 0,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\cro_den_p08_pivaric_cro22.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_left",
+        "experimental_candidate_height": "mid",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": false,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 10,
+          "observed_fraction": 0.3226,
+          "first_observed_frame": 145,
+          "last_observed_frame": 154,
+          "max_gap_frames": 1,
+          "reasons": [
+            "right_censored_dive_window",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\cro_den_p08_pivaric_cro22.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "no_goal",
+        "external_label_detail": "saved",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\cro_den_p08_pivaric_cro22.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "cro_den_p09_jorgensen_den9",
+      "match_key": "cro_den",
+      "match_title": "Croatia vs Denmark (Round of 16)",
+      "kicker": "jorgensen_den9",
+      "team": "DEN",
+      "penalty_number": 9,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\cro_den_p09_jorgensen_den9.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 6,
+        "v4_candidate_count": 6,
+        "verified_count": null,
+        "attempt_style": "continuous_approach_candidate",
+        "count_partition": {
+          "continuous_approach": 6,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": null,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          6,
+          8
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\cro_den_p09_jorgensen_den9.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 89,
+        "contact_time_sec": 2.966666666666667,
+        "interval_frames": [
+          86,
+          97
+        ],
+        "confidence": 0.6455,
+        "contact_associated_track_id": 0,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\cro_den_p09_jorgensen_den9.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_right",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 24,
+          "observed_fraction": 0.7742,
+          "first_observed_frame": 89,
+          "last_observed_frame": 118,
+          "max_gap_frames": 5,
+          "reasons": [
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\cro_den_p09_jorgensen_den9.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "no_goal",
+        "external_label_detail": "saved",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\cro_den_p09_jorgensen_den9.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "cro_den_p10_rakitic_cro7",
+      "match_key": "cro_den",
+      "match_title": "Croatia vs Denmark (Round of 16)",
+      "kicker": "rakitic_cro7",
+      "team": "CRO",
+      "penalty_number": 10,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\cro_den_p10_rakitic_cro7.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 6,
+        "v4_candidate_count": 6,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 5,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          5,
+          7
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\cro_den_p10_rakitic_cro7.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 85,
+        "contact_time_sec": 2.8333333333333335,
+        "interval_frames": [
+          82,
+          93
+        ],
+        "confidence": 0.6547,
+        "contact_associated_track_id": 0,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\cro_den_p10_rakitic_cro7.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_right",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "image_right",
+        "window_guarded_height": "low",
+        "guarded_qa_accepted": true,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 31,
+          "observed_fraction": 1.0,
+          "first_observed_frame": 85,
+          "last_observed_frame": 115,
+          "max_gap_frames": 1,
+          "reasons": [],
+          "window_supported": true,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\cro_den_p10_rakitic_cro7.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\cro_den_p10_rakitic_cro7.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "esp_rus_p01_iniesta_esp6",
+      "match_key": "esp_rus",
+      "match_title": "Spain vs Russia (Round of 16)",
+      "kicker": "iniesta_esp6",
+      "team": "ESP",
+      "penalty_number": 1,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\esp_rus_p01_iniesta_esp6.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 3,
+        "v4_candidate_count": 3,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 3,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          3,
+          6
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\esp_rus_p01_iniesta_esp6.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 47,
+        "contact_time_sec": 1.5666666666666667,
+        "interval_frames": [
+          44,
+          55
+        ],
+        "confidence": 0.9223,
+        "contact_associated_track_id": 6,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "left",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\esp_rus_p01_iniesta_esp6.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "center",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "center",
+        "window_guarded_height": "low",
+        "guarded_qa_accepted": true,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 27,
+          "observed_fraction": 0.871,
+          "first_observed_frame": 47,
+          "last_observed_frame": 77,
+          "max_gap_frames": 5,
+          "reasons": [],
+          "window_supported": true,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\esp_rus_p01_iniesta_esp6.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\esp_rus_p01_iniesta_esp6.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "esp_rus_p02_smolov_rus10",
+      "match_key": "esp_rus",
+      "match_title": "Spain vs Russia (Round of 16)",
+      "kicker": "smolov_rus10",
+      "team": "RUS",
+      "penalty_number": 2,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\esp_rus_p02_smolov_rus10.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": null,
+        "v4_candidate_count": 6,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 6,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          6,
+          10
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\esp_rus_p02_smolov_rus10.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 117,
+        "contact_time_sec": 3.9,
+        "interval_frames": [
+          114,
+          125
+        ],
+        "confidence": 0.9307,
+        "contact_associated_track_id": 1,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated",
+          "camera_compensation_incomplete"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\esp_rus_p02_smolov_rus10.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "center",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": false,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 8,
+          "observed_fraction": 0.2581,
+          "first_observed_frame": 117,
+          "last_observed_frame": 124,
+          "max_gap_frames": 1,
+          "reasons": [
+            "right_censored_dive_window",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\esp_rus_p02_smolov_rus10.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": false,
+        "experiment_cohort_member": true,
+        "experimental_status": "experimental",
+        "fixed_full32_continuity_qa": true,
+        "experimental_source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\ball_extended_v3\\esp_rus_p02_smolov_rus10.json",
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\esp_rus_p02_smolov_rus10.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "esp_rus_p03_pique_esp3",
+      "match_key": "esp_rus",
+      "match_title": "Spain vs Russia (Round of 16)",
+      "kicker": "pique_esp3",
+      "team": "ESP",
+      "penalty_number": 3,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\esp_rus_p03_pique_esp3.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 5,
+        "v4_candidate_count": 5,
+        "verified_count": null,
+        "attempt_style": "continuous_approach_candidate",
+        "count_partition": {
+          "continuous_approach": 5,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": null,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          5,
+          6
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\esp_rus_p03_pique_esp3.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 77,
+        "contact_time_sec": 2.566666666666667,
+        "interval_frames": [
+          74,
+          85
+        ],
+        "confidence": 0.7322,
+        "contact_associated_track_id": 4,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "left",
+        "nominal_v4_candidate": "left",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\esp_rus_p03_pique_esp3.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_right",
+        "experimental_candidate_height": "mid",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 13,
+          "observed_fraction": 0.4194,
+          "first_observed_frame": 77,
+          "last_observed_frame": 94,
+          "max_gap_frames": 6,
+          "reasons": [
+            "right_censored_dive_window",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\esp_rus_p03_pique_esp3.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\esp_rus_p03_pique_esp3.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "esp_rus_p04_ignashevich_rus4",
+      "match_key": "esp_rus",
+      "match_title": "Spain vs Russia (Round of 16)",
+      "kicker": "ignashevich_rus4",
+      "team": "RUS",
+      "penalty_number": 4,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\esp_rus_p04_ignashevich_rus4.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 7,
+        "v4_candidate_count": 7,
+        "verified_count": null,
+        "attempt_style": "continuous_approach_candidate",
+        "count_partition": {
+          "continuous_approach": 7,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": null,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          7,
+          8
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\esp_rus_p04_ignashevich_rus4.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 93,
+        "contact_time_sec": 3.1,
+        "interval_frames": [
+          90,
+          101
+        ],
+        "confidence": 0.9263,
+        "contact_associated_track_id": 5,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated",
+          "camera_compensation_incomplete"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\esp_rus_p04_ignashevich_rus4.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_left",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "image_left",
+        "window_guarded_height": "low",
+        "guarded_qa_accepted": true,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 31,
+          "observed_fraction": 1.0,
+          "first_observed_frame": 93,
+          "last_observed_frame": 123,
+          "max_gap_frames": 1,
+          "reasons": [],
+          "window_supported": true,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\esp_rus_p04_ignashevich_rus4.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\esp_rus_p04_ignashevich_rus4.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "esp_rus_p05_koke_esp8",
+      "match_key": "esp_rus",
+      "match_title": "Spain vs Russia (Round of 16)",
+      "kicker": "koke_esp8",
+      "team": "ESP",
+      "penalty_number": 5,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\esp_rus_p05_koke_esp8.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 4,
+        "v4_candidate_count": 4,
+        "verified_count": null,
+        "attempt_style": "continuous_approach_candidate",
+        "count_partition": {
+          "continuous_approach": 4,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": null,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          4,
+          6
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\esp_rus_p05_koke_esp8.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 73,
+        "contact_time_sec": 2.433333333333333,
+        "interval_frames": [
+          70,
+          81
+        ],
+        "confidence": 0.9183,
+        "contact_associated_track_id": 8,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "left",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\esp_rus_p05_koke_esp8.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "center",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "center",
+        "window_guarded_height": "low",
+        "guarded_qa_accepted": true,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 27,
+          "observed_fraction": 0.871,
+          "first_observed_frame": 73,
+          "last_observed_frame": 103,
+          "max_gap_frames": 3,
+          "reasons": [],
+          "window_supported": true,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\esp_rus_p05_koke_esp8.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": false,
+        "experiment_cohort_member": true,
+        "experimental_status": "experimental",
+        "fixed_full32_continuity_qa": false,
+        "experimental_source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\ball_extended_v3\\esp_rus_p05_koke_esp8.json",
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "no_goal",
+        "external_label_detail": "saved",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\esp_rus_p05_koke_esp8.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "esp_rus_p06_golovin_rus17",
+      "match_key": "esp_rus",
+      "match_title": "Spain vs Russia (Round of 16)",
+      "kicker": "golovin_rus17",
+      "team": "RUS",
+      "penalty_number": 6,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\esp_rus_p06_golovin_rus17.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 4,
+        "v4_candidate_count": 5,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 4,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          4,
+          5
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\esp_rus_p06_golovin_rus17.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 91,
+        "contact_time_sec": 3.033333333333333,
+        "interval_frames": [
+          88,
+          99
+        ],
+        "confidence": 0.746,
+        "contact_associated_track_id": 5,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "unknown",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\esp_rus_p06_golovin_rus17.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_left",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 16,
+          "observed_fraction": 0.5161,
+          "first_observed_frame": 91,
+          "last_observed_frame": 107,
+          "max_gap_frames": 2,
+          "reasons": [
+            "right_censored_dive_window",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\esp_rus_p06_golovin_rus17.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": false,
+        "experiment_cohort_member": true,
+        "experimental_status": "experimental",
+        "fixed_full32_continuity_qa": false,
+        "experimental_source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\ball_extended_v3\\esp_rus_p06_golovin_rus17.json",
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\esp_rus_p06_golovin_rus17.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "esp_rus_p07_ramos_esp15",
+      "match_key": "esp_rus",
+      "match_title": "Spain vs Russia (Round of 16)",
+      "kicker": "ramos_esp15",
+      "team": "ESP",
+      "penalty_number": 7,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\esp_rus_p07_ramos_esp15.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 8,
+        "v4_candidate_count": 8,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 8,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          8,
+          9
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\esp_rus_p07_ramos_esp15.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 115,
+        "contact_time_sec": 3.8333333333333335,
+        "interval_frames": [
+          112,
+          123
+        ],
+        "confidence": 0.675,
+        "contact_associated_track_id": 3,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated",
+          "competing_contact_identities"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "left",
+        "nominal_v4_candidate": "left",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\esp_rus_p07_ramos_esp15.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_right",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "image_right",
+        "window_guarded_height": "low",
+        "guarded_qa_accepted": true,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 28,
+          "observed_fraction": 0.9032,
+          "first_observed_frame": 115,
+          "last_observed_frame": 144,
+          "max_gap_frames": 2,
+          "reasons": [],
+          "window_supported": true,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\esp_rus_p07_ramos_esp15.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\esp_rus_p07_ramos_esp15.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "esp_rus_p08_cheryshev_rus6",
+      "match_key": "esp_rus",
+      "match_title": "Spain vs Russia (Round of 16)",
+      "kicker": "cheryshev_rus6",
+      "team": "RUS",
+      "penalty_number": 8,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\esp_rus_p08_cheryshev_rus6.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": null,
+        "v4_candidate_count": 6,
+        "verified_count": null,
+        "attempt_style": "terminal_adjustment_candidate",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": 2,
+          "terminal_adjustment": 3,
+          "type_unresolved": null,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          5,
+          8
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\esp_rus_p08_cheryshev_rus6.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 69,
+        "contact_time_sec": 2.3,
+        "interval_frames": [
+          66,
+          83
+        ],
+        "confidence": 0.9014,
+        "contact_associated_track_id": 3,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\esp_rus_p08_cheryshev_rus6.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_left",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 17,
+          "observed_fraction": 0.5484,
+          "first_observed_frame": 69,
+          "last_observed_frame": 85,
+          "max_gap_frames": 1,
+          "reasons": [
+            "right_censored_dive_window",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\esp_rus_p08_cheryshev_rus6.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\esp_rus_p08_cheryshev_rus6.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "esp_rus_p09_aspas_esp17",
+      "match_key": "esp_rus",
+      "match_title": "Spain vs Russia (Round of 16)",
+      "kicker": "aspas_esp17",
+      "team": "ESP",
+      "penalty_number": 9,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\esp_rus_p09_aspas_esp17.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 7,
+        "v4_candidate_count": 7,
+        "verified_count": null,
+        "attempt_style": "terminal_adjustment_candidate",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": 2,
+          "terminal_adjustment": 5,
+          "type_unresolved": null,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          7,
+          10
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\esp_rus_p09_aspas_esp17.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 105,
+        "contact_time_sec": 3.5,
+        "interval_frames": [
+          102,
+          113
+        ],
+        "confidence": 0.6734,
+        "contact_associated_track_id": 3,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "left",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\esp_rus_p09_aspas_esp17.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_left",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 15,
+          "observed_fraction": 0.4839,
+          "first_observed_frame": 105,
+          "last_observed_frame": 119,
+          "max_gap_frames": 1,
+          "reasons": [
+            "right_censored_dive_window",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\esp_rus_p09_aspas_esp17.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": false,
+        "experiment_cohort_member": true,
+        "experimental_status": "experimental",
+        "fixed_full32_continuity_qa": false,
+        "experimental_source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\ball_extended_v3\\esp_rus_p09_aspas_esp17.json",
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "no_goal",
+        "external_label_detail": "saved",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\esp_rus_p09_aspas_esp17.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "rus_cro_p01_smolov_rus10",
+      "match_key": "rus_cro",
+      "match_title": "Russia vs Croatia (Quarter-Final)",
+      "kicker": "smolov_rus10",
+      "team": "RUS",
+      "penalty_number": 1,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\rus_cro_p01_smolov_rus10.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 6,
+        "v4_candidate_count": 6,
+        "verified_count": null,
+        "attempt_style": "continuous_approach_candidate",
+        "count_partition": {
+          "continuous_approach": 5,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": null,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          5,
+          7
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\rus_cro_p01_smolov_rus10.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 109,
+        "contact_time_sec": 3.6333333333333333,
+        "interval_frames": [
+          106,
+          117
+        ],
+        "confidence": 0.9304,
+        "contact_associated_track_id": 3,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\rus_cro_p01_smolov_rus10.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_left",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "image_left",
+        "window_guarded_height": "low",
+        "guarded_qa_accepted": true,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 30,
+          "observed_fraction": 0.9677,
+          "first_observed_frame": 109,
+          "last_observed_frame": 139,
+          "max_gap_frames": 2,
+          "reasons": [],
+          "window_supported": true,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\rus_cro_p01_smolov_rus10.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "no_goal",
+        "external_label_detail": "saved",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\rus_cro_p01_smolov_rus10.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "rus_cro_p02_brozovic_cro11",
+      "match_key": "rus_cro",
+      "match_title": "Russia vs Croatia (Quarter-Final)",
+      "kicker": "brozovic_cro11",
+      "team": "CRO",
+      "penalty_number": 2,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\rus_cro_p02_brozovic_cro11.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": null,
+        "v4_candidate_count": 2,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 1,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          1,
+          3
+        ],
+        "partial_approach_known": true,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\rus_cro_p02_brozovic_cro11.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 34,
+        "contact_time_sec": 1.1333333333333333,
+        "interval_frames": [
+          31,
+          42
+        ],
+        "confidence": 0.68,
+        "contact_associated_track_id": 2,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\rus_cro_p02_brozovic_cro11.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "image_right",
+        "experimental_candidate_height": "mid",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": false,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 11,
+          "observed_fraction": 0.3548,
+          "first_observed_frame": 34,
+          "last_observed_frame": 45,
+          "max_gap_frames": 2,
+          "reasons": [
+            "right_censored_dive_window",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\rus_cro_p02_brozovic_cro11.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": false,
+        "experiment_cohort_member": true,
+        "experimental_status": "abstain_no_contact",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\ball_extended_v3\\rus_cro_p02_brozovic_cro11.json",
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\rus_cro_p02_brozovic_cro11.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "rus_cro_p03_dzagoev_rus9",
+      "match_key": "rus_cro",
+      "match_title": "Russia vs Croatia (Quarter-Final)",
+      "kicker": "dzagoev_rus9",
+      "team": "RUS",
+      "penalty_number": 3,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\rus_cro_p03_dzagoev_rus9.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 6,
+        "v4_candidate_count": 6,
+        "verified_count": null,
+        "attempt_style": "continuous_approach_candidate",
+        "count_partition": {
+          "continuous_approach": 5,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": null,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          5,
+          7
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\rus_cro_p03_dzagoev_rus9.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 77,
+        "contact_time_sec": 2.566666666666667,
+        "interval_frames": [
+          74,
+          88
+        ],
+        "confidence": 0.9258,
+        "contact_associated_track_id": 4,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "left",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\rus_cro_p03_dzagoev_rus9.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_right",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "image_right",
+        "window_guarded_height": "low",
+        "guarded_qa_accepted": true,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 31,
+          "observed_fraction": 1.0,
+          "first_observed_frame": 77,
+          "last_observed_frame": 107,
+          "max_gap_frames": 1,
+          "reasons": [],
+          "window_supported": true,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\rus_cro_p03_dzagoev_rus9.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\rus_cro_p03_dzagoev_rus9.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "rus_cro_p04_kovacic_cro8",
+      "match_key": "rus_cro",
+      "match_title": "Russia vs Croatia (Quarter-Final)",
+      "kicker": "kovacic_cro8",
+      "team": "CRO",
+      "penalty_number": 4,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\rus_cro_p04_kovacic_cro8.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 5,
+        "v4_candidate_count": 5,
+        "verified_count": null,
+        "attempt_style": "continuous_approach_candidate",
+        "count_partition": {
+          "continuous_approach": 4,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": null,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          4,
+          5
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\rus_cro_p04_kovacic_cro8.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 73,
+        "contact_time_sec": 2.433333333333333,
+        "interval_frames": [
+          70,
+          81
+        ],
+        "confidence": 0.9274,
+        "contact_associated_track_id": 2,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "left",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\rus_cro_p04_kovacic_cro8.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_right",
+        "experimental_candidate_height": "mid",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 18,
+          "observed_fraction": 0.5806,
+          "first_observed_frame": 73,
+          "last_observed_frame": 90,
+          "max_gap_frames": 1,
+          "reasons": [
+            "right_censored_dive_window",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\rus_cro_p04_kovacic_cro8.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "no_goal",
+        "external_label_detail": "saved",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\rus_cro_p04_kovacic_cro8.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "rus_cro_p05_fernandes_rus2",
+      "match_key": "rus_cro",
+      "match_title": "Russia vs Croatia (Quarter-Final)",
+      "kicker": "fernandes_rus2",
+      "team": "RUS",
+      "penalty_number": 5,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\rus_cro_p05_fernandes_rus2.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": null,
+        "v4_candidate_count": 6,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 5,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          5,
+          7
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\rus_cro_p05_fernandes_rus2.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 78,
+        "contact_time_sec": 2.6,
+        "interval_frames": [
+          75,
+          86
+        ],
+        "confidence": 0.9326,
+        "contact_associated_track_id": 4,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "left",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\rus_cro_p05_fernandes_rus2.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_right",
+        "experimental_candidate_height": "mid",
+        "window_guarded_direction": "image_right",
+        "window_guarded_height": "mid",
+        "guarded_qa_accepted": true,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 31,
+          "observed_fraction": 1.0,
+          "first_observed_frame": 78,
+          "last_observed_frame": 108,
+          "max_gap_frames": 1,
+          "reasons": [],
+          "window_supported": true,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\rus_cro_p05_fernandes_rus2.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "no_goal",
+        "external_label_detail": "wide",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\rus_cro_p05_fernandes_rus2.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "rus_cro_p06_modric_cro10",
+      "match_key": "rus_cro",
+      "match_title": "Russia vs Croatia (Quarter-Final)",
+      "kicker": "modric_cro10",
+      "team": "CRO",
+      "penalty_number": 6,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\rus_cro_p06_modric_cro10.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 9,
+        "v4_candidate_count": 8,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 8,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          7,
+          11
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\rus_cro_p06_modric_cro10.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 145,
+        "contact_time_sec": 4.833333333333333,
+        "interval_frames": [
+          142,
+          153
+        ],
+        "confidence": 0.918,
+        "contact_associated_track_id": 2,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\rus_cro_p06_modric_cro10.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "image_left",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "image_left",
+        "window_guarded_height": "low",
+        "guarded_qa_accepted": true,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 29,
+          "observed_fraction": 0.9355,
+          "first_observed_frame": 145,
+          "last_observed_frame": 175,
+          "max_gap_frames": 3,
+          "reasons": [],
+          "window_supported": true,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\rus_cro_p06_modric_cro10.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\rus_cro_p06_modric_cro10.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "rus_cro_p07_ignashevich_rus4",
+      "match_key": "rus_cro",
+      "match_title": "Russia vs Croatia (Quarter-Final)",
+      "kicker": "ignashevich_rus4",
+      "team": "RUS",
+      "penalty_number": 7,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\rus_cro_p07_ignashevich_rus4.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 4,
+        "v4_candidate_count": 4,
+        "verified_count": null,
+        "attempt_style": "continuous_approach_candidate",
+        "count_partition": {
+          "continuous_approach": 3,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": null,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          3,
+          5
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\rus_cro_p07_ignashevich_rus4.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 63,
+        "contact_time_sec": 2.1,
+        "interval_frames": [
+          60,
+          71
+        ],
+        "confidence": 0.7112,
+        "contact_associated_track_id": 3,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "unknown",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\rus_cro_p07_ignashevich_rus4.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "image_right",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "image_right",
+        "window_guarded_height": "low",
+        "guarded_qa_accepted": true,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 31,
+          "observed_fraction": 1.0,
+          "first_observed_frame": 63,
+          "last_observed_frame": 93,
+          "max_gap_frames": 1,
+          "reasons": [],
+          "window_supported": true,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\rus_cro_p07_ignashevich_rus4.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": false,
+        "experiment_cohort_member": true,
+        "experimental_status": "experimental",
+        "fixed_full32_continuity_qa": false,
+        "experimental_source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\ball_extended_v3\\rus_cro_p07_ignashevich_rus4.json",
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\rus_cro_p07_ignashevich_rus4.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "rus_cro_p08_vida_cro21",
+      "match_key": "rus_cro",
+      "match_title": "Russia vs Croatia (Quarter-Final)",
+      "kicker": "vida_cro21",
+      "team": "CRO",
+      "penalty_number": 8,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\rus_cro_p08_vida_cro21.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 4,
+        "v4_candidate_count": 4,
+        "verified_count": null,
+        "attempt_style": "continuous_approach_candidate",
+        "count_partition": {
+          "continuous_approach": 4,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": null,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          4,
+          4
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\rus_cro_p08_vida_cro21.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 92,
+        "contact_time_sec": 3.066666666666667,
+        "interval_frames": [
+          89,
+          100
+        ],
+        "confidence": 0.9278,
+        "contact_associated_track_id": 2,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "unknown",
+        "nominal_v4_candidate": "left",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\rus_cro_p08_vida_cro21.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_right",
+        "experimental_candidate_height": "mid",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": false,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 10,
+          "observed_fraction": 0.3226,
+          "first_observed_frame": 92,
+          "last_observed_frame": 102,
+          "max_gap_frames": 2,
+          "reasons": [
+            "right_censored_dive_window",
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\rus_cro_p08_vida_cro21.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": false,
+        "experiment_cohort_member": true,
+        "experimental_status": "experimental",
+        "fixed_full32_continuity_qa": false,
+        "experimental_source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\ball_extended_v3\\rus_cro_p08_vida_cro21.json",
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\rus_cro_p08_vida_cro21.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "rus_cro_p09_kuzyaev_rus7",
+      "match_key": "rus_cro",
+      "match_title": "Russia vs Croatia (Quarter-Final)",
+      "kicker": "kuzyaev_rus7",
+      "team": "RUS",
+      "penalty_number": 9,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\rus_cro_p09_kuzyaev_rus7.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 4,
+        "v4_candidate_count": 4,
+        "verified_count": null,
+        "attempt_style": "continuous_approach_candidate",
+        "count_partition": {
+          "continuous_approach": 4,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": null,
+          "contact_guard": 0,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          4,
+          5
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\rus_cro_p09_kuzyaev_rus7.json"
+      },
+      "contact": {
+        "status": "tentative",
+        "contact_frame": 78,
+        "contact_time_sec": 2.6,
+        "interval_frames": [
+          75,
+          86
+        ],
+        "confidence": 0.6836,
+        "contact_associated_track_id": 5,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "right",
+        "nominal_v4_candidate": "right",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\rus_cro_p09_kuzyaev_rus7.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": true,
+        "experimental_candidate_direction": "image_right",
+        "experimental_candidate_height": "mid",
+        "window_guarded_direction": "image_right",
+        "window_guarded_height": "mid",
+        "guarded_qa_accepted": true,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 31,
+          "observed_fraction": 1.0,
+          "first_observed_frame": 78,
+          "last_observed_frame": 108,
+          "max_gap_frames": 1,
+          "reasons": [],
+          "window_supported": true,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\rus_cro_p09_kuzyaev_rus7.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\rus_cro_p09_kuzyaev_rus7.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    },
+    {
+      "clip_id": "rus_cro_p10_rakitic_cro7",
+      "match_key": "rus_cro",
+      "match_title": "Russia vs Croatia (Quarter-Final)",
+      "kicker": "rakitic_cro7",
+      "team": "CRO",
+      "penalty_number": 10,
+      "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\rus_cro_p10_rakitic_cro7.mp4",
+      "steps": {
+        "baseline_v3_candidate_count": 5,
+        "v4_candidate_count": 5,
+        "verified_count": null,
+        "attempt_style": "undetermined",
+        "count_partition": {
+          "continuous_approach": null,
+          "before_terminal": null,
+          "terminal_adjustment": null,
+          "type_unresolved": 4,
+          "contact_guard": 1,
+          "pose_gap": 0
+        },
+        "parameter_range": [
+          5,
+          6
+        ],
+        "partial_approach_known": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\rus_cro_p10_rakitic_cro7.json"
+      },
+      "contact": {
+        "status": "supported",
+        "contact_frame": 77,
+        "contact_time_sec": 2.566666666666667,
+        "interval_frames": [
+          74,
+          85
+        ],
+        "confidence": 0.9189,
+        "contact_associated_track_id": 4,
+        "warnings": [
+          "experimental_not_human_verified",
+          "confidence_is_heuristic_not_calibrated"
+        ]
+      },
+      "foot": {
+        "baseline_candidate": "left",
+        "nominal_v4_candidate": "left",
+        "parameter_stable_candidate": "unknown",
+        "parameter_stable": false,
+        "verified_foot": null,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\foot_sensitivity\\rus_cro_p10_rakitic_cro7.json"
+      },
+      "goalkeeper": {
+        "baseline_qa_accepted": false,
+        "experimental_candidate_direction": "image_right",
+        "experimental_candidate_height": "low",
+        "window_guarded_direction": "unknown",
+        "window_guarded_height": "unknown",
+        "guarded_qa_accepted": false,
+        "pre_guard_qa_accepted": true,
+        "observability": {
+          "policy": "fixed_1s_postkick_v1",
+          "duration_sec": 1.0,
+          "min_fraction": 0.8,
+          "boundary_tolerance_sec": 0.1,
+          "max_gap_sec": 0.2,
+          "expected_frames": 31,
+          "observed_frames": 22,
+          "observed_fraction": 0.7097,
+          "first_observed_frame": 77,
+          "last_observed_frame": 107,
+          "max_gap_frames": 5,
+          "reasons": [
+            "insufficient_observed_frame_fraction"
+          ],
+          "window_supported": false,
+          "identity_verified": false
+        },
+        "verified_identity": false,
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\rus_cro_p10_rakitic_cro7.json"
+      },
+      "ball": {
+        "baseline_qa_accepted": true,
+        "experiment_cohort_member": false,
+        "experimental_status": "not_retested",
+        "fixed_full32_continuity_qa": null,
+        "experimental_source": null,
+        "event_final_position": null,
+        "speed_units": "image_pixels_per_second_not_meters_per_second"
+      },
+      "outcome": {
+        "external_label": "goal",
+        "external_label_detail": "scored",
+        "recorded_source": "official_fifa_technical_report",
+        "source_verified_in_this_experiment": false,
+        "automatic_prediction": "unknown",
+        "used_by_predictor": false
+      },
+      "homography": {
+        "validated_ground_plane": false
+      },
+      "camera": {
+        "source": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\camera_canonical\\rus_cro_p10_rakitic_cro7.json",
+        "verified_class": "unknown"
+      },
+      "human_verified": false,
+      "accuracy_validated": false
+    }
+  ]
+}

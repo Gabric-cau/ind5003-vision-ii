@@ -1,0 +1,80 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>部分姿态与时间对齐实验</title>
+<style>body{max-width:1100px;margin:36px auto;font:16px/1.7 system-ui;padding:0 20px;color:#17363d}pre{white-space:pre-wrap;background:#eff4f5;padding:18px}.warn{background:#fff4d4;padding:18px}</style>
+<h1>Vision II：部分姿态与有序时间对齐实验</h1><p>2026-10-11 · 单独实验，不覆盖2026-10-10成果包</p>
+<p class="warn">候选更多不代表准确率更高。本次没有人工真值，也没有把普通视频合成成虚构新机位。所有源视频保持不变。</p>
+<h2>修改了什么</h2><ol><li>从要求六个角度全部可用，改为分别保存可见角度；腿部至少两项有效才进入候选序列。缺失值不填0、不插值。</li>
+<li>用有序的时间缩放和平移搜索代替每帧独立最近邻；不允许动作倒退，也不跨越超过0.35秒的观测缺口。</li>
+<li>以倒序、三次固定随机打乱、正常速度及不同点球作对照。左右交换按整个序列尝试，不能逐帧挑选最便宜的一侧。</li>
+<li>待查镜头允许已有三个采样中至少一个产生相关机位线索；新增镜头只进入实验，不改写原机位标签。</li></ol>
+<p>算法是项目编写的掩码关节角恒定时间缩放搜索，不是DTW，也不是跨视角3D动作恢复。方法思路参考 <a href="https://www.audiolabs-erlangen.de/resources/MIR/FMP/C7/C7S2_DiagonalMatching.html">FMP时间缩放/对角子序列匹配</a>，将音频匹配思想用于姿态是本项目实验，不是该来源对足球有效性的证明。</p>
+<h2>结果统计</h2><pre>{
+  &quot;clips_measured&quot;: 39,
+  &quot;pose_frames&quot;: 3593,
+  &quot;query_shots&quot;: 76,
+  &quot;role_pairs&quot;: 152,
+  &quot;old_cohort_role_pairs&quot;: 76,
+  &quot;instrumentation&quot;: {
+    &quot;role_frame_checks&quot;: 7186,
+    &quot;usable_partial_lower_body&quot;: 1801,
+    &quot;usable_complete_six_angles&quot;: 1697,
+    &quot;multiple_same_kit_people&quot;: 702,
+    &quot;no_unique_kit_role&quot;: 3882,
+    &quot;unique_role_but_insufficient_lower_body&quot;: 801,
+    &quot;rescued_partial_not_complete&quot;: 104
+  },
+  &quot;partial_sample_eligible_pairs&quot;: 21,
+  &quot;complete_sample_eligible_pairs&quot;: 21,
+  &quot;common_cohort_sample_eligible&quot;: {
+    &quot;complete&quot;: 7,
+    &quot;partial&quot;: 7
+  },
+  &quot;variants&quot;: {
+    &quot;new_10hz_complete_nearest&quot;: {
+      &quot;unknown&quot;: 152
+    },
+    &quot;new_10hz_complete_affine&quot;: {
+      &quot;unknown&quot;: 151,
+      &quot;no_relative_slowdown_evidence&quot;: 1
+    },
+    &quot;new_10hz_partial_affine&quot;: {
+      &quot;unknown&quot;: 151,
+      &quot;no_relative_slowdown_evidence&quot;: 1
+    }
+  },
+  &quot;partial_reasons&quot;: {
+    &quot;insufficient_contiguous_partial_pose&quot;: 131,
+    &quot;ambiguous_vs_reversed_or_shuffled&quot;: 7,
+    &quot;insufficient_motion_or_supported_alignment&quot;: 11,
+    &quot;unstable_stretch&quot;: 1,
+    &quot;ordered_affine_alignment_without_sufficient_time_stretch&quot;: 1,
+    &quot;pose_mismatch&quot;: 1
+  },
+  &quot;slowdown_candidates&quot;: [],
+  &quot;different_event_controls&quot;: 93,
+  &quot;different_event_sample_eligible&quot;: 24,
+  &quot;different_event_accepted&quot;: 0,
+  &quot;synthetic_control_status_counts&quot;: {
+    &quot;same_timestamps&quot;: {
+      &quot;no_relative_slowdown_evidence&quot;: 17,
+      &quot;unknown&quot;: 13
+    },
+    &quot;synthetic_2x_timestamps&quot;: {
+      &quot;relative_slowdown_candidate&quot;: 8,
+      &quot;unknown&quot;: 19,
+      &quot;no_relative_slowdown_evidence&quot;: 3
+    },
+    &quot;synthetic_reversed_2x&quot;: {
+      &quot;unknown&quot;: 30
+    }
+  },
+  &quot;tests_run&quot;: 47,
+  &quot;tests_passed&quot;: true,
+  &quot;source_videos_hash_matched&quot;: 39,
+  &quot;human_ground_truth_records&quot;: 0,
+  &quot;accuracy_estimate&quot;: null,
+  &quot;independent_holdout&quot;: false,
+  &quot;release_replaced&quot;: false,
+  &quot;limitation&quot;: &quot;A time-stretch candidate is not verified same event, identity, replay, camera category or absolute slow-motion speed.&quot;
+}</pre>
+<h2>如何解读</h2><p>旧方案38段，新搜索范围和10Hz采样都变化了，因此应先看原38段中的完整/部分姿态对照，不把扩大搜索范围当成准确率进步。所有阈值是未标定工程选择，同一批视频此前已经被观察过，不称作独立测试集。</p>
+<p>不同点球对照如果也得到减速候选，说明身体动作相似性不足以确认同一次事件。即使这些对照全拒绝，也不等于已测得真实准确率。完整原始记录见 <a href="pairs.json">配对结果</a>、<a href="different_event_controls.json">不同事件对照</a>、<a href="synthetic_time_controls.json">合成时间对照</a>、<a href="tests.log">测试日志</a>。</p></html>

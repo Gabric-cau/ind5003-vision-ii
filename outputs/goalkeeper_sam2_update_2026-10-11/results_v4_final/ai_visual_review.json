@@ -1,0 +1,69 @@
+{
+  "reviewer": "AI assistant",
+  "human_review": false,
+  "accuracy_estimate": null,
+  "scope": "Static frames only; not user ground truth or full action adjudication",
+  "observations": [
+    {
+      "clip_id": "col_eng_p03_cuadrado_col11",
+      "frames": [
+        92,
+        111,
+        114,
+        120,
+        132,
+        138
+      ],
+      "source": "automatic head-part pilot over actual 1024 body masks; same 512 head masks hash-match integrated pipeline",
+      "finding": "Head mask aligns with visible head in early dive frames; later part expands or jumps and must be excluded. Strict integration retains supporting frames 114-117 only."
+    },
+    {
+      "clip_id": "cro_den_p04_kramaric_cro9",
+      "frames": [
+        62,
+        79,
+        88
+      ],
+      "finding": "Foreground is the actual goalkeeper. Crouching/sitting is visible, not an unambiguous sustained lateral body transition under the current rule."
+    },
+    {
+      "clip_id": "esp_rus_p02_smolov_rus10",
+      "frames": [
+        126,
+        135,
+        147
+      ],
+      "finding": "Mask follows goalkeeper rather than foreground referee; head is on image-left. Direction support occurs partly after landing and needs independent full-action verification."
+    },
+    {
+      "clip_id": "esp_rus_p06_golovin_rus17",
+      "frames": [
+        100,
+        109
+      ],
+      "finding": "Mask follows goalkeeper; body inclines and head is image-left of lower body. Some pose samples are not lateral and are not sufficient alone."
+    },
+    {
+      "clip_id": "esp_rus_p08_cheryshev_rus6",
+      "frames": [
+        78,
+        87
+      ],
+      "finding": "Body mask is present but torso is relatively upright at 78 and head overlaps referee at 87; retain unknown under anatomical continuity rule."
+    },
+    {
+      "clip_id": "esp_rus_p09_aspas_esp17",
+      "frames": [
+        97,
+        114
+      ],
+      "finding": "Mask follows goalkeeper near ROI right edge; body at 114 remains steeply angled. Source has only 120 decoded frames, so postkick window is censored."
+    }
+  ],
+  "limitations": [
+    "No pixel-level ground truth or independent direction labels",
+    "Mask survival does not prove semantic-part identity",
+    "Image-left/right is not automatically goalkeeper-own left/right",
+    "Only Cuadrado ran the head-part fallback in this release"
+  ]
+}

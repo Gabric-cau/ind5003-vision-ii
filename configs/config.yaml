@@ -1,0 +1,32 @@
+project:
+  name: "FIFA 2018 Penalty Shootout Vision Pipeline"
+  course: "IND5003"
+  semester: "2610"
+
+data:
+  raw_video_dir: "data/raw_clips"
+  processed_dir: "data/processed"
+  output_plots_dir: "outputs/plots"
+  output_tables_dir: "outputs/tables"
+  fps_default: 25.0
+
+pitch_geometry:
+  penalty_spot_distance: 11.0          # 点球点距球门线距离 (m)
+  goal_width: 7.32                     # 球门宽度 (m)
+  goal_height: 2.44                    # 球门高度 (m)
+  penalty_box_width: 40.32             # 禁区宽度 (m)
+  penalty_box_length: 16.5             # 禁区长度 (m)
+  penalty_arc_radius: 9.15             # 禁区弧半径 (m)
+
+camera_angles:
+  target_classes:
+    - "back_of_kicker"                 # 点球手后方视角
+    - "angle_45_right"                 # 45度角视角
+    - "slowmo_kicker_closeup"          # 点球手慢动作特写
+    - "slowmo_gk_back"                 # 门将后方慢动作视角
+  scene_cut_threshold: 30.0
+
+feature_extraction:
+  runup_min_speed_threshold: 0.5
+  step_detection_prominence: 0.15
+  gk_movement_window_sec: 1.5

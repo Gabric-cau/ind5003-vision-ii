@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "reviewer": "user",
+  "source": "explicit_user_chat_video_review",
+  "date": "2026-10-11",
+  "source_quote": "第一个守门员抗议 不展示方向 第二个第三个都是小范围向右扑救（球员看向左）",
+  "scope": "visible goalkeeper action and displayed dive direction in the three provided clips only",
+  "coordinate_system": "source_image_x_right",
+  "keeper_own_side": "not_camera_calibrated",
+  "reviews": [
+    {
+      "clip_id": "cro_den_p04_kramaric_cro9",
+      "reviewed_direction": "not_applicable",
+      "display_direction": false,
+      "observed_action": "protest",
+      "note": "用户描述守门员抗议，要求不展示方向；不编码成center，也不推断此前未见动作。"
+    },
+    {
+      "clip_id": "esp_rus_p08_cheryshev_rus6",
+      "reviewed_direction": "image_right",
+      "display_direction": true,
+      "observed_action": "small_range_dive",
+      "note": "用户复核为小范围向右扑救；幅度是定性描述，不是计算的距离或扑救高度。"
+    },
+    {
+      "clip_id": "esp_rus_p09_aspas_esp17",
+      "reviewed_direction": "image_right",
+      "display_direction": true,
+      "observed_action": "small_range_dive",
+      "note": "用户复核为小范围向右扑救；不据此推断切片结尾后的动作。"
+    }
+  ]
+}

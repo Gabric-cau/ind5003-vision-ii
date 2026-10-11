@@ -1,0 +1,178 @@
+{
+  "canonical_clips": 39,
+  "baseline_count_available": 31,
+  "v4_count_available": 39,
+  "candidate_step_count_distribution": {
+    "3": 5,
+    "4": 8,
+    "5": 6,
+    "15": 1,
+    "7": 3,
+    "6": 12,
+    "14": 1,
+    "8": 2,
+    "2": 1
+  },
+  "attempt_styles": {
+    "undetermined": 22,
+    "terminal_adjustment_candidate": 4,
+    "continuous_approach_candidate": 13
+  },
+  "paired_count_change_distribution": {
+    "0": 28,
+    "-1": 2,
+    "1": 1
+  },
+  "new_count_rows": [
+    {
+      "clip_id": "col_eng_p09_bacca_col7",
+      "candidate_count": 3,
+      "parameter_range": [
+        1,
+        4
+      ],
+      "contact_status": "tentative",
+      "partial_approach_known": false
+    },
+    {
+      "clip_id": "col_eng_p10_dier_eng4",
+      "candidate_count": 3,
+      "parameter_range": [
+        3,
+        4
+      ],
+      "contact_status": "supported",
+      "partial_approach_known": false
+    },
+    {
+      "clip_id": "cro_den_p04_kramaric_cro9",
+      "candidate_count": 6,
+      "parameter_range": [
+        6,
+        6
+      ],
+      "contact_status": "supported",
+      "partial_approach_known": false
+    },
+    {
+      "clip_id": "cro_den_p06_modric_cro10",
+      "candidate_count": 6,
+      "parameter_range": [
+        6,
+        7
+      ],
+      "contact_status": "tentative",
+      "partial_approach_known": false
+    },
+    {
+      "clip_id": "esp_rus_p02_smolov_rus10",
+      "candidate_count": 6,
+      "parameter_range": [
+        6,
+        10
+      ],
+      "contact_status": "supported",
+      "partial_approach_known": false
+    },
+    {
+      "clip_id": "esp_rus_p08_cheryshev_rus6",
+      "candidate_count": 6,
+      "parameter_range": [
+        5,
+        8
+      ],
+      "contact_status": "supported",
+      "partial_approach_known": false
+    },
+    {
+      "clip_id": "rus_cro_p02_brozovic_cro11",
+      "candidate_count": 2,
+      "parameter_range": [
+        1,
+        3
+      ],
+      "contact_status": "tentative",
+      "partial_approach_known": true
+    },
+    {
+      "clip_id": "rus_cro_p05_fernandes_rus2",
+      "candidate_count": 6,
+      "parameter_range": [
+        5,
+        7
+      ],
+      "contact_status": "supported",
+      "partial_approach_known": false
+    }
+  ],
+  "foot_parameter_stable": 1,
+  "gk_guard": {
+    "clips": 39,
+    "pre_guard_qa": 29,
+    "guarded_qa": 15,
+    "window_supported": 16,
+    "directions": {
+      "image_right": 8,
+      "unknown": 23,
+      "center": 4,
+      "image_left": 4
+    },
+    "human_verified": false,
+    "accuracy_validated": false,
+    "scope": "Stricter completeness reporting; not an independent identity or accuracy test"
+  },
+  "ball_review_cohort": 13,
+  "ball_continuity_qa_counts": {
+    "full_32": 7,
+    "full_60": 6,
+    "corridor_32": 7,
+    "corridor_60": 5
+  },
+  "camera_segments": 187,
+  "external_outcome_labels": {
+    "goal": 26,
+    "no_goal": 13
+  },
+  "human_ground_truth_records": 0,
+  "accuracy_estimate": null,
+  "tests": {
+    "passed": true,
+    "errors": [],
+    "historical_tests": {
+      "passed": true,
+      "tests_run": 98,
+      "failures": 0,
+      "errors": 0,
+      "by_file": {
+        "test_kicker_step_count.py": 7,
+        "test_ball_outcome.py": 4,
+        "test_goalkeeper_analysis.py": 5,
+        "test_step_shot_selection.py": 14,
+        "test_penalty_phases.py": 29,
+        "test_phase_step_events.py": 9,
+        "test_motion_stabilization.py": 10,
+        "test_pose_refinement.py": 10,
+        "test_kick_contact.py": 10
+      },
+      "scope": "Selected historical and new synthetic tests; not real-video accuracy or the entire repository pytest suite."
+    },
+    "additional_tests": {
+      "test_terminal_footwork": 26,
+      "test_style_aware_steps": 22,
+      "test_contact_transition": 5,
+      "test_goalkeeper_bounded": 4,
+      "test_ball_expired_paths": 2,
+      "test_goal_geometry": 3,
+      "test_person_appearance": 2,
+      "test_goalkeeper_qa_gap": 1,
+      "test_goalkeeper_observation_guard": 5
+    },
+    "total_tests": 168,
+    "new_result_replays": 39,
+    "raw_video_hashes_checked": 39,
+    "human_verified": false,
+    "accuracy_validated": false,
+    "full_pytest_suite_run": false,
+    "scope": "Selected synthetic tests, count partitions, hashes and deterministic replay; NOT real-video accuracy"
+  }
+}

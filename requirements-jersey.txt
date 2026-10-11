@@ -1,0 +1,15 @@
+# Optional OCR experiment environment: CPython 3.12, separate from main project.
+# Exact versions below were reused locally, not installed into a fresh environment.
+# Local cv2 reports 5.0.0; its distribution metadata was absent in copied files.
+# OpenCV range below is a compatibility requirement, not a verified exact lock.
+numpy==2.3.5
+Pillow==12.3.0
+six==1.17.0
+rapidocr-onnxruntime==1.4.4
+onnxruntime==1.29.0
+Shapely==2.1.2
+pyclipper==1.4.0
+PyYAML==6.0.3
+opencv-python>=4.10,<6
+# Existing detector/pose inference requirements remain in the project's requirements.txt.
+# This experiment uses cached pose features and PP-OCRv4 models, not SoccerNet weights.

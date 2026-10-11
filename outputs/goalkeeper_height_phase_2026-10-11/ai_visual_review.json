@@ -1,0 +1,35 @@
+{
+  "reviewer": "AI",
+  "human_ground_truth": false,
+  "scope": "selected static source-frame montages, not full independent human video validation",
+  "reviews": [
+    {
+      "clip_id": "col_eng_p03_cuadrado_col11",
+      "source": "pilot_v2/clips/col_eng_p03_cuadrado_col11/phase_montage.jpg",
+      "frames_viewed": [97, 98, 108, 114, 119],
+      "observations": "Yellow silhouette covers the goalkeeper rather than foreground referee. f108 shows launch/lunge; f114 sideways extended body; f119 body on turf. The low silhouette-centroid proxy is about body flight, NOT ball height or raised glove height.",
+      "limitation": "Cannot establish exact first ground-contact frame or measured hip height from this montage. Pose-only evidence still abstains."
+    },
+    {
+      "clip_id": "esp_rus_p02_smolov_rus10",
+      "source": "pilot_v2/clips/esp_rus_p02_smolov_rus10/phase_montage.jpg",
+      "frames_viewed": [112, 114, 126, 129, 132],
+      "observations": "Silhouette stays on goalkeeper, foreground referee remains separate. f126/f129 are sideways with raised legs; f132 is a low settled body.",
+      "limitation": "f126 may already include turf contact; silhouette onset/landing boundaries may lag physical contact. Needs full-motion human review; not a validated height label."
+    },
+    {
+      "clip_id": "col_eng_p07_uribe_col15",
+      "source": "expanded_roi_pilot_v1/clips/col_eng_p07_uribe_col15/phase_montage.jpg",
+      "frames_viewed": [147, 156, 157, 162],
+      "observations": "Wider crop covers keeper and both officials. Yellow mask stays on goalkeeper in the selected static frames. Frames156-162 show an upright lateral lunge, not proof of an airborne dive.",
+      "limitation": "Continuous mask frames76/76 is tracking coverage, not proof of complete dive semantics or valid height."
+    },
+    {
+      "clip_id": "cro_den_p09_jorgensen_den9",
+      "source": "all39_v2/clips/cro_den_p09_jorgensen_den9/phase_montage.jpg",
+      "frames_viewed": [83, 84, 92, 101, 112, 118],
+      "observations": "Body is low and turning on turf in frames101-118. Silhouette settling at118 likely includes late roll/recovery rather than first contact.",
+      "limitation": "Do not promote this silhouette low proxy as a verified pre-landing peak. Pose/silhouette landing conflict should abstain in fused classification."
+    }
+  ]
+}

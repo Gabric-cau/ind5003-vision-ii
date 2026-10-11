@@ -1,0 +1,101 @@
+{
+  "clip_id": "cro_den_p02_badelj_cro19",
+  "automatic_candidate": {
+    "candidate": "unknown",
+    "status": "conflicting_or_insufficient_anatomical_evidence",
+    "requires_review": true,
+    "component_labels": [
+      "right"
+    ]
+  },
+  "normal_evidence": {
+    "motion_candidate": "unknown",
+    "contact_candidate": "unknown",
+    "requires_review": true,
+    "window": [
+      63,
+      72
+    ],
+    "observed_samples": 10,
+    "feet": {
+      "left": {
+        "max_motion_px": 15.860745243242865,
+        "median_motion_px": 4.183883562268116,
+        "min_ball_distance_px": 7.960777619087369,
+        "motion_pairs": 9,
+        "contact_samples": 5
+      },
+      "right": {
+        "max_motion_px": 19.154693184015947,
+        "median_motion_px": 7.926370403036076,
+        "min_ball_distance_px": 8.783542962104182,
+        "motion_pairs": 9,
+        "contact_samples": 5
+      }
+    },
+    "motion_ratio": 1.207679266658444,
+    "ball_distance_margin_px": 0.8227653430168127
+  },
+  "mirrored_evidence": {
+    "motion_candidate": "right",
+    "contact_candidate": "unknown",
+    "requires_review": true,
+    "window": [
+      63,
+      72
+    ],
+    "observed_samples": 10,
+    "feet": {
+      "left": {
+        "max_motion_px": 14.160790119790795,
+        "median_motion_px": 7.270769361280463,
+        "min_ball_distance_px": 12.55854816909659,
+        "motion_pairs": 9,
+        "contact_samples": 5
+      },
+      "right": {
+        "max_motion_px": 31.050858171683757,
+        "median_motion_px": 14.674888618345195,
+        "min_ball_distance_px": 12.67355500904814,
+        "motion_pairs": 9,
+        "contact_samples": 5
+      }
+    },
+    "motion_ratio": 2.1927348621803096,
+    "ball_distance_margin_px": 0.11500683995155114
+  },
+  "approach_heuristics": {
+    "screen_x_candidate": "right",
+    "screen_x_offset_px": -100.12912555055016,
+    "goal_axis_candidate": "unknown",
+    "ground_calibrated": false,
+    "contact_observed_by_this_rule": false,
+    "scope": "Hypotheses from approach, not an anatomical guarantee",
+    "reason": "missing_automatic_goal_geometry"
+  },
+  "source_video": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\cro_den_p02_badelj_cro19.mp4",
+  "source_video_sha256": "90e4d3fb38440088cbb608e2a47f090e44578bcef576fe8cde8b918ddcf6a66d",
+  "contact_bracket_frames": [
+    67,
+    69
+  ],
+  "old_contact_frame": 68,
+  "stationary_ball_reference": [
+    469.17388560228494,
+    475.78282896870496
+  ],
+  "goal_ground_midpoint_uncalibrated": null,
+  "observed_original_pose_frames": 21,
+  "observed_mirrored_pose_frames": 21,
+  "raw_pose_file": "poses/cro_den_p02_badelj_cro19.json",
+  "reviewer_labels_used": false,
+  "accuracy_estimate": null,
+  "input_sha256": {
+    "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\cro_den_p02_badelj_cro19.json": "2fb75ad3fc7455a77d4c2dd8c3b27126f96ca48198e4b62c37d0028670d7adc9",
+    "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\shot_repair_2026-10-09\\all_clips_final\\cro_den_p02_badelj_cro19.json": "eb13ba239cc688ba8ef805b704ccc24661b5c994c70f9d668078b30349d8f4fb",
+    "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\ball_mask_review_ready_2026-10-11\\results\\cro_den_p02_badelj_cro19.json": "a793aa19438084ae3eb9ec617802c68a86da033d8412f2fd29dd680b029059ad",
+    "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\ball_detection_all_2026-10-11\\detections\\cro_den_p02_badelj_cro19.json": "0320bc7ee08de9a1bfeaad59f24b93564e5f35e1e5125da62e5ed1620795c552",
+    "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_geometry_v3\\cro_den_p02_badelj_cro19.json": "a27d7b8c135cce500e36a555c202f96d2b2ad9ca4496486be2f9fb114ddb4c57"
+  },
+  "elapsed_seconds": 3.7606395999900997
+}

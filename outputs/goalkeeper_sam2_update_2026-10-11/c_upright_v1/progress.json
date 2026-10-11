@@ -1,0 +1,652 @@
+{
+  "completed": 1,
+  "total": 1,
+  "rows": [
+    {
+      "clip_id": "col_eng_p03_cuadrado_col11",
+      "status": "mask_observed_direction_unknown",
+      "candidate_direction": "unknown",
+      "previous_direction": "unknown",
+      "pose_seed": 4,
+      "mask_valid_frames": 52,
+      "total_mask_frames": 52,
+      "direction_evidence": {
+        "policy": "sam2_visible_head_torso_transition_v1",
+        "supported": false,
+        "direction": "unknown",
+        "reasons": [
+          "no_sustained_visible_head_torso_transition"
+        ],
+        "identity_verified": false,
+        "accuracy_validated": false,
+        "coordinate_system": "source_image_x_right",
+        "uses_mask_centroid_direction": false,
+        "uses_unsigned_PCA_direction": false,
+        "anatomical_confidence_min": 0.5,
+        "min_sustained_samples": 3,
+        "min_sustained_span_sec": 0.06,
+        "pre_reference_frames": [
+          95,
+          96,
+          97,
+          100,
+          101
+        ],
+        "observed_mask_prefix_frames": [
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132
+        ],
+        "anatomical_samples": [
+          {
+            "frame": 87,
+            "torso_vector": [
+              0.4114265441894531,
+              -36.28218460083008
+            ],
+            "head_point": [
+              211.6211929321289,
+              52.871002197265625
+            ],
+            "head_relative_to_mask_center": [
+              -2.7302399487157345,
+              -49.15539297618837
+            ],
+            "mask_axis_signed_by_visible_head": [
+              0.0351246829747229,
+              -0.9993829379401697
+            ],
+            "head_endpoint_fraction": 0.9132752481363617,
+            "mask_elongation": 3.191718866444359,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.9572147727012634,
+            "source_pose": "sam2_foreground_dimmed_rotation_0"
+          },
+          {
+            "frame": 88,
+            "torso_vector": [
+              -1.6488609313964844,
+              -36.76948547363281
+            ],
+            "head_point": [
+              223.13270950317383,
+              55.70173645019531
+            ],
+            "head_relative_to_mask_center": [
+              7.982460365573218,
+              -46.56924860154865
+            ],
+            "mask_axis_signed_by_visible_head": [
+              0.047110179122501546,
+              -0.9988896991275091
+            ],
+            "head_endpoint_fraction": 0.8756346572557175,
+            "mask_elongation": 3.2146647614350927,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.9584656357765198,
+            "source_pose": "sam2_foreground_dimmed_rotation_0"
+          },
+          {
+            "frame": 89,
+            "torso_vector": [
+              -1.1579113006591797,
+              -36.89590835571289
+            ],
+            "head_point": [
+              223.76705932617188,
+              51.291709899902344
+            ],
+            "head_relative_to_mask_center": [
+              7.7654925419963945,
+              -51.427444036642896
+            ],
+            "mask_axis_signed_by_visible_head": [
+              0.05273386964649748,
+              -0.9986086015011619
+            ],
+            "head_endpoint_fraction": 0.9647088035339297,
+            "mask_elongation": 3.234332832432659,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.9568362236022949,
+            "source_pose": "sam2_foreground_dimmed_rotation_0"
+          },
+          {
+            "frame": 90,
+            "torso_vector": [
+              -0.16653060913085938,
+              -36.02708625793457
+            ],
+            "head_point": [
+              225.5652847290039,
+              55.77533721923828
+            ],
+            "head_relative_to_mask_center": [
+              8.944621960972711,
+              -46.81803510044983
+            ],
+            "mask_axis_signed_by_visible_head": [
+              0.059412521285286846,
+              -0.9982335159242677
+            ],
+            "head_endpoint_fraction": 0.8780980342103367,
+            "mask_elongation": 3.2328236199182627,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.9708817005157471,
+            "source_pose": "sam2_foreground_dimmed_rotation_0"
+          },
+          {
+            "frame": 91,
+            "torso_vector": [
+              -1.0211944580078125,
+              -34.922454833984375
+            ],
+            "head_point": [
+              224.9974365234375,
+              53.61639404296875
+            ],
+            "head_relative_to_mask_center": [
+              8.345042595839203,
+              -49.12630739728037
+            ],
+            "mask_axis_signed_by_visible_head": [
+              0.05893174308690928,
+              -0.9982620145316252
+            ],
+            "head_endpoint_fraction": 0.9212463058529357,
+            "mask_elongation": 3.232350754301032,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.9468147158622742,
+            "source_pose": "original_role_seed_track"
+          },
+          {
+            "frame": 92,
+            "torso_vector": [
+              0.1073760986328125,
+              -36.50616455078125
+            ],
+            "head_point": [
+              227.2453727722168,
+              50.47843360900879
+            ],
+            "head_relative_to_mask_center": [
+              9.770644933958636,
+              -52.6654233116755
+            ],
+            "mask_axis_signed_by_visible_head": [
+              0.07573264859880859,
+              -0.9971281592334104
+            ],
+            "head_endpoint_fraction": 0.9882218275951905,
+            "mask_elongation": 3.299125534099787,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.9778941869735718,
+            "source_pose": "sam2_foreground_dimmed_rotation_0"
+          },
+          {
+            "frame": 93,
+            "torso_vector": [
+              2.2531795501708984,
+              -35.73806190490723
+            ],
+            "head_point": [
+              229.66949462890625,
+              52.442596435546875
+            ],
+            "head_relative_to_mask_center": [
+              11.453522953060457,
+              -52.14552315532646
+            ],
+            "mask_axis_signed_by_visible_head": [
+              0.09152672655341469,
+              -0.9958026201644663
+            ],
+            "head_endpoint_fraction": 0.9858406637703961,
+            "mask_elongation": 3.412733515856377,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.966742992401123,
+            "source_pose": "sam2_foreground_dimmed_rotation_0"
+          },
+          {
+            "frame": 94,
+            "torso_vector": [
+              3.3467769622802734,
+              -34.92977714538574
+            ],
+            "head_point": [
+              233.58983612060547,
+              58.87089538574219
+            ],
+            "head_relative_to_mask_center": [
+              14.35241728943663,
+              -47.24395851036171
+            ],
+            "mask_axis_signed_by_visible_head": [
+              0.10021868871081452,
+              -0.9949654337880713
+            ],
+            "head_endpoint_fraction": 0.9171229758548162,
+            "mask_elongation": 3.456220867838745,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.8683330416679382,
+            "source_pose": "sam2_foreground_dimmed_rotation_0"
+          },
+          {
+            "frame": 95,
+            "torso_vector": [
+              10.503578186035156,
+              -30.414714813232422
+            ],
+            "head_point": [
+              238.2623291015625,
+              64.14277648925781
+            ],
+            "head_relative_to_mask_center": [
+              18.11405754804312,
+              -44.075049416614746
+            ],
+            "mask_axis_signed_by_visible_head": [
+              0.13785816261220885,
+              -0.9904519811687922
+            ],
+            "head_endpoint_fraction": 0.899378561795183,
+            "mask_elongation": 3.235483257681606,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.6614887714385986,
+            "source_pose": "sam2_foreground_dimmed_rotation_0"
+          },
+          {
+            "frame": 96,
+            "torso_vector": [
+              8.842397689819336,
+              -31.361995697021484
+            ],
+            "head_point": [
+              240.93726348876953,
+              69.08884048461914
+            ],
+            "head_relative_to_mask_center": [
+              19.875126698425333,
+              -41.418088438045146
+            ],
+            "mask_axis_signed_by_visible_head": [
+              0.16360678991489938,
+              -0.9865256298210107
+            ],
+            "head_endpoint_fraction": 0.9046672736305044,
+            "mask_elongation": 3.056151540398442,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.7637736201286316,
+            "source_pose": "sam2_foreground_dimmed_rotation_0"
+          },
+          {
+            "frame": 97,
+            "torso_vector": [
+              7.838741302490234,
+              -31.8928165435791
+            ],
+            "head_point": [
+              241.17574310302734,
+              68.46231079101562
+            ],
+            "head_relative_to_mask_center": [
+              20.118945249717854,
+              -42.03634752741013
+            ],
+            "mask_axis_signed_by_visible_head": [
+              0.16451724463702383,
+              -0.9863742069909581
+            ],
+            "head_endpoint_fraction": 0.9211586864772333,
+            "mask_elongation": 3.0438820821527925,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.635886549949646,
+            "source_pose": "sam2_foreground_dimmed_rotation_0"
+          },
+          {
+            "frame": 100,
+            "torso_vector": [
+              21.488555908203125,
+              -25.398818969726562
+            ],
+            "head_point": [
+              248.30810546875,
+              87.21099853515625
+            ],
+            "head_relative_to_mask_center": [
+              22.149752800536533,
+              -29.305242764147692
+            ],
+            "mask_axis_signed_by_visible_head": [
+              0.16565036926373888,
+              -0.986184544171519
+            ],
+            "head_endpoint_fraction": 0.8313959264716563,
+            "mask_elongation": 2.3431419863716916,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.6847726702690125,
+            "source_pose": "original_role_seed_track"
+          },
+          {
+            "frame": 101,
+            "torso_vector": [
+              19.219253540039062,
+              -24.804519653320312
+            ],
+            "head_point": [
+              248.77044677734375,
+              92.2386474609375
+            ],
+            "head_relative_to_mask_center": [
+              19.7742081959359,
+              -28.853238621813702
+            ],
+            "mask_axis_signed_by_visible_head": [
+              0.06884935560446424,
+              -0.9976270677126046
+            ],
+            "head_endpoint_fraction": 0.8142643707394196,
+            "mask_elongation": 2.099969635941189,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.7323639392852783,
+            "source_pose": "original_role_seed_track"
+          },
+          {
+            "frame": 102,
+            "torso_vector": [
+              16.851654052734375,
+              -22.668563842773438
+            ],
+            "head_point": [
+              249.69549560546875,
+              94.35977172851562
+            ],
+            "head_relative_to_mask_center": [
+              16.056351874581907,
+              -30.206851250951388
+            ],
+            "mask_axis_signed_by_visible_head": [
+              -0.02878697849841138,
+              -0.999585569057963
+            ],
+            "head_endpoint_fraction": 0.856646799523017,
+            "mask_elongation": 1.7420633267007233,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.5452695488929749,
+            "source_pose": "original_role_seed_track"
+          },
+          {
+            "frame": 103,
+            "torso_vector": [
+              16.890243530273438,
+              -22.74029541015625
+            ],
+            "head_point": [
+              249.69000244140625,
+              94.442138671875
+            ],
+            "head_relative_to_mask_center": [
+              16.052760456338177,
+              -29.855182364576464
+            ],
+            "mask_axis_signed_by_visible_head": [
+              -0.026978738004358235,
+              -0.9996360076026134
+            ],
+            "head_endpoint_fraction": 0.8362724404320888,
+            "mask_elongation": 1.740142717455694,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.5458405613899231,
+            "source_pose": "original_role_seed_track"
+          },
+          {
+            "frame": 104,
+            "torso_vector": [
+              13.355087280273438,
+              -24.737380981445312
+            ],
+            "head_point": [
+              250.19973754882812,
+              98.03656005859375
+            ],
+            "head_relative_to_mask_center": [
+              12.81973754882813,
+              -26.490258123224436
+            ],
+            "mask_axis_signed_by_visible_head": [
+              -0.023310422520427483,
+              -0.9997282751837717
+            ],
+            "head_endpoint_fraction": 0.7707776444723833,
+            "mask_elongation": 1.4076284057194919,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.8208116292953491,
+            "source_pose": "original_role_seed_track"
+          },
+          {
+            "frame": 105,
+            "torso_vector": [
+              11.53482437133789,
+              -26.261381149291992
+            ],
+            "head_point": [
+              248.43460083007812,
+              95.23465347290039
+            ],
+            "head_relative_to_mask_center": [
+              8.065756133108437,
+              -31.038073799826876
+            ],
+            "mask_axis_signed_by_visible_head": [
+              -0.0878648018343303,
+              -0.9961324091698924
+            ],
+            "head_endpoint_fraction": 0.8778267946056078,
+            "mask_elongation": 1.4422589905202554,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.967372477054596,
+            "source_pose": "sam2_foreground_dimmed_rotation_0"
+          },
+          {
+            "frame": 106,
+            "torso_vector": [
+              0.5240478515625,
+              -28.784271240234375
+            ],
+            "head_point": [
+              246.72119140625,
+              100.642333984375
+            ],
+            "head_relative_to_mask_center": [
+              3.5377947703302937,
+              -25.991957930980405
+            ],
+            "mask_axis_signed_by_visible_head": [
+              -0.22640226335733032,
+              -0.9740338880894638
+            ],
+            "head_endpoint_fraction": 0.6531687791359639,
+            "mask_elongation": 1.600161988695879,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.9705380797386169,
+            "source_pose": "original_role_seed_track"
+          },
+          {
+            "frame": 107,
+            "torso_vector": [
+              -4.6854400634765625,
+              -26.455703735351562
+            ],
+            "head_point": [
+              244.10986328125,
+              105.40225219726562
+            ],
+            "head_relative_to_mask_center": [
+              -2.7275350927337456,
+              -23.865498480241143
+            ],
+            "mask_axis_signed_by_visible_head": [
+              -0.43614998835273355,
+              -0.8998739843221996
+            ],
+            "head_endpoint_fraction": 0.6066235898585426,
+            "mask_elongation": 1.7473622107780158,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.9571366906166077,
+            "source_pose": "original_role_seed_track"
+          },
+          {
+            "frame": 108,
+            "torso_vector": [
+              -7.918304443359375,
+              -22.557876586914062
+            ],
+            "head_point": [
+              243.76467895507812,
+              108.41961669921875
+            ],
+            "head_relative_to_mask_center": [
+              -7.179451970429767,
+              -22.99742619017178
+            ],
+            "mask_axis_signed_by_visible_head": [
+              -0.5656381401403681,
+              -0.8246535602412356
+            ],
+            "head_endpoint_fraction": 0.6127819610247772,
+            "mask_elongation": 1.971074613591425,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.9582564830780029,
+            "source_pose": "original_role_seed_track"
+          },
+          {
+            "frame": 109,
+            "torso_vector": [
+              -7.9240264892578125,
+              -22.56939697265625
+            ],
+            "head_point": [
+              243.76666259765625,
+              108.41744995117188
+            ],
+            "head_relative_to_mask_center": [
+              -6.920947502167593,
+              -22.855010412891545
+            ],
+            "mask_axis_signed_by_visible_head": [
+              -0.5633879762814779,
+              -0.8261924643698108
+            ],
+            "head_endpoint_fraction": 0.6060300045439935,
+            "mask_elongation": 2.0196360846674515,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.9581008553504944,
+            "source_pose": "original_role_seed_track"
+          },
+          {
+            "frame": 110,
+            "torso_vector": [
+              -11.60491943359375,
+              -17.388916015625
+            ],
+            "head_point": [
+              243.02584838867188,
+              115.05606079101562
+            ],
+            "head_relative_to_mask_center": [
+              -10.806795017596613,
+              -16.830988292366982
+            ],
+            "mask_axis_signed_by_visible_head": [
+              -0.681449827739157,
+              -0.7318648319698613
+            ],
+            "head_endpoint_fraction": 0.5375150863901453,
+            "mask_elongation": 1.8832595860696633,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.9167525768280029,
+            "source_pose": "original_role_seed_track"
+          },
+          {
+            "frame": 111,
+            "torso_vector": [
+              -9.077963829040527,
+              -20.6569881439209
+            ],
+            "head_point": [
+              241.64380264282227,
+              113.14206123352051
+            ],
+            "head_relative_to_mask_center": [
+              -13.672854548763866,
+              -20.759587430493127
+            ],
+            "mask_axis_signed_by_visible_head": [
+              -0.7253549249290748,
+              -0.6883750670100829
+            ],
+            "head_endpoint_fraction": 0.6583722900157356,
+            "mask_elongation": 1.7599498521039465,
+            "upright": true,
+            "sign": 0,
+            "min_anatomical_confidence": 0.8345259428024292,
+            "source_pose": "sam2_foreground_dimmed_rotation_0"
+          }
+        ]
+      },
+      "identity_verified": false,
+      "human_verified": false,
+      "accuracy_estimate": null,
+      "review_video": "clips/col_eng_p03_cuadrado_col11/sam2_keeper_review.mp4"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vision II · 机位时间复核</title><link rel="stylesheet" href="style.css"></head>
+<body><header><div><p class="eyebrow">VISION II / CAMERA TIMING</p><h1>机位时间复核</h1><p>从原视频定位镜头，不生成虚构机位。</p></div><a href="camera_timings_candidates.csv" download>下载候选时间表 CSV</a></header>
+<div class="notice"><strong>实验候选，不是已验证答案。</strong> 机位与慢动作分开判断；球衣颜色不能证明球员身份。“未检测到”不等于视频没有该机位。覆盖整条时间轴不代表准确率 100%。</div>
+<main><section class="controls"><label for="clip">选择点球视频</label><select id="clip"></select><span id="summary"></span></section>
+<section id="categories" class="categories" aria-label="四种目标机位"></section>
+<div class="workspace"><section class="player"><video id="video" controls preload="metadata" playsinline></video><div class="play-actions"><button id="playSegment">播放选中时间段</button><button id="prevFrame">前一帧</button><button id="nextFrame">后一帧</button><span id="time"></span></div><p id="videoError" role="alert"></p>
+<div id="detail"></div><img id="thumb" alt="选中镜头的三个原始画面采样"><p class="small">每段抽样 15% / 50% / 85% 位置。请播放完整片段，三张图片不能证明慢动作。</p>
+<details><summary>填写本段人工复核草稿（不会修改模型结果）</summary><p>只有您确实看过并点击保存的条目才会进入草稿；默认不会沿用模型候选。草稿仅保存在此浏览器，可导出 JSON。</p>
+<div class="form"><label>复核者<input id="reviewer" placeholder="您的姓名或代号"></label><label>机位<select id="reviewView"><option value="unknown">不确定 / 未判断</option value="back_of_kicker">罚球者背后</option><option value="angle_45_right">罚球者右侧斜机位（约 45°）</option><option value="kicker_closeup">罚球者特写</option><option value="back_of_goalkeeper">守门员背后</option><option value="other">其他镜头</option></select></label><label>播放速度<select id="reviewSpeed"><option value="unknown">不确定 / 未判断</option><option value="slow_motion">确认慢动作</option><option value="normal_speed">确认正常速度</option></select></label><label>起点（秒）<input id="reviewStart" type="number" min="0" step="0.033333"></label><label>终点（秒，不含）<input id="reviewEnd" type="number" min="0" step="0.033333"></label><label>备注<input id="reviewNote" placeholder="身份、回放动作、边界修正依据"></label></div><button id="saveReview">保存本段复核草稿</button><button id="exportReview">导出已保存草稿</button><p id="reviewStatus" role="status"></p></details>
+</section><aside><h2>镜头时间段 <span id="segmentCount"></span></h2><div id="segments"></div></aside></div>
+<footer>端点由镜头变化算法提出，渐变转场起点误差提示为 ±0.25 秒（启发式，不是置信区间）。原比赛时间使用切片清单偏移，未经独立校验。所有原始视频保持不变。</footer></main>
+<script src="data.js"></script><script src="app.js"></script></body></html>

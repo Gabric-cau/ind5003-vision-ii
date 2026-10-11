@@ -1,0 +1,443 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>39段罚球是否进球 · 事件检测与画面复核</title>
+<style>body{margin:0;background:#12171c;color:#e7edf2;font:16px/1.65 "Microsoft YaHei",sans-serif}main{max-width:1320px;margin:auto;padding:28px 24px 70px}h1{font-size:28px;margin:0 0 12px}h2{font-size:21px;margin-top:28px}a{color:#8ad0ff}.counts{display:flex;gap:16px;flex-wrap:wrap}.count{background:#202a32;border:1px solid #3c4a55;border-radius:8px;padding:12px 22px}.count b{font-size:30px;display:block}.goal{color:#80e4a5}.no_goal{color:#ffbd84}.subtle{color:#adb9c3;font-size:14px}.warning{border-left:4px solid #ed7979;background:#33252a;padding:10px 14px}.filters{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}button{border:1px solid #566775;border-radius:5px;background:#202a32;color:#e7edf2;padding:9px 15px;cursor:pointer}button[aria-pressed=true]{background:#27627d;border-color:#83ceef}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px solid #35414c;padding:10px 9px;text-align:left;vertical-align:top}th{background:#25313b}td:first-child{width:35px}td:nth-child(2){min-width:235px}td:nth-child(3),td:nth-child(4),td:nth-child(5){white-space:nowrap}.conflict{background:#33252a}.pending{background:#29291e}details.event{margin:14px 0;padding:13px 16px;border:1px solid #465361;border-radius:6px;scroll-margin-top:12px}summary{cursor:pointer;font-weight:bold}details details{margin:15px 0}video{width:100%;max-width:1120px;background:black}img{display:block;width:100%;max-width:1200px;height:auto;margin:12px 0}.hidden{display:none!important}code{word-break:break-all}</style></head><body><main>
+<h1>39段罚球：是否进球</h1>
+<p>依据原片的短事件画面，AI逐段判断并保留证据帧。主要看球到达门框时的位置，以及接触后的去向；进网后的反弹不改判未进。</p>
+<div class="counts"><div class="count"><b class="goal">26</b>进球 · AI画面判断</div><div class="count"><b class="no_goal">13</b>未进 · AI画面判断</div><div class="count"><b>13</b>自动规则待定</div><div class="count"><b>3</b>自动规则与画面判断冲突</div></div>
+<p>自动规则输出：20段倾向进球，6段倾向未进，13段待定。表中的进球/未进来自AI画面判读，尚未经过人工逐段确认；不能把39段复核完成当作自动模型的准确率。</p>
+<p class="warning">仍有冲突：第22段 Smolov（西班牙—俄罗斯）、第25段 Koke、第30段 Smolov（俄罗斯—克罗地亚）。球身份误关联和门前/网后深度是当前自动判断的主要问题，详情已单独标出。</p>
+<div class="filters"><button data-filter="all" aria-pressed="true">全部39段</button><button data-filter="miss" aria-pressed="false">未进球</button><button data-filter="pending" aria-pressed="false">自动待定</button><button data-filter="conflict" aria-pressed="false">规则冲突</button></div>
+<p id="visible-count" class="subtle">显示39段。点击片名展开对应回放。</p>
+<div class="scroll"><table><thead><tr><th>序号</th><th>片段</th><th>AI画面判断</th><th>自动规则</th><th>核对状态</th><th>画面理由</th></tr></thead><tbody><tr class="pending" data-outcome="goal" data-rule="unknown" data-conflict="0"><td>01</td><td><a href="#col_eng_p01_falcao_col9" class="clip-link">col_eng_p01_falcao_col9</a></td><td><b class="goal">进球</b></td><td>待定</td><td>自动待定</td><td>来球进入门框内上部，随后网内球影下落，门网出现局部形变。</td></tr>
+<tr class="pending" data-outcome="goal" data-rule="unknown" data-conflict="0"><td>02</td><td><a href="#col_eng_p02_kane_eng9" class="clip-link">col_eng_p02_kane_eng9</a></td><td><b class="goal">进球</b></td><td>待定</td><td>自动待定</td><td>低平球向画面左侧进入门框，后续球影在左侧网底。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>03</td><td><a href="#col_eng_p03_cuadrado_col11" class="clip-link">col_eng_p03_cuadrado_col11</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>球进入横梁下方的上部门网，后续停留在网内区域。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>04</td><td><a href="#col_eng_p04_rashford_eng19" class="clip-link">col_eng_p04_rashford_eng19</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>低平球进入左下侧门框，后续左侧网底明显受球冲击。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>05</td><td><a href="#col_eng_p05_muriel_col14" class="clip-link">col_eng_p05_muriel_col14</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>球从右侧进入门框内，随后网内高处转向下落至网底。</td></tr>
+<tr class="" data-outcome="no_goal" data-rule="no_goal_likely" data-conflict="0"><td>06</td><td><a href="#col_eng_p06_henderson_eng8" class="clip-link">col_eng_p06_henderson_eng8</a></td><td><b class="no_goal">未进</b></td><td>倾向未进</td><td>方向一致</td><td>守门员右侧扑救后球向上弹到右门柱外，未见入网。</td></tr>
+<tr class="pending" data-outcome="no_goal" data-rule="unknown" data-conflict="0"><td>07</td><td><a href="#col_eng_p07_uribe_col15" class="clip-link">col_eng_p07_uribe_col15</a></td><td><b class="no_goal">未进</b></td><td>待定</td><td>自动待定</td><td>第173帧球位于右门柱外附近，随后第175—178帧向右上方连续弹出，未见入网。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>08</td><td><a href="#col_eng_p08_trippier_eng12" class="clip-link">col_eng_p08_trippier_eng12</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>来球进入左上侧门网，随后左侧门网明显鼓动。</td></tr>
+<tr class="" data-outcome="no_goal" data-rule="no_goal_likely" data-conflict="0"><td>09</td><td><a href="#col_eng_p09_bacca_col7" class="clip-link">col_eng_p09_bacca_col7</a></td><td><b class="no_goal">未进</b></td><td>倾向未进</td><td>方向一致</td><td>守门员接触后球向上弹出；已核对反弹球影，第138—146帧是连续反弹。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>10</td><td><a href="#col_eng_p10_dier_eng4" class="clip-link">col_eng_p10_dier_eng4</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>球沿左下方向越过守门员，进入左侧网底；后续左侧门网鼓动。</td></tr>
+<tr class="pending" data-outcome="no_goal" data-rule="unknown" data-conflict="0"><td>11</td><td><a href="#cro_den_p01_eriksen_den10" class="clip-link">cro_den_p01_eriksen_den10</a></td><td><b class="no_goal">未进</b></td><td>待定</td><td>自动待定</td><td>球在守门员和左柱附近接触后返回门前左侧，后续在门框外。</td></tr>
+<tr class="pending" data-outcome="no_goal" data-rule="unknown" data-conflict="0"><td>12</td><td><a href="#cro_den_p02_badelj_cro19" class="clip-link">cro_den_p02_badelj_cro19</a></td><td><b class="no_goal">未进</b></td><td>待定</td><td>自动待定</td><td>守门员在左侧低位挡球，球随后向门前左方弹出。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>13</td><td><a href="#cro_den_p03_kjaer_den4" class="clip-link">cro_den_p03_kjaer_den4</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>来球越过守门员进入门框内偏右上位置，后续在网内下落。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>14</td><td><a href="#cro_den_p04_kramaric_cro9" class="clip-link">cro_den_p04_kramaric_cro9</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>球从守门员上方越过，落入门框内，随后在网内弹起。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>15</td><td><a href="#cro_den_p05_krohndehli_den2" class="clip-link">cro_den_p05_krohndehli_den2</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>球越过守门员进入网内，随后网内球影向上回弹。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>16</td><td><a href="#cro_den_p06_modric_cro10" class="clip-link">cro_den_p06_modric_cro10</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>低平球从守门员另一侧进入右侧网底，随后右侧门网受到冲击。</td></tr>
+<tr class="" data-outcome="no_goal" data-rule="no_goal_likely" data-conflict="0"><td>17</td><td><a href="#cro_den_p07_schone_den19" class="clip-link">cro_den_p07_schone_den19</a></td><td><b class="no_goal">未进</b></td><td>倾向未进</td><td>方向一致</td><td>守门员在左侧扑救，接触后的球影持续向左侧门框外弹出。</td></tr>
+<tr class="pending" data-outcome="no_goal" data-rule="unknown" data-conflict="0"><td>18</td><td><a href="#cro_den_p08_pivaric_cro22" class="clip-link">cro_den_p08_pivaric_cro22</a></td><td><b class="no_goal">未进</b></td><td>待定</td><td>自动待定</td><td>守门员左侧挡球后，球向左上方门框外连续弹出。</td></tr>
+<tr class="" data-outcome="no_goal" data-rule="no_goal_likely" data-conflict="0"><td>19</td><td><a href="#cro_den_p09_jorgensen_den9" class="clip-link">cro_den_p09_jorgensen_den9</a></td><td><b class="no_goal">未进</b></td><td>倾向未进</td><td>方向一致</td><td>守门员在门前用脚/身体挡球，球随后返回门前，未见入网。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>20</td><td><a href="#cro_den_p10_rakitic_cro7" class="clip-link">cro_den_p10_rakitic_cro7</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>低平球越过守门员进入网底，随后在门网内向上反弹。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>21</td><td><a href="#esp_rus_p01_iniesta_esp6" class="clip-link">esp_rus_p01_iniesta_esp6</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>来球进入门框内并在网内继续移动，随后左侧网底鼓动；进网后的变化不判作未进。</td></tr>
+<tr class="conflict" data-outcome="goal" data-rule="no_goal_likely" data-conflict="1"><td>22</td><td><a href="#esp_rus_p02_smolov_rus10" class="clip-link">esp_rus_p02_smolov_rus10</a></td><td><b class="goal">进球</b></td><td>倾向未进</td><td>规则冲突</td><td>球越过守门员进入左侧网底，后续网内反弹可见。</td></tr>
+<tr class="pending" data-outcome="goal" data-rule="unknown" data-conflict="0"><td>23</td><td><a href="#esp_rus_p03_pique_esp3" class="clip-link">esp_rus_p03_pique_esp3</a></td><td><b class="goal">进球</b></td><td>待定</td><td>自动待定</td><td>低平球进入左侧网底，后续左侧门网发生明显形变。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>24</td><td><a href="#esp_rus_p04_ignashevich_rus4" class="clip-link">esp_rus_p04_ignashevich_rus4</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>球进入守门员身后的网内区域，随后门网局部鼓动。</td></tr>
+<tr class="conflict" data-outcome="no_goal" data-rule="goal_likely" data-conflict="1"><td>25</td><td><a href="#esp_rus_p05_koke_esp8" class="clip-link">esp_rus_p05_koke_esp8</a></td><td><b class="no_goal">未进</b></td><td>倾向进球</td><td>规则冲突</td><td>守门员挡住来球，球在门前向右侧反弹，未进入网内。</td></tr>
+<tr class="pending" data-outcome="goal" data-rule="unknown" data-conflict="0"><td>26</td><td><a href="#esp_rus_p06_golovin_rus17" class="clip-link">esp_rus_p06_golovin_rus17</a></td><td><b class="goal">进球</b></td><td>待定</td><td>自动待定</td><td>低平球进入左侧门网，随后左侧门网明显鼓动。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>27</td><td><a href="#esp_rus_p07_ramos_esp15" class="clip-link">esp_rus_p07_ramos_esp15</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>球进入守门员相反侧的左侧网底，后续左侧门网鼓动。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>28</td><td><a href="#esp_rus_p08_cheryshev_rus6" class="clip-link">esp_rus_p08_cheryshev_rus6</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>球越过守门员进入左侧门网，随后网内球影/局部形变可见。</td></tr>
+<tr class="" data-outcome="no_goal" data-rule="no_goal_likely" data-conflict="0"><td>29</td><td><a href="#esp_rus_p09_aspas_esp17" class="clip-link">esp_rus_p09_aspas_esp17</a></td><td><b class="no_goal">未进</b></td><td>倾向未进</td><td>方向一致</td><td>守门员抬腿挡球后，球在第112—114帧向左上方弹回；短镜头内未见入网。</td></tr>
+<tr class="conflict" data-outcome="no_goal" data-rule="goal_likely" data-conflict="1"><td>30</td><td><a href="#rus_cro_p01_smolov_rus10" class="clip-link">rus_cro_p01_smolov_rus10</a></td><td><b class="no_goal">未进</b></td><td>倾向进球</td><td>规则冲突</td><td>守门员挡住来球，随后球影返回门前并继续弹动，未入网。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>31</td><td><a href="#rus_cro_p02_brozovic_cro11" class="clip-link">rus_cro_p02_brozovic_cro11</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>球进入门框上部，随后在网内反弹，顶部门网发生形变。</td></tr>
+<tr class="pending" data-outcome="goal" data-rule="unknown" data-conflict="0"><td>32</td><td><a href="#rus_cro_p03_dzagoev_rus9" class="clip-link">rus_cro_p03_dzagoev_rus9</a></td><td><b class="goal">进球</b></td><td>待定</td><td>自动待定</td><td>球进入门框内，随后在背网处反弹并引起网面鼓动。</td></tr>
+<tr class="pending" data-outcome="no_goal" data-rule="unknown" data-conflict="0"><td>33</td><td><a href="#rus_cro_p04_kovacic_cro8" class="clip-link">rus_cro_p04_kovacic_cro8</a></td><td><b class="no_goal">未进</b></td><td>待定</td><td>自动待定</td><td>守门员在右侧挡住来球，后续球影停留在右柱外/门前，未进入网内。</td></tr>
+<tr class="pending" data-outcome="no_goal" data-rule="unknown" data-conflict="0"><td>34</td><td><a href="#rus_cro_p05_fernandes_rus2" class="clip-link">rus_cro_p05_fernandes_rus2</a></td><td><b class="no_goal">未进</b></td><td>待定</td><td>自动待定</td><td>球经过门前后从左门柱外穿出，第93—94帧位于左柱外，未见入网。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>35</td><td><a href="#rus_cro_p06_modric_cro10" class="clip-link">rus_cro_p06_modric_cro10</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>球在守门员附近后继续进入左侧网内，第161—165帧可见网内反弹和左侧网面鼓动；触球或换向不能单独判未进。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>36</td><td><a href="#rus_cro_p07_ignashevich_rus4" class="clip-link">rus_cro_p07_ignashevich_rus4</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>球进入守门员相反侧的左侧网底，随后左侧门网明显鼓动。</td></tr>
+<tr class="" data-outcome="goal" data-rule="goal_likely" data-conflict="0"><td>37</td><td><a href="#rus_cro_p08_vida_cro21" class="clip-link">rus_cro_p08_vida_cro21</a></td><td><b class="goal">进球</b></td><td>倾向进球</td><td>方向一致</td><td>球进入左侧门网，随后左侧网面明显鼓动。</td></tr>
+<tr class="pending" data-outcome="goal" data-rule="unknown" data-conflict="0"><td>38</td><td><a href="#rus_cro_p09_kuzyaev_rus7" class="clip-link">rus_cro_p09_kuzyaev_rus7</a></td><td><b class="goal">进球</b></td><td>待定</td><td>自动待定</td><td>球越过守门员进入左下侧门框，第93—94帧到达左侧网底并引起网面形变。</td></tr>
+<tr class="pending" data-outcome="goal" data-rule="unknown" data-conflict="0"><td>39</td><td><a href="#rus_cro_p10_rakitic_cro7" class="clip-link">rus_cro_p10_rakitic_cro7</a></td><td><b class="goal">进球</b></td><td>待定</td><td>自动待定</td><td>低平球进入左侧网底，随后左侧门网局部形变可见。</td></tr></tbody></table></div>
+<h2>逐段证据与慢放</h2><details class="event pending" id="col_eng_p01_falcao_col9" data-outcome="goal" data-rule="unknown" data-conflict="0">
+<summary>01 · col_eng_p01_falcao_col9 · <span class="goal">进球（AI画面判断）</span> · 自动待定</summary>
+<p>来球进入门框内上部，随后网内球影下落，门网出现局部形变。 原片证据帧：58、61、64、67。</p>
+<video controls preload="none" src="media/col_eng_p01_falcao_col9.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_01.jpg" alt="第1段原画面事件帧"></details>
+<details><summary>算法证据：待定</summary>
+<p>球身份、到达位置或连续观察不足。 自动与画面判断：自动待定。</p>
+<img loading="lazy" src="media/event_01_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/col_eng_p01_falcao_col9.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event pending" id="col_eng_p02_kane_eng9" data-outcome="goal" data-rule="unknown" data-conflict="0">
+<summary>02 · col_eng_p02_kane_eng9 · <span class="goal">进球（AI画面判断）</span> · 自动待定</summary>
+<p>低平球向画面左侧进入门框，后续球影在左侧网底。 原片证据帧：77、80、86。</p>
+<video controls preload="none" src="media/col_eng_p02_kane_eng9.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_02.jpg" alt="第2段原画面事件帧"></details>
+<details><summary>算法证据：待定</summary>
+<p>球身份、到达位置或连续观察不足。 自动与画面判断：自动待定。</p>
+<img loading="lazy" src="media/event_02_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/col_eng_p02_kane_eng9.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="col_eng_p03_cuadrado_col11" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>03 · col_eng_p03_cuadrado_col11 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>球进入横梁下方的上部门网，后续停留在网内区域。 原片证据帧：110、113、119。</p>
+<video controls preload="none" src="media/col_eng_p03_cuadrado_col11.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_03.jpg" alt="第3段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_03_selected_1.jpg" alt="算法所选候选原像素"><img loading="lazy" src="media/event_03_selected_2.jpg" alt="算法所选候选原像素"><p><a href="results/col_eng_p03_cuadrado_col11.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="col_eng_p04_rashford_eng19" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>04 · col_eng_p04_rashford_eng19 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>低平球进入左下侧门框，后续左侧网底明显受球冲击。 原片证据帧：135、138、144。</p>
+<video controls preload="none" src="media/col_eng_p04_rashford_eng19.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_04.jpg" alt="第4段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_04_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/col_eng_p04_rashford_eng19.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="col_eng_p05_muriel_col14" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>05 · col_eng_p05_muriel_col14 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>球从右侧进入门框内，随后网内高处转向下落至网底。 原片证据帧：89、92、98。</p>
+<video controls preload="none" src="media/col_eng_p05_muriel_col14.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_05.jpg" alt="第5段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_05_selected_1.jpg" alt="算法所选候选原像素"><img loading="lazy" src="media/event_05_selected_2.jpg" alt="算法所选候选原像素"><p><a href="results/col_eng_p05_muriel_col14.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="col_eng_p06_henderson_eng8" data-outcome="no_goal" data-rule="no_goal_likely" data-conflict="0">
+<summary>06 · col_eng_p06_henderson_eng8 · <span class="no_goal">未进（AI画面判断）</span> · 方向一致</summary>
+<p>守门员右侧扑救后球向上弹到右门柱外，未见入网。 原片证据帧：120、123、126。</p>
+<video controls preload="none" src="media/col_eng_p06_henderson_eng8.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_06.jpg" alt="第6段原画面事件帧"></details>
+<details><summary>算法证据：倾向未进</summary>
+<p>门前预测接触附近出现多帧大角度分支；球身份及真实接触仍需核对。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_06_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/col_eng_p06_henderson_eng8.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event pending" id="col_eng_p07_uribe_col15" data-outcome="no_goal" data-rule="unknown" data-conflict="0">
+<summary>07 · col_eng_p07_uribe_col15 · <span class="no_goal">未进（AI画面判断）</span> · 自动待定</summary>
+<p>第173帧球位于右门柱外附近，随后第175—178帧向右上方连续弹出，未见入网。 原片证据帧：173、175、178。</p>
+<video controls preload="none" src="media/col_eng_p07_uribe_col15.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_07.jpg" alt="第7段原画面事件帧"><img loading="lazy" src="media/event_07_dense_1.jpg" alt="第7段原画面连续帧"><img loading="lazy" src="media/event_07_dense_2.jpg" alt="第7段原画面连续帧"></details>
+<details><summary>算法证据：待定</summary>
+<p>球身份、到达位置或连续观察不足。 自动与画面判断：自动待定。</p>
+<img loading="lazy" src="media/event_07_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/col_eng_p07_uribe_col15.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="col_eng_p08_trippier_eng12" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>08 · col_eng_p08_trippier_eng12 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>来球进入左上侧门网，随后左侧门网明显鼓动。 原片证据帧：87、90、96。</p>
+<video controls preload="none" src="media/col_eng_p08_trippier_eng12.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_08.jpg" alt="第8段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_08_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/col_eng_p08_trippier_eng12.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="col_eng_p09_bacca_col7" data-outcome="no_goal" data-rule="no_goal_likely" data-conflict="0">
+<summary>09 · col_eng_p09_bacca_col7 · <span class="no_goal">未进（AI画面判断）</span> · 方向一致</summary>
+<p>守门员接触后球向上弹出；已核对反弹球影，第138—146帧是连续反弹。 原片证据帧：137、140、143、146。</p>
+<video controls preload="none" src="media/col_eng_p09_bacca_col7.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_09.jpg" alt="第9段原画面事件帧"></details>
+<details><summary>算法证据：倾向未进</summary>
+<p>门前预测接触附近出现多帧大角度分支；球身份及真实接触仍需核对。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_09_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/col_eng_p09_bacca_col7.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="col_eng_p10_dier_eng4" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>10 · col_eng_p10_dier_eng4 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>球沿左下方向越过守门员，进入左侧网底；后续左侧门网鼓动。 原片证据帧：126、129、132。</p>
+<video controls preload="none" src="media/col_eng_p10_dier_eng4.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_10.jpg" alt="第10段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_10_selected_1.jpg" alt="算法所选候选原像素"><img loading="lazy" src="media/event_10_selected_2.jpg" alt="算法所选候选原像素"><p><a href="results/col_eng_p10_dier_eng4.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event pending" id="cro_den_p01_eriksen_den10" data-outcome="no_goal" data-rule="unknown" data-conflict="0">
+<summary>11 · cro_den_p01_eriksen_den10 · <span class="no_goal">未进（AI画面判断）</span> · 自动待定</summary>
+<p>球在守门员和左柱附近接触后返回门前左侧，后续在门框外。 原片证据帧：85、88、94。</p>
+<video controls preload="none" src="media/cro_den_p01_eriksen_den10.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_11.jpg" alt="第11段原画面事件帧"></details>
+<details><summary>算法证据：待定</summary>
+<p>球身份、到达位置或连续观察不足。 自动与画面判断：自动待定。</p>
+<img loading="lazy" src="media/event_11_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/cro_den_p01_eriksen_den10.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event pending" id="cro_den_p02_badelj_cro19" data-outcome="no_goal" data-rule="unknown" data-conflict="0">
+<summary>12 · cro_den_p02_badelj_cro19 · <span class="no_goal">未进（AI画面判断）</span> · 自动待定</summary>
+<p>守门员在左侧低位挡球，球随后向门前左方弹出。 原片证据帧：78、81、84。</p>
+<video controls preload="none" src="media/cro_den_p02_badelj_cro19.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_12.jpg" alt="第12段原画面事件帧"></details>
+<details><summary>算法证据：待定</summary>
+<p>球身份、到达位置或连续观察不足。 自动与画面判断：自动待定。</p>
+<img loading="lazy" src="media/event_12_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/cro_den_p02_badelj_cro19.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="cro_den_p03_kjaer_den4" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>13 · cro_den_p03_kjaer_den4 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>来球越过守门员进入门框内偏右上位置，后续在网内下落。 原片证据帧：80、83、86。</p>
+<video controls preload="none" src="media/cro_den_p03_kjaer_den4.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_13.jpg" alt="第13段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_13_selected_1.jpg" alt="算法所选候选原像素"><img loading="lazy" src="media/event_13_selected_2.jpg" alt="算法所选候选原像素"><p><a href="results/cro_den_p03_kjaer_den4.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="cro_den_p04_kramaric_cro9" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>14 · cro_den_p04_kramaric_cro9 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>球从守门员上方越过，落入门框内，随后在网内弹起。 原片证据帧：89、95、98。</p>
+<video controls preload="none" src="media/cro_den_p04_kramaric_cro9.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_14.jpg" alt="第14段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_14_selected_1.jpg" alt="算法所选候选原像素"><img loading="lazy" src="media/event_14_selected_2.jpg" alt="算法所选候选原像素"><p><a href="results/cro_den_p04_kramaric_cro9.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="cro_den_p05_krohndehli_den2" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>15 · cro_den_p05_krohndehli_den2 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>球越过守门员进入网内，随后网内球影向上回弹。 原片证据帧：95、98、101。</p>
+<video controls preload="none" src="media/cro_den_p05_krohndehli_den2.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_15.jpg" alt="第15段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_15_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/cro_den_p05_krohndehli_den2.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="cro_den_p06_modric_cro10" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>16 · cro_den_p06_modric_cro10 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>低平球从守门员另一侧进入右侧网底，随后右侧门网受到冲击。 原片证据帧：92、95、98。</p>
+<video controls preload="none" src="media/cro_den_p06_modric_cro10.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_16.jpg" alt="第16段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_16_selected_1.jpg" alt="算法所选候选原像素"><img loading="lazy" src="media/event_16_selected_2.jpg" alt="算法所选候选原像素"><p><a href="results/cro_den_p06_modric_cro10.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="cro_den_p07_schone_den19" data-outcome="no_goal" data-rule="no_goal_likely" data-conflict="0">
+<summary>17 · cro_den_p07_schone_den19 · <span class="no_goal">未进（AI画面判断）</span> · 方向一致</summary>
+<p>守门员在左侧扑救，接触后的球影持续向左侧门框外弹出。 原片证据帧：77、80、83。</p>
+<video controls preload="none" src="media/cro_den_p07_schone_den19.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_17.jpg" alt="第17段原画面事件帧"></details>
+<details><summary>算法证据：倾向未进</summary>
+<p>门前预测接触附近出现多帧大角度分支；球身份及真实接触仍需核对。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_17_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/cro_den_p07_schone_den19.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event pending" id="cro_den_p08_pivaric_cro22" data-outcome="no_goal" data-rule="unknown" data-conflict="0">
+<summary>18 · cro_den_p08_pivaric_cro22 · <span class="no_goal">未进（AI画面判断）</span> · 自动待定</summary>
+<p>守门员左侧挡球后，球向左上方门框外连续弹出。 原片证据帧：156、159、162、165。</p>
+<video controls preload="none" src="media/cro_den_p08_pivaric_cro22.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_18.jpg" alt="第18段原画面事件帧"></details>
+<details><summary>算法证据：待定</summary>
+<p>球身份、到达位置或连续观察不足。 自动与画面判断：自动待定。</p>
+<img loading="lazy" src="media/event_18_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/cro_den_p08_pivaric_cro22.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="cro_den_p09_jorgensen_den9" data-outcome="no_goal" data-rule="no_goal_likely" data-conflict="0">
+<summary>19 · cro_den_p09_jorgensen_den9 · <span class="no_goal">未进（AI画面判断）</span> · 方向一致</summary>
+<p>守门员在门前用脚/身体挡球，球随后返回门前，未见入网。 原片证据帧：96、99、102、105。</p>
+<video controls preload="none" src="media/cro_den_p09_jorgensen_den9.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_19.jpg" alt="第19段原画面事件帧"></details>
+<details><summary>算法证据：倾向未进</summary>
+<p>门前预测接触附近出现多帧大角度分支；球身份及真实接触仍需核对。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_19_selected_1.jpg" alt="算法所选候选原像素"><img loading="lazy" src="media/event_19_selected_2.jpg" alt="算法所选候选原像素"><p><a href="results/cro_den_p09_jorgensen_den9.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="cro_den_p10_rakitic_cro7" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>20 · cro_den_p10_rakitic_cro7 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>低平球越过守门员进入网底，随后在门网内向上反弹。 原片证据帧：98、101、107。</p>
+<video controls preload="none" src="media/cro_den_p10_rakitic_cro7.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_20.jpg" alt="第20段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_20_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/cro_den_p10_rakitic_cro7.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="esp_rus_p01_iniesta_esp6" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>21 · esp_rus_p01_iniesta_esp6 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>来球进入门框内并在网内继续移动，随后左侧网底鼓动；进网后的变化不判作未进。 原片证据帧：61、64、70。</p>
+<video controls preload="none" src="media/esp_rus_p01_iniesta_esp6.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_21.jpg" alt="第21段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_21_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/esp_rus_p01_iniesta_esp6.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event conflict" id="esp_rus_p02_smolov_rus10" data-outcome="goal" data-rule="no_goal_likely" data-conflict="1">
+<summary>22 · esp_rus_p02_smolov_rus10 · <span class="goal">进球（AI画面判断）</span> · 规则冲突</summary>
+<p>球越过守门员进入左侧网底，后续网内反弹可见。 原片证据帧：123、126、129。</p><p class="warning">反弹分支选到了守门员头部及手部附近的候选；原画面显示真球进入左侧网底。自动反弹证据的球身份不可靠。</p>
+<video controls preload="none" src="media/esp_rus_p02_smolov_rus10.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_22.jpg" alt="第22段原画面事件帧"></details>
+<details><summary>算法证据：倾向未进</summary>
+<p>门前预测接触附近出现多帧大角度分支；球身份及真实接触仍需核对。 自动与画面判断：规则冲突。</p>
+<img loading="lazy" src="media/event_22_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/esp_rus_p02_smolov_rus10.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event pending" id="esp_rus_p03_pique_esp3" data-outcome="goal" data-rule="unknown" data-conflict="0">
+<summary>23 · esp_rus_p03_pique_esp3 · <span class="goal">进球（AI画面判断）</span> · 自动待定</summary>
+<p>低平球进入左侧网底，后续左侧门网发生明显形变。 原片证据帧：91、94、97。</p>
+<video controls preload="none" src="media/esp_rus_p03_pique_esp3.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_23.jpg" alt="第23段原画面事件帧"></details>
+<details><summary>算法证据：待定</summary>
+<p>球身份、到达位置或连续观察不足。 自动与画面判断：自动待定。</p>
+<img loading="lazy" src="media/event_23_selected_1.jpg" alt="算法所选候选原像素"><img loading="lazy" src="media/event_23_selected_2.jpg" alt="算法所选候选原像素"><p><a href="results/esp_rus_p03_pique_esp3.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="esp_rus_p04_ignashevich_rus4" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>24 · esp_rus_p04_ignashevich_rus4 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>球进入守门员身后的网内区域，随后门网局部鼓动。 原片证据帧：106、112、115。</p>
+<video controls preload="none" src="media/esp_rus_p04_ignashevich_rus4.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_24.jpg" alt="第24段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_24_selected_1.jpg" alt="算法所选候选原像素"><img loading="lazy" src="media/event_24_selected_2.jpg" alt="算法所选候选原像素"><p><a href="results/esp_rus_p04_ignashevich_rus4.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event conflict" id="esp_rus_p05_koke_esp8" data-outcome="no_goal" data-rule="goal_likely" data-conflict="1">
+<summary>25 · esp_rus_p05_koke_esp8 · <span class="no_goal">未进（AI画面判断）</span> · 规则冲突</summary>
+<p>守门员挡住来球，球在门前向右侧反弹，未进入网内。 原片证据帧：89、92、95。</p><p class="warning">扑救区域的白色候选仍在门框投影内，算法给出了倾向进球；原画面显示球被挡回门前。候选身份及门前深度仍有问题。</p>
+<video controls preload="none" src="media/esp_rus_p05_koke_esp8.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_25.jpg" alt="第25段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：规则冲突。</p>
+<img loading="lazy" src="media/event_25_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/esp_rus_p05_koke_esp8.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event pending" id="esp_rus_p06_golovin_rus17" data-outcome="goal" data-rule="unknown" data-conflict="0">
+<summary>26 · esp_rus_p06_golovin_rus17 · <span class="goal">进球（AI画面判断）</span> · 自动待定</summary>
+<p>低平球进入左侧门网，随后左侧门网明显鼓动。 原片证据帧：104、107、110。</p>
+<video controls preload="none" src="media/esp_rus_p06_golovin_rus17.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_26.jpg" alt="第26段原画面事件帧"></details>
+<details><summary>算法证据：待定</summary>
+<p>球身份、到达位置或连续观察不足。 自动与画面判断：自动待定。</p>
+<img loading="lazy" src="media/event_26_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/esp_rus_p06_golovin_rus17.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="esp_rus_p07_ramos_esp15" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>27 · esp_rus_p07_ramos_esp15 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>球进入守门员相反侧的左侧网底，后续左侧门网鼓动。 原片证据帧：132、138、141。</p>
+<video controls preload="none" src="media/esp_rus_p07_ramos_esp15.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_27.jpg" alt="第27段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_27_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/esp_rus_p07_ramos_esp15.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="esp_rus_p08_cheryshev_rus6" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>28 · esp_rus_p08_cheryshev_rus6 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>球越过守门员进入左侧门网，随后网内球影/局部形变可见。 原片证据帧：82、88、91。</p>
+<video controls preload="none" src="media/esp_rus_p08_cheryshev_rus6.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_28.jpg" alt="第28段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_28_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/esp_rus_p08_cheryshev_rus6.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="esp_rus_p09_aspas_esp17" data-outcome="no_goal" data-rule="no_goal_likely" data-conflict="0">
+<summary>29 · esp_rus_p09_aspas_esp17 · <span class="no_goal">未进（AI画面判断）</span> · 方向一致</summary>
+<p>守门员抬腿挡球后，球在第112—114帧向左上方弹回；短镜头内未见入网。 原片证据帧：110、111、112、113、114。</p>
+<video controls preload="none" src="media/esp_rus_p09_aspas_esp17.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_29.jpg" alt="第29段原画面事件帧"><img loading="lazy" src="media/event_29_dense_1.jpg" alt="第29段原画面连续帧"><img loading="lazy" src="media/event_29_dense_2.jpg" alt="第29段原画面连续帧"></details>
+<details><summary>算法证据：倾向未进</summary>
+<p>门前预测接触附近出现多帧大角度分支；球身份及真实接触仍需核对。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_29_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/esp_rus_p09_aspas_esp17.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event conflict" id="rus_cro_p01_smolov_rus10" data-outcome="no_goal" data-rule="goal_likely" data-conflict="1">
+<summary>30 · rus_cro_p01_smolov_rus10 · <span class="no_goal">未进（AI画面判断）</span> · 规则冲突</summary>
+<p>守门员挡住来球，随后球影返回门前并继续弹动，未入网。 原片证据帧：126、129、132、135。</p><p class="warning">被挡后的球在图像上仍处于门框内，二维投影被当成入网线索；原画面显示球返回门前。门框内的像素位置不能直接证明越过球门线。</p>
+<video controls preload="none" src="media/rus_cro_p01_smolov_rus10.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_30.jpg" alt="第30段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：规则冲突。</p>
+<img loading="lazy" src="media/event_30_selected_1.jpg" alt="算法所选候选原像素"><img loading="lazy" src="media/event_30_selected_2.jpg" alt="算法所选候选原像素"><p><a href="results/rus_cro_p01_smolov_rus10.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="rus_cro_p02_brozovic_cro11" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>31 · rus_cro_p02_brozovic_cro11 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>球进入门框上部，随后在网内反弹，顶部门网发生形变。 原片证据帧：50、53、56。</p>
+<video controls preload="none" src="media/rus_cro_p02_brozovic_cro11.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_31.jpg" alt="第31段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_31_selected_1.jpg" alt="算法所选候选原像素"><img loading="lazy" src="media/event_31_selected_2.jpg" alt="算法所选候选原像素"><p><a href="results/rus_cro_p02_brozovic_cro11.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event pending" id="rus_cro_p03_dzagoev_rus9" data-outcome="goal" data-rule="unknown" data-conflict="0">
+<summary>32 · rus_cro_p03_dzagoev_rus9 · <span class="goal">进球（AI画面判断）</span> · 自动待定</summary>
+<p>球进入门框内，随后在背网处反弹并引起网面鼓动。 原片证据帧：94、97、103。</p>
+<video controls preload="none" src="media/rus_cro_p03_dzagoev_rus9.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_32.jpg" alt="第32段原画面事件帧"></details>
+<details><summary>算法证据：待定</summary>
+<p>球身份、到达位置或连续观察不足。 自动与画面判断：自动待定。</p>
+<img loading="lazy" src="media/event_32_selected_1.jpg" alt="算法所选候选原像素"><img loading="lazy" src="media/event_32_selected_2.jpg" alt="算法所选候选原像素"><p><a href="results/rus_cro_p03_dzagoev_rus9.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event pending" id="rus_cro_p04_kovacic_cro8" data-outcome="no_goal" data-rule="unknown" data-conflict="0">
+<summary>33 · rus_cro_p04_kovacic_cro8 · <span class="no_goal">未进（AI画面判断）</span> · 自动待定</summary>
+<p>守门员在右侧挡住来球，后续球影停留在右柱外/门前，未进入网内。 原片证据帧：91、94、97、100。</p>
+<video controls preload="none" src="media/rus_cro_p04_kovacic_cro8.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_33.jpg" alt="第33段原画面事件帧"></details>
+<details><summary>算法证据：待定</summary>
+<p>球身份、到达位置或连续观察不足。 自动与画面判断：自动待定。</p>
+<img loading="lazy" src="media/event_33_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/rus_cro_p04_kovacic_cro8.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event pending" id="rus_cro_p05_fernandes_rus2" data-outcome="no_goal" data-rule="unknown" data-conflict="0">
+<summary>34 · rus_cro_p05_fernandes_rus2 · <span class="no_goal">未进（AI画面判断）</span> · 自动待定</summary>
+<p>球经过门前后从左门柱外穿出，第93—94帧位于左柱外，未见入网。 原片证据帧：89、91、93、94。</p>
+<video controls preload="none" src="media/rus_cro_p05_fernandes_rus2.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_34.jpg" alt="第34段原画面事件帧"><img loading="lazy" src="media/event_34_dense_1.jpg" alt="第34段原画面连续帧"><img loading="lazy" src="media/event_34_dense_2.jpg" alt="第34段原画面连续帧"></details>
+<details><summary>算法证据：待定</summary>
+<p>球身份、到达位置或连续观察不足。 自动与画面判断：自动待定。</p>
+<img loading="lazy" src="media/event_34_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/rus_cro_p05_fernandes_rus2.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="rus_cro_p06_modric_cro10" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>35 · rus_cro_p06_modric_cro10 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>球在守门员附近后继续进入左侧网内，第161—165帧可见网内反弹和左侧网面鼓动；触球或换向不能单独判未进。 原片证据帧：159、161、163、165。</p>
+<video controls preload="none" src="media/rus_cro_p06_modric_cro10.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_35.jpg" alt="第35段原画面事件帧"><img loading="lazy" src="media/event_35_dense_1.jpg" alt="第35段原画面连续帧"><img loading="lazy" src="media/event_35_dense_2.jpg" alt="第35段原画面连续帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_35_selected_1.jpg" alt="算法所选候选原像素"><img loading="lazy" src="media/event_35_selected_2.jpg" alt="算法所选候选原像素"><p><a href="results/rus_cro_p06_modric_cro10.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="rus_cro_p07_ignashevich_rus4" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>36 · rus_cro_p07_ignashevich_rus4 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>球进入守门员相反侧的左侧网底，随后左侧门网明显鼓动。 原片证据帧：77、83、86。</p>
+<video controls preload="none" src="media/rus_cro_p07_ignashevich_rus4.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_36.jpg" alt="第36段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_36_selected_1.jpg" alt="算法所选候选原像素"><img loading="lazy" src="media/event_36_selected_2.jpg" alt="算法所选候选原像素"><p><a href="results/rus_cro_p07_ignashevich_rus4.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event " id="rus_cro_p08_vida_cro21" data-outcome="goal" data-rule="goal_likely" data-conflict="0">
+<summary>37 · rus_cro_p08_vida_cro21 · <span class="goal">进球（AI画面判断）</span> · 方向一致</summary>
+<p>球进入左侧门网，随后左侧网面明显鼓动。 原片证据帧：103、109、112。</p>
+<video controls preload="none" src="media/rus_cro_p08_vida_cro21.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_37.jpg" alt="第37段原画面事件帧"></details>
+<details><summary>算法证据：倾向进球</summary>
+<p>多帧候选连续位于门框投影内；球门线深度未确立。 自动与画面判断：方向一致。</p>
+<img loading="lazy" src="media/event_37_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/rus_cro_p08_vida_cro21.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event pending" id="rus_cro_p09_kuzyaev_rus7" data-outcome="goal" data-rule="unknown" data-conflict="0">
+<summary>38 · rus_cro_p09_kuzyaev_rus7 · <span class="goal">进球（AI画面判断）</span> · 自动待定</summary>
+<p>球越过守门员进入左下侧门框，第93—94帧到达左侧网底并引起网面形变。 原片证据帧：89、91、93、94。</p>
+<video controls preload="none" src="media/rus_cro_p09_kuzyaev_rus7.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_38.jpg" alt="第38段原画面事件帧"><img loading="lazy" src="media/event_38_dense_1.jpg" alt="第38段原画面连续帧"><img loading="lazy" src="media/event_38_dense_2.jpg" alt="第38段原画面连续帧"></details>
+<details><summary>算法证据：待定</summary>
+<p>球身份、到达位置或连续观察不足。 自动与画面判断：自动待定。</p>
+<img loading="lazy" src="media/event_38_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/rus_cro_p09_kuzyaev_rus7.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details class="event pending" id="rus_cro_p10_rakitic_cro7" data-outcome="goal" data-rule="unknown" data-conflict="0">
+<summary>39 · rus_cro_p10_rakitic_cro7 · <span class="goal">进球（AI画面判断）</span> · 自动待定</summary>
+<p>低平球进入左侧网底，随后左侧门网局部形变可见。 原片证据帧：89、92、98。</p>
+<video controls preload="none" src="media/rus_cro_p10_rakitic_cro7.mp4"></video>
+<p class="subtle">慢放为原速的1/3。绿圈是当前关联候选，蓝圈是先前候选，青线是门框提案；圈出的候选仍可能跟错。</p>
+<details><summary>查看原画面事件帧（无检测圈）</summary><img loading="lazy" src="media/event_39.jpg" alt="第39段原画面事件帧"></details>
+<details><summary>算法证据：待定</summary>
+<p>球身份、到达位置或连续观察不足。 自动与画面判断：自动待定。</p>
+<img loading="lazy" src="media/event_39_selected_1.jpg" alt="算法所选候选原像素"><p><a href="results/rus_cro_p10_rakitic_cro7.json">关联候选与冻结的规则结果 JSON</a></p></details>
+</details>
+<details><summary>复现与验证</summary><p>新运行36段神经检测，另3段复用上一轮同源检测缓存；39段均运行了本轮关联和规则判断。69项测试通过，39段回放共1433帧完成逐帧解码。算法结果在画面复核前已生成，复核没有写回检测、关联或规则输入。</p>
+<p>门框单应变换只表达图像中的位置，不能确立球整体越过球门线。此报告未使用人工球坐标或官方比赛结果作算法输入，也未计算带独立人工真值的准确率。</p>
+<p><a href="outcomes.csv">全部结果 CSV</a> · <a href="review_summary.json">复核汇总与文件哈希 JSON</a> · <a href="visual_assessment.json">AI画面判断记录</a> · <a href="protocol.json">运行协议与源码哈希</a> · <a href="validation_tests.log">测试日志</a></p></details>
+</main><script>const buttons=[...document.querySelectorAll('[data-filter]')];function accept(el,f){return f==='all'||(f==='miss'&&el.dataset.outcome==='no_goal')||(f==='pending'&&el.dataset.rule==='unknown')||(f==='conflict'&&el.dataset.conflict==='1')}function filter(f){buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===f)));document.querySelectorAll('tr[data-outcome],details.event').forEach(el=>el.classList.toggle('hidden',!accept(el,f)));document.querySelector('#visible-count').textContent='显示'+document.querySelectorAll('tr[data-outcome]:not(.hidden)').length+'段。点击片名展开对应回放。'}buttons.forEach(b=>b.addEventListener('click',()=>filter(b.dataset.filter)));function reveal(id){const el=document.getElementById(id);if(el){filter('all');el.open=true;el.scrollIntoView({behavior:'smooth',block:'start'})}}document.querySelectorAll('.clip-link').forEach(a=>a.addEventListener('click',()=>reveal(a.hash.slice(1))));if(location.hash)reveal(location.hash.slice(1));</script></body></html>

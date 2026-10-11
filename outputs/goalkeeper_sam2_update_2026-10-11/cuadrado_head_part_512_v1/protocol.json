@@ -1,0 +1,37 @@
+{
+  "clip_id": "col_eng_p03_cuadrado_col11",
+  "initial_frame": 87,
+  "head_box": [
+    211.19723510742188,
+    47.77294921875,
+    227.37875366210938,
+    60.122283935546875
+  ],
+  "points": [
+    [
+      222.37875366210938,
+      55.122283935546875
+    ],
+    [
+      214.28839111328125,
+      66.8541259765625
+    ],
+    [
+      213.6229248046875,
+      100.325439453125
+    ]
+  ],
+  "labels": [
+    1,
+    0,
+    0
+  ],
+  "prompt_source": "automatic pre-kick COCO nose and visible head points, no human prompt",
+  "image_size": 512,
+  "body_masks_source": "prior Cuadrado SAM2 at 1024",
+  "direction_promotion": false,
+  "code_sha256": {
+    "scripts/probe_goalkeeper_sam2_head_part.py": "0237e6205745dec1e3beb7351e54bf32ce37328434c3e4a8bbd068cde5f8de57",
+    "src/goalkeeper_sam2.py": "78fdeec3e6ed085eb8349beebcb7e1470c293cca311874c117bff41d1547535e"
+  }
+}

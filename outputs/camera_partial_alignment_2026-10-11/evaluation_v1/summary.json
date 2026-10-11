@@ -1,0 +1,69 @@
+{
+  "clips_measured": 39,
+  "pose_frames": 3593,
+  "query_shots": 76,
+  "role_pairs": 152,
+  "old_cohort_role_pairs": 76,
+  "instrumentation": {
+    "role_frame_checks": 7186,
+    "usable_partial_lower_body": 1801,
+    "usable_complete_six_angles": 1697,
+    "multiple_same_kit_people": 702,
+    "no_unique_kit_role": 3882,
+    "unique_role_but_insufficient_lower_body": 801,
+    "rescued_partial_not_complete": 104
+  },
+  "partial_sample_eligible_pairs": 21,
+  "complete_sample_eligible_pairs": 21,
+  "common_cohort_sample_eligible": {
+    "complete": 7,
+    "partial": 7
+  },
+  "variants": {
+    "new_10hz_complete_nearest": {
+      "unknown": 152
+    },
+    "new_10hz_complete_affine": {
+      "unknown": 151,
+      "no_relative_slowdown_evidence": 1
+    },
+    "new_10hz_partial_affine": {
+      "unknown": 151,
+      "no_relative_slowdown_evidence": 1
+    }
+  },
+  "partial_reasons": {
+    "insufficient_contiguous_partial_pose": 131,
+    "ambiguous_vs_reversed_or_shuffled": 7,
+    "insufficient_motion_or_supported_alignment": 11,
+    "unstable_stretch": 1,
+    "ordered_affine_alignment_without_sufficient_time_stretch": 1,
+    "pose_mismatch": 1
+  },
+  "slowdown_candidates": [],
+  "different_event_controls": 93,
+  "different_event_sample_eligible": 24,
+  "different_event_accepted": 0,
+  "synthetic_control_status_counts": {
+    "same_timestamps": {
+      "no_relative_slowdown_evidence": 17,
+      "unknown": 13
+    },
+    "synthetic_2x_timestamps": {
+      "relative_slowdown_candidate": 8,
+      "unknown": 19,
+      "no_relative_slowdown_evidence": 3
+    },
+    "synthetic_reversed_2x": {
+      "unknown": 30
+    }
+  },
+  "tests_run": 47,
+  "tests_passed": true,
+  "source_videos_hash_matched": 39,
+  "human_ground_truth_records": 0,
+  "accuracy_estimate": null,
+  "independent_holdout": false,
+  "release_replaced": false,
+  "limitation": "A time-stretch candidate is not verified same event, identity, replay, camera category or absolute slow-motion speed."
+}

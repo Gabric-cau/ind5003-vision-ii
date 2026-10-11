@@ -1,0 +1,165 @@
+{
+  "clip_id": "cro_den_p04_kramaric_cro9",
+  "status": "abstain_no_goal_region",
+  "goalkeeper_track_id": null,
+  "auto_accepted": false,
+  "review_required": true,
+  "goal_geometry": {
+    "status": "abstain",
+    "selected": null,
+    "candidates": [
+      {
+        "corners": [
+          [
+            826.0,
+            279.0
+          ],
+          [
+            1058.0,
+            316.0
+          ],
+          [
+            1054.0,
+            466.0
+          ],
+          [
+            830.0,
+            401.0
+          ]
+        ],
+        "bbox": [
+          826.0,
+          279.0,
+          1058.0,
+          466.0
+        ],
+        "score": 0.9968,
+        "crossbar_support": 1.0,
+        "ground_support": 0.9872448979591837,
+        "interior_white_density": 0.135311004784689
+      },
+      {
+        "corners": [
+          [
+            826.0,
+            279.0
+          ],
+          [
+            1145.0,
+            353.0
+          ],
+          [
+            1127.0,
+            455.0
+          ],
+          [
+            830.0,
+            401.0
+          ]
+        ],
+        "bbox": [
+          826.0,
+          279.0,
+          1145.0,
+          455.0
+        ],
+        "score": 0.9641,
+        "crossbar_support": 0.9625,
+        "ground_support": 0.9387755102040817,
+        "interior_white_density": 0.1516812865497076
+      }
+    ],
+    "reason": "insufficient_or_ambiguous_geometry",
+    "human_verified": false,
+    "metric_calibration": false
+  },
+  "human_verified": false,
+  "accuracy_validated": false,
+  "kick_source_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\steps_v4\\classified\\cro_den_p04_kramaric_cro9.json",
+  "source_pose_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_pose_all\\cro_den_p04_kramaric_cro9_pose.json",
+  "code_sha256": {
+    "goalkeeper_pipeline.py": "b99eed1bd4bbe7cd425cba8430823c9916bce22fc32518c5498896c08eaf656b",
+    "person_appearance.py": "71376c1574fbf0db60f6d2bb7a8494a1d7e4256c17b6d1e35a8807245a6ef2df"
+  },
+  "kick_frame": 70,
+  "fps": 30.0,
+  "video_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\data\\raw_clips\\cro_den_p04_kramaric_cro9.mp4",
+  "kick_frame_source": "independent_contact_candidate",
+  "candidate_dive_direction": "unknown",
+  "candidate_dive_height": "unknown",
+  "pre_guard_auto_accepted": false,
+  "dive_observability": {
+    "policy": "fixed_1s_postkick_v1",
+    "duration_sec": 1.0,
+    "min_fraction": 0.8,
+    "boundary_tolerance_sec": 0.1,
+    "max_gap_sec": 0.2,
+    "expected_frames": 31,
+    "observed_frames": 0,
+    "observed_fraction": 0.0,
+    "first_observed_frame": null,
+    "last_observed_frame": null,
+    "max_gap_frames": 0,
+    "reasons": [
+      "no_postkick_observations",
+      "insufficient_observed_frame_fraction"
+    ],
+    "window_supported": false,
+    "identity_verified": false
+  },
+  "dive_direction": "unknown",
+  "dive_height": "unknown",
+  "dive_review_required": true,
+  "qa_warnings": [
+    "no_postkick_observations",
+    "insufficient_observed_frame_fraction"
+  ],
+  "dive_feature_policy": "pose_direction_v3",
+  "dive_direction_evidence": {
+    "policy": "onset_connected_lateral_motion_v1",
+    "direction": "unknown",
+    "supported": false,
+    "reasons": [
+      "no_qualified_non_kicker_track"
+    ],
+    "identity_verified": false,
+    "camera_motion_compensated": false,
+    "coordinate_system": "source_image_x_right",
+    "min_samples": 6,
+    "min_span_sec": 0.2,
+    "min_density": 0.5,
+    "lateral_threshold_body": 0.3,
+    "max_gap_sec": 0.2,
+    "onset_tolerance_sec": 0.1
+  },
+  "dive_direction_supported": false,
+  "dive_direction_support_status": "insufficient_direction_evidence",
+  "dive_direction_review_required": true,
+  "dive_height_window_supported": false,
+  "dive_height_review_required": true,
+  "goalkeeper_relative_direction": "unknown",
+  "direction_coordinate_system": "source_image_x_right",
+  "pose_direction_evidence": {
+    "policy": "upright_to_lateral_pose_v1",
+    "supported": false,
+    "direction": "unknown",
+    "reasons": [
+      "missing_cached_pose"
+    ],
+    "observed_frames": [],
+    "identity_verified": false,
+    "coordinate_system": "source_image_x_right",
+    "uses_box_displacement_threshold": false,
+    "min_keypoint_confidence": 0.5,
+    "min_sustained_samples": 3,
+    "min_sustained_span_sec": 0.06,
+    "angular_rule": "horizontal component exceeds vertical on both torso and shoulder-to-ankle axes"
+  },
+  "pose_vs_motion_conflict": false,
+  "pre_pose_dive_direction": "unknown",
+  "source_candidate_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_appearance_v2\\cro_den_p04_kramaric_cro9.json",
+  "source_candidate_sha256": "03520903bcc1163a6e5926574bc9615bdd591d81699e82114c50ae01c2f33454",
+  "previous_guard_path": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\optimization_evening_2026-10-09\\goal_observation_guard\\cro_den_p04_kramaric_cro9.json",
+  "previous_guard_sha256": "58913ff93b5aff14eb13d40650c2a785cd550bdd6d6efe37969075bc584aa059",
+  "source_v3_result": "C:\\Users\\30605\\PycharmProjects\\JupyterProject\\outputs\\goalkeeper_pose_direction_2026-10-11\\results_v3_final\\clips\\cro_den_p04_kramaric_cro9.json"
+}

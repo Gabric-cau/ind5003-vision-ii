@@ -1,0 +1,887 @@
+{
+  "policy": "sam2_semantic_head_part_transition_v1",
+  "supported": false,
+  "direction": "unknown",
+  "reasons": [
+    "no_sustained_visible_head_torso_transition"
+  ],
+  "identity_verified": false,
+  "accuracy_validated": false,
+  "coordinate_system": "source_image_x_right",
+  "uses_mask_centroid_direction": false,
+  "uses_unsigned_PCA_direction": false,
+  "min_sustained_samples": 3,
+  "min_sustained_span_sec": 0.06,
+  "mask_prefix_stop_reason": "head_part_or_body_lost",
+  "pre_reference_frames": [
+    97,
+    98,
+    99,
+    100,
+    101
+  ],
+  "observed_mask_prefix_frames": [
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111
+  ],
+  "anatomical_samples": [
+    {
+      "frame": 87,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        218.06369426751593,
+        53.961783439490446
+      ],
+      "body_center": [
+        214.97485422740525,
+        101.82944606413994
+      ],
+      "head_endpoint_fraction": 0.905417218442907,
+      "body_mask_elongation": 3.144864180112785,
+      "signed_mask_axis": [
+        0.012246953417351754,
+        -0.9999250032537406
+      ],
+      "head_body_overlap_fraction": 0.8662420382165605,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 88,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        218.92567567567568,
+        54.13513513513514
+      ],
+      "body_center": [
+        215.74690199023658,
+        101.60683439729628
+      ],
+      "head_endpoint_fraction": 0.9148028490810799,
+      "body_mask_elongation": 3.0822008644401993,
+      "signed_mask_axis": [
+        0.020548696715049965,
+        -0.9997888532401794
+      ],
+      "head_body_overlap_fraction": 0.8918918918918919,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 89,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        219.88489208633092,
+        54.24460431654676
+      ],
+      "body_center": [
+        216.59531898829746,
+        102.28388070970178
+      ],
+      "head_endpoint_fraction": 0.9244311373318409,
+      "body_mask_elongation": 3.1327687244526308,
+      "signed_mask_axis": [
+        0.022180196540438714,
+        -0.9997539891800521
+      ],
+      "head_body_overlap_fraction": 0.9136690647482014,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 90,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        219.8258064516129,
+        54.39354838709677
+      ],
+      "body_center": [
+        217.48473282442748,
+        102.19007633587786
+      ],
+      "head_endpoint_fraction": 0.9158090062687169,
+      "body_mask_elongation": 3.151889125742593,
+      "signed_mask_axis": [
+        0.028398890803877534,
+        -0.9995966701630761
+      ],
+      "head_body_overlap_fraction": 0.9548387096774194,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 91,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        220.38571428571427,
+        54.57142857142857
+      ],
+      "body_center": [
+        217.4746086292478,
+        102.1565483008782
+      ],
+      "head_endpoint_fraction": 0.914864818829173,
+      "body_mask_elongation": 3.1521700224421183,
+      "signed_mask_axis": [
+        0.028983246405817665,
+        -0.9995798974708224
+      ],
+      "head_body_overlap_fraction": 0.9571428571428572,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 92,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        221.35570469798657,
+        54.30201342281879
+      ],
+      "body_center": [
+        217.57530581039757,
+        102.46062691131499
+      ],
+      "head_endpoint_fraction": 0.9124090437887342,
+      "body_mask_elongation": 3.271117484475627,
+      "signed_mask_axis": [
+        0.033841444340144675,
+        -0.9994272142807464
+      ],
+      "head_body_overlap_fraction": 0.9463087248322147,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 93,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        223.85625,
+        55.0625
+      ],
+      "body_center": [
+        218.4044289044289,
+        104.06216006216006
+      ],
+      "head_endpoint_fraction": 0.9435550004169977,
+      "body_mask_elongation": 3.3559028780774827,
+      "signed_mask_axis": [
+        0.05292465679789108,
+        -0.9985985082618667
+      ],
+      "head_body_overlap_fraction": 0.93125,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 94,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        228.46969696969697,
+        55.78787878787879
+      ],
+      "body_center": [
+        219.25526742301457,
+        105.21596434359806
+      ],
+      "head_endpoint_fraction": 0.9738166613858658,
+      "body_mask_elongation": 3.447489984288042,
+      "signed_mask_axis": [
+        0.06714727678838837,
+        -0.9977430747541692
+      ],
+      "head_body_overlap_fraction": 0.9318181818181818,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 95,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        234.02673796791444,
+        60.36898395721925
+      ],
+      "body_center": [
+        220.23067484662576,
+        107.87239263803681
+      ],
+      "head_endpoint_fraction": 0.9922818746291374,
+      "body_mask_elongation": 3.227341054204309,
+      "signed_mask_axis": [
+        0.12672034715795305,
+        -0.9919384827781246
+      ],
+      "head_body_overlap_fraction": 0.9197860962566845,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 96,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        235.97530864197532,
+        65.54320987654322
+      ],
+      "body_center": [
+        220.88999566912082,
+        109.86271113035946
+      ],
+      "head_endpoint_fraction": 0.9612754613997216,
+      "body_mask_elongation": 3.0242928670591076,
+      "signed_mask_axis": [
+        0.16003532496194997,
+        -0.9871112879327858
+      ],
+      "head_body_overlap_fraction": 0.9259259259259259,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 97,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        236.36912751677852,
+        65.53020134228188
+      ],
+      "body_center": [
+        220.81431670281995,
+        110.03036876355749
+      ],
+      "head_endpoint_fraction": 0.9665183122280937,
+      "body_mask_elongation": 3.022045149026948,
+      "signed_mask_axis": [
+        0.1604554796824025,
+        -0.9870430786140441
+      ],
+      "head_body_overlap_fraction": 0.9261744966442953,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 98,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        238.08270676691728,
+        70.76691729323308
+      ],
+      "body_center": [
+        220.5483727151137,
+        112.66740971912617
+      ],
+      "head_endpoint_fraction": 0.9796495456685932,
+      "body_mask_elongation": 2.943833672328881,
+      "signed_mask_axis": [
+        0.1742700230371531,
+        -0.9846979024404541
+      ],
+      "head_body_overlap_fraction": 0.9699248120300752,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 99,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        241.10493827160494,
+        77.4074074074074
+      ],
+      "body_center": [
+        222.46449416342412,
+        113.18385214007782
+      ],
+      "head_endpoint_fraction": 0.9178761126104104,
+      "body_mask_elongation": 2.5458681434268673,
+      "signed_mask_axis": [
+        0.18704755266394443,
+        -0.9823508604579266
+      ],
+      "head_body_overlap_fraction": 0.9012345679012346,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 100,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        243.13815789473685,
+        83.50657894736842
+      ],
+      "body_center": [
+        226.20676486633934,
+        116.07583196944898
+      ],
+      "head_endpoint_fraction": 0.8782842214602498,
+      "body_mask_elongation": 2.307833953590023,
+      "signed_mask_axis": [
+        0.18039953018461297,
+        -0.9835934167679098
+      ],
+      "head_body_overlap_fraction": 0.8947368421052632,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 101,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        243.33152173913044,
+        88.11413043478261
+      ],
+      "body_center": [
+        229.41203703703704,
+        121.03652263374485
+      ],
+      "head_endpoint_fraction": 0.896638327014132,
+      "body_mask_elongation": 2.1034720751860125,
+      "signed_mask_axis": [
+        0.07498473181698365,
+        -0.9971846819894172
+      ],
+      "head_body_overlap_fraction": 0.967391304347826,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 102,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        244.03680981595093,
+        93.02453987730061
+      ],
+      "body_center": [
+        233.58311461067368,
+        124.4400699912511
+      ],
+      "head_endpoint_fraction": 0.8956005237031749,
+      "body_mask_elongation": 1.7314079342770892,
+      "signed_mask_axis": [
+        -0.026104005691701463,
+        -0.9996592323821392
+      ],
+      "head_body_overlap_fraction": 0.9693251533742331,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 103,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        244.0754716981132,
+        93.26415094339623
+      ],
+      "body_center": [
+        233.56003505696756,
+        124.36546888694129
+      ],
+      "head_endpoint_fraction": 0.887801052739715,
+      "body_mask_elongation": 1.7203052608725122,
+      "signed_mask_axis": [
+        -0.02600901977925128,
+        -0.9996617082243985
+      ],
+      "head_body_overlap_fraction": 0.9685534591194969,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 104,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        244.8051282051282,
+        94.81025641025641
+      ],
+      "body_center": [
+        238.0315565031983,
+        124.38422174840085
+      ],
+      "head_endpoint_fraction": 0.8790739027515997,
+      "body_mask_elongation": 1.3737477887243894,
+      "signed_mask_axis": [
+        -0.03930617171241962,
+        -0.9992272138334272
+      ],
+      "head_body_overlap_fraction": 0.9743589743589743,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 105,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        244.06763285024155,
+        95.99033816425121
+      ],
+      "body_center": [
+        241.23865110246433,
+        125.83527885862516
+      ],
+      "head_endpoint_fraction": 0.8746561774259218,
+      "body_mask_elongation": 1.3696621933607742,
+      "signed_mask_axis": [
+        -0.07717230561966693,
+        -0.9970177707771035
+      ],
+      "head_body_overlap_fraction": 0.9855072463768116,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 106,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        242.27918781725887,
+        97.42639593908629
+      ],
+      "body_center": [
+        243.52972709551656,
+        126.94590643274854
+      ],
+      "head_endpoint_fraction": 0.7766584122305812,
+      "body_mask_elongation": 1.598236642012909,
+      "signed_mask_axis": [
+        -0.22056175128189057,
+        -0.9753730126835914
+      ],
+      "head_body_overlap_fraction": 1.0,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 107,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        240.43502824858757,
+        101.37288135593221
+      ],
+      "body_center": [
+        246.9904255319149,
+        128.8
+      ],
+      "head_endpoint_fraction": 0.7405363652695953,
+      "body_mask_elongation": 1.7576026688553696,
+      "signed_mask_axis": [
+        -0.4421970409882765,
+        -0.896917932110409
+      ],
+      "head_body_overlap_fraction": 0.9943502824858758,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 108,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        239.65882352941176,
+        105.76470588235294
+      ],
+      "body_center": [
+        250.9670510708402,
+        131.26578802855573
+      ],
+      "head_endpoint_fraction": 0.7429494229282431,
+      "body_mask_elongation": 1.9679485762764246,
+      "signed_mask_axis": [
+        -0.5595496471428891,
+        -0.8287968342014033
+      ],
+      "head_body_overlap_fraction": 0.9941176470588236,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 109,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        239.77714285714285,
+        105.84571428571428
+      ],
+      "body_center": [
+        250.8610188261351,
+        131.15503875968992
+      ],
+      "head_endpoint_fraction": 0.7342686854546421,
+      "body_mask_elongation": 1.9765331307487848,
+      "signed_mask_axis": [
+        -0.5593971992318567,
+        -0.8288997366941037
+      ],
+      "head_body_overlap_fraction": 1.0,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 110,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        239.48502994011977,
+        111.49101796407186
+      ],
+      "body_center": [
+        254.17829021372327,
+        132.6811023622047
+      ],
+      "head_endpoint_fraction": 0.7028913789523861,
+      "body_mask_elongation": 1.8406082888247344,
+      "signed_mask_axis": [
+        -0.6805706940562096,
+        -0.7326824212384577
+      ],
+      "head_body_overlap_fraction": 0.9820359281437125,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 111,
+      "sign": 0,
+      "upright": true,
+      "head_center": [
+        238.13698630136986,
+        116.26712328767124
+      ],
+      "body_center": [
+        255.6755681818182,
+        134.3125
+      ],
+      "head_endpoint_fraction": 0.7127828183215423,
+      "body_mask_elongation": 1.6772195000402115,
+      "signed_mask_axis": [
+        -0.7394900502775177,
+        -0.673167486990091
+      ],
+      "head_body_overlap_fraction": 0.8972602739726028,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 113,
+      "sign": 0,
+      "upright": false,
+      "head_center": [
+        233.36723163841808,
+        129.6949152542373
+      ],
+      "body_center": [
+        257.00482625482624,
+        139.007722007722
+      ],
+      "head_endpoint_fraction": 0.7391134919916017,
+      "body_mask_elongation": 1.6796571319168816,
+      "signed_mask_axis": [
+        -0.858666602247717,
+        -0.512534551210317
+      ],
+      "head_body_overlap_fraction": 0.9887005649717514,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 114,
+      "sign": 0,
+      "upright": false,
+      "head_center": [
+        231.56398104265404,
+        134.34123222748815
+      ],
+      "body_center": [
+        256.1927471435668,
+        140.7242921013413
+      ],
+      "head_endpoint_fraction": 0.8124602928614039,
+      "body_mask_elongation": 1.776127698000509,
+      "signed_mask_axis": [
+        -0.9204780095574886,
+        -0.390794362703819
+      ],
+      "head_body_overlap_fraction": 0.9289099526066351,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 115,
+      "sign": 0,
+      "upright": false,
+      "head_center": [
+        231.88936170212767,
+        134.12765957446808
+      ],
+      "body_center": [
+        256.10730034296915,
+        140.25477707006368
+      ],
+      "head_endpoint_fraction": 0.7904518922634018,
+      "body_mask_elongation": 1.7538691827229111,
+      "signed_mask_axis": [
+        -0.9170976633096928,
+        -0.39866260917209356
+      ],
+      "head_body_overlap_fraction": 0.9404255319148936,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    },
+    {
+      "frame": 116,
+      "sign": -1,
+      "upright": false,
+      "head_center": [
+        232.79904306220095,
+        144.12918660287082
+      ],
+      "body_center": [
+        259.14402173913044,
+        147.65652173913043
+      ],
+      "head_endpoint_fraction": 0.7883483763472585,
+      "body_mask_elongation": 2.2684578836067915,
+      "signed_mask_axis": [
+        -0.9693909814151919,
+        -0.2455221479844359
+      ],
+      "head_body_overlap_fraction": 0.9569377990430622,
+      "source": "SAM2 automatic head-part prompt, not COCO pose",
+      "identity_verified": false
+    }
+  ],
+  "anatomy_source": "separate SAM2 part prompt",
+  "head_part_qc": {
+    "87": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "88": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "89": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "90": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "91": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "92": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "93": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "94": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "95": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "96": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "97": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "98": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "99": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "100": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "101": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "102": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "103": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "104": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "105": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "106": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "107": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "108": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "109": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "110": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "111": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "112": {
+      "valid": false,
+      "reason": "head_part_or_body_lost"
+    },
+    "113": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "114": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "115": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "116": {
+      "valid": true,
+      "reason": "candidate_head_part"
+    },
+    "117": {
+      "valid": false,
+      "reason": "head_part_or_body_lost"
+    },
+    "118": {
+      "valid": false,
+      "reason": "head_part_or_body_lost"
+    },
+    "119": {
+      "valid": false,
+      "reason": "head_part_coordinate_jump"
+    },
+    "120": {
+      "valid": false,
+      "reason": "head_part_coordinate_jump"
+    },
+    "121": {
+      "valid": false,
+      "reason": "head_part_coordinate_jump"
+    },
+    "122": {
+      "valid": false,
+      "reason": "head_part_or_body_lost"
+    },
+    "123": {
+      "valid": false,
+      "reason": "head_part_or_body_lost"
+    },
+    "124": {
+      "valid": false,
+      "reason": "head_part_or_body_lost"
+    },
+    "125": {
+      "valid": false,
+      "reason": "head_part_or_body_lost"
+    },
+    "126": {
+      "valid": false,
+      "reason": "head_part_or_body_lost"
+    },
+    "127": {
+      "valid": false,
+      "reason": "head_part_or_body_lost"
+    },
+    "128": {
+      "valid": false,
+      "reason": "head_part_or_body_lost"
+    },
+    "129": {
+      "valid": false,
+      "reason": "head_part_or_body_lost"
+    },
+    "130": {
+      "valid": false,
+      "reason": "head_part_or_body_lost"
+    },
+    "131": {
+      "valid": false,
+      "reason": "head_part_or_body_lost"
+    },
+    "132": {
+      "valid": false,
+      "reason": "head_part_or_body_lost"
+    },
+    "133": {
+      "valid": false,
+      "reason": "head_part_or_body_lost"
+    },
+    "134": {
+      "valid": false,
+      "reason": "head_part_or_body_lost"
+    },
+    "135": {
+      "valid": false,
+      "reason": "head_part_or_body_lost"
+    },
+    "136": {
+      "valid": false,
+      "reason": "head_part_coordinate_jump"
+    },
+    "137": {
+      "valid": false,
+      "reason": "head_part_coordinate_jump"
+    },
+    "138": {
+      "valid": false,
+      "reason": "head_part_coordinate_jump"
+    }
+  },
+  "head_max_step_body_fraction": 0.12
+}

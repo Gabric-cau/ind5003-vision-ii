@@ -1,0 +1,326 @@
+{
+  "title": "Penalty approach phase classification: independent methodology and failure audit",
+  "date": "2026-10-09",
+  "timezone": "Asia/Singapore",
+  "author_type": "ai_assisted",
+  "human_verified": false,
+  "purpose": "Research proposals and AI visual triage for the overnight optimization. This is not an annotation ground-truth file and must not silently override predictions.",
+  "baseline": {
+    "directory": "outputs/shot_repair_2026-10-09/all_clips_final",
+    "code_snapshot_sha256": "A3D132FFE2A61319FC7B30184FB05AA6CCC69EDA50BC3A7F766B336552E9E7F0",
+    "code_snapshot_file": "src/step_pipeline.py",
+    "clips": 39,
+    "status_ok": 39,
+    "review_required": 33,
+    "no_review_warning": 6,
+    "all_39_qa_contact_sheets_visually_screened_by_ai": true,
+    "ai_observed_wrong_selected_identity": 11,
+    "other_28_identity_observation": "Selected box appears to surround the kicker in the sampled panels. This does not establish every-frame track purity, contact timing, correct foot or step accuracy.",
+    "validation_scope": "Existing validation checks frame bounds, source hash, field consistency, candidate count consistency and image decoding. It does not measure correct person or physical step accuracy."
+  },
+  "user_feedback": {
+    "clip_id": "col_eng_p03_cuadrado_col11",
+    "verbatim": "5步吧，4-6步我觉得都正常",
+    "interpretation": "A genuine user-provided approximate clip-level assessment: about five steps, with four to six acceptable to this user for this example.",
+    "approximate_count": 5,
+    "acceptable_interval_for_this_clip_only": [4, 6],
+    "exact_count_ground_truth": false,
+    "event_frames_confirmed": false,
+    "general_tolerance_policy_authorized": false,
+    "must_not_do": "Do not turn this into exact five-step ground truth, a blanket plus/minus-one tolerance for every clip, or agreement-based proof of accuracy."
+  },
+  "primary_sources": [
+    {
+      "id": "ospaf2021",
+      "title": "Design and Validation of an Observational System for Penalty Kick Analysis in Football (OSPAF)",
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2021.661179/full",
+      "source_type": "original research",
+      "verified_claim": "An expert-validated observational framework treats penalty actions through explicit behavioral variables. Some initial variables, including run-up type and length, did not satisfy final validation requirements.",
+      "use_here": "Use explicit observable definitions and observer agreement; do not claim that our new lateral, circling and acceleration labels are already validated by OSPAF.",
+      "code_provenance": "Conceptual reference only; no code copied."
+    },
+    {
+      "id": "pose_notation2022",
+      "title": "Body Pose Estimation Integrated With Notational Analysis: A New Approach to Analyze Penalty Kicks Strategy in Elite Football",
+      "url": "https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2022.818556/full",
+      "source_type": "original research",
+      "verified_claim": "Combines OpenPose and observational analysis. Table 1 separates approach speed, fluency, angle, steps and gaze. The study used a standardized rear view and found the selected shooter body angles did not significantly associate with shooter strategy.",
+      "use_here": "Separate observable movement descriptors from inferred decision strategy; do not infer keeper dependence from a stutter or curved approach alone. Do not transfer its reported accuracy to this project.",
+      "code_provenance": "Conceptual reference only; current repository uses YOLO pose, not the paper's OpenPose pipeline."
+    },
+    {
+      "id": "ultralytics_pose",
+      "title": "Ultralytics pose task documentation",
+      "url": "https://docs.ultralytics.com/tasks/pose/",
+      "source_type": "official documentation",
+      "verified_claim": "Pose inference outputs keypoint coordinates and confidence values; standard COCO pose has 17 landmarks.",
+      "use_here": "COCO ankles do not include heel/toe contact geometry. A keypoint confidence value is not a calibrated probability that a real physical landing occurred.",
+      "code_provenance": "Existing project calls the Ultralytics pretrained model API; phase logic and event heuristics are project-specific."
+    },
+    {
+      "id": "opencv_homography",
+      "title": "OpenCV: Basic concepts of the homography explained with code",
+      "url": "https://docs.opencv.org/4.x/d9/dab/tutorial_homography.html",
+      "source_type": "official documentation",
+      "verified_claim": "A planar homography relates points between planes and supports perspective correction.",
+      "use_here": "Only calibrated ground-plane locations can justify field direction, distance and curvature. Mapping hips, airborne feet or an airborne ball with a pitch homography does not recover their true ground position or 3D trajectory.",
+      "code_provenance": "API/concept reference, not proof that calibration has been implemented or independently validated for these clips."
+    },
+    {
+      "id": "opencv_affine",
+      "title": "OpenCV: estimateAffinePartial2D",
+      "url": "https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html",
+      "source_type": "official documentation",
+      "verified_claim": "estimateAffinePartial2D estimates a limited four-degree-of-freedom 2D affine transform and returns inlier information; RANSAC is supported.",
+      "use_here": "Fit background motion with people excluded; report inlier counts and residual error, and abstain when stabilization fails. Similarity compensation is not full pitch calibration.",
+      "code_provenance": "Proposed use of an official API; project-specific gating thresholds would need validation."
+    },
+    {
+      "id": "botsort2022",
+      "title": "BoT-SORT: Robust Associations Multi-Pedestrian Tracking",
+      "url": "https://arxiv.org/abs/2206.14651",
+      "source_type": "original paper",
+      "verified_claim": "Combines motion and appearance information with camera-motion compensation for multi-person tracking.",
+      "use_here": "Motivates identity continuity and camera compensation. It does not by itself identify the penalty taker or label physical foot contacts.",
+      "code_provenance": "Design reference only; existing nearest-centre tracker is not BoT-SORT."
+    },
+    {
+      "id": "scipy_peaks",
+      "title": "SciPy find_peaks documentation",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks.html",
+      "source_type": "official documentation",
+      "verified_claim": "find_peaks finds local maxima and filters by properties such as distance and prominence; noise can change peak positions.",
+      "use_here": "Signal extrema are event candidates, not biomechanical proof of foot landing. Smoothing and thresholds require sensitivity tests.",
+      "code_provenance": "Existing project uses this library function; physical interpretation of its peaks is our heuristic."
+    },
+    {
+      "id": "soccernet_roles",
+      "title": "SoccerNet Game State Reconstruction",
+      "url": "https://www.soccer-net.org/tasks/game-state-reconstruction",
+      "source_type": "official task definition",
+      "verified_claim": "The task distinguishes player, goalkeeper, referee and other roles alongside tracking and field localization.",
+      "use_here": "Person detection and tracking are not role recognition. The current wrong-kicker failures require role or ball-interaction evidence before phase classification.",
+      "code_provenance": "Task-level architectural analogy only; no SoccerNet code copying or trained role classifier is established."
+    },
+    {
+      "id": "soccernet_calibration",
+      "title": "SoccerNet Camera Calibration",
+      "url": "https://www.soccer-net.org/tasks/camera-calibration",
+      "source_type": "official task definition",
+      "verified_claim": "Camera parameters are assessed through reprojection error against pitch geometry.",
+      "use_here": "A visually plausible top-down rendering alone is insufficient calibration QA; use landmark or line reprojection evidence.",
+      "code_provenance": "Evaluation concept only."
+    }
+  ],
+  "recommended_operational_model": {
+    "status": "proposal_not_a_validated_standard",
+    "principle": "Describe what happens in each clip; do not diagnose a player's enduring penalty strategy or intentions from one or two examples.",
+    "separate_axes": [
+      "temporal phase",
+      "trajectory shape relative to a declared coordinate frame",
+      "tempo and pause pattern",
+      "candidate physical foot-contact events",
+      "evidence quality and abstention reasons"
+    ],
+    "phases": [
+      {
+        "label": "preparation_adjustment",
+        "chinese": "准备调整",
+        "definition": "Visible pre-approach movement that has not yet begun the sustained progression ending at the strike. This may include lateral repositioning, stepping in place or retreating to set the approach.",
+        "boundary_evidence": "Identity-consistent body/ground path relative to ball or approach axis, followed by the continuous approach episode; speed alone is insufficient.",
+        "step_policy": "Report preparation contact candidates separately. Do not delete them or call them errors simply because displacement is small."
+      },
+      {
+        "label": "committed_approach",
+        "chinese": "正式助跑",
+        "definition": "The progression episode toward the ball that culminates in the strike, including short strides and internal hesitations.",
+        "boundary_evidence": "Progress over a sustained window and connection to an independently supported contact candidate; preserve approach before an internal pause.",
+        "step_policy": "Count all supported contacts in this phase, including short strides. Keep their size/tempo attributes separate."
+      },
+      {
+        "label": "strike_transition",
+        "chinese": "支撑与触球过渡",
+        "definition": "A short interval containing final plant, kicking-leg swing and ball-contact candidate rather than an overconfident single-frame truth.",
+        "boundary_evidence": "Foot-ball proximity plus ball departure where available, supported by body/foot motion. If only pose is present, label the strike as uncertain.",
+        "step_policy": "Final support-foot landing may be a step; foot-ball impact itself and airborne swing extrema are not additional ground contacts."
+      },
+      {
+        "label": "post_strike_recovery",
+        "chinese": "射门后随动",
+        "definition": "Movement after the supported strike interval, including balance recovery, follow-through, walking and celebration.",
+        "step_policy": "Exclude from the approach count, retain optional recovery events separately."
+      },
+      {
+        "label": "unknown_or_not_observable",
+        "chinese": "无法判定或未拍到",
+        "definition": "Identity, boundary, motion compensation or visibility is insufficient; do not force a category.",
+        "step_policy": "Missing preparation is not zero preparation; a left-censored approach count is a visible lower bound, not the complete count."
+      }
+    ],
+    "motion_attributes": [
+      {
+        "label": "lateral_adjustment_candidate",
+        "definition": "Motion predominantly perpendicular to the estimated final approach direction, with limited forward progress, before the approach episode.",
+        "avoid": "Do not equate screen-left/screen-right motion with sidestepping in field coordinates or body-relative side-stepping."
+      },
+      {
+        "label": "curved_approach_candidate",
+        "definition": "Smoothed trajectory direction changes consistently while making net progress toward the contact area.",
+        "avoid": "A curved trajectory is not automatically a full circle, and the curvature may be image-projection or camera error."
+      },
+      {
+        "label": "loop_like_adjustment_candidate",
+        "definition": "A sustained same-signed turn with appreciable angular sweep and return/closure relative to path length, before final progression.",
+        "avoid": "Do not assign this from one noisy bend, low-motion jitter or a camera pan. Exact circle/metric curvature requires a supported coordinate model."
+      },
+      {
+        "label": "short_accelerating_onset_candidate",
+        "definition": "Several small displacement events accompanied by increasing smoothed progression speed before the faster final approach.",
+        "avoid": "Do not automatically remove these events from the approach count; phase membership depends on when progression starts."
+      },
+      {
+        "label": "fast_final_approach_candidate",
+        "definition": "Relatively faster forward progression in the later pre-contact part of the same clip.",
+        "avoid": "Without metric ground speed and a prespecified sprint criterion, do not label an absolute sprint or report m/s."
+      },
+      {
+        "label": "pause_or_stutter_candidate",
+        "definition": "A persistent low-progress interval between two moving intervals, or short cadence changes within the approach episode.",
+        "avoid": "Do not restart the entire approach after every pause; do not infer psychological deception or keeper dependence."
+      }
+    ],
+    "coordinate_rules": {
+      "image_only": "Output apparent image-space motion or body-height-normalized motion per second. State that perspective, body posture and residual camera motion remain confounders.",
+      "camera_compensated": "Estimate transforms from stable background features excluding all person boxes. Retain transform QC and reset at cuts. Low inliers or large residuals require unknown, not aggressive interpolation.",
+      "calibrated_pitch": "Metric path, field-relative direction and speed require verified pitch geometry, scale and reprojection accuracy. Use estimated ground contacts, not hip coordinates directly.",
+      "body_relative": "Left/right body-relative sidestepping requires reliable body orientation and anatomical left/right identity; do not infer it from screen direction."
+    },
+    "count_definition": "A step is a new observable ground-contact event after foot transfer; initially planted feet and shot impact alone are not new steps. A signal maximum/minimum remains only a candidate until foot-contact evidence supports it.",
+    "uncertainty_model": "Store identity confidence, contact timing uncertainty, visibility, stabilization quality and event reliability separately. Do not compress all uncertainty into one uncalibrated number called accuracy.",
+    "classification_format": "Allow multiple attributes per phase and multiple phases per clip; reserve unknown. Do not force every player into one exclusive named technique."
+  },
+  "code_audit": [
+    {
+      "priority": "P0",
+      "file": "src/step_pipeline.py",
+      "function": "_detect_live_kick_frame",
+      "snapshot_lines": [915, 984],
+      "finding": "The filtered candidates list is populated using outlier, lead-time and approach-displacement constraints, but is not used to select the returned frame. The function chooses the largest eligible ankle burst before 82 percent of shot duration, with a 55-to-75 percent central fallback.",
+      "consequence": "A burst caused by a goalkeeper, referee, keypoint jitter or post-contact motion can be emitted as a kick. Shot-length percentages encode editing convention, not physical contact evidence.",
+      "proposal": "Use independent ball proximity/departure or explicit pose-only uncertainty and compare candidate alternatives; guard by tracked role. Never silently treat maximum ankle displacement as confirmed ball contact."
+    },
+    {
+      "priority": "P0",
+      "file": "src/step_pipeline.py",
+      "function": "_analyse_tracks",
+      "snapshot_lines": [1083, 1103],
+      "finding": "Adequate pose coverage and substantial generic lower-body motion qualify a person. No ball interaction or player/goalkeeper/referee role test is required.",
+      "consequence": "The goalkeeper's jump and leg motion can outrank the kicker, while a continuously visible referee can also qualify.",
+      "proposal": "Establish who approaches and interacts with the ball, with geometry/role and identity evidence. If no candidate is sufficiently supported, abstain or request review instead of force-selecting."
+    },
+    {
+      "priority": "P1",
+      "file": "src/step_pipeline.py",
+      "function": "process_video_steps",
+      "snapshot_lines": [1741, 1774],
+      "finding": "first_viable stops at the first shot with any qualified track. A full-body goalkeeper in a front view may satisfy that criterion before the true approach shot.",
+      "consequence": "The repaired shot selector can still stop on a wrong role or incomplete approach, although it no longer blindly stops at the first cut.",
+      "proposal": "Qualify the actual action sequence and visible pre-contact span, not merely a generic moving full-body person; retain competing shots and reasons."
+    },
+    {
+      "priority": "P1",
+      "file": "src/step_pipeline.py",
+      "function": "_estimate_runup_start",
+      "snapshot_lines": [1160, 1290],
+      "finding": "Motion onset uses uncorrected image hip displacement divided by body-box height and frame gap. It takes the first short stationary-to-motion transition and adds preroll.",
+      "consequence": "Camera motion, posture noise or preparatory shifts can trigger an early onset, while true pauses and first-step definition remain conflated.",
+      "proposal": "Use camera QC, directional progress, minimum dwell and phase hysteresis; preserve preparatory events separately. Evaluate boundary ambiguity rather than picking a threshold to make counts look plausible."
+    },
+    {
+      "priority": "P1",
+      "file": "scripts/validate_step_shot_repair.py",
+      "finding": "Validation is structural and correctly disclaims accuracy, but the public count of 39 successful extractions can be misread as 39 successful kicker identifications.",
+      "proposal": "Report separate decoding completeness, candidate-output availability, correct-identity audit, contact-boundary audit, phase usability and verified count accuracy denominators."
+    }
+  ],
+  "ai_visual_audit": {
+    "basis": "All 39 existing yellow-box QA JPG contact sheets were opened and inspected, not every video frame. Frame IDs below are zero-based original-clip IDs shown on those sheets.",
+    "status": "ai_visual_observation_unverified",
+    "not_ground_truth": true,
+    "evidence_path_rule": "outputs/shot_repair_2026-10-09/all_clips_final/{clip_id}_qa.jpg",
+    "wrong_identity_cases": [
+      {"clip_id":"col_eng_p04_rashford_eng19","selected_track_id":6,"selected_role_observed":"goalkeeper","frames":[64,75,104,117],"evidence":"Yellow box is inside the goal around the goalkeeper while the red-shirt kicker approaches at screen right.","priority":"P0"},
+      {"clip_id":"col_eng_p05_muriel_col14","selected_track_id":1,"selected_role_observed":"goalkeeper","frames":[0,51,72,89,156],"evidence":"Selected box follows the green goalkeeper through the dive; yellow-shirt kicker is outside the box.","priority":"P0"},
+      {"clip_id":"col_eng_p10_dier_eng4","selected_track_id":0,"selected_role_observed":"referee","frames":[0,22,67,118],"evidence":"Selected black-shirt person remains near the goal-area side while red number 4 approaches the ball elsewhere.","priority":"P0"},
+      {"clip_id":"esp_rus_p04_ignashevich_rus4","selected_track_id":17,"selected_role_observed":"goalkeeper","frames":[104,109,124,130],"evidence":"Selected box encloses the green goalkeeper already down near the goal; white-shirt shooter is to the right.","priority":"P0"},
+      {"clip_id":"rus_cro_p01_smolov_rus10","selected_track_id":1,"selected_role_observed":"goalkeeper","frames":[28,88,116,132],"evidence":"Selected box follows green goalkeeper before and during the dive; red-shirt taker is right of the ball.","priority":"P0"},
+      {"clip_id":"rus_cro_p02_brozovic_cro11","selected_track_id":6,"selected_role_observed":"referee","frames":[35,44,97],"evidence":"Selected yellow-shirt official is beside the goal-area line while dark-shirt kicker approaches at screen right. Count zero is still returned as status ok.","priority":"P0"},
+      {"clip_id":"rus_cro_p03_dzagoev_rus9","selected_track_id":8,"selected_role_observed":"goalkeeper","frames":[59,75,90,96],"evidence":"Selected box is on the green goalkeeper and his dive; red-shirt number 9 strikes at the right.","priority":"P0"},
+      {"clip_id":"rus_cro_p04_kovacic_cro8","selected_track_id":1,"selected_role_observed":"goalkeeper","frames":[0,14,24,39],"evidence":"Initial frontal shot has a large foreground bystander at right, kicker approaching on left, but selected box is the blue goalkeeper at goal centre.","priority":"P0"},
+      {"clip_id":"rus_cro_p05_fernandes_rus2","selected_track_id":9,"selected_role_observed":"goalkeeper","frames":[70,77,85,140],"evidence":"Selected goalkeeper box is at left near the goal while red-shirt kicker approaches and follows through at right.","priority":"P0"},
+      {"clip_id":"rus_cro_p06_modric_cro10","selected_track_id":17,"selected_role_observed":"goalkeeper","frames":[177,180,187,194,239],"evidence":"Estimated run-up and kick are on a grounded goalkeeper, not the dark-shirt shooter. Later selected box follows keeper standing at goal.","priority":"P0"},
+      {"clip_id":"rus_cro_p09_kuzyaev_rus7","selected_track_id":2,"selected_role_observed":"goalkeeper","frames":[45,61,77,85],"evidence":"Selected box follows goalkeeper through dive; red-shirt number 7 is outside the box.","priority":"P0"}
+    ],
+    "boundary_and_count_cases": [
+      {"clip_id":"esp_rus_p07_ramos_esp15","selected_track_id":3,"baseline_count":16,"baseline_kick_frame":173,"frames":[115,124,125,140,159,173],"issue":"late_contact_candidate","evidence":"Correct person is selected, but estimated kick frame 173 shows upright recovery after the goalkeeper's dive. Panels near 115-125 contain the apparent strike transition. Exact replacement frame is not annotated.","priority":"P0"},
+      {"clip_id":"col_eng_p09_bacca_col7","selected_track_id":1,"baseline_count":5,"baseline_kick_frame":153,"frames":[126,133,151,153],"issue":"late_contact_candidate","evidence":"Frame 133 shows follow-through and ball away from the shooter; at 151-153 the goalkeeper is down and shooter recovers. Estimated kick 153 is visibly late, although count plausibility alone would not reveal it.","priority":"P0"},
+      {"clip_id":"cro_den_p07_schone_den19","selected_track_id":0,"baseline_count":4,"baseline_kick_frame":52,"frames":[44,52,141],"issue":"early_contact_candidate","evidence":"At estimated kick frame 52 the ball remains visibly ahead of the approaching player, so a leg burst may have been selected before actual contact. Need neighboring-frame video inspection before assigning a replacement.","priority":"P1"},
+      {"clip_id":"esp_rus_p09_aspas_esp17","selected_track_id":3,"baseline_count":6,"baseline_kick_frame":90,"frames":[79,85,90,119],"issue":"early_contact_candidate","evidence":"Ball still appears ahead of the player's feet at estimated contact 90, before visible completed kick/recovery at119. Exact correction needs video.","priority":"P1"},
+      {"clip_id":"col_eng_p07_uribe_col15","selected_track_id":1,"baseline_count":10,"baseline_kick_frame":157,"baseline_runup_start_frame":0,"frames":[0,13,61,67,85,90,112,122,135,143,152,157],"issue":"preparation_or_stationary_candidates_mixed_into_count","evidence":"Several candidate steps precede clear forward progression; first transition is frame4 and count window begins0. Could be genuine tiny adjustments or keypoint noise, not automatically ten approach contacts. No QA warning is present, showing why no-warning is not accuracy.","priority":"P1"},
+      {"clip_id":"cro_den_p05_krohndehli_den2","selected_track_id":0,"baseline_count":4,"baseline_runup_start_frame":59,"baseline_kick_frame":80,"frames":[59,63,69,78,80],"issue":"left_censored_approach","evidence":"Selected shot begins at59 with player already approaching; stored warning track_starts_already_moving_left_censored agrees with visible truncation. Visible contacts cannot establish complete approach count.","priority":"P1"},
+      {"clip_id":"cro_den_p02_badelj_cro19","selected_track_id":9,"frames":[0,30,138],"issue":"missed_cut_inside_selected_shot","evidence":"The selected range contains a near full-body frontal closeup at0 and a wide side view at30. Shot boundary logic is not a perfect segmentation guarantee.","priority":"P1"},
+      {"clip_id":"cro_den_p01_eriksen_den10","selected_track_id":0,"frames":[0,74,149],"issue":"missed_cut_inside_selected_shot","evidence":"Final panel149 is a player face closeup although the same selected-shot range starts in wide view. Track and camera transforms must not assume the entire interval is one homogeneous shot.","priority":"P1"}
+    ],
+    "identity_appears_kicker_in_other_sampled_panels": [
+      "col_eng_p01_falcao_col9","col_eng_p02_kane_eng9","col_eng_p03_cuadrado_col11","col_eng_p06_henderson_eng8","col_eng_p07_uribe_col15","col_eng_p08_trippier_eng12","col_eng_p09_bacca_col7",
+      "cro_den_p01_eriksen_den10","cro_den_p02_badelj_cro19","cro_den_p03_kjaer_den4","cro_den_p04_kramaric_cro9","cro_den_p05_krohndehli_den2","cro_den_p06_modric_cro10","cro_den_p07_schone_den19","cro_den_p08_pivaric_cro22","cro_den_p09_jorgensen_den9","cro_den_p10_rakitic_cro7",
+      "esp_rus_p01_iniesta_esp6","esp_rus_p02_smolov_rus10","esp_rus_p03_pique_esp3","esp_rus_p05_koke_esp8","esp_rus_p06_golovin_rus17","esp_rus_p07_ramos_esp15","esp_rus_p08_cheryshev_rus6","esp_rus_p09_aspas_esp17",
+      "rus_cro_p07_ignashevich_rus4","rus_cro_p08_vida_cro21","rus_cro_p10_rakitic_cro7"
+    ]
+  },
+  "ablation_protocol": {
+    "purpose": "Separate improvements in selection, timing, phase definition and event detection instead of judging a bundle only by how many numeric outputs it produces.",
+    "baseline_policy": "Keep original clips and the repaired baseline read-only. Save configuration, dependency versions, source hashes and absolute source-frame coordinates per run.",
+    "stages": [
+      {"id":"A0","change":"Frozen repaired baseline","evaluate":"39-output structural checks plus the 11 known AI-observed wrong-identity examples; no accuracy claim."},
+      {"id":"A1","change":"Identity and shot evidence only","evaluate":"Which of the 11 wrong-person cases are corrected or responsibly abstained on? Check previously plausible examples for new identity regressions. Keep step detector fixed."},
+      {"id":"A2","change":"Contact timing only on identity-supported tracks","evaluate":"For Ramos/Bacca/Schone/Aspas, compare both timing and neighboring frames. Keep counts provisional. Report timing-error metrics only after actual independent reference frames or intervals exist."},
+      {"id":"A3","change":"Camera compensation and phase boundaries","evaluate":"Compare raw versus stabilized paths, residual QC and prep/approach/recovery membership on the same tracks. Report disagreement/coverage, not accuracy, until reviewed."},
+      {"id":"A4","change":"Contact-event validation and phase-aware counts","evaluate":"Check final support foot, initial planted foot, same-foot candidates, gaps and post-contact leakage. Count genuine short steps within approach rather than deleting all small steps."},
+      {"id":"A5","change":"Motion descriptors","evaluate":"Assess whether curve, lateral and acceleration labels are stable across smoothing windows and thresholds; low-stability cases become uncertain."}
+    ],
+    "parameter_sensitivity": "Vary smoothing window, onset dwell, minimum contact separation and contact-boundary uncertainty independently; report changed decisions and count range. All chosen numeric thresholds are engineering hypotheses, not sports-science constants.",
+    "evaluation_units": [
+      "Clip decoding and output availability",
+      "Selected person role and identity continuity",
+      "Usable and complete pre-contact visibility",
+      "Contact/onset boundary error or agreement intervals",
+      "Event precision/recall with prespecified one-to-one temporal matching tolerance after event labels exist",
+      "Phase duration/temporal overlap and categorical agreement after phase labels exist",
+      "Exact count error and any explicitly approved approximate tolerance",
+      "Abstention/unknown rate alongside error among accepted outputs"
+    ],
+    "review_design": "Show original unannotated video first for independent count and boundary judgments, then reveal overlays for disagreement analysis. Record reviewer, date, definition and uncertainty. AI triage may prioritize cases but must remain separated from human annotations.",
+    "split_policy": "Do not choose thresholds by repeatedly fitting these 39 clips and present the same clips as an independent test. Group by match/shootout and player when constructing any tune/test protocol, and state generalization claims modestly.",
+    "morning_acceptance": [
+      "Review player identity and a contact-time thumbnail before reading the number.",
+      "See separate preparation, approach and recovery candidates with absolute-frame evidence.",
+      "See unknown or partial-visibility labels when appropriate rather than invented full counts.",
+      "Preserve the Cuadrado user assessment as approximate, case-specific feedback.",
+      "Provide representative original-video/overlay pairs and a complete 39-clip manifest without implying 39 validated outcomes."
+    ]
+  },
+  "defensible_teacher_explanation": {
+    "method": "A transparent, phase-aware computer-vision prototype combines pretrained pose coordinates, identity/shot evidence, camera-motion checks and explicit temporal rules. It reports observable approach characteristics, not hidden intent.",
+    "main_weaknesses_beyond_sample_size": [
+      "Role confusion: person pose does not establish who is the kicker.",
+      "Circular timing: using the strongest leg motion to define both the kick and the counting window can validate its own mistake.",
+      "Construct validity: a pose extremum is not necessarily ground contact; small preparation steps and short approach steps need an agreed definition.",
+      "Coordinate validity: pixel speed and curvature mix perspective, zoom and camera motion.",
+      "Truncation: missing prelude or run-up is not zero motion; incomplete visibility requires partial/unknown output.",
+      "Validation: reproducible code, successful decoding and warning-free outputs are distinct from independent accuracy evidence.",
+      "Threshold tuning: hardcoded shot fractions and per-clip adjustments may overfit broadcast editing.",
+      "Strategy interpretation: motion, gaze and interaction timing are different observables; no mind-reading or enduring player labels."
+    ]
+  }
+}

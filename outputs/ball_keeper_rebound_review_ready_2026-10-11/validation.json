@@ -1,0 +1,88 @@
+{
+  "clips": [
+    {
+      "clip_id": "col_eng_p09_bacca_col7",
+      "turn_confirmed": true,
+      "decoded_frames": 32,
+      "stop_frame": 151,
+      "support_frames": [
+        138,
+        140,
+        141,
+        142,
+        144
+      ],
+      "last_observed_frame": 146,
+      "incoming_prefix_preserved": true
+    },
+    {
+      "clip_id": "col_eng_p06_henderson_eng8",
+      "turn_confirmed": true,
+      "decoded_frames": 34,
+      "stop_frame": 134,
+      "support_frames": [
+        124,
+        125,
+        128
+      ],
+      "last_observed_frame": 128,
+      "incoming_prefix_preserved": true
+    },
+    {
+      "clip_id": "col_eng_p02_kane_eng9",
+      "turn_confirmed": false,
+      "decoded_frames": 21,
+      "stop_frame": 84,
+      "support_frames": null,
+      "last_observed_frame": null,
+      "incoming_prefix_preserved": true
+    }
+  ],
+  "accuracy_validated": false,
+  "human_verified": false,
+  "scope": "Targeted source replay and decode QA, not all-39 accuracy evaluation",
+  "artifact_checks": [
+    {
+      "clip_id": "col_eng_p02_kane_eng9",
+      "source_and_code_hashes_current": true,
+      "incoming_prefix_unchanged": true
+    },
+    {
+      "clip_id": "col_eng_p06_henderson_eng8",
+      "source_and_code_hashes_current": true,
+      "incoming_prefix_unchanged": true
+    },
+    {
+      "clip_id": "col_eng_p09_bacca_col7",
+      "source_and_code_hashes_current": true,
+      "incoming_prefix_unchanged": true
+    }
+  ],
+  "report_references_checked": 11,
+  "all_references_exist": true,
+  "rule_and_regression_tests": {
+    "count": 60,
+    "passed": true,
+    "log_file": "test_log.txt"
+  },
+  "visual_review": {
+    "reviewer": "AI source-pixel inspection",
+    "human_verified": false,
+    "not_ground_truth": true,
+    "bacca_ball_evidence_frames": [
+      138,
+      140,
+      141,
+      142,
+      144,
+      146
+    ],
+    "henderson_ball_evidence_frames": [
+      124,
+      125,
+      128
+    ],
+    "kane_yellow_glove_rebound_rejected": true
+  },
+  "all_39_retested_in_this_run": false
+}

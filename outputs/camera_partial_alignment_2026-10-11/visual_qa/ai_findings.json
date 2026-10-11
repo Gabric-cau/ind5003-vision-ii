@@ -1,0 +1,35 @@
+{
+  "reviewer": "Codex AI visual inspection",
+  "review_date": "2026-10-11",
+  "method": "Viewed all 9 contact sheets: 54 candidate intervals, start/middle/end sampled frames. Not continuous video review.",
+  "human_verified": false,
+  "ground_truth": false,
+  "used_as_algorithm_input": false,
+  "scope_warning": "These are AI diagnostic observations on development data. No verified accuracy denominator, exact timing, playback-speed or ground-truth identity is established.",
+  "identity_contradictions_or_ambiguities": [
+    {"interval_index":12,"reason":"Stadium spectators, not an isolated kicker; kit-colour match includes multiple fans."},
+    {"interval_index":14,"reason":"Foreground shirts visibly show teammates numbered 9 and 14; requested clip is Kjaer 4. Colour cannot select the kicker."},
+    {"interval_index":22,"reason":"Seated VIP/coaching-area adults in dark clothes, not kicker-action closeup."},
+    {"interval_index":23,"reason":"Crowd in stands wearing hats and supporter shirts."},
+    {"interval_index":25,"reason":"Foreground white dress shirt and sideline staff; colour alone misattributes the kicker."},
+    {"interval_index":34,"reason":"Celebrating spectators in stands; multiple same-colour shirts."},
+    {"interval_index":39,"reason":"Spectators with supporter face paint and surrounding crowd, not isolated kicker."},
+    {"interval_index":41,"reason":"Technical-area group, lanyards and staff clothing; multiple people, no unique kicker identification."},
+    {"interval_index":42,"reason":"Several teammates, with a captain occupying the foreground and shirt 8 cropped at the side. Largest same-kit box is not reliable kicker identity."},
+    {"interval_index":43,"reason":"Dense spectator closeup in stands."},
+    {"interval_index":44,"reason":"Foreground red Russia shirt conflicts with the clip target Croatia 10. This survives automatic field/crowd gates and requires quarantine/reference-identity work."},
+    {"interval_index":46,"reason":"Technical-area staff and multiple teammates, not uniquely identified kicker."},
+    {"interval_index":47,"reason":"Supporters wearing decorative hats/scarves in stands."},
+    {"interval_index":51,"reason":"Supporters with a phone, scarf and crowd background, not kicker-action closeup."}
+  ],
+  "geometry_concerns": [
+    {"interval_index":31,"reason":"View visually appears comparatively frontal, but code labels right-oblique. Unknown intrinsics and goal-corner errors make the angle category questionable; no corrected numeric angle asserted."}
+  ],
+  "known_qualitative_guard_costs": [
+    {"interval_index":5,"reason":"Henderson shirt number 8 visible; true-looking player closeup has no adequate grass context and is rejected."},
+    {"interval_index":6,"reason":"Uribe name/number 15 visible; player closeup against crowd background is rejected."},
+    {"interval_index":38,"reason":"Player-looking Croatia closeup against crowd background is rejected; no independent identity label supplied."},
+    {"interval_index":40,"reason":"Russia shirt number 9 visible in front of the goal net; lack of grass context causes rejection."},
+    {"interval_index":53,"reason":"Russia shirt number 7 visible; post-kick zoom/net background loses support. Guard tradeoff, not proof of wrong identity."}
+  ]
+}

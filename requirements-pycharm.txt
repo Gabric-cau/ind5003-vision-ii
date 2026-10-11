@@ -1,0 +1,19 @@
+# Observed Windows CPU runtime, Python 3.14.7. A fresh install is not yet tested.
+# Base numerical/runtime versions are from the working myenv environment;
+# Torch/Ultralytics were successfully imported using local .venv packages.
+numpy==2.4.6
+scipy==1.17.1
+pandas==3.0.3
+PyYAML==6.0.3
+opencv-python==4.13.0.92
+torch==2.13.0
+torchvision==0.28.0
+ultralytics==8.4.137
+Pillow==12.3.0
+matplotlib==3.10.9
+jupyterlab==4.6.3
+ipykernel==7.3.0
+nbformat==5.11.1
+# SAM2 source and its helper modules are included in .deps_goalkeeper_segmentation.
+# The project launchers insert that folder only for SAM2 workflows.
+# Optional full test collection: python -m pip install 'pytest>=8,<10'
