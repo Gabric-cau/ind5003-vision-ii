@@ -19,7 +19,7 @@ def export(out,ids):
         if refs_path.exists():features={**features,'references':read(refs_path)}
         context_path=out/'context_v2'/f'{cid}.json'
         if context_path.exists():
-            from camera_timing_context import merge
+            from scripts.camera_timing_context import merge
             features=merge(features,read(context_path))
         features=relabel_cached_features(features)
         action_path=out/'action_v3'/f'{cid}.json';action=read(action_path) if action_path.exists() else {'evidence':{}}

@@ -60,7 +60,7 @@ def main():
     manifest=metadata();ids=args.clips or list(manifest)
     out=args.output_dir.resolve();model=None
     if args.stage in ('features','action','all'):
-        from camera_timing_features import load_model,extract_features,extract_action
+        from scripts.camera_timing_features import load_model,extract_features,extract_action
         model=load_model()
     for cid in ids:
         if cid not in manifest:parser.error('Clip is not in the canonical manifest: '+cid)
@@ -72,14 +72,14 @@ def main():
             result=extract_features(item,out,model,args.resume);save(out/'features'/f'{cid}.json',result)
             print(json.dumps({'stage':'features','clip':cid,'segments':len(result['segments'])}),flush=True)
         if args.stage=='references':
-            from camera_timing_features import build_references
+            from scripts.camera_timing_features import build_references
             path=out/'references_v2'/f'{cid}.json'
             if path.exists() and not args.resume:raise FileExistsError(path)
             if not path.exists():
                 cap=cv2.VideoCapture(item['video_path']);refs=build_references(item,cap,None);cap.release();save(path,refs)
             print(json.dumps({'stage':'references','clip':cid,'keeper_refs':len(load(path)['keeper_histograms'])}),flush=True)
         if args.stage in ('context','all'):
-            from camera_timing_context import extract
+            from scripts.camera_timing_context import extract
             save(out/'context_v2'/f'{cid}.json',extract(item,out,args.resume))
             print(json.dumps({'stage':'context','clip':cid}),flush=True)
         if args.stage in ('action','all'):
@@ -87,7 +87,7 @@ def main():
             save(out/'action_v3'/f'{cid}.json',action)
             print(json.dumps({'stage':'action','clip':cid,'tested_segments':len(action['evidence'])}),flush=True)
     if args.stage in ('export','all'):
-        from export_camera_timings import export
+        from scripts.export_camera_timings import export
         export(out,ids)
 
 

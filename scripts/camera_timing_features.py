@@ -128,7 +128,7 @@ def extract_action(scan,features,model,out,resume=False):
     if refs_path.exists():features={**features,'references':read(refs_path)}
     context_path=out/'context_v2'/f"{scan['clip_id']}.json"
     if context_path.exists():
-        from camera_timing_context import merge
+        from scripts.camera_timing_context import merge
         features=merge(features,read(context_path))
     features=relabel_cached_features(features)
     path=out/'action_v3'/f"{scan['clip_id']}.json"
