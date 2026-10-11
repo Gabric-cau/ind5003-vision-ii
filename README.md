@@ -1,5 +1,7 @@
 # IND5003 Vision II: 39 次点球分析
 
+> **Fresh 4090 evidence package:** the current source-bound 39-event result is [`outputs/fresh_course_experiment/final_bundle_v1/`](outputs/fresh_course_experiment/final_bundle_v1/), with regenerated EDA in [`final_eda_v1/`](outputs/fresh_course_experiment/final_eda_v1/) and the six-section report [`REPORT_FRESH_REVIEW_DRAFT.md`](docs/REPORT_FRESH_REVIEW_DRAFT.md). The historical material below is retained for provenance; its older counts are not the current fresh experiment.
+
 这是在小组原项目上完善的私有开发仓库，保留原提交和来源记录。主入口现在提供统一的 39 段结果、可复现 EDA、验证状态与逐段复核模板。当前结果仍是开发候选，不能承诺满分或独立识别准确率。
 
 原项目：[RX422040/vision-ii-penalty-analysis](https://github.com/RX422040/vision-ii-penalty-analysis)，基于提交 `f3eb946a1595c084af33edfbc2452b016736bc30`。模型、历史实验、缓存和早期算法来自原小组项目；本轮新增结果整合、EDA 防护、运行迁移、稳定器与球终点修复。仓库保留提交历史，不把原作者的工作重新标成个人独立完成。

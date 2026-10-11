@@ -1373,6 +1373,69 @@ def _empty_step_result(
     }
 
 
+def _goal_line_actor_tracks(video_path, tracks, shot):
+    """Exclude standing goal-line occupants before ranking kicker action."""
+    from src.goal_geometry import select_goal_occupant
+
+    start, end = int(shot["shot_start_frame"]), int(shot["shot_end_frame"])
+    frame_ids = sorted({start, min(end - 1, start + 5),
+                        min(end - 1, start + round(.30 * shot["fps"]))})
+    capture = cv2.VideoCapture(video_path)
+    excluded, evidence = set(), []
+    try:
+        for frame_id in frame_ids:
+            capture.set(cv2.CAP_PROP_POS_FRAMES, frame_id)
+            ok, frame = capture.read()
+            if not ok:
+                raise ValueError("Cannot decode pre-action actor-role frame")
+            role = select_goal_occupant(frame, list(tracks.values()), frame_id)
+            excluded.update(row["track_id"] for row in role.get("candidates", []))
+            evidence.append({"frame": frame_id, "goal_line_evidence": role})
+    finally:
+        capture.release()
+    return {key: value for key, value in tracks.items() if key not in excluded}, {
+        "excluded_track_ids": sorted(excluded), "samples": evidence,
+        "rule": "preaction_goal_mouth_and_goal_line_foot_proximity", "human_verified": False}
+
+
+def _rerank_goal_occupant_selection(video_path, tracks, actor_tracks, shot, context,
+                                   selection, *, keypoint_conf, extractor, use_field_mask):
+    """Rerank remaining actors when a later track fragment is the goalkeeper."""
+    from src.goal_geometry import select_goal_occupant
+
+    selected_id, summaries, qualified = selection
+    evidence, excluded = [], []
+    capture = cv2.VideoCapture(video_path)
+    try:
+        for _ in range(len(actor_tracks)):
+            peak = summaries.get(selected_id, {}).get("kick_detection", {}).get("kick_frame")
+            frames = [row["frame"] for row in (context or {}).get("samples", [])
+                      if row["goal"]["status"] == "candidate_supported"
+                      and peak is not None and row["frame"] <= peak]
+            if selected_id is None or not frames:
+                break
+            frame_id = min(frames, key=lambda fid: abs(fid - (peak - round(.5 * shot["fps"]))))
+            capture.set(cv2.CAP_PROP_POS_FRAMES, frame_id)
+            ok, frame = capture.read()
+            if not ok:
+                raise ValueError("Cannot decode actor reranking context")
+            role = select_goal_occupant(frame, list(tracks.values()), frame_id)
+            evidence.append({"frame": frame_id, "selected_actor_before_check": selected_id,
+                             "goal_line_evidence": role})
+            if role.get("status") != "candidate_supported" or role.get("seed_track_id") != selected_id:
+                break
+            excluded.append(selected_id)
+            actor_tracks = {key: value for key, value in actor_tracks.items() if key != selected_id}
+            selected_id, summaries, qualified = _analyse_tracks(
+                actor_tracks, shot_frame_count=shot["shot_end_frame"] - shot["shot_start_frame"],
+                shot_start_frame=shot["shot_start_frame"], fps=shot["fps"],
+                frame_height=shot["frame_height"], keypoint_conf=keypoint_conf,
+                extractor=extractor, use_field_mask=use_field_mask)
+    finally:
+        capture.release()
+    return (selected_id, summaries, qualified), excluded, evidence
+
+
 def _process_shot_steps(
     video_path: str,
     model: Any,
@@ -1388,6 +1451,8 @@ def _process_shot_steps(
     roi_mode: str = "auto",
     use_field_mask: bool = False,
     predict_kwargs: Optional[Mapping[str, Any]] = None,
+    exclude_goal_line_actors: bool = False,
+    goal_context: Optional[Mapping[str, Any]] = None,
 ) -> Dict[str, Any]:
     """Count run-up steps within one independently tracked camera shot.
 
@@ -1442,8 +1507,10 @@ def _process_shot_steps(
         _append_warning(qa_warnings, warning)
 
     tracks = _build_tracks(pose_frames)
+    actor_tracks, role_exclusions = (_goal_line_actor_tracks(str(path), tracks, shot)
+        if exclude_goal_line_actors else (tracks, None))
     selected_track_id, candidate_summaries, selected_is_qualified = _analyse_tracks(
-        tracks,
+        actor_tracks,
         shot_frame_count=shot_count,
         shot_start_frame=shot_start,
         fps=float(shot["fps"]),
@@ -1494,8 +1561,10 @@ def _process_shot_steps(
             _append_warning(qa_warnings, warning)
         pose_frames = _merge_pose_frames(pose_frames, fallback_frames)
         tracks = _build_tracks(pose_frames)
+        actor_tracks, role_exclusions = (_goal_line_actor_tracks(str(path), tracks, shot)
+            if exclude_goal_line_actors else (tracks, None))
         selected_track_id, candidate_summaries, selected_is_qualified = _analyse_tracks(
-            tracks,
+            actor_tracks,
             shot_frame_count=shot_count,
             shot_start_frame=shot_start,
             fps=float(shot["fps"]),
@@ -1511,11 +1580,19 @@ def _process_shot_steps(
         from src.field_masks import annotate_track_field_support
         mask_diagnostics = annotate_track_field_support(str(path), tracks)
         selected_track_id, candidate_summaries, selected_is_qualified = _analyse_tracks(
-            tracks, shot_frame_count=shot_count,
+            actor_tracks, shot_frame_count=shot_count,
             shot_start_frame=shot_start, fps=float(shot["fps"]),
             frame_height=int(shot["frame_height"]), keypoint_conf=keypoint_conf,
             extractor=extractor, use_field_mask=True,
         )
+    if exclude_goal_line_actors and goal_context:
+        selection, late_excluded, late_samples = _rerank_goal_occupant_selection(
+            str(path), tracks, actor_tracks, shot, goal_context,
+            (selected_track_id, candidate_summaries, selected_is_qualified),
+            keypoint_conf=keypoint_conf, extractor=extractor, use_field_mask=use_field_mask)
+        selected_track_id, candidate_summaries, selected_is_qualified = selection
+        role_exclusions["excluded_track_ids"] = sorted(set(role_exclusions["excluded_track_ids"] + late_excluded))
+        role_exclusions["late_fragment_role_checks"] = late_samples
     total_detections = sum(len(item["detections"]) for item in pose_frames)
     if total_detections == 0:
         _append_warning(qa_warnings, "no_pose_detections")
@@ -1673,6 +1750,7 @@ def _process_shot_steps(
         "processed_frame_count": len(pose_frames),
         "pose_detection_count": total_detections,
         "selected_track_id": selected_track_id,
+        "goal_line_role_exclusions": role_exclusions,
         "selected_track_qualified": selected_is_qualified,
         "track_candidates": list(candidate_summaries.values()),
         "kick_frame": int(kick_frame) if kick_frame is not None else None,
@@ -1699,6 +1777,57 @@ def _process_shot_steps(
     return _json_safe(result)
 
 
+def _scan_adaptive_shots(video_path: str, max_shot_sec: float) -> List[Dict[str, Any]]:
+    from src.camera_timing_v2 import scan_video
+
+    if max_shot_sec <= 0:
+        raise ValueError("Shot duration must be positive")
+    scan = scan_video(video_path)
+    limit = max(1, math.ceil(max_shot_sec * scan["fps"]))
+    shots = []
+    for segment in scan["segments"]:
+        start, end = segment["start_frame"], segment["end_frame_exclusive"]
+        analysis_end = min(end, start + limit)
+        shots.append({"shot_index": segment["segment_id"], "shot_start_frame": start,
+            "shot_start_sec": start / scan["fps"], "shot_end_frame": analysis_end,
+            "shot_end_sec": analysis_end / scan["fps"], "camera_shot_end_frame": end,
+            "shot_end_reason": "duration_cap" if analysis_end < end else
+                "video_end" if end == scan["frame_count"] else "scene_cut",
+            "fps": scan["fps"], "frame_width": scan["width"], "frame_height": scan["height"],
+            "source_frame_count": scan["frame_count"], "boundary_method": scan["boundary_method"],
+            "boundary_verified": False})
+    return shots
+
+
+def _shot_goal_context(video_path: str, shot: Mapping[str, Any]) -> Dict[str, Any]:
+    """Check spatial goal evidence before accepting an approach camera shot."""
+    from src.goal_geometry import detect_goal_frame
+
+    start, end = int(shot["shot_start_frame"]), int(shot["shot_end_frame"])
+    frame_ids = sorted({start, (start + end - 1) // 2, max(start, end - 1)})
+    capture = cv2.VideoCapture(video_path)
+    observations = []
+    try:
+        for frame_id in frame_ids:
+            capture.set(cv2.CAP_PROP_POS_FRAMES, frame_id)
+            ok, frame = capture.read()
+            if not ok:
+                raise ValueError(f"Cannot decode camera-context frame {frame_id}")
+            goal = detect_goal_frame(frame)
+            hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+            green = ((hsv[..., 0] >= 28) & (hsv[..., 0] <= 95)
+                     & (hsv[..., 1] >= 45) & (hsv[..., 2] >= 35))
+            observations.append({"frame": frame_id, "goal": goal,
+                                 "green_fraction": float(np.mean(green))})
+    finally:
+        capture.release()
+    supported = [row for row in observations if row["goal"]["status"] == "candidate_supported"
+                 and row["green_fraction"] >= .18]
+    return {"supported": bool(supported), "samples": observations,
+            "rule": "visible_goal_geometry_and_field_context",
+            "actor_identity_verified": False, "human_verified": False}
+
+
 def process_video_steps(
     video_path: str,
     model: Any,
@@ -1714,6 +1843,9 @@ def process_video_steps(
     use_field_mask: bool = False,
     predict_kwargs: Optional[Mapping[str, Any]] = None,
     shot_selection: str = "first_viable",
+    require_goal_context: bool = False,
+    event_slice_interval: Optional[Tuple[int, int]] = None,
+    shot_scan_method: str = "legacy",
 ) -> Dict[str, Any]:
     """Select the earliest qualifying pose shot, not blindly the opening shot.
 
@@ -1727,11 +1859,20 @@ def process_video_steps(
         raise FileNotFoundError(f"Video not found: {video_path}")
     if shot_selection not in {"first_viable", "first"}:
         raise ValueError("shot_selection must be 'first_viable' or 'first'")
+    if shot_scan_method not in {"legacy", "adaptive"}:
+        raise ValueError("shot_scan_method must be 'legacy' or 'adaptive'")
     if shot_selection == "first":
         shots = [dict(_detect_first_shot_end(video_path, max_shot_sec, scene_cut_threshold),
                       shot_start_frame=0, shot_start_sec=0.0, shot_index=0)]
+    elif shot_scan_method == "adaptive":
+        shots = _scan_adaptive_shots(video_path, max_shot_sec)
     else:
         shots = _scan_camera_shots(video_path, max_shot_sec, scene_cut_threshold)
+    if event_slice_interval is not None:
+        if (len(event_slice_interval) != 2 or any(isinstance(value, bool) or not isinstance(value, int)
+                for value in event_slice_interval) or not 0 <= event_slice_interval[0]
+                < event_slice_interval[1] <= shots[0]["source_frame_count"]):
+            raise ValueError("Event slice must be a valid half-open source-frame interval")
     attempts = []
     best_result = None
     best_rank = (-1, -1.0)
@@ -1739,16 +1880,53 @@ def process_video_steps(
     found_qualified = False
     shared_extractor = extractor or KickerFeatureExtractor()
     for shot in shots:
+        if event_slice_interval is not None and (shot["shot_end_frame"] <= event_slice_interval[0]
+                or shot["shot_start_frame"] >= event_slice_interval[1]):
+            attempts.append({"shot_index": shot["shot_index"], "start_frame": shot["shot_start_frame"],
+                "end_frame_exclusive": shot["shot_end_frame"], "status": "skipped", "qualifies": False,
+                "error": None, "selected_track_id": None, "valid_pose_count": 0, "candidate_score": None,
+                "scene_rejections": ["camera_shot_outside_manual_event_slice"],
+                "reason": "camera_shot_outside_manual_event_slice"})
+            continue
+        context = _shot_goal_context(video_path, shot) if require_goal_context else None
+        if context is not None and not context["supported"]:
+            attempts.append({"shot_index": shot["shot_index"],
+                "start_frame": shot["shot_start_frame"], "end_frame_exclusive": shot["shot_end_frame"],
+                "status": "skipped", "qualifies": False, "error": None,
+                "selected_track_id": None, "valid_pose_count": 0, "candidate_score": None,
+                "scene_rejections": ["goal_and_field_context_not_established"],
+                "reason": "goal_and_field_context_not_established", "goal_context": context})
+            continue
         result = _process_shot_steps(
             video_path, model, shot=shot, clip_id=clip_id, extractor=shared_extractor,
             batch_size=batch_size, max_shot_sec=max_shot_sec,
             scene_cut_threshold=scene_cut_threshold, pose_conf=pose_conf,
             keypoint_conf=keypoint_conf, roi_mode=roi_mode,
             use_field_mask=use_field_mask, predict_kwargs=predict_kwargs,
+            exclude_goal_line_actors=require_goal_context,
+            goal_context=context,
         )
         candidate = next((item for item in result["track_candidates"]
                           if item["track_id"] == result["selected_track_id"]), {})
         scene_rejections = []
+        role_context = None
+        if context and result.get("kick_frame") is not None:
+            from src.goal_geometry import select_goal_occupant
+            supported = [row for row in context["samples"]
+                         if row["goal"]["status"] == "candidate_supported"
+                         and row["frame"] <= result["kick_frame"]]
+            if supported:
+                frame_id = min(supported, key=lambda row: abs(row["frame"] - (result["kick_frame"] - 15)))["frame"]
+                capture = cv2.VideoCapture(video_path)
+                capture.set(cv2.CAP_PROP_POS_FRAMES, frame_id)
+                ok, frame = capture.read()
+                capture.release()
+                if not ok:
+                    raise ValueError("Cannot decode actor-role context")
+                role_context = select_goal_occupant(frame, result.get("tracks", []), frame_id)
+                if (role_context["status"] == "candidate_supported"
+                        and role_context["seed_track_id"] == result["selected_track_id"]):
+                    scene_rejections.append("selected_kicker_is_goal_line_occupant")
         if shot_selection == "first_viable":
             if (shot["shot_end_frame"] - shot["shot_start_frame"]) / shot["fps"] < 1.0:
                 scene_rejections.append("shot_too_short_to_establish_runup")
@@ -1765,6 +1943,8 @@ def process_video_steps(
             "candidate_score": candidate.get("candidate_score"),
             "scene_rejections": scene_rejections,
             "reason": "qualified_pose_shot" if qualifies else "no_qualified_kicker_in_shot",
+            "goal_context": context,
+            "role_context": role_context,
         })
         rank = (int(result["status"] == "ok"), float(candidate.get("candidate_score", -1)))
         if best_result is None or rank > best_rank or qualifies:
@@ -1772,9 +1952,18 @@ def process_video_steps(
         if qualifies or shot_selection == "first":
             found_qualified = qualifies
             break
-    assert best_result is not None
+    if best_result is None:
+        # Preserve an inspectable failure without falling back to a rejected scene.
+        best_result = _manifest_error_result(clip_id=clip_id or Path(video_path).stem,
+            video_path=video_path, error="GoalContext: no supported approach camera shot",
+            warning="goal_and_field_context_not_established")
+        best_result.update(fps=shots[0]["fps"], frame_width=shots[0]["frame_width"],
+                          frame_height=shots[0]["frame_height"],
+                          source_frame_count=shots[0]["source_frame_count"],
+                          pose_frames=[], tracks=[], selected_pose_sequence={})
     best_result["shot_selection"] = {
         "method": shot_selection, "selected_shot_index": selected_index,
+        "scan_method": shot_scan_method,
         "found_qualified_shot": found_qualified, "attempts": attempts,
         "camera_shots": shots, "frame_index_origin": "original_clip_zero_based",
         "human_verified": False,

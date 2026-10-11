@@ -1,0 +1,1597 @@
+{
+  "schema_version": 1,
+  "audited_at_utc": "2026-10-11T18:14:02.747519+00:00",
+  "auditor": "AI assistant comparing independently fetched primary-source records",
+  "scope": "Named-event binary outcome reference audit, separate from video-model accuracy and human annotation",
+  "references": {
+    "path": "data/annotations/penalty_outcomes.csv",
+    "sha256": "d88ba2eb8b4f53db39405c9f2dcd87639acd7cec5d1d5ae8cf62c3403a797543"
+  },
+  "source_manifest_sha256": "1affeb149a6fffea0a4b1814ec7b10be0c75ec8c0f2e6428cc920e62d325a38c",
+  "audit_script_sha256": "120ec2028e7b820605697f3f156f28d176c15dbd6877a4fd783afe4a36373366",
+  "official_pdf": {
+    "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+    "source_accessible": true,
+    "access_method": "HTTPS GET using curl; decoded as PDF",
+    "path": "outputs/reference_source_audit_2026-10-12/FIFA_2018_Technical_Report_official.pdf",
+    "sha256": "a5b871b2aef81b449608d62fb12274569e488c07aa3db83a812dfe4fabffa31b",
+    "bytes": 32068419,
+    "pages": 140,
+    "title": "Technical Report - 2018 FIFA World Cup, Russia 2018",
+    "author": "FIFA",
+    "checked_pages_1_based": [
+      132,
+      134,
+      136
+    ]
+  },
+  "legacy_url": {
+    "url": "https://img.fifa.com/image/upload/evdvpfdkueqrdlbbrrus.pdf",
+    "pdf_source_accessible": false,
+    "http_response_accessible": true,
+    "observed_redirect_target": "https://inside.fifa.com/official-documents",
+    "returned_content_type": "text/html",
+    "response_sha256": "14fb3dee36578cd6d3088e735ef9a3df1fed5780f986bad692933714bfba8ef0"
+  },
+  "supplementary_official_articles_checked": [
+    {
+      "url": "https://inside.fifa.com/tournaments/mens/worldcup/2018russia/news/schmeichel-s-hat-trick-not-enough",
+      "source_accessible": true,
+      "checked_named_facts": "Badelj and Pivaric saved by Schmeichel; Eriksen, Schone and Nicolai Jorgensen saved by Subasic"
+    },
+    {
+      "url": "https://inside.fifa.com/tournaments/mens/worldcup/2018russia/news/russia-win-first-ever-world-cup-shootout-to-reach-quarters-2980138",
+      "source_accessible": true,
+      "checked_named_facts": "Akinfeev saved Koke and Iago Aspas in the shootout"
+    }
+  ],
+  "summary": {
+    "events": 39,
+    "source_accessible": 39,
+    "reference_supported": 39,
+    "individual_checked": 39,
+    "outcome_counts": {
+      "goal": 26,
+      "no_goal": 13
+    },
+    "outcome_detail_not_individually_supported": [
+      "col_eng_p07_uribe_col15",
+      "col_eng_p09_bacca_col7",
+      "rus_cro_p01_smolov_rus10",
+      "rus_cro_p04_kovacic_cro8",
+      "rus_cro_p05_fernandes_rus2"
+    ],
+    "human_verified_events": 0,
+    "video_event_identities_verified": 0
+  },
+  "held_out_test": false,
+  "accuracy_validated": false,
+  "labels_modified": false,
+  "records": [
+    {
+      "clip_id": "col_eng_p01_falcao_col9",
+      "match_id": "col_eng",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 56,
+        "pdf_page_1_based": 134,
+        "printed_page": 134,
+        "attempt_ordinal": 1,
+        "player_name_as_printed": "FALCAO",
+        "shirt_number": 9,
+        "country": "col",
+        "score_team_order": [
+          "col",
+          "eng"
+        ],
+        "score_before": [
+          0,
+          0
+        ],
+        "score_after": [
+          1,
+          0
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "col_eng_p02_kane_eng9",
+      "match_id": "col_eng",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 56,
+        "pdf_page_1_based": 134,
+        "printed_page": 134,
+        "attempt_ordinal": 2,
+        "player_name_as_printed": "KANE",
+        "shirt_number": 9,
+        "country": "eng",
+        "score_team_order": [
+          "col",
+          "eng"
+        ],
+        "score_before": [
+          1,
+          0
+        ],
+        "score_after": [
+          1,
+          1
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "col_eng_p03_cuadrado_col11",
+      "match_id": "col_eng",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 56,
+        "pdf_page_1_based": 134,
+        "printed_page": 134,
+        "attempt_ordinal": 3,
+        "player_name_as_printed": "CUADRADO Juan",
+        "shirt_number": 11,
+        "country": "col",
+        "score_team_order": [
+          "col",
+          "eng"
+        ],
+        "score_before": [
+          1,
+          1
+        ],
+        "score_after": [
+          2,
+          1
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "col_eng_p04_rashford_eng19",
+      "match_id": "col_eng",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 56,
+        "pdf_page_1_based": 134,
+        "printed_page": 134,
+        "attempt_ordinal": 4,
+        "player_name_as_printed": "RASHFORD",
+        "shirt_number": 19,
+        "country": "eng",
+        "score_team_order": [
+          "col",
+          "eng"
+        ],
+        "score_before": [
+          2,
+          1
+        ],
+        "score_after": [
+          2,
+          2
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "col_eng_p05_muriel_col14",
+      "match_id": "col_eng",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 56,
+        "pdf_page_1_based": 134,
+        "printed_page": 134,
+        "attempt_ordinal": 5,
+        "player_name_as_printed": "MURIEL",
+        "shirt_number": 14,
+        "country": "col",
+        "score_team_order": [
+          "col",
+          "eng"
+        ],
+        "score_before": [
+          2,
+          2
+        ],
+        "score_after": [
+          3,
+          2
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "col_eng_p06_henderson_eng8",
+      "match_id": "col_eng",
+      "reference_outcome": "no_goal",
+      "reference_outcome_detail": "saved",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 56,
+        "pdf_page_1_based": 134,
+        "printed_page": 134,
+        "attempt_ordinal": 6,
+        "player_name_as_printed": "HENDERSON",
+        "shirt_number": 8,
+        "country": "eng",
+        "score_team_order": [
+          "col",
+          "eng"
+        ],
+        "score_before": [
+          3,
+          2
+        ],
+        "score_after": [
+          3,
+          2
+        ],
+        "binary_outcome_from_score_change": "no_goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_individual_pdf_narrative",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "col_eng_p07_uribe_col15",
+      "match_id": "col_eng",
+      "reference_outcome": "no_goal",
+      "reference_outcome_detail": "crossbar",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 56,
+        "pdf_page_1_based": 134,
+        "printed_page": 134,
+        "attempt_ordinal": 7,
+        "player_name_as_printed": "URIBE",
+        "shirt_number": 15,
+        "country": "col",
+        "score_team_order": [
+          "col",
+          "eng"
+        ],
+        "score_before": [
+          3,
+          2
+        ],
+        "score_after": [
+          3,
+          2
+        ],
+        "binary_outcome_from_score_change": "no_goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "unknown_not_individually_established_in_checked_sources",
+      "outcome_detail_source_url": null,
+      "notes": []
+    },
+    {
+      "clip_id": "col_eng_p08_trippier_eng12",
+      "match_id": "col_eng",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 56,
+        "pdf_page_1_based": 134,
+        "printed_page": 134,
+        "attempt_ordinal": 8,
+        "player_name_as_printed": "TRIPPIER",
+        "shirt_number": 12,
+        "country": "eng",
+        "score_team_order": [
+          "col",
+          "eng"
+        ],
+        "score_before": [
+          3,
+          2
+        ],
+        "score_after": [
+          3,
+          3
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "col_eng_p09_bacca_col7",
+      "match_id": "col_eng",
+      "reference_outcome": "no_goal",
+      "reference_outcome_detail": "saved",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 56,
+        "pdf_page_1_based": 134,
+        "printed_page": 134,
+        "attempt_ordinal": 9,
+        "player_name_as_printed": "BACCA",
+        "shirt_number": 7,
+        "country": "col",
+        "score_team_order": [
+          "col",
+          "eng"
+        ],
+        "score_before": [
+          3,
+          3
+        ],
+        "score_after": [
+          3,
+          3
+        ],
+        "binary_outcome_from_score_change": "no_goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "unknown_not_individually_established_in_checked_sources",
+      "outcome_detail_source_url": null,
+      "notes": []
+    },
+    {
+      "clip_id": "col_eng_p10_dier_eng4",
+      "match_id": "col_eng",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 56,
+        "pdf_page_1_based": 134,
+        "printed_page": 134,
+        "attempt_ordinal": 10,
+        "player_name_as_printed": "DIER",
+        "shirt_number": 4,
+        "country": "eng",
+        "score_team_order": [
+          "col",
+          "eng"
+        ],
+        "score_before": [
+          3,
+          3
+        ],
+        "score_after": [
+          3,
+          4
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "cro_den_p01_eriksen_den10",
+      "match_id": "cro_den",
+      "reference_outcome": "no_goal",
+      "reference_outcome_detail": "saved",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 52,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 1,
+        "player_name_as_printed": "ERIKSEN",
+        "shirt_number": 10,
+        "country": "den",
+        "score_team_order": [
+          "cro",
+          "den"
+        ],
+        "score_before": [
+          0,
+          0
+        ],
+        "score_after": [
+          0,
+          0
+        ],
+        "binary_outcome_from_score_change": "no_goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_individually_named_official_fifa_article",
+      "outcome_detail_source_url": "https://inside.fifa.com/tournaments/mens/worldcup/2018russia/news/schmeichel-s-hat-trick-not-enough",
+      "notes": []
+    },
+    {
+      "clip_id": "cro_den_p02_badelj_cro19",
+      "match_id": "cro_den",
+      "reference_outcome": "no_goal",
+      "reference_outcome_detail": "saved",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 52,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 2,
+        "player_name_as_printed": "BADELJ",
+        "shirt_number": 19,
+        "country": "cro",
+        "score_team_order": [
+          "cro",
+          "den"
+        ],
+        "score_before": [
+          0,
+          0
+        ],
+        "score_after": [
+          0,
+          0
+        ],
+        "binary_outcome_from_score_change": "no_goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_individually_named_official_fifa_article",
+      "outcome_detail_source_url": "https://inside.fifa.com/tournaments/mens/worldcup/2018russia/news/schmeichel-s-hat-trick-not-enough",
+      "notes": []
+    },
+    {
+      "clip_id": "cro_den_p03_kjaer_den4",
+      "match_id": "cro_den",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 52,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 3,
+        "player_name_as_printed": "KJAER",
+        "shirt_number": 4,
+        "country": "den",
+        "score_team_order": [
+          "cro",
+          "den"
+        ],
+        "score_before": [
+          0,
+          0
+        ],
+        "score_after": [
+          0,
+          1
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "cro_den_p04_kramaric_cro9",
+      "match_id": "cro_den",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 52,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 4,
+        "player_name_as_printed": "KRAMARIC",
+        "shirt_number": 9,
+        "country": "cro",
+        "score_team_order": [
+          "cro",
+          "den"
+        ],
+        "score_before": [
+          0,
+          1
+        ],
+        "score_after": [
+          1,
+          1
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "cro_den_p05_krohndehli_den2",
+      "match_id": "cro_den",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 52,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 5,
+        "player_name_as_printed": "KROHN-DEHLI",
+        "shirt_number": 2,
+        "country": "den",
+        "score_team_order": [
+          "cro",
+          "den"
+        ],
+        "score_before": [
+          1,
+          1
+        ],
+        "score_after": [
+          1,
+          2
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "cro_den_p06_modric_cro10",
+      "match_id": "cro_den",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 52,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 6,
+        "player_name_as_printed": "MODRIC",
+        "shirt_number": 10,
+        "country": "cro",
+        "score_team_order": [
+          "cro",
+          "den"
+        ],
+        "score_before": [
+          1,
+          2
+        ],
+        "score_after": [
+          2,
+          2
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "cro_den_p07_schone_den19",
+      "match_id": "cro_den",
+      "reference_outcome": "no_goal",
+      "reference_outcome_detail": "saved",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 52,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 7,
+        "player_name_as_printed": "SCHONE",
+        "shirt_number": 19,
+        "country": "den",
+        "score_team_order": [
+          "cro",
+          "den"
+        ],
+        "score_before": [
+          2,
+          2
+        ],
+        "score_after": [
+          2,
+          2
+        ],
+        "binary_outcome_from_score_change": "no_goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_individually_named_official_fifa_article",
+      "outcome_detail_source_url": "https://inside.fifa.com/tournaments/mens/worldcup/2018russia/news/schmeichel-s-hat-trick-not-enough",
+      "notes": []
+    },
+    {
+      "clip_id": "cro_den_p08_pivaric_cro22",
+      "match_id": "cro_den",
+      "reference_outcome": "no_goal",
+      "reference_outcome_detail": "saved",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 52,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 8,
+        "player_name_as_printed": "PIVARIC",
+        "shirt_number": 22,
+        "country": "cro",
+        "score_team_order": [
+          "cro",
+          "den"
+        ],
+        "score_before": [
+          2,
+          2
+        ],
+        "score_after": [
+          2,
+          2
+        ],
+        "binary_outcome_from_score_change": "no_goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_individually_named_official_fifa_article",
+      "outcome_detail_source_url": "https://inside.fifa.com/tournaments/mens/worldcup/2018russia/news/schmeichel-s-hat-trick-not-enough",
+      "notes": []
+    },
+    {
+      "clip_id": "cro_den_p09_jorgensen_den9",
+      "match_id": "cro_den",
+      "reference_outcome": "no_goal",
+      "reference_outcome_detail": "saved",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 52,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 9,
+        "player_name_as_printed": "JORGENSEN Mathias",
+        "shirt_number": 9,
+        "country": "den",
+        "score_team_order": [
+          "cro",
+          "den"
+        ],
+        "score_before": [
+          2,
+          2
+        ],
+        "score_after": [
+          2,
+          2
+        ],
+        "binary_outcome_from_score_change": "no_goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_individually_named_official_fifa_article",
+      "outcome_detail_source_url": "https://inside.fifa.com/tournaments/mens/worldcup/2018russia/news/schmeichel-s-hat-trick-not-enough",
+      "notes": [
+        "The PDF table says JORGENSEN Mathias (9), but its same-page substitution record names Nicolai (9). FIFA's named-save article also identifies Nicolai. The binary outcome uses ordinal 9, Denmark and shirt 9; the original clip ID supplies no first name."
+      ]
+    },
+    {
+      "clip_id": "cro_den_p10_rakitic_cro7",
+      "match_id": "cro_den",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 52,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 10,
+        "player_name_as_printed": "RAKITIC",
+        "shirt_number": 7,
+        "country": "cro",
+        "score_team_order": [
+          "cro",
+          "den"
+        ],
+        "score_before": [
+          2,
+          2
+        ],
+        "score_after": [
+          3,
+          2
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "esp_rus_p01_iniesta_esp6",
+      "match_id": "esp_rus",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 51,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 1,
+        "player_name_as_printed": "INIESTA",
+        "shirt_number": 6,
+        "country": "esp",
+        "score_team_order": [
+          "esp",
+          "rus"
+        ],
+        "score_before": [
+          0,
+          0
+        ],
+        "score_after": [
+          1,
+          0
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "esp_rus_p02_smolov_rus10",
+      "match_id": "esp_rus",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 51,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 2,
+        "player_name_as_printed": "SMOLOV",
+        "shirt_number": 10,
+        "country": "rus",
+        "score_team_order": [
+          "esp",
+          "rus"
+        ],
+        "score_before": [
+          1,
+          0
+        ],
+        "score_after": [
+          1,
+          1
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "esp_rus_p03_pique_esp3",
+      "match_id": "esp_rus",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 51,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 3,
+        "player_name_as_printed": "PIQUE",
+        "shirt_number": 3,
+        "country": "esp",
+        "score_team_order": [
+          "esp",
+          "rus"
+        ],
+        "score_before": [
+          1,
+          1
+        ],
+        "score_after": [
+          2,
+          1
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "esp_rus_p04_ignashevich_rus4",
+      "match_id": "esp_rus",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 51,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 4,
+        "player_name_as_printed": "IGNASHEVICH",
+        "shirt_number": 4,
+        "country": "rus",
+        "score_team_order": [
+          "esp",
+          "rus"
+        ],
+        "score_before": [
+          2,
+          1
+        ],
+        "score_after": [
+          2,
+          2
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "esp_rus_p05_koke_esp8",
+      "match_id": "esp_rus",
+      "reference_outcome": "no_goal",
+      "reference_outcome_detail": "saved",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 51,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 5,
+        "player_name_as_printed": "KOKE",
+        "shirt_number": 8,
+        "country": "esp",
+        "score_team_order": [
+          "esp",
+          "rus"
+        ],
+        "score_before": [
+          2,
+          2
+        ],
+        "score_after": [
+          2,
+          2
+        ],
+        "binary_outcome_from_score_change": "no_goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_individually_named_official_fifa_article",
+      "outcome_detail_source_url": "https://inside.fifa.com/tournaments/mens/worldcup/2018russia/news/russia-win-first-ever-world-cup-shootout-to-reach-quarters-2980138",
+      "notes": []
+    },
+    {
+      "clip_id": "esp_rus_p06_golovin_rus17",
+      "match_id": "esp_rus",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 51,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 6,
+        "player_name_as_printed": "GOLOVIN",
+        "shirt_number": 17,
+        "country": "rus",
+        "score_team_order": [
+          "esp",
+          "rus"
+        ],
+        "score_before": [
+          2,
+          2
+        ],
+        "score_after": [
+          2,
+          3
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "esp_rus_p07_ramos_esp15",
+      "match_id": "esp_rus",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 51,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 7,
+        "player_name_as_printed": "RAMOS",
+        "shirt_number": 15,
+        "country": "esp",
+        "score_team_order": [
+          "esp",
+          "rus"
+        ],
+        "score_before": [
+          2,
+          3
+        ],
+        "score_after": [
+          3,
+          3
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "esp_rus_p08_cheryshev_rus6",
+      "match_id": "esp_rus",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 51,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 8,
+        "player_name_as_printed": "CHERYSHEV",
+        "shirt_number": 6,
+        "country": "rus",
+        "score_team_order": [
+          "esp",
+          "rus"
+        ],
+        "score_before": [
+          3,
+          3
+        ],
+        "score_after": [
+          3,
+          4
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "esp_rus_p09_aspas_esp17",
+      "match_id": "esp_rus",
+      "reference_outcome": "no_goal",
+      "reference_outcome_detail": "saved",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 51,
+        "pdf_page_1_based": 132,
+        "printed_page": 132,
+        "attempt_ordinal": 9,
+        "player_name_as_printed": "ASPAS",
+        "shirt_number": 17,
+        "country": "esp",
+        "score_team_order": [
+          "esp",
+          "rus"
+        ],
+        "score_before": [
+          3,
+          4
+        ],
+        "score_after": [
+          3,
+          4
+        ],
+        "binary_outcome_from_score_change": "no_goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_individually_named_official_fifa_article",
+      "outcome_detail_source_url": "https://inside.fifa.com/tournaments/mens/worldcup/2018russia/news/russia-win-first-ever-world-cup-shootout-to-reach-quarters-2980138",
+      "notes": []
+    },
+    {
+      "clip_id": "rus_cro_p01_smolov_rus10",
+      "match_id": "rus_cro",
+      "reference_outcome": "no_goal",
+      "reference_outcome_detail": "saved",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 59,
+        "pdf_page_1_based": 136,
+        "printed_page": 136,
+        "attempt_ordinal": 1,
+        "player_name_as_printed": "SMOLOV",
+        "shirt_number": 10,
+        "country": "rus",
+        "score_team_order": [
+          "rus",
+          "cro"
+        ],
+        "score_before": [
+          0,
+          0
+        ],
+        "score_after": [
+          0,
+          0
+        ],
+        "binary_outcome_from_score_change": "no_goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "unknown_not_individually_established_in_checked_sources",
+      "outcome_detail_source_url": null,
+      "notes": []
+    },
+    {
+      "clip_id": "rus_cro_p02_brozovic_cro11",
+      "match_id": "rus_cro",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 59,
+        "pdf_page_1_based": 136,
+        "printed_page": 136,
+        "attempt_ordinal": 2,
+        "player_name_as_printed": "BROZOVIC",
+        "shirt_number": 11,
+        "country": "cro",
+        "score_team_order": [
+          "rus",
+          "cro"
+        ],
+        "score_before": [
+          0,
+          0
+        ],
+        "score_after": [
+          0,
+          1
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "rus_cro_p03_dzagoev_rus9",
+      "match_id": "rus_cro",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 59,
+        "pdf_page_1_based": 136,
+        "printed_page": 136,
+        "attempt_ordinal": 3,
+        "player_name_as_printed": "DZAGOEV",
+        "shirt_number": 9,
+        "country": "rus",
+        "score_team_order": [
+          "rus",
+          "cro"
+        ],
+        "score_before": [
+          0,
+          1
+        ],
+        "score_after": [
+          1,
+          1
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "rus_cro_p04_kovacic_cro8",
+      "match_id": "rus_cro",
+      "reference_outcome": "no_goal",
+      "reference_outcome_detail": "saved",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 59,
+        "pdf_page_1_based": 136,
+        "printed_page": 136,
+        "attempt_ordinal": 4,
+        "player_name_as_printed": "KOVACIC",
+        "shirt_number": 8,
+        "country": "cro",
+        "score_team_order": [
+          "rus",
+          "cro"
+        ],
+        "score_before": [
+          1,
+          1
+        ],
+        "score_after": [
+          1,
+          1
+        ],
+        "binary_outcome_from_score_change": "no_goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "unknown_not_individually_established_in_checked_sources",
+      "outcome_detail_source_url": null,
+      "notes": []
+    },
+    {
+      "clip_id": "rus_cro_p05_fernandes_rus2",
+      "match_id": "rus_cro",
+      "reference_outcome": "no_goal",
+      "reference_outcome_detail": "wide",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 59,
+        "pdf_page_1_based": 136,
+        "printed_page": 136,
+        "attempt_ordinal": 5,
+        "player_name_as_printed": "MARIO FERNANDES",
+        "shirt_number": 2,
+        "country": "rus",
+        "score_team_order": [
+          "rus",
+          "cro"
+        ],
+        "score_before": [
+          1,
+          1
+        ],
+        "score_after": [
+          1,
+          1
+        ],
+        "binary_outcome_from_score_change": "no_goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "unknown_not_individually_established_in_checked_sources",
+      "outcome_detail_source_url": null,
+      "notes": []
+    },
+    {
+      "clip_id": "rus_cro_p06_modric_cro10",
+      "match_id": "rus_cro",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 59,
+        "pdf_page_1_based": 136,
+        "printed_page": 136,
+        "attempt_ordinal": 6,
+        "player_name_as_printed": "MODRIC",
+        "shirt_number": 10,
+        "country": "cro",
+        "score_team_order": [
+          "rus",
+          "cro"
+        ],
+        "score_before": [
+          1,
+          1
+        ],
+        "score_after": [
+          1,
+          2
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "rus_cro_p07_ignashevich_rus4",
+      "match_id": "rus_cro",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 59,
+        "pdf_page_1_based": 136,
+        "printed_page": 136,
+        "attempt_ordinal": 7,
+        "player_name_as_printed": "IGNASHEVICH",
+        "shirt_number": 4,
+        "country": "rus",
+        "score_team_order": [
+          "rus",
+          "cro"
+        ],
+        "score_before": [
+          1,
+          2
+        ],
+        "score_after": [
+          2,
+          2
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "rus_cro_p08_vida_cro21",
+      "match_id": "rus_cro",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 59,
+        "pdf_page_1_based": 136,
+        "printed_page": 136,
+        "attempt_ordinal": 8,
+        "player_name_as_printed": "VIDA",
+        "shirt_number": 21,
+        "country": "cro",
+        "score_team_order": [
+          "rus",
+          "cro"
+        ],
+        "score_before": [
+          2,
+          2
+        ],
+        "score_after": [
+          2,
+          3
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    },
+    {
+      "clip_id": "rus_cro_p09_kuzyaev_rus7",
+      "match_id": "rus_cro",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 59,
+        "pdf_page_1_based": 136,
+        "printed_page": 136,
+        "attempt_ordinal": 9,
+        "player_name_as_printed": "KUZIAEV",
+        "shirt_number": 7,
+        "country": "rus",
+        "score_team_order": [
+          "rus",
+          "cro"
+        ],
+        "score_before": [
+          2,
+          3
+        ],
+        "score_after": [
+          3,
+          3
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": [
+        "The PDF spells the Russia number 7 name KUZIAEV; the clip ID uses the transliteration kuzyaev."
+      ]
+    },
+    {
+      "clip_id": "rus_cro_p10_rakitic_cro7",
+      "match_id": "rus_cro",
+      "reference_outcome": "goal",
+      "reference_outcome_detail": "scored",
+      "source_accessible": true,
+      "legacy_source_pdf_accessible": false,
+      "reference_supported": true,
+      "individual_checked": true,
+      "check_type": "official_named_event_score_progression_audit",
+      "human_verified": false,
+      "clip_to_event_video_identity_verified": false,
+      "official_record": {
+        "match_number": 59,
+        "pdf_page_1_based": 136,
+        "printed_page": 136,
+        "attempt_ordinal": 10,
+        "player_name_as_printed": "RAKITIC",
+        "shirt_number": 7,
+        "country": "cro",
+        "score_team_order": [
+          "rus",
+          "cro"
+        ],
+        "score_before": [
+          3,
+          3
+        ],
+        "score_after": [
+          3,
+          4
+        ],
+        "binary_outcome_from_score_change": "goal",
+        "url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf"
+      },
+      "outcome_detail_support_status": "supported_by_official_score_increment",
+      "outcome_detail_source_url": "https://digitalhub.fifa.com/m/649e84967b086928/original/evdvpfdkueqrdlbbrrus-pdf.pdf",
+      "notes": []
+    }
+  ]
+}

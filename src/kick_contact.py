@@ -181,7 +181,7 @@ def _detect(frames: Sequence[np.ndarray], frame_ids: Sequence[int], model: Any, 
 
 def score_contact_candidates(detections: Sequence[Mapping[str, Any]], pose_samples: Sequence[Mapping[str, Any]],
                              transforms: Mapping[int, np.ndarray], fps: float, sample_stride: int = 6,
-                             *, contact_window_policy: str = "legacy") -> list[dict[str, Any]]:
+                             *, contact_window_policy: str = "legacy", stationary_seed_detection_ids=None) -> list[dict[str, Any]]:
     """Rank stationary-ball/ankle encounters without consulting prior kick time.
 
     ``transforms`` maps absolute frame -> image-to-reference homogeneous affine.
@@ -207,7 +207,9 @@ def score_contact_candidates(detections: Sequence[Mapping[str, Any]], pose_sampl
     # Greedy spatial seeds, temporal persistence distinguishes stationary balls
     # from isolated false detections. No assumption about ball motion direction.
     clusters: list[list[dict[str, Any]]] = []
-    for ball in sorted(balls, key=lambda item: item["frame"]):
+    seed_balls = [ball for ball in balls if stationary_seed_detection_ids is None
+                  or ball.get('detection_id') in stationary_seed_detection_ids]
+    for ball in sorted(seed_balls, key=lambda item: item["frame"]):
         options = [(float(np.linalg.norm(ball["stable_xy"]-np.median([v["stable_xy"] for v in cluster],axis=0))),index)
                    for index,cluster in enumerate(clusters)]
         tolerance = max(5.0, float(ball.get("diameter", 5))*.75)
@@ -250,6 +252,7 @@ def score_contact_candidates(detections: Sequence[Mapping[str, Any]], pose_sampl
             if max(2.5*diameter,.10*body_height) < distance < 3*body_height:
                 moving.append(ball)
         departure = None
+        departure_observations = []
         for first in moving:
             for second in moving:
                 gap = int(second["frame"])-int(first["frame"])
@@ -261,10 +264,32 @@ def score_contact_candidates(detections: Sequence[Mapping[str, Any]], pose_sampl
                 cosine = float(np.dot(a,b)/(np.linalg.norm(a)*np.linalg.norm(b)))
                 if cosine >= .90:
                     departure = [int(first["frame"]),int(second["frame"])]
+                    departure_observations = [first, second]
                     break
             if departure:
                 break
         last_stationary = max((f for f in unique_frames if f <= contact_frame+sample_stride),default=unique_frames[-1])
+        # Preserve the actual source detections used by this seed. Stabilized
+        # centers support timing, but cannot identify the striking foot.
+        def source_observation(ball):
+            observation = {"frame": int(ball["frame"]), "xy": [float(v) for v in ball["xy"]],
+                           "confidence": float(ball.get("confidence", 0)),
+                           "diameter": float(ball.get("diameter", 5))}
+            if ball.get("detection_id") is not None:
+                observation["detection_id"] = ball["detection_id"]
+            if ball.get("bbox") is not None:
+                observation["bbox"] = [float(v) for v in ball["bbox"]]
+            return observation
+        stationary_observations, stationary_competitors = [], []
+        for frame in unique_frames:
+            same_frame = sorted([ball for ball in cluster if int(ball["frame"]) == frame],
+                                key=lambda ball: (-float(ball.get("confidence", 0)),
+                                                  str(ball.get("detection_id", "")), tuple(ball["xy"])))
+            stationary_observations.append(source_observation(same_frame[0]))
+            if len({(str(ball.get("detection_id", "")), tuple(ball["xy"])) for ball in same_frame}) > 1:
+                stationary_competitors.append({"frame": frame,
+                    "observations": [source_observation(ball) for ball in same_frame]})
+        bracket = [last_stationary, departure[0]] if departure and last_stationary <= departure[0] else None
         stationary_after = sum(f > contact_frame+max(2*sample_stride,int(.3*fps)) for f in unique_frames)
         score = .30 + .20*max(0,1-normalized_distance/.28) + .10*min(1,len(unique_frames)/8) + .15*approached + .20*bool(departure)
         warnings = []
@@ -291,6 +316,13 @@ def score_contact_candidates(detections: Sequence[Mapping[str, Any]], pose_sampl
                            "stationary_ball_samples": len(unique_frames),"stationary_ball_first_frame": unique_frames[0],
                            "stationary_ball_last_frame": unique_frames[-1], "last_stationary_near_contact_frame": last_stationary,
                            "stationary_ball_reference_xy": center.tolist(),"ball_departure_frames": departure,
+                           "stationary_ball_observations": stationary_observations,
+                           "departure_ball_observations": [source_observation(ball) for ball in departure_observations],
+                           "contact_bracket_frames": bracket,
+                           "contact_bracket_status": "observed_stationary_to_departure_candidate" if bracket else "insufficient_or_conflicting_observations",
+                           "stationary_observation_selection_policy": "highest_detector_confidence_per_seed_cluster_frame; ties_detection_id_then_source_xy",
+                           "stationary_observation_competitors": stationary_competitors,
+                           "stationary_identity_ambiguous_frames": [row["frame"] for row in stationary_competitors],
                            "contact_window_policy": contact_window_policy,
                            "ankle_approach_supported": approached,"warnings": warnings})
     return sorted(candidates,key=lambda item: (-item["score"],item["contact_frame"]))

@@ -1,0 +1,2510 @@
+{
+  "checked_at_utc": "2026-10-11T18:59:48.160723+00:00",
+  "ssh_alias": "lab4090",
+  "project_base": "/home/boris/workspace/ind5003-vision-ii-experiments/2026-10-12",
+  "python": "3.11.15",
+  "platform": "Linux",
+  "environment_isolated": true,
+  "shared_conda_modified": false,
+  "shared_site_packages_readonly": true,
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 4090",
+    "memory_total_mib": 24564,
+    "memory_used_mib": 1111,
+    "utilization_percent": 2,
+    "driver_version": "580.178.04"
+  },
+  "disk_free_bytes": 1067044229120,
+  "new_source_video_inference": null,
+  "packages": {
+    "numpy": {
+      "version": "1.26.0",
+      "location": "/home/boris/anaconda3/envs/agenticsim/lib/python3.11/site-packages/numpy/__init__.py"
+    },
+    "cv2": {
+      "version": "4.11.0",
+      "location": "/home/boris/anaconda3/envs/agenticsim/lib/python3.11/site-packages/cv2/__init__.py"
+    },
+    "torch": {
+      "version": "2.7.0+cu128",
+      "location": "/home/boris/anaconda3/envs/agenticsim/lib/python3.11/site-packages/torch/__init__.py"
+    },
+    "torchvision": {
+      "version": "0.22.0+cu128",
+      "location": "/home/boris/anaconda3/envs/agenticsim/lib/python3.11/site-packages/torchvision/__init__.py"
+    },
+    "ultralytics": {
+      "version": "8.4.175",
+      "location": "/home/boris/workspace/ind5003-vision-ii-experiments/2026-10-12/.venv/lib/python3.11/site-packages/ultralytics/__init__.py"
+    },
+    "PIL": {
+      "version": "11.3.0",
+      "location": "/home/boris/anaconda3/envs/agenticsim/lib/python3.11/site-packages/PIL/__init__.py"
+    },
+    "yaml": {
+      "version": "6.0.2",
+      "location": "/home/boris/anaconda3/envs/agenticsim/lib/python3.11/site-packages/yaml/__init__.py"
+    },
+    "scipy": {
+      "version": "1.15.3",
+      "location": "/home/boris/anaconda3/envs/agenticsim/lib/python3.11/site-packages/scipy/__init__.py"
+    },
+    "pandas": {
+      "version": "3.0.3",
+      "location": "/home/boris/anaconda3/envs/agenticsim/lib/python3.11/site-packages/pandas/__init__.py"
+    }
+  },
+  "cuda_runtime": "12.8",
+  "cuda_available": true,
+  "cuda_gpu_name": "NVIDIA GeForce RTX 4090",
+  "model_files": [
+    {
+      "path": "models/sam2_t.pt",
+      "bytes": 78064050,
+      "sha256": "94375f988270836169320bd901960c67b5770e8bef3867d70102f01a8b5ca501",
+      "load_verified": true,
+      "task": "segment"
+    },
+    {
+      "path": "models/yolo11m-pose.pt",
+      "bytes": 42459307,
+      "sha256": "29b17eaf3a3117cbea906090dbedf9159f7c6a49db58ec8b99ed2dfde1cf6eb2",
+      "load_verified": true,
+      "task": "pose"
+    },
+    {
+      "path": "models/yolo11m.pt",
+      "bytes": 40684120,
+      "sha256": "d5ffc1a674953a08e11a8d21e022781b1b23a19b730afc309290bd9fb5305b95",
+      "load_verified": true,
+      "task": "detect"
+    },
+    {
+      "path": "models/yolo11n.pt",
+      "bytes": 5613764,
+      "sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+      "load_verified": true,
+      "task": "detect"
+    }
+  ],
+  "input_files": [
+    {
+      "path": "project/data/raw_clips/col_eng_p01_falcao_col9.mp4",
+      "bytes": 16635714,
+      "sha256": "8f8812be614d245c71a06c5ad7b856802e71df3bf497c221b5a2273f1a82bae1"
+    },
+    {
+      "path": "project/data/raw_clips/col_eng_p02_kane_eng9.mp4",
+      "bytes": 14363934,
+      "sha256": "06546113af68aa9da7ca86e50bc3ba4e2efe4c490cb55a4eeaebcca847f42f63"
+    },
+    {
+      "path": "project/data/raw_clips/col_eng_p03_cuadrado_col11.mp4",
+      "bytes": 17968508,
+      "sha256": "9db537563b72278966004596476dd8cca26118249e2e7921e5fde4ba923eb6b2"
+    },
+    {
+      "path": "project/data/raw_clips/col_eng_p04_rashford_eng19.mp4",
+      "bytes": 16695727,
+      "sha256": "6ee0c0a21cf877ad475157f40780c1a649e58c4695b438279154acc8511e7dff"
+    },
+    {
+      "path": "project/data/raw_clips/col_eng_p05_muriel_col14.mp4",
+      "bytes": 17504808,
+      "sha256": "b525ccaa3d90cbdeed1991a9053acaf7541ddab3da5818b013b35dad4b5eee95"
+    },
+    {
+      "path": "project/data/raw_clips/col_eng_p06_henderson_eng8.mp4",
+      "bytes": 19205940,
+      "sha256": "3d66ea761c5fdf2e6dc7e2c85bdee384535342644280fd1c88ab824af23b1810"
+    },
+    {
+      "path": "project/data/raw_clips/col_eng_p07_uribe_col15.mp4",
+      "bytes": 21679318,
+      "sha256": "6cdcc34a157e389a026229decb67af6ee551972a2da26acb5b405ab4f5182c80"
+    },
+    {
+      "path": "project/data/raw_clips/col_eng_p08_trippier_eng12.mp4",
+      "bytes": 16875261,
+      "sha256": "d7dedc411e1b44755364c305cba1fdccc4c47093463363f5e92da0474a88fd3d"
+    },
+    {
+      "path": "project/data/raw_clips/col_eng_p09_bacca_col7.mp4",
+      "bytes": 18629378,
+      "sha256": "9793fb2346921a6beb6fb950dd950af0571f50f5b61387c84d85e9f26584031f"
+    },
+    {
+      "path": "project/data/raw_clips/col_eng_p10_dier_eng4.mp4",
+      "bytes": 11047407,
+      "sha256": "335686e6ad4a608d0a084d3a062cf622b329ad8f1769cc2acf6a4ddc21a0d11b"
+    },
+    {
+      "path": "project/data/raw_clips/cro_den_p01_eriksen_den10.mp4",
+      "bytes": 19109093,
+      "sha256": "09ddfe2ca451943eb91a58c172de6a1239c973ba18db88d4f64351d98fd3b28a"
+    },
+    {
+      "path": "project/data/raw_clips/cro_den_p02_badelj_cro19.mp4",
+      "bytes": 16163433,
+      "sha256": "de4762d9220396266ebeb6492c839cbdf4aa1f0dbd9faeacfd5e8f00fe66558c"
+    },
+    {
+      "path": "project/data/raw_clips/cro_den_p03_kjaer_den4.mp4",
+      "bytes": 19066478,
+      "sha256": "e8d801c2063157f65c2879d32f08954c66fd712afe4a354eb1c25192bebe9062"
+    },
+    {
+      "path": "project/data/raw_clips/cro_den_p04_kramaric_cro9.mp4",
+      "bytes": 15566907,
+      "sha256": "9420cc777b8e5e459fcce25f3aad466c4dcd33b0eb3f2cd6fbd053a4c837ea18"
+    },
+    {
+      "path": "project/data/raw_clips/cro_den_p05_krohndehli_den2.mp4",
+      "bytes": 17245413,
+      "sha256": "c16cdf9a4346a365ca6d911f988c349904d258a88e4ab044d3b70a328eb7d17c"
+    },
+    {
+      "path": "project/data/raw_clips/cro_den_p06_modric_cro10.mp4",
+      "bytes": 17838675,
+      "sha256": "b83bf4f111ed9c6ea635489100284c0393c250e633169b872d1dd1e3807c617d"
+    },
+    {
+      "path": "project/data/raw_clips/cro_den_p07_schone_den19.mp4",
+      "bytes": 17878479,
+      "sha256": "e2c4c0db5cab81961ca32d5d21e1a1b8506d89affb63916aee0efa9f8d5f4c16"
+    },
+    {
+      "path": "project/data/raw_clips/cro_den_p08_pivaric_cro22.mp4",
+      "bytes": 18549038,
+      "sha256": "fea5dd64154d5c0322950ab6a1e2ef1ad9da3a772b44505dae0b7c74cea7cde7"
+    },
+    {
+      "path": "project/data/raw_clips/cro_den_p09_jorgensen_den9.mp4",
+      "bytes": 20090750,
+      "sha256": "2eaaecccc5c33a8cfc1d4207b7461abbbfe124c8cb087bdfb9d5aa94214e527a"
+    },
+    {
+      "path": "project/data/raw_clips/cro_den_p10_rakitic_cro7.mp4",
+      "bytes": 9815774,
+      "sha256": "255e920b9f46369116973375aaccff8284bf3a68d9247cc67e85fd03a36afd9f"
+    },
+    {
+      "path": "project/data/raw_clips/esp_rus_p01_iniesta_esp6.mp4",
+      "bytes": 19927531,
+      "sha256": "6c4240e8deeabeaeea2d132d2f66eb59abbaca8607506bf3be16cbfec9d25a1d"
+    },
+    {
+      "path": "project/data/raw_clips/esp_rus_p02_smolov_rus10.mp4",
+      "bytes": 20880539,
+      "sha256": "aba8a864d08408d069880411f5bd7ede05d694d3a3b84d3fa71c7c4f91b8aad0"
+    },
+    {
+      "path": "project/data/raw_clips/esp_rus_p03_pique_esp3.mp4",
+      "bytes": 21153880,
+      "sha256": "b7f90cc0ca394b0e3e1f7cb0ddc2d0ffcc9af84615b5a91730772ba7cd09c898"
+    },
+    {
+      "path": "project/data/raw_clips/esp_rus_p04_ignashevich_rus4.mp4",
+      "bytes": 23446483,
+      "sha256": "170f5d55000ec74dea340f804d8e525adbfd7c3d7383b4103e3b044fdd9586b7"
+    },
+    {
+      "path": "project/data/raw_clips/esp_rus_p05_koke_esp8.mp4",
+      "bytes": 23545320,
+      "sha256": "342ace963e0205ecbbaab4c163ea37af2df249f83870557fa34c3fbf36ce72a2"
+    },
+    {
+      "path": "project/data/raw_clips/esp_rus_p06_golovin_rus17.mp4",
+      "bytes": 23333524,
+      "sha256": "b6d8da690a5bd7ba45d3e881fa0e7459df74957b23580d2cd3900f9faa6d107f"
+    },
+    {
+      "path": "project/data/raw_clips/esp_rus_p07_ramos_esp15.mp4",
+      "bytes": 22087373,
+      "sha256": "58e24188ce0abc17a22ac7d6da1fcf3ca6a32deb74db3bfbcbf968d7499b7afa"
+    },
+    {
+      "path": "project/data/raw_clips/esp_rus_p08_cheryshev_rus6.mp4",
+      "bytes": 24273963,
+      "sha256": "53897ada85c00df3deb1d51198f650f1ff097b24f74bb4c54cd637bc121e3ab5"
+    },
+    {
+      "path": "project/data/raw_clips/esp_rus_p09_aspas_esp17.mp4",
+      "bytes": 11409787,
+      "sha256": "0ed843af1926591960e6270eec196ff73483a4902d4ff528d1dc50db909c2601"
+    },
+    {
+      "path": "project/data/raw_clips/rus_cro_p01_smolov_rus10.mp4",
+      "bytes": 24148141,
+      "sha256": "cd8539ec7bd141cca3179afdca54c22edeca8425f07a66d5d651a7528cff79d0"
+    },
+    {
+      "path": "project/data/raw_clips/rus_cro_p02_brozovic_cro11.mp4",
+      "bytes": 18940828,
+      "sha256": "e0b95fdc332d0d7fd56e5924157504d2e16e07d5ea6f38c1a4b271b04cd3457c"
+    },
+    {
+      "path": "project/data/raw_clips/rus_cro_p03_dzagoev_rus9.mp4",
+      "bytes": 15673374,
+      "sha256": "64b22c262c4fdd53afcb7aceebcd6cd1775b46f48d8abb7ac62f021db3d21081"
+    },
+    {
+      "path": "project/data/raw_clips/rus_cro_p04_kovacic_cro8.mp4",
+      "bytes": 20724786,
+      "sha256": "c0f58b339a900090e8de818300cc67862669fb010778148712ef5992c1f6bce4"
+    },
+    {
+      "path": "project/data/raw_clips/rus_cro_p05_fernandes_rus2.mp4",
+      "bytes": 16760272,
+      "sha256": "5cd85177867893005f26464476d5b879e8871b03928ab9e95049630ea50401f3"
+    },
+    {
+      "path": "project/data/raw_clips/rus_cro_p06_modric_cro10.mp4",
+      "bytes": 18830055,
+      "sha256": "e0957806ad50328d4d9a14ba31f4d77fd2576ed8ea450a66a9da7c078e68046f"
+    },
+    {
+      "path": "project/data/raw_clips/rus_cro_p07_ignashevich_rus4.mp4",
+      "bytes": 18614786,
+      "sha256": "f541f6f02909ccbc8b2091f0183b951048c6782ebd3285895049f4e9d3e0c69e"
+    },
+    {
+      "path": "project/data/raw_clips/rus_cro_p08_vida_cro21.mp4",
+      "bytes": 17453140,
+      "sha256": "cffce48333a166d15f25e9f91aafc207fec8a84778242a812160bee28d79fed6"
+    },
+    {
+      "path": "project/data/raw_clips/rus_cro_p09_kuzyaev_rus7.mp4",
+      "bytes": 18529102,
+      "sha256": "d31908f15aa96b6a750a84d682dbfcda52f277a9461c51c23d4ad2c6b9547051"
+    },
+    {
+      "path": "project/data/raw_clips/rus_cro_p10_rakitic_cro7.mp4",
+      "bytes": 8437904,
+      "sha256": "cb7ddef4e464e074bac32b70b22689f26539bda4e4fba66790c1c30ca8fadff0"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "project/src/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "project/src/annotation_provenance.py",
+      "sha256": "c1cbd4c8926db0a87b3ffa51d0ab53b2a84a8671a274d100b303b37bd575cd2d"
+    },
+    {
+      "path": "project/src/auto_slicer.py",
+      "sha256": "0106cc9d67762125d0b7c4a9147bf16ab3d250ef670c79b06c4e2e81c27b38b8"
+    },
+    {
+      "path": "project/src/ball_continuity.py",
+      "sha256": "cf68ed587de4651adefc71a28c084aaaa64889dd3c685d14b593f58a715d6d4c"
+    },
+    {
+      "path": "project/src/ball_continuity_v4.py",
+      "sha256": "031afb3a9eb38d78aedf27a3d8ad684a56e4afd1b333d048ce1ef94ba1f727e4"
+    },
+    {
+      "path": "project/src/ball_direction_corridor.py",
+      "sha256": "48039049b823d90d8f36ab00017f7db1767531d0738c4ffefcbd05d85bb6bae5"
+    },
+    {
+      "path": "project/src/ball_goal_decision.py",
+      "sha256": "fbcb05e9b8cbef824ed5be6bce245882697889a0252feefc6692a196cd717660"
+    },
+    {
+      "path": "project/src/ball_hypothesis_selection.py",
+      "sha256": "14296a5ab3252815ed0348a2828626c08f1cd5649e2d365c09205ec4b356e263"
+    },
+    {
+      "path": "project/src/ball_keeper_rebound.py",
+      "sha256": "9cb73212dbd7590ffd2c6a46b05767b2ebccc4b5a920fa1adc5cd7c200d33f2d"
+    },
+    {
+      "path": "project/src/ball_mask_seed.py",
+      "sha256": "1c0b4a4902e3871a6a5bf2e8c2de3cee0f4f47159b4273aea7700a7f2a4e65a3"
+    },
+    {
+      "path": "project/src/ball_outcome.py",
+      "sha256": "b66db1de6e20447dbc2fad4dbea5beaebfffa10105951888329092aea02fab42"
+    },
+    {
+      "path": "project/src/ball_pipeline.py",
+      "sha256": "fe3e275be906bb394dcb06659fb21329c8ecabbde854dd4fd80a8663831f754e"
+    },
+    {
+      "path": "project/src/ball_roi_probe.py",
+      "sha256": "4d0ffb29c19ee35f95d077cd10213b6becccaaad68ff0fff85d51c871b24da59"
+    },
+    {
+      "path": "project/src/ball_shot_focus.py",
+      "sha256": "57ffa5a2af205d2d61edb7fd8e1090a9aece6b9be3626dac27539f489fe12639"
+    },
+    {
+      "path": "project/src/camera_angles.py",
+      "sha256": "adb99ad2b4277f0bba02e7f57aa75478d451f4f3e71e83c290c2aa5c552f1f73"
+    },
+    {
+      "path": "project/src/camera_partial_alignment.py",
+      "sha256": "e8b302b25607221de09ad82d0b60d8f7bc30e3a480fa0270cd1426fe1d7d6629"
+    },
+    {
+      "path": "project/src/camera_timing_v2.py",
+      "sha256": "c8ff8609956f9841dbbf3f07cfe0d6a78353caaae7f17039a0df17c29344eabf"
+    },
+    {
+      "path": "project/src/camera_view_guard.py",
+      "sha256": "8cdfa8983bb2a97661a60adf3dd0ebe1cdf82e2463740b6082b8b3174034dd61"
+    },
+    {
+      "path": "project/src/camera_view_intervals.py",
+      "sha256": "6a3616a569e511b76f5fb859f3853e289deb278779a7e4638b5ce77001b7d5e2"
+    },
+    {
+      "path": "project/src/eda_analysis.py",
+      "sha256": "58697d147498c9c2fddde83ab6dd0928458da15c82f6cb7ae0fa18f8df568615"
+    },
+    {
+      "path": "project/src/event_ball_tracking.py",
+      "sha256": "8275efcf15a572dc81cbbc5495bdce2c831ab00f2d3c2de83e3a83a7b3d1c030"
+    },
+    {
+      "path": "project/src/field_masks.py",
+      "sha256": "0d16f5f4e6f686e6cb76b285e523dcab1848337cb63832f17a67fe35352f12af"
+    },
+    {
+      "path": "project/src/final_results.py",
+      "sha256": "03f135e8e6a06644db4d1949d015a1eb38b4f072cccdaf64ba460d0098a00b47"
+    },
+    {
+      "path": "project/src/fresh_ball_endpoint.py",
+      "sha256": "c1181ccb19c737c5af74ed002e63756bc43fed64953790a97e2e953ff1e53e83"
+    },
+    {
+      "path": "project/src/fresh_cache_provenance.py",
+      "sha256": "e69f59e55283474c915707d4132721469812408960f30984d5b6c694f804f41c"
+    },
+    {
+      "path": "project/src/fresh_event_analysis.py",
+      "sha256": "d3d5cfdc9d30c58d775f8bed420078da46d3ed172558213cb0f71c993b9f2d9c"
+    },
+    {
+      "path": "project/src/fresh_keeper_height.py",
+      "sha256": "e63c8c987f1925fefe6ef90e29732725c396bfac2ae87a9e5790fdc460707f00"
+    },
+    {
+      "path": "project/src/goal_event_tracker_v2.py",
+      "sha256": "b5eab5934d3118daea2f991deb7fc4ae49e28aa4c079f5179e24b0e28983cf28"
+    },
+    {
+      "path": "project/src/goal_geometry.py",
+      "sha256": "c8e92d02f23f87b7f928d93ead2392cd677d14b345a17dd1e56472570931d8b1"
+    },
+    {
+      "path": "project/src/goal_plane_rectification.py",
+      "sha256": "441f7322622d574bbec4b113844b2829a7013a095134b50131c9331255870a27"
+    },
+    {
+      "path": "project/src/goal_temporal_tracking.py",
+      "sha256": "00bba394898bdf4f4742c7b0325a0a7c6eecf6566755e31a373191d4ade33b43"
+    },
+    {
+      "path": "project/src/goalkeeper_analysis.py",
+      "sha256": "b18e38b1e8ffb78ab9cd1f08a782b9c5a44dbda580e2d55190e05426c23f0c33"
+    },
+    {
+      "path": "project/src/goalkeeper_direction_evidence.py",
+      "sha256": "c657e31bbd7bebe98e829ce80c266ed8eb435196c67f57a8d2cdcaa9defb326c"
+    },
+    {
+      "path": "project/src/goalkeeper_dive_phase.py",
+      "sha256": "1118d276e5afd55af41ae1adf1899a98bf22c9bfcc6d610ddbdc0d28d7b8bd9b"
+    },
+    {
+      "path": "project/src/goalkeeper_height_fusion.py",
+      "sha256": "d6c35926fbba06046e1563aad238b250a61536c01d979492ec6091469e06e114"
+    },
+    {
+      "path": "project/src/goalkeeper_mask_experiment.py",
+      "sha256": "d3bb1d5af285e8b3fe6ab9549b83b379f58295a661ccc4691e238a669f199dc0"
+    },
+    {
+      "path": "project/src/goalkeeper_observation_guard.py",
+      "sha256": "165731a8aa486079b000bc3add83518180015ed32369619e81646ec016458220"
+    },
+    {
+      "path": "project/src/goalkeeper_pipeline.py",
+      "sha256": "ee865f687d07401f01e2feaa3a03b30f7b9b87081293a72f93498c86968242ff"
+    },
+    {
+      "path": "project/src/goalkeeper_pose_direction.py",
+      "sha256": "a4ba39a89d6023f8bcdd2b6c36fc4273d5487287e5527c5229d9acbaddc08e10"
+    },
+    {
+      "path": "project/src/goalkeeper_role_association.py",
+      "sha256": "a2c2986346f34c478b8dd659fad356cd59d9be47f2e87e66179008c15a7a05bd"
+    },
+    {
+      "path": "project/src/goalkeeper_sam2.py",
+      "sha256": "b40931b8be7ef154047f3d4c807e085f3f4736539ce8e54a5c1b9651cd6634f0"
+    },
+    {
+      "path": "project/src/goalkeeper_sam2_head_tracking.py",
+      "sha256": "94d47e4cbaeedf0f7a5420d1d27bb654b5749e508cebafc7a4f22c82f6d9270d"
+    },
+    {
+      "path": "project/src/homography.py",
+      "sha256": "2d962aa52e26560b6d692bde502b6390c5affdf4eed36b8b8c77468ed4f74008"
+    },
+    {
+      "path": "project/src/jersey_camera_guard.py",
+      "sha256": "f0b96fa6ec4d4ffca9cbe1ec0a29c435bd0ce1c5c2c44514a70b83a1a52eb64c"
+    },
+    {
+      "path": "project/src/jersey_evidence.py",
+      "sha256": "90d9f735a6c73bf1a33d00968de0de4d33f426e1866a2a73b289401a1723a116"
+    },
+    {
+      "path": "project/src/keeper_kit_evidence.py",
+      "sha256": "5ab956f26e02af18f59ff1afde9ebfd791e1d9f7287934548a2a479b143868e8"
+    },
+    {
+      "path": "project/src/kick_contact.py",
+      "sha256": "501f531eb46d9f598ec031def30331e739217a2009b6cf553927a3ee320dcfb4"
+    },
+    {
+      "path": "project/src/kicker_analysis.py",
+      "sha256": "fa4cf7add9bb98abf8b115260180a9bcdd53e9f57d4c43cf57bbbb535376d963"
+    },
+    {
+      "path": "project/src/kicking_foot_evidence.py",
+      "sha256": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52"
+    },
+    {
+      "path": "project/src/kicking_foot_redetection.py",
+      "sha256": "ed587b59177377f538b33d03cb2b273070b6fc5c23ba42305078236eff26734d"
+    },
+    {
+      "path": "project/src/motion_stabilization.py",
+      "sha256": "04a4783b5c91b9a2b29d97715a557f82c0900e5faea586d4d8cb0b80cdb24d01"
+    },
+    {
+      "path": "project/src/penalty_phases.py",
+      "sha256": "166bfce017941eea75fb1c598cbfa30719b5e7b2a852b932d1ea8b8aeb56f13c"
+    },
+    {
+      "path": "project/src/person_appearance.py",
+      "sha256": "71376c1574fbf0db60f6d2bb7a8494a1d7e4256c17b6d1e35a8807245a6ef2df"
+    },
+    {
+      "path": "project/src/phase_step_events.py",
+      "sha256": "2513906f91c1da954a7f9e21e523079c66ceb604315fe27fcbfc80d0f74c1ee3"
+    },
+    {
+      "path": "project/src/pipeline.py",
+      "sha256": "df03a6c1ebe6fbb136ed31e3760264a1140f0445c2da780d1ba020055d6254a3"
+    },
+    {
+      "path": "project/src/pitch_calibration.py",
+      "sha256": "c9f9a132267f103915fcbf0f23c9cbd73e0478ca483743b8fa85928c570cf467"
+    },
+    {
+      "path": "project/src/pose_refinement.py",
+      "sha256": "d71da9d1d116b3d777357b5104436c9b2999a67b005956d12d6e255d1422683a"
+    },
+    {
+      "path": "project/src/project_paths.py",
+      "sha256": "46ec893b6b70a4b1ca207ce7f1d964b0ee388df5ca64715652905926a6b9fc81"
+    },
+    {
+      "path": "project/src/runtime.py",
+      "sha256": "945db55a6449012c4ebad88e630378fa2da4f586b9d701fdb18b1977646c5dfb"
+    },
+    {
+      "path": "project/src/step_pipeline.py",
+      "sha256": "866817be7de157b8455c2948532ced9b5ef04021ed69721863f01043ccaddcb4"
+    },
+    {
+      "path": "project/src/style_aware_steps.py",
+      "sha256": "fd08a1c842dd2500dcc29a9cdfe9250cfb0fb1792abeb1cb99b23c7c5cbb2d66"
+    },
+    {
+      "path": "project/src/terminal_footwork.py",
+      "sha256": "21476dd0c0e244614a274beff2c38ecd6df22f6b9ec6fea0e2b1b4d99310a88b"
+    },
+    {
+      "path": "project/src/upright_text_crop.py",
+      "sha256": "36baf7925c3cc298db6064d20b0b5bf1aabf39e722825a2a0685841ded174a39"
+    },
+    {
+      "path": "project/src/video_utils.py",
+      "sha256": "707b7b954ed68462db1fcf73a2a93fbf609e0102bb6888f7d8e8fc7353f491ed"
+    },
+    {
+      "path": "project/scripts/analyse_goal_right_followthrough.py",
+      "sha256": "054f5c2310d8fc5e906960104ee8c3b5a648e21c0da258ab2306b5aa00f699ee"
+    },
+    {
+      "path": "project/scripts/analyze_kicking_foot_evidence.py",
+      "sha256": "a0124bf8d00bd2269fb51ac231ab144317a899c165113322cb1a638b1eb2003d"
+    },
+    {
+      "path": "project/scripts/apply_goalkeeper_user_review.py",
+      "sha256": "d32902e40479094e50e878acdfec633d5964b438572cbfc70cfd284d699fa9c2"
+    },
+    {
+      "path": "project/scripts/assemble_ball_mask_optimized.py",
+      "sha256": "6d3f2d207312177ed94a166b68acde22c79849f0403063980a3e1f960ab337d0"
+    },
+    {
+      "path": "project/scripts/audit_camera_timings.py",
+      "sha256": "5a31447847048218f53579ec823a755da4669ad4cc62b629f98dc7c1956dc03f"
+    },
+    {
+      "path": "project/scripts/audit_goal_event_experiment.py",
+      "sha256": "d59b0f84d5027fa529dcd14c56e48ea3071b591e0a2c99a3935626cc729e90b8"
+    },
+    {
+      "path": "project/scripts/audit_goal_right_foot_redetection.py",
+      "sha256": "fc7d21f091230a09cc8aa7f24782eb3cb57efe3a2e9058f1c530071a8091c600"
+    },
+    {
+      "path": "project/scripts/audit_outcome_references.py",
+      "sha256": "120ec2028e7b820605697f3f156f28d176c15dbd6877a4fd783afe4a36373366"
+    },
+    {
+      "path": "project/scripts/audit_shot_windows.py",
+      "sha256": "aaeae264c9ec51937cee9665b72d45c6960d0711da1af3a44f623d16b763cced"
+    },
+    {
+      "path": "project/scripts/audit_vision2_completion.py",
+      "sha256": "357a06f40866abb241485aa5103a67f8f3324c54de8fc8cedcf4c46724d4e9cf"
+    },
+    {
+      "path": "project/scripts/build_ball_corridor_evidence.py",
+      "sha256": "d343b9f248dd700693b4449bebd3e9d77bccd592a8feae6fc253cd88013ceb99"
+    },
+    {
+      "path": "project/scripts/build_ball_detection_review_extras.py",
+      "sha256": "79ec356c722da3b6ff864c9d81320049c85648f77b527888ac1b47cf414764e5"
+    },
+    {
+      "path": "project/scripts/build_ball_detection_seed_evidence.py",
+      "sha256": "18b15f4a79bc0f5aa0c50f33fed5f04e32ed6912e5dd4573c6c870138ba88c3e"
+    },
+    {
+      "path": "project/scripts/build_ball_goal_event_audit.py",
+      "sha256": "4a24a2d7fcd70ae1a1d286bc420ad662a493e7c15a166b95e6ca9b96a679700c"
+    },
+    {
+      "path": "project/scripts/build_ball_mask_review_evidence.py",
+      "sha256": "a493e9804d8244d5d13f1456949b2044b182e365ed320025e2036aef6f655e4e"
+    },
+    {
+      "path": "project/scripts/build_current_delivery.py",
+      "sha256": "819191b55282cc07656b3a6b604c648a4c6d0792016190ba3d455a67acc00eaf"
+    },
+    {
+      "path": "project/scripts/build_evening_optimization_report.py",
+      "sha256": "e5d98e755754f8e62a6c33d17724db574a9bf11ae0e0cdeb9ab599407bff6bea"
+    },
+    {
+      "path": "project/scripts/build_evening_result_bundle.py",
+      "sha256": "cfd4f043014e097c69ee7bd63fdca5de262abe21d8a0a58da20fd4edafd574de"
+    },
+    {
+      "path": "project/scripts/build_final_results.py",
+      "sha256": "ae1c40e3f3458a2e048f82db4ddb8bbe9badf6880e407d630fc12fd18998b2a6"
+    },
+    {
+      "path": "project/scripts/build_goal_right_review.py",
+      "sha256": "714fca334f2539b5181f52cc1ce1649895eed3bd4951a431480841df6bd3b96d"
+    },
+    {
+      "path": "project/scripts/build_jersey_gallery.py",
+      "sha256": "c1b0c3e49577e157e349e1c1f1095f5c8cf600c21f14cd47c135ff33ededb3da"
+    },
+    {
+      "path": "project/scripts/build_penalty_phase_review.py",
+      "sha256": "e788567c379aec99ed3a759bac1cb0d8f825b97a231a584f424788e866c9e6a7"
+    },
+    {
+      "path": "project/scripts/build_vision2_completion_report.py",
+      "sha256": "5996042c8dca8b05ccfdc3df2cd26d7092d9171a5a07f30a28f6681fa9326b71"
+    },
+    {
+      "path": "project/scripts/cache_ball_keeper_contact.py",
+      "sha256": "d8b94bd5a28bdda6e998313eaadffc3fe373a88be2b406d61942376318aa9cdf"
+    },
+    {
+      "path": "project/scripts/cache_goal_event_detections.py",
+      "sha256": "ebfc7af131d6a38a32f2b039d10d692ce77c687aacab711978b7cd3212e70198"
+    },
+    {
+      "path": "project/scripts/cache_goal_event_people.py",
+      "sha256": "8a7fdacf590a7c97b2f44cb1deae81e89c712de866e0dd0b1bdc906054f61802"
+    },
+    {
+      "path": "project/scripts/camera_timing_context.py",
+      "sha256": "162f6838bd20faa16dc9cc6defb70224498dfc6ad823fab19050f9f267369dff"
+    },
+    {
+      "path": "project/scripts/camera_timing_features.py",
+      "sha256": "dbf9181caafea4150252f172fec530230b5aa9edc743595444d3d85dcba9e594"
+    },
+    {
+      "path": "project/scripts/correct_annotation_provenance.py",
+      "sha256": "0cda1b9aafd85fbb85df2dddef52e5f2b5f752b4ebb5ea6bc9b5e97c1fbbe0df"
+    },
+    {
+      "path": "project/scripts/detect_all_ball_goals.py",
+      "sha256": "fc944e1ccb7fda4a0013b124a46d916c5651be23fe921ec639b2ceef8ddd8b2d"
+    },
+    {
+      "path": "project/scripts/evaluate_camera_partial_alignment.py",
+      "sha256": "b868e37a81757ba162732397f534aa1bf17efe8428ee56ae0e3bb374eb6f05ba"
+    },
+    {
+      "path": "project/scripts/evaluate_jersey_retrieval.py",
+      "sha256": "d98c7108b87f449c1539240ea6d947d47d0d27845e73e99b9efbeca9d32c7ab5"
+    },
+    {
+      "path": "project/scripts/export_camera_timings.py",
+      "sha256": "1e239b3a0028e610816375140d7fd5970b7e40d2f132fe09b3b58e5ff27e31ff"
+    },
+    {
+      "path": "project/scripts/export_full_project.py",
+      "sha256": "6abb10788d29eaeaf185db94cd716feab0f7aa702d35b949e000a067b768db82"
+    },
+    {
+      "path": "project/scripts/export_review_video.py",
+      "sha256": "753a796825414001d6b684f76b36e74a122b04b0761702ebb85abeae0004b767"
+    },
+    {
+      "path": "project/scripts/fetch_support_assets.py",
+      "sha256": "2a1ec0f61c9a05860f0cd73ee5a0b83ad5d06e04a7cd60846110a2f471099dea"
+    },
+    {
+      "path": "project/scripts/finalize_all_ball_goal_review.py",
+      "sha256": "e020ed7e2f59d3700b98fedb611a9a8a7be6032717b7de825f8355b7a86354b5"
+    },
+    {
+      "path": "project/scripts/finalize_ball_corridor_review.py",
+      "sha256": "4dba5870c3069f1d57686ebc527e7c9eb02afed19cd9d82da296fd6e2ef3f89d"
+    },
+    {
+      "path": "project/scripts/finalize_ball_detection_retest.py",
+      "sha256": "36534fa97abd08c3395632dd9efcda36ca7e25125e106414a9ef2a37bd27ebbc"
+    },
+    {
+      "path": "project/scripts/finalize_ball_mask_review.py",
+      "sha256": "c69e7578716e6f0cd1e0070a6430af0a04f0539e2af941d6f07b85766ba1b6c7"
+    },
+    {
+      "path": "project/scripts/finalize_camera_optimization.py",
+      "sha256": "19504f0b6501b02439faa02daabb502fb916ee9105670726d4c7538c87d2072d"
+    },
+    {
+      "path": "project/scripts/finalize_goal_right_foot_redetection.py",
+      "sha256": "8d5d246be635f0da72c8369f1fde04b8bbd5696e1ed201d69e8e01b4d2e6420a"
+    },
+    {
+      "path": "project/scripts/finalize_goalkeeper_height_phase.py",
+      "sha256": "47c9e4d467f54c57592416720bcc0c4c564e111c8cdebb94f587f9aaa1dabe04"
+    },
+    {
+      "path": "project/scripts/finalize_goalkeeper_mask_comparison.py",
+      "sha256": "34370b2639abc6a3c15ff71384ee7ace3bdf7f5c5f1872595d45cfdcdbbfd79d"
+    },
+    {
+      "path": "project/scripts/finalize_goalkeeper_role_experiment.py",
+      "sha256": "171543109b134385f324fdb85baef049fa23c240acbd698cb06ec85337d48abf"
+    },
+    {
+      "path": "project/scripts/finalize_goalkeeper_sam2_update.py",
+      "sha256": "f094282e8574e14a18043c2fa9de1087e615b8ffede27f588ee82d19adfd0f70"
+    },
+    {
+      "path": "project/scripts/finalize_jersey_experiment.py",
+      "sha256": "ee013ee69ea05e935ad14652cb0e66696f6c86d3ea93ea3c92fe015cebecd8a0"
+    },
+    {
+      "path": "project/scripts/inspect_ball_raw_candidates.py",
+      "sha256": "840a61d83165467e02dff318dbbda5859b62eb2474378c2d747d7115369e22f1"
+    },
+    {
+      "path": "project/scripts/inspect_goalkeeper_pose_direction.py",
+      "sha256": "9b031648a856b93fab156369e45538b0252625e13b75b3838723c4d184c7e2c9"
+    },
+    {
+      "path": "project/scripts/lab_experiment.py",
+      "sha256": "a5deac1903a11169b8d26014d6fbfc34e38914083291f46be38a5e41a329a7c6"
+    },
+    {
+      "path": "project/scripts/make_penalty_phase_report.py",
+      "sha256": "a8c498891283ece68e7bf683596dea679e334d40063421a8f47b29c9c809f4de"
+    },
+    {
+      "path": "project/scripts/merge_manual_step_reviews.py",
+      "sha256": "b6e711f0880676ce4ee4bb5cb8ecc3859ce9fb7e09908a88c7e5ab0d6f7d08e7"
+    },
+    {
+      "path": "project/scripts/package_camera_optimization.py",
+      "sha256": "492380d44716e2d5fa2e924e7238a2c63384b53551b3a160060cc72b7ab0db52"
+    },
+    {
+      "path": "project/scripts/package_goalkeeper_direction_update.py",
+      "sha256": "ced7d68b8fc89ca77a23e2129f213dc5c2de6402e6a2e73a8beac82592cd59f7"
+    },
+    {
+      "path": "project/scripts/package_jersey_experiment.py",
+      "sha256": "0c722a4ad9e4b7c44d8dcca2f29465c4cdce761b841c3a28699e67f2c2c01aa7"
+    },
+    {
+      "path": "project/scripts/prepare_camera_review_media.py",
+      "sha256": "ad2db850d5b16cbde5321f708c10ae28c40c21aea2d06163c0426bee2cb878c8"
+    },
+    {
+      "path": "project/scripts/prepare_course_clips.py",
+      "sha256": "be07b2d800164147ba232848f712ad0f4568a08e65ebd11e4d01dc751dd2317a"
+    },
+    {
+      "path": "project/scripts/prepare_review_videos.py",
+      "sha256": "036824064926690ab0b40fa368df571fd5808b92166a94095499a4270a9af95e"
+    },
+    {
+      "path": "project/scripts/probe_evening_foot_sensitivity.py",
+      "sha256": "6d21638ffa112e0b159a2e2dd56d4faa181d68096ba7dfedbc6da986b846ea3a"
+    },
+    {
+      "path": "project/scripts/probe_evening_goal_geometry.py",
+      "sha256": "54fe015f53cbba95c4a8dcbe14b57a12d82f946af347bbce3f9f15ea4a22481b"
+    },
+    {
+      "path": "project/scripts/probe_evening_medium_pose.py",
+      "sha256": "348d791c94361955f78856fb7b14be5c8241b091d4e0159246644f5375ad1c90"
+    },
+    {
+      "path": "project/scripts/probe_evening_outcome_visibility.py",
+      "sha256": "b1e6f4642fac0f5f2fb560e0057ce195cb62577ad5f29204030ea61a85af034c"
+    },
+    {
+      "path": "project/scripts/probe_goal_event_tracking.py",
+      "sha256": "04a4e57655eb745472da3fa01c7ad00aae8072ad084d511d846982b4063046f8"
+    },
+    {
+      "path": "project/scripts/probe_goal_plane_rectification.py",
+      "sha256": "6aa26d192c5d1093066806c06010b95a32afb6ca52886be95bbf95db6ff2711b"
+    },
+    {
+      "path": "project/scripts/probe_goalkeeper_role_association.py",
+      "sha256": "9ff52e2c1b013beb70242a3c908d0e56c0055458bd0b43acb422d567bd6e885a"
+    },
+    {
+      "path": "project/scripts/probe_goalkeeper_sam2_head_part.py",
+      "sha256": "0237e6205745dec1e3beb7351e54bf32ce37328434c3e4a8bbd068cde5f8de57"
+    },
+    {
+      "path": "project/scripts/probe_kick_contact.py",
+      "sha256": "d0f0427d84eb008bf4ad902f0c2de0c233ba7733d935462ba2de30d37f951ca7"
+    },
+    {
+      "path": "project/scripts/recover_goalkeeper_phase_tracking.py",
+      "sha256": "280c346168534799d66cbec3001d1819e3d158d8de56720f52e4f78ee3b6b79b"
+    },
+    {
+      "path": "project/scripts/refine_ball_mask_review.py",
+      "sha256": "d2ba22d6af076be2b86bb4c42e722f48b46726a37105eb671813eb368446a672"
+    },
+    {
+      "path": "project/scripts/refine_goalkeeper_actor_pose.py",
+      "sha256": "a8b890510ec76060c7a2b72004d40255aa6cc6f1b860de4b082bff3349fca95f"
+    },
+    {
+      "path": "project/scripts/refine_jersey_camera_candidates.py",
+      "sha256": "703606e62bfc3e8a9586d66fbaf78c1041a40e14e354358124aa745953c015b0"
+    },
+    {
+      "path": "project/scripts/refine_phase_pose.py",
+      "sha256": "415717e200abe43c766e64044c15260c521606796b5ffcd2053c05c8e86c4241"
+    },
+    {
+      "path": "project/scripts/render_ball_qa.py",
+      "sha256": "5c0b18f08802ab5559979af180895070464ca641b4da1873338cc250bafa2cef"
+    },
+    {
+      "path": "project/scripts/render_ball_review_samples.py",
+      "sha256": "c28ae492fd3a80fe986d21f92d61e2a631a22701cea2b7a5fa01013cc1f72543"
+    },
+    {
+      "path": "project/scripts/render_camera_interval_qa.py",
+      "sha256": "a8ec572f20af88dc1ba37eefbb7607118463ed3c4336f4ccef2f650906999136"
+    },
+    {
+      "path": "project/scripts/render_fresh_pose_evidence.py",
+      "sha256": "85deeacbc356ac00539a4981b05da21000fa71f97aa379bf8cab440d432a5801"
+    },
+    {
+      "path": "project/scripts/render_goal_event_probe.py",
+      "sha256": "f182ed7a2412f1ed76673473ca7906e2f0d9eb9134316f841f30a2db1f5eff76"
+    },
+    {
+      "path": "project/scripts/render_goal_event_video.py",
+      "sha256": "8b14b62558d9a218c795b8ef50f75446ce32ef21c59a3e864739a2942b8b9ed8"
+    },
+    {
+      "path": "project/scripts/render_goalkeeper_candidates.py",
+      "sha256": "d40f42c8f7dbff103819fbc761a9c9007e89cd06eadd0de86ba9d21870622d3c"
+    },
+    {
+      "path": "project/scripts/render_goalkeeper_qa.py",
+      "sha256": "ef18a048d3fbd917cc9f773b96faba811d2e5b78b664453513e813fb8c067f08"
+    },
+    {
+      "path": "project/scripts/render_jersey_evidence_qa.py",
+      "sha256": "3e5380bc439960323973fac32486d581d63c443921636a76d6587a4f70afcbaf"
+    },
+    {
+      "path": "project/scripts/render_pitch_geometry_qa.py",
+      "sha256": "75559f0c349bbffea187c237ca501c7f8d6c0af15c0747a1d387ed9a8def30d0"
+    },
+    {
+      "path": "project/scripts/render_report_draft.py",
+      "sha256": "a39ad014e12292ca14cf1d3675a9cfc4587876b66a4039a77f1e0d482b885d95"
+    },
+    {
+      "path": "project/scripts/rerun_goalkeeper_pose.py",
+      "sha256": "41203986fbbd96b0d4ba245288b0a87a1f7e4c4ed1fa44e1e15242958f2a7137"
+    },
+    {
+      "path": "project/scripts/rerun_step_shot_repair.py",
+      "sha256": "db97886961dbea9622c9d5f18d8b77f8d54e46656b0fea782d19f0b5f87f6a14"
+    },
+    {
+      "path": "project/scripts/rescue_phase_shots.py",
+      "sha256": "5082f06e791f998eb33b99579845cf45bb697f450a7029bf207b450c62b353be"
+    },
+    {
+      "path": "project/scripts/retest_ball_detection_all.py",
+      "sha256": "70a05d0d27fae36eb0b53f5ff90e08d5e0b74fb1eefd36e91312b39c627130a3"
+    },
+    {
+      "path": "project/scripts/retest_camera_timing.py",
+      "sha256": "6f0bdb16d813e73c2101ef03b5fdbfa88244dd96ce724a0764ad0f352d3c5237"
+    },
+    {
+      "path": "project/scripts/review_ball_keeper_rebound.py",
+      "sha256": "08789169154f67cb7bd3583c6a3d5dcdbcb8b1e7b8f9105c59663426d8371980"
+    },
+    {
+      "path": "project/scripts/review_goalkeeper_direction_update.py",
+      "sha256": "53a320011df484380146a69a30fd9fd6295ed5c4718001e650bef73afa7513ee"
+    },
+    {
+      "path": "project/scripts/review_goalkeeper_pose_direction.py",
+      "sha256": "9158afe741f067e1249057355b0c1868fa052d550355ee846bfb25c3449d52d5"
+    },
+    {
+      "path": "project/scripts/run_ball_continuity_probe.py",
+      "sha256": "b3adb8a436cec002e08b12b6418bacb31e9c756c88c553bdeba77e5b692d6b33"
+    },
+    {
+      "path": "project/scripts/run_ball_direction_corridor_review.py",
+      "sha256": "2bce0ca84d86799b61ac4b3132b90776642fde605cbf9bb0afc5502dc2ae47e7"
+    },
+    {
+      "path": "project/scripts/run_ball_mask_continuity_review.py",
+      "sha256": "744310180d76cbbedb40842b6390f8c4ea11780f6b0a387f8d391d92cf374728"
+    },
+    {
+      "path": "project/scripts/run_ball_mask_seed_experiment.py",
+      "sha256": "ff533b35fe444f6497fbb972f73048efa2050a917f39245877e0ed386f4fb549"
+    },
+    {
+      "path": "project/scripts/run_ball_outcome_analysis.py",
+      "sha256": "17259505958c9375003539c894bf877a453d5a2487e5c44012bc199156165269"
+    },
+    {
+      "path": "project/scripts/run_ball_shot_focus_review.py",
+      "sha256": "7fc9984a41ad121b85aadd384cff9e90a2d12a213e7ef9571d35b3e6ba1b4198"
+    },
+    {
+      "path": "project/scripts/run_camera_dense_view_experiment.py",
+      "sha256": "412ffe6909a7b45c1c79fe5aa377d20ee67d61ddffec6f0db7b3a641b1c6cd8d"
+    },
+    {
+      "path": "project/scripts/run_camera_guarded_views.py",
+      "sha256": "36389a10a39ff9a95cc6001a2d1635449907f0e9c274fd28ba3210a44fc3e09a"
+    },
+    {
+      "path": "project/scripts/run_camera_partial_pose_experiment.py",
+      "sha256": "1a3712401c7e7ff76bec20476707ec119912d51ea49b5bd743307c4fad2524ca"
+    },
+    {
+      "path": "project/scripts/run_camera_timing_analysis.py",
+      "sha256": "cea3c3798b1182295c13b77afbdd255dd15656aaab535267e95fac120163f849"
+    },
+    {
+      "path": "project/scripts/run_canonical_camera_audit.py",
+      "sha256": "1f9262fe578bb4520db0fba3a8b5d2d420a11ea6a32da749c0d9d0c0e051347b"
+    },
+    {
+      "path": "project/scripts/run_evening_ball_experiment.py",
+      "sha256": "a6d478f61c49fd5d60a8519c21433126427fb896d0086fc0f28462e7a1573a7d"
+    },
+    {
+      "path": "project/scripts/run_evening_contact_experiment.py",
+      "sha256": "bc62c01197d1103c5e2d234a3a7428782ec6764a8c6b5b7ab67af0fbecf536cf"
+    },
+    {
+      "path": "project/scripts/run_evening_gk_appearance.py",
+      "sha256": "78148ab6825cbc1697d9dc156768ecbe594d4c400a5ffdb4dcc3e245ec37f4ad"
+    },
+    {
+      "path": "project/scripts/run_evening_gk_observation_guard.py",
+      "sha256": "1037969a24cb933f27c1b1e76c66aad9e956ff5ec46dab2d5e3d9b066c8e4817"
+    },
+    {
+      "path": "project/scripts/run_evening_goal_occupant.py",
+      "sha256": "ef33b4995c7061b7276581fecf76029f8f7881ebb43e61d0b71a259367877d7b"
+    },
+    {
+      "path": "project/scripts/run_evening_goal_pose.py",
+      "sha256": "676cfcd4ee4ef2a8cb2ab906ab02f508e80fa1e7519f28b48b0cbacd3ba47fbd"
+    },
+    {
+      "path": "project/scripts/run_evening_goalkeeper_experiment.py",
+      "sha256": "882da2b2eb850ebd44d8434ef3b1ee690c337a9f0e025d29243c474f71b53dfb"
+    },
+    {
+      "path": "project/scripts/run_evening_step_reanalysis.py",
+      "sha256": "8ccc8570be9950405fa6e81996fbf79ef504d986d6108a3ebb5c7812d357b2a1"
+    },
+    {
+      "path": "project/scripts/run_fresh_ball_experiment.py",
+      "sha256": "e4c53e8b5f4d15595d57cc68a8fd041bf0f71fd227b113a1d5108b614446bdfe"
+    },
+    {
+      "path": "project/scripts/run_fresh_camera_experiment.py",
+      "sha256": "7af9a241e709d828febbd498e702ea6d685d97b0d87b63231d456733f462d495"
+    },
+    {
+      "path": "project/scripts/run_fresh_foot_experiment.py",
+      "sha256": "a08fb4aa6182ac3fa37b31c9eee13d5c2c6a032d7451d65277bac18539fefef9"
+    },
+    {
+      "path": "project/scripts/run_fresh_phase_experiment.py",
+      "sha256": "ea740eb047c0d0c3369eafeabebc5260ac140d829501224827653253fcc0d7bb"
+    },
+    {
+      "path": "project/scripts/run_fresh_pitch_experiment.py",
+      "sha256": "9450d05cc54757479064a4126b1ae3603843252e8141e8e89daea0415bb9d35d"
+    },
+    {
+      "path": "project/scripts/run_fresh_pose_experiment.py",
+      "sha256": "26c028e182327fcd5ee1384bffd90388c2e7dc3f8871b632cdb4c3370c4782ea"
+    },
+    {
+      "path": "project/scripts/run_goal_right_foot_redetection.py",
+      "sha256": "f55b0e87698a23b59e7d8c2af34f8c1974aa312dd24df36fa26b6c3428110c75"
+    },
+    {
+      "path": "project/scripts/run_goal_temporal_pilot.py",
+      "sha256": "6e4c2e0ef6fda911706e2e3f596d6c9ff1b5358ce25c658f5997d48f5f0605c6"
+    },
+    {
+      "path": "project/scripts/run_goalkeeper_analysis.py",
+      "sha256": "cb4254b72c3a03079e90f747522565c2ad8449a064860ce12221cd130f48e1d2"
+    },
+    {
+      "path": "project/scripts/run_goalkeeper_direction_update.py",
+      "sha256": "5631542bb7d885756f533cae09cbf02212ca96530318e25291a28b1d86aca179"
+    },
+    {
+      "path": "project/scripts/run_goalkeeper_height_phase.py",
+      "sha256": "15430874e84ba794011a8a69e9713dc25aacf2d36ecfa84032c3fc904e6eb23c"
+    },
+    {
+      "path": "project/scripts/run_goalkeeper_mask_comparison.py",
+      "sha256": "ee741f0d35a3ab8aeecf69c70cbcf35b39b9339d56d4e94fb33321c823c9a5de"
+    },
+    {
+      "path": "project/scripts/run_goalkeeper_role_experiment.py",
+      "sha256": "10e46024e0b81f5b9df58b3c9faa2c0eb8ecdc5121779813f2213deba330d3aa"
+    },
+    {
+      "path": "project/scripts/run_goalkeeper_sam2_update.py",
+      "sha256": "98541e0f96ed65cfc99b9edc081ae0806e49f193e97b912e74882704d77cad95"
+    },
+    {
+      "path": "project/scripts/run_jersey_ocr_worker.py",
+      "sha256": "d5e09f9732fc4240b71d58aaa66377662a97bb1ff02c165531c0d042a7f0eecf"
+    },
+    {
+      "path": "project/scripts/run_jersey_upright_ocr.py",
+      "sha256": "9ec9d226da03b2cfd7da85d404997fc6305ccab6f5cc51144fbf039cec8ade1c"
+    },
+    {
+      "path": "project/scripts/run_mask_ablation.py",
+      "sha256": "0442d68572e0f864090a384e9eb571070a78c4a5fb3e7645423820c650834583"
+    },
+    {
+      "path": "project/scripts/run_penalty_phase_experiment.py",
+      "sha256": "a6b9c7ab5447b17f06453601e1cb90093c7a9a2ec4198cee4528f536689ffa3d"
+    },
+    {
+      "path": "project/scripts/run_pitch_calibration_pilot.py",
+      "sha256": "d7b7294f44ef77f67f2ef835a20744a3fd7ccaca1ab068065b48a0a273ea6c22"
+    },
+    {
+      "path": "project/scripts/run_step_counting.py",
+      "sha256": "7546493d7ce86456104f41c60df9b5ce999c3a5a21c6ecee592934c175fc9469"
+    },
+    {
+      "path": "project/scripts/run_style_aware_steps.py",
+      "sha256": "60477a0b8069b9fe976988cbba05a8d280ec71433a8517cf44150e5664e3e978"
+    },
+    {
+      "path": "project/scripts/run_terminal_footwork.py",
+      "sha256": "60bab7273703f97773e70050240f4346b5ccc3c98030857129fbc1e6e54aff43"
+    },
+    {
+      "path": "project/scripts/search_player_evidence.py",
+      "sha256": "55ca88a5c2e133dff3ca7b6c712359ab67918970dab1f296bab9098bcbdd8049"
+    },
+    {
+      "path": "project/scripts/serve_penalty_phase_review.py",
+      "sha256": "a56c379221447ad71ef6222051d440004e91ee889158607de5e35fb01e1f8d92"
+    },
+    {
+      "path": "project/scripts/update_ball_outcome_notebook.py",
+      "sha256": "8154618c839dadf51d14ecf5f1f8f7e3c60bdf2c7e40a0287d2039703a43ffa5"
+    },
+    {
+      "path": "project/scripts/update_goalkeeper_notebook.py",
+      "sha256": "5d8b69b0a7306b09e3cde573bafce90195f75dae4f8f9e6ac0b5838ca4078cf3"
+    },
+    {
+      "path": "project/scripts/update_step_counting_notebook.py",
+      "sha256": "994e705c20cdc149fe752e65be14cb1d6356797df1e9ed593cf618b8675892ad"
+    },
+    {
+      "path": "project/scripts/validate_evening_bundle.py",
+      "sha256": "1ca0cb9c88c4c7012cd0c87b19dfe010cbdafcf63cea23b4dbf8c778efd17499"
+    },
+    {
+      "path": "project/scripts/validate_evening_experiments.py",
+      "sha256": "882db5e1d5055d930bd4837641b55f69d4e1ad0e38ba6f343b3e4feed58b2f0d"
+    },
+    {
+      "path": "project/scripts/validate_penalty_phase_experiment.py",
+      "sha256": "639918a23a83bcf86efb9dc39b21fad1453d046674a106d1bccf59cfb61bc45d"
+    },
+    {
+      "path": "project/scripts/validate_step_shot_repair.py",
+      "sha256": "813eac74fd1980d66098d69cf59f4c3a984b7c487cc9f9b0448dadbbd3458f30"
+    },
+    {
+      "path": "project/scripts/validate_style_aware_steps.py",
+      "sha256": "a10f4731466a362ad760ca575b1468194d8c65ca0cfd6629981be4384111ff36"
+    },
+    {
+      "path": "project/scripts/validate_terminal_footwork.py",
+      "sha256": "9c796bb8e28dab17bde9b47836b7c1ae89ce18e5db058955520fa099b21acc1e"
+    },
+    {
+      "path": "project/scripts/verify_final_bundle.py",
+      "sha256": "7a002c7cf3a1fce4d114053f69315d4f5752d8eae9379f61b573dab2773a5085"
+    },
+    {
+      "path": "project/scripts/vision2_evening.py",
+      "sha256": "bfe55998b6f3f4bf0bd16baf9e3282090a005e53421cae2673a711debc6e1be6"
+    },
+    {
+      "path": "project/configs/config.yaml",
+      "sha256": "fe425962d87b34f1cc3159abc43e708f541a0fa5fd3bbabe545a48737a488b99"
+    },
+    {
+      "path": "project/configs/final_analysis.yaml",
+      "sha256": "c860302bb95a31b571c0b461d1a405a697ac33b8cf97a4d4606e53ef3483d0c1"
+    },
+    {
+      "path": "project/configs/penalty_slicing_manifest.yaml",
+      "sha256": "ae9e9142337f6a278d08ced5c78f2d87085d3204fee2ec7abb047893a468672a"
+    }
+  ],
+  "job_records": [
+    {
+      "job_id": "ball-full39-v3-m",
+      "module": "scripts.run_fresh_ball_experiment",
+      "arguments": [
+        "--clips-dir",
+        "data/raw_clips",
+        "--pose-dir",
+        "outputs/fresh_course_experiment/pose_v7",
+        "--output-dir",
+        "outputs/fresh_course_experiment/ball_v3_m",
+        "--model",
+        "/home/boris/workspace/ind5003-vision-ii-experiments/2026-10-12/models/yolo11m.pt",
+        "--device",
+        "cuda:0",
+        "--imgsz",
+        "1280",
+        "--batch-size",
+        "4"
+      ],
+      "pid": 1531604,
+      "status": "complete",
+      "started_at_utc": "2026-10-11T18:50:07.295422+00:00",
+      "gpu_before": {
+        "name": "NVIDIA GeForce RTX 4090",
+        "memory_total_mib": 24564,
+        "memory_used_mib": 1111,
+        "utilization_percent": 0,
+        "driver_version": "580.178.04"
+      },
+      "torch_memory_fraction_limit": 0.35,
+      "preparation_runtime_sha256": "584d4bec3a98bf23aad9236279bdda2cb25908109c88555c0b8346d4e9d458ee",
+      "source_snapshot": [
+        {
+          "path": "src/__init__.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "src/annotation_provenance.py",
+          "sha256": "c1cbd4c8926db0a87b3ffa51d0ab53b2a84a8671a274d100b303b37bd575cd2d"
+        },
+        {
+          "path": "src/auto_slicer.py",
+          "sha256": "0106cc9d67762125d0b7c4a9147bf16ab3d250ef670c79b06c4e2e81c27b38b8"
+        },
+        {
+          "path": "src/ball_continuity.py",
+          "sha256": "cf68ed587de4651adefc71a28c084aaaa64889dd3c685d14b593f58a715d6d4c"
+        },
+        {
+          "path": "src/ball_continuity_v4.py",
+          "sha256": "031afb3a9eb38d78aedf27a3d8ad684a56e4afd1b333d048ce1ef94ba1f727e4"
+        },
+        {
+          "path": "src/ball_direction_corridor.py",
+          "sha256": "48039049b823d90d8f36ab00017f7db1767531d0738c4ffefcbd05d85bb6bae5"
+        },
+        {
+          "path": "src/ball_goal_decision.py",
+          "sha256": "fbcb05e9b8cbef824ed5be6bce245882697889a0252feefc6692a196cd717660"
+        },
+        {
+          "path": "src/ball_hypothesis_selection.py",
+          "sha256": "14296a5ab3252815ed0348a2828626c08f1cd5649e2d365c09205ec4b356e263"
+        },
+        {
+          "path": "src/ball_keeper_rebound.py",
+          "sha256": "9cb73212dbd7590ffd2c6a46b05767b2ebccc4b5a920fa1adc5cd7c200d33f2d"
+        },
+        {
+          "path": "src/ball_mask_seed.py",
+          "sha256": "1c0b4a4902e3871a6a5bf2e8c2de3cee0f4f47159b4273aea7700a7f2a4e65a3"
+        },
+        {
+          "path": "src/ball_outcome.py",
+          "sha256": "b66db1de6e20447dbc2fad4dbea5beaebfffa10105951888329092aea02fab42"
+        },
+        {
+          "path": "src/ball_pipeline.py",
+          "sha256": "fe3e275be906bb394dcb06659fb21329c8ecabbde854dd4fd80a8663831f754e"
+        },
+        {
+          "path": "src/ball_roi_probe.py",
+          "sha256": "4d0ffb29c19ee35f95d077cd10213b6becccaaad68ff0fff85d51c871b24da59"
+        },
+        {
+          "path": "src/ball_shot_focus.py",
+          "sha256": "57ffa5a2af205d2d61edb7fd8e1090a9aece6b9be3626dac27539f489fe12639"
+        },
+        {
+          "path": "src/camera_angles.py",
+          "sha256": "adb99ad2b4277f0bba02e7f57aa75478d451f4f3e71e83c290c2aa5c552f1f73"
+        },
+        {
+          "path": "src/camera_partial_alignment.py",
+          "sha256": "e8b302b25607221de09ad82d0b60d8f7bc30e3a480fa0270cd1426fe1d7d6629"
+        },
+        {
+          "path": "src/camera_timing_v2.py",
+          "sha256": "c8ff8609956f9841dbbf3f07cfe0d6a78353caaae7f17039a0df17c29344eabf"
+        },
+        {
+          "path": "src/camera_view_guard.py",
+          "sha256": "8cdfa8983bb2a97661a60adf3dd0ebe1cdf82e2463740b6082b8b3174034dd61"
+        },
+        {
+          "path": "src/camera_view_intervals.py",
+          "sha256": "6a3616a569e511b76f5fb859f3853e289deb278779a7e4638b5ce77001b7d5e2"
+        },
+        {
+          "path": "src/eda_analysis.py",
+          "sha256": "58697d147498c9c2fddde83ab6dd0928458da15c82f6cb7ae0fa18f8df568615"
+        },
+        {
+          "path": "src/event_ball_tracking.py",
+          "sha256": "8275efcf15a572dc81cbbc5495bdce2c831ab00f2d3c2de83e3a83a7b3d1c030"
+        },
+        {
+          "path": "src/field_masks.py",
+          "sha256": "0d16f5f4e6f686e6cb76b285e523dcab1848337cb63832f17a67fe35352f12af"
+        },
+        {
+          "path": "src/final_results.py",
+          "sha256": "03f135e8e6a06644db4d1949d015a1eb38b4f072cccdaf64ba460d0098a00b47"
+        },
+        {
+          "path": "src/fresh_ball_endpoint.py",
+          "sha256": "c1181ccb19c737c5af74ed002e63756bc43fed64953790a97e2e953ff1e53e83"
+        },
+        {
+          "path": "src/fresh_cache_provenance.py",
+          "sha256": "e69f59e55283474c915707d4132721469812408960f30984d5b6c694f804f41c"
+        },
+        {
+          "path": "src/fresh_event_analysis.py",
+          "sha256": "d3d5cfdc9d30c58d775f8bed420078da46d3ed172558213cb0f71c993b9f2d9c"
+        },
+        {
+          "path": "src/fresh_keeper_height.py",
+          "sha256": "e63c8c987f1925fefe6ef90e29732725c396bfac2ae87a9e5790fdc460707f00"
+        },
+        {
+          "path": "src/goal_event_tracker_v2.py",
+          "sha256": "b5eab5934d3118daea2f991deb7fc4ae49e28aa4c079f5179e24b0e28983cf28"
+        },
+        {
+          "path": "src/goal_geometry.py",
+          "sha256": "c8e92d02f23f87b7f928d93ead2392cd677d14b345a17dd1e56472570931d8b1"
+        },
+        {
+          "path": "src/goal_plane_rectification.py",
+          "sha256": "441f7322622d574bbec4b113844b2829a7013a095134b50131c9331255870a27"
+        },
+        {
+          "path": "src/goal_temporal_tracking.py",
+          "sha256": "00bba394898bdf4f4742c7b0325a0a7c6eecf6566755e31a373191d4ade33b43"
+        },
+        {
+          "path": "src/goalkeeper_analysis.py",
+          "sha256": "b18e38b1e8ffb78ab9cd1f08a782b9c5a44dbda580e2d55190e05426c23f0c33"
+        },
+        {
+          "path": "src/goalkeeper_direction_evidence.py",
+          "sha256": "c657e31bbd7bebe98e829ce80c266ed8eb435196c67f57a8d2cdcaa9defb326c"
+        },
+        {
+          "path": "src/goalkeeper_dive_phase.py",
+          "sha256": "1118d276e5afd55af41ae1adf1899a98bf22c9bfcc6d610ddbdc0d28d7b8bd9b"
+        },
+        {
+          "path": "src/goalkeeper_height_fusion.py",
+          "sha256": "d6c35926fbba06046e1563aad238b250a61536c01d979492ec6091469e06e114"
+        },
+        {
+          "path": "src/goalkeeper_mask_experiment.py",
+          "sha256": "d3bb1d5af285e8b3fe6ab9549b83b379f58295a661ccc4691e238a669f199dc0"
+        },
+        {
+          "path": "src/goalkeeper_observation_guard.py",
+          "sha256": "165731a8aa486079b000bc3add83518180015ed32369619e81646ec016458220"
+        },
+        {
+          "path": "src/goalkeeper_pipeline.py",
+          "sha256": "ee865f687d07401f01e2feaa3a03b30f7b9b87081293a72f93498c86968242ff"
+        },
+        {
+          "path": "src/goalkeeper_pose_direction.py",
+          "sha256": "a4ba39a89d6023f8bcdd2b6c36fc4273d5487287e5527c5229d9acbaddc08e10"
+        },
+        {
+          "path": "src/goalkeeper_role_association.py",
+          "sha256": "a2c2986346f34c478b8dd659fad356cd59d9be47f2e87e66179008c15a7a05bd"
+        },
+        {
+          "path": "src/goalkeeper_sam2.py",
+          "sha256": "b40931b8be7ef154047f3d4c807e085f3f4736539ce8e54a5c1b9651cd6634f0"
+        },
+        {
+          "path": "src/goalkeeper_sam2_head_tracking.py",
+          "sha256": "94d47e4cbaeedf0f7a5420d1d27bb654b5749e508cebafc7a4f22c82f6d9270d"
+        },
+        {
+          "path": "src/homography.py",
+          "sha256": "2d962aa52e26560b6d692bde502b6390c5affdf4eed36b8b8c77468ed4f74008"
+        },
+        {
+          "path": "src/jersey_camera_guard.py",
+          "sha256": "f0b96fa6ec4d4ffca9cbe1ec0a29c435bd0ce1c5c2c44514a70b83a1a52eb64c"
+        },
+        {
+          "path": "src/jersey_evidence.py",
+          "sha256": "90d9f735a6c73bf1a33d00968de0de4d33f426e1866a2a73b289401a1723a116"
+        },
+        {
+          "path": "src/keeper_kit_evidence.py",
+          "sha256": "5ab956f26e02af18f59ff1afde9ebfd791e1d9f7287934548a2a479b143868e8"
+        },
+        {
+          "path": "src/kick_contact.py",
+          "sha256": "501f531eb46d9f598ec031def30331e739217a2009b6cf553927a3ee320dcfb4"
+        },
+        {
+          "path": "src/kicker_analysis.py",
+          "sha256": "fa4cf7add9bb98abf8b115260180a9bcdd53e9f57d4c43cf57bbbb535376d963"
+        },
+        {
+          "path": "src/kicking_foot_evidence.py",
+          "sha256": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52"
+        },
+        {
+          "path": "src/kicking_foot_redetection.py",
+          "sha256": "ed587b59177377f538b33d03cb2b273070b6fc5c23ba42305078236eff26734d"
+        },
+        {
+          "path": "src/motion_stabilization.py",
+          "sha256": "04a4783b5c91b9a2b29d97715a557f82c0900e5faea586d4d8cb0b80cdb24d01"
+        },
+        {
+          "path": "src/penalty_phases.py",
+          "sha256": "166bfce017941eea75fb1c598cbfa30719b5e7b2a852b932d1ea8b8aeb56f13c"
+        },
+        {
+          "path": "src/person_appearance.py",
+          "sha256": "71376c1574fbf0db60f6d2bb7a8494a1d7e4256c17b6d1e35a8807245a6ef2df"
+        },
+        {
+          "path": "src/phase_step_events.py",
+          "sha256": "2513906f91c1da954a7f9e21e523079c66ceb604315fe27fcbfc80d0f74c1ee3"
+        },
+        {
+          "path": "src/pipeline.py",
+          "sha256": "df03a6c1ebe6fbb136ed31e3760264a1140f0445c2da780d1ba020055d6254a3"
+        },
+        {
+          "path": "src/pitch_calibration.py",
+          "sha256": "c9f9a132267f103915fcbf0f23c9cbd73e0478ca483743b8fa85928c570cf467"
+        },
+        {
+          "path": "src/pose_refinement.py",
+          "sha256": "d71da9d1d116b3d777357b5104436c9b2999a67b005956d12d6e255d1422683a"
+        },
+        {
+          "path": "src/project_paths.py",
+          "sha256": "46ec893b6b70a4b1ca207ce7f1d964b0ee388df5ca64715652905926a6b9fc81"
+        },
+        {
+          "path": "src/runtime.py",
+          "sha256": "945db55a6449012c4ebad88e630378fa2da4f586b9d701fdb18b1977646c5dfb"
+        },
+        {
+          "path": "src/step_pipeline.py",
+          "sha256": "866817be7de157b8455c2948532ced9b5ef04021ed69721863f01043ccaddcb4"
+        },
+        {
+          "path": "src/style_aware_steps.py",
+          "sha256": "fd08a1c842dd2500dcc29a9cdfe9250cfb0fb1792abeb1cb99b23c7c5cbb2d66"
+        },
+        {
+          "path": "src/terminal_footwork.py",
+          "sha256": "21476dd0c0e244614a274beff2c38ecd6df22f6b9ec6fea0e2b1b4d99310a88b"
+        },
+        {
+          "path": "src/upright_text_crop.py",
+          "sha256": "36baf7925c3cc298db6064d20b0b5bf1aabf39e722825a2a0685841ded174a39"
+        },
+        {
+          "path": "src/video_utils.py",
+          "sha256": "707b7b954ed68462db1fcf73a2a93fbf609e0102bb6888f7d8e8fc7353f491ed"
+        },
+        {
+          "path": "scripts/analyse_goal_right_followthrough.py",
+          "sha256": "054f5c2310d8fc5e906960104ee8c3b5a648e21c0da258ab2306b5aa00f699ee"
+        },
+        {
+          "path": "scripts/analyze_kicking_foot_evidence.py",
+          "sha256": "a0124bf8d00bd2269fb51ac231ab144317a899c165113322cb1a638b1eb2003d"
+        },
+        {
+          "path": "scripts/apply_goalkeeper_user_review.py",
+          "sha256": "d32902e40479094e50e878acdfec633d5964b438572cbfc70cfd284d699fa9c2"
+        },
+        {
+          "path": "scripts/assemble_ball_mask_optimized.py",
+          "sha256": "6d3f2d207312177ed94a166b68acde22c79849f0403063980a3e1f960ab337d0"
+        },
+        {
+          "path": "scripts/audit_camera_timings.py",
+          "sha256": "5a31447847048218f53579ec823a755da4669ad4cc62b629f98dc7c1956dc03f"
+        },
+        {
+          "path": "scripts/audit_goal_event_experiment.py",
+          "sha256": "d59b0f84d5027fa529dcd14c56e48ea3071b591e0a2c99a3935626cc729e90b8"
+        },
+        {
+          "path": "scripts/audit_goal_right_foot_redetection.py",
+          "sha256": "fc7d21f091230a09cc8aa7f24782eb3cb57efe3a2e9058f1c530071a8091c600"
+        },
+        {
+          "path": "scripts/audit_outcome_references.py",
+          "sha256": "120ec2028e7b820605697f3f156f28d176c15dbd6877a4fd783afe4a36373366"
+        },
+        {
+          "path": "scripts/audit_shot_windows.py",
+          "sha256": "aaeae264c9ec51937cee9665b72d45c6960d0711da1af3a44f623d16b763cced"
+        },
+        {
+          "path": "scripts/audit_vision2_completion.py",
+          "sha256": "357a06f40866abb241485aa5103a67f8f3324c54de8fc8cedcf4c46724d4e9cf"
+        },
+        {
+          "path": "scripts/build_ball_corridor_evidence.py",
+          "sha256": "d343b9f248dd700693b4449bebd3e9d77bccd592a8feae6fc253cd88013ceb99"
+        },
+        {
+          "path": "scripts/build_ball_detection_review_extras.py",
+          "sha256": "79ec356c722da3b6ff864c9d81320049c85648f77b527888ac1b47cf414764e5"
+        },
+        {
+          "path": "scripts/build_ball_detection_seed_evidence.py",
+          "sha256": "18b15f4a79bc0f5aa0c50f33fed5f04e32ed6912e5dd4573c6c870138ba88c3e"
+        },
+        {
+          "path": "scripts/build_ball_goal_event_audit.py",
+          "sha256": "4a24a2d7fcd70ae1a1d286bc420ad662a493e7c15a166b95e6ca9b96a679700c"
+        },
+        {
+          "path": "scripts/build_ball_mask_review_evidence.py",
+          "sha256": "a493e9804d8244d5d13f1456949b2044b182e365ed320025e2036aef6f655e4e"
+        },
+        {
+          "path": "scripts/build_current_delivery.py",
+          "sha256": "819191b55282cc07656b3a6b604c648a4c6d0792016190ba3d455a67acc00eaf"
+        },
+        {
+          "path": "scripts/build_evening_optimization_report.py",
+          "sha256": "e5d98e755754f8e62a6c33d17724db574a9bf11ae0e0cdeb9ab599407bff6bea"
+        },
+        {
+          "path": "scripts/build_evening_result_bundle.py",
+          "sha256": "cfd4f043014e097c69ee7bd63fdca5de262abe21d8a0a58da20fd4edafd574de"
+        },
+        {
+          "path": "scripts/build_final_results.py",
+          "sha256": "ae1c40e3f3458a2e048f82db4ddb8bbe9badf6880e407d630fc12fd18998b2a6"
+        },
+        {
+          "path": "scripts/build_goal_right_review.py",
+          "sha256": "714fca334f2539b5181f52cc1ce1649895eed3bd4951a431480841df6bd3b96d"
+        },
+        {
+          "path": "scripts/build_jersey_gallery.py",
+          "sha256": "c1b0c3e49577e157e349e1c1f1095f5c8cf600c21f14cd47c135ff33ededb3da"
+        },
+        {
+          "path": "scripts/build_penalty_phase_review.py",
+          "sha256": "e788567c379aec99ed3a759bac1cb0d8f825b97a231a584f424788e866c9e6a7"
+        },
+        {
+          "path": "scripts/build_vision2_completion_report.py",
+          "sha256": "5996042c8dca8b05ccfdc3df2cd26d7092d9171a5a07f30a28f6681fa9326b71"
+        },
+        {
+          "path": "scripts/cache_ball_keeper_contact.py",
+          "sha256": "d8b94bd5a28bdda6e998313eaadffc3fe373a88be2b406d61942376318aa9cdf"
+        },
+        {
+          "path": "scripts/cache_goal_event_detections.py",
+          "sha256": "ebfc7af131d6a38a32f2b039d10d692ce77c687aacab711978b7cd3212e70198"
+        },
+        {
+          "path": "scripts/cache_goal_event_people.py",
+          "sha256": "8a7fdacf590a7c97b2f44cb1deae81e89c712de866e0dd0b1bdc906054f61802"
+        },
+        {
+          "path": "scripts/camera_timing_context.py",
+          "sha256": "162f6838bd20faa16dc9cc6defb70224498dfc6ad823fab19050f9f267369dff"
+        },
+        {
+          "path": "scripts/camera_timing_features.py",
+          "sha256": "dbf9181caafea4150252f172fec530230b5aa9edc743595444d3d85dcba9e594"
+        },
+        {
+          "path": "scripts/correct_annotation_provenance.py",
+          "sha256": "0cda1b9aafd85fbb85df2dddef52e5f2b5f752b4ebb5ea6bc9b5e97c1fbbe0df"
+        },
+        {
+          "path": "scripts/detect_all_ball_goals.py",
+          "sha256": "fc944e1ccb7fda4a0013b124a46d916c5651be23fe921ec639b2ceef8ddd8b2d"
+        },
+        {
+          "path": "scripts/evaluate_camera_partial_alignment.py",
+          "sha256": "b868e37a81757ba162732397f534aa1bf17efe8428ee56ae0e3bb374eb6f05ba"
+        },
+        {
+          "path": "scripts/evaluate_jersey_retrieval.py",
+          "sha256": "d98c7108b87f449c1539240ea6d947d47d0d27845e73e99b9efbeca9d32c7ab5"
+        },
+        {
+          "path": "scripts/export_camera_timings.py",
+          "sha256": "1e239b3a0028e610816375140d7fd5970b7e40d2f132fe09b3b58e5ff27e31ff"
+        },
+        {
+          "path": "scripts/export_full_project.py",
+          "sha256": "6abb10788d29eaeaf185db94cd716feab0f7aa702d35b949e000a067b768db82"
+        },
+        {
+          "path": "scripts/export_review_video.py",
+          "sha256": "753a796825414001d6b684f76b36e74a122b04b0761702ebb85abeae0004b767"
+        },
+        {
+          "path": "scripts/fetch_support_assets.py",
+          "sha256": "2a1ec0f61c9a05860f0cd73ee5a0b83ad5d06e04a7cd60846110a2f471099dea"
+        },
+        {
+          "path": "scripts/finalize_all_ball_goal_review.py",
+          "sha256": "e020ed7e2f59d3700b98fedb611a9a8a7be6032717b7de825f8355b7a86354b5"
+        },
+        {
+          "path": "scripts/finalize_ball_corridor_review.py",
+          "sha256": "4dba5870c3069f1d57686ebc527e7c9eb02afed19cd9d82da296fd6e2ef3f89d"
+        },
+        {
+          "path": "scripts/finalize_ball_detection_retest.py",
+          "sha256": "36534fa97abd08c3395632dd9efcda36ca7e25125e106414a9ef2a37bd27ebbc"
+        },
+        {
+          "path": "scripts/finalize_ball_mask_review.py",
+          "sha256": "c69e7578716e6f0cd1e0070a6430af0a04f0539e2af941d6f07b85766ba1b6c7"
+        },
+        {
+          "path": "scripts/finalize_camera_optimization.py",
+          "sha256": "19504f0b6501b02439faa02daabb502fb916ee9105670726d4c7538c87d2072d"
+        },
+        {
+          "path": "scripts/finalize_goal_right_foot_redetection.py",
+          "sha256": "8d5d246be635f0da72c8369f1fde04b8bbd5696e1ed201d69e8e01b4d2e6420a"
+        },
+        {
+          "path": "scripts/finalize_goalkeeper_height_phase.py",
+          "sha256": "47c9e4d467f54c57592416720bcc0c4c564e111c8cdebb94f587f9aaa1dabe04"
+        },
+        {
+          "path": "scripts/finalize_goalkeeper_mask_comparison.py",
+          "sha256": "34370b2639abc6a3c15ff71384ee7ace3bdf7f5c5f1872595d45cfdcdbbfd79d"
+        },
+        {
+          "path": "scripts/finalize_goalkeeper_role_experiment.py",
+          "sha256": "171543109b134385f324fdb85baef049fa23c240acbd698cb06ec85337d48abf"
+        },
+        {
+          "path": "scripts/finalize_goalkeeper_sam2_update.py",
+          "sha256": "f094282e8574e14a18043c2fa9de1087e615b8ffede27f588ee82d19adfd0f70"
+        },
+        {
+          "path": "scripts/finalize_jersey_experiment.py",
+          "sha256": "ee013ee69ea05e935ad14652cb0e66696f6c86d3ea93ea3c92fe015cebecd8a0"
+        },
+        {
+          "path": "scripts/inspect_ball_raw_candidates.py",
+          "sha256": "840a61d83165467e02dff318dbbda5859b62eb2474378c2d747d7115369e22f1"
+        },
+        {
+          "path": "scripts/inspect_goalkeeper_pose_direction.py",
+          "sha256": "9b031648a856b93fab156369e45538b0252625e13b75b3838723c4d184c7e2c9"
+        },
+        {
+          "path": "scripts/lab_experiment.py",
+          "sha256": "a5deac1903a11169b8d26014d6fbfc34e38914083291f46be38a5e41a329a7c6"
+        },
+        {
+          "path": "scripts/make_penalty_phase_report.py",
+          "sha256": "a8c498891283ece68e7bf683596dea679e334d40063421a8f47b29c9c809f4de"
+        },
+        {
+          "path": "scripts/merge_manual_step_reviews.py",
+          "sha256": "b6e711f0880676ce4ee4bb5cb8ecc3859ce9fb7e09908a88c7e5ab0d6f7d08e7"
+        },
+        {
+          "path": "scripts/package_camera_optimization.py",
+          "sha256": "492380d44716e2d5fa2e924e7238a2c63384b53551b3a160060cc72b7ab0db52"
+        },
+        {
+          "path": "scripts/package_goalkeeper_direction_update.py",
+          "sha256": "ced7d68b8fc89ca77a23e2129f213dc5c2de6402e6a2e73a8beac82592cd59f7"
+        },
+        {
+          "path": "scripts/package_jersey_experiment.py",
+          "sha256": "0c722a4ad9e4b7c44d8dcca2f29465c4cdce761b841c3a28699e67f2c2c01aa7"
+        },
+        {
+          "path": "scripts/prepare_camera_review_media.py",
+          "sha256": "ad2db850d5b16cbde5321f708c10ae28c40c21aea2d06163c0426bee2cb878c8"
+        },
+        {
+          "path": "scripts/prepare_course_clips.py",
+          "sha256": "be07b2d800164147ba232848f712ad0f4568a08e65ebd11e4d01dc751dd2317a"
+        },
+        {
+          "path": "scripts/prepare_review_videos.py",
+          "sha256": "036824064926690ab0b40fa368df571fd5808b92166a94095499a4270a9af95e"
+        },
+        {
+          "path": "scripts/probe_evening_foot_sensitivity.py",
+          "sha256": "6d21638ffa112e0b159a2e2dd56d4faa181d68096ba7dfedbc6da986b846ea3a"
+        },
+        {
+          "path": "scripts/probe_evening_goal_geometry.py",
+          "sha256": "54fe015f53cbba95c4a8dcbe14b57a12d82f946af347bbce3f9f15ea4a22481b"
+        },
+        {
+          "path": "scripts/probe_evening_medium_pose.py",
+          "sha256": "348d791c94361955f78856fb7b14be5c8241b091d4e0159246644f5375ad1c90"
+        },
+        {
+          "path": "scripts/probe_evening_outcome_visibility.py",
+          "sha256": "b1e6f4642fac0f5f2fb560e0057ce195cb62577ad5f29204030ea61a85af034c"
+        },
+        {
+          "path": "scripts/probe_goal_event_tracking.py",
+          "sha256": "04a4e57655eb745472da3fa01c7ad00aae8072ad084d511d846982b4063046f8"
+        },
+        {
+          "path": "scripts/probe_goal_plane_rectification.py",
+          "sha256": "6aa26d192c5d1093066806c06010b95a32afb6ca52886be95bbf95db6ff2711b"
+        },
+        {
+          "path": "scripts/probe_goalkeeper_role_association.py",
+          "sha256": "9ff52e2c1b013beb70242a3c908d0e56c0055458bd0b43acb422d567bd6e885a"
+        },
+        {
+          "path": "scripts/probe_goalkeeper_sam2_head_part.py",
+          "sha256": "0237e6205745dec1e3beb7351e54bf32ce37328434c3e4a8bbd068cde5f8de57"
+        },
+        {
+          "path": "scripts/probe_kick_contact.py",
+          "sha256": "d0f0427d84eb008bf4ad902f0c2de0c233ba7733d935462ba2de30d37f951ca7"
+        },
+        {
+          "path": "scripts/recover_goalkeeper_phase_tracking.py",
+          "sha256": "280c346168534799d66cbec3001d1819e3d158d8de56720f52e4f78ee3b6b79b"
+        },
+        {
+          "path": "scripts/refine_ball_mask_review.py",
+          "sha256": "d2ba22d6af076be2b86bb4c42e722f48b46726a37105eb671813eb368446a672"
+        },
+        {
+          "path": "scripts/refine_goalkeeper_actor_pose.py",
+          "sha256": "a8b890510ec76060c7a2b72004d40255aa6cc6f1b860de4b082bff3349fca95f"
+        },
+        {
+          "path": "scripts/refine_jersey_camera_candidates.py",
+          "sha256": "703606e62bfc3e8a9586d66fbaf78c1041a40e14e354358124aa745953c015b0"
+        },
+        {
+          "path": "scripts/refine_phase_pose.py",
+          "sha256": "415717e200abe43c766e64044c15260c521606796b5ffcd2053c05c8e86c4241"
+        },
+        {
+          "path": "scripts/render_ball_qa.py",
+          "sha256": "5c0b18f08802ab5559979af180895070464ca641b4da1873338cc250bafa2cef"
+        },
+        {
+          "path": "scripts/render_ball_review_samples.py",
+          "sha256": "c28ae492fd3a80fe986d21f92d61e2a631a22701cea2b7a5fa01013cc1f72543"
+        },
+        {
+          "path": "scripts/render_camera_interval_qa.py",
+          "sha256": "a8ec572f20af88dc1ba37eefbb7607118463ed3c4336f4ccef2f650906999136"
+        },
+        {
+          "path": "scripts/render_fresh_pose_evidence.py",
+          "sha256": "85deeacbc356ac00539a4981b05da21000fa71f97aa379bf8cab440d432a5801"
+        },
+        {
+          "path": "scripts/render_goal_event_probe.py",
+          "sha256": "f182ed7a2412f1ed76673473ca7906e2f0d9eb9134316f841f30a2db1f5eff76"
+        },
+        {
+          "path": "scripts/render_goal_event_video.py",
+          "sha256": "8b14b62558d9a218c795b8ef50f75446ce32ef21c59a3e864739a2942b8b9ed8"
+        },
+        {
+          "path": "scripts/render_goalkeeper_candidates.py",
+          "sha256": "d40f42c8f7dbff103819fbc761a9c9007e89cd06eadd0de86ba9d21870622d3c"
+        },
+        {
+          "path": "scripts/render_goalkeeper_qa.py",
+          "sha256": "ef18a048d3fbd917cc9f773b96faba811d2e5b78b664453513e813fb8c067f08"
+        },
+        {
+          "path": "scripts/render_jersey_evidence_qa.py",
+          "sha256": "3e5380bc439960323973fac32486d581d63c443921636a76d6587a4f70afcbaf"
+        },
+        {
+          "path": "scripts/render_pitch_geometry_qa.py",
+          "sha256": "75559f0c349bbffea187c237ca501c7f8d6c0af15c0747a1d387ed9a8def30d0"
+        },
+        {
+          "path": "scripts/render_report_draft.py",
+          "sha256": "a39ad014e12292ca14cf1d3675a9cfc4587876b66a4039a77f1e0d482b885d95"
+        },
+        {
+          "path": "scripts/rerun_goalkeeper_pose.py",
+          "sha256": "41203986fbbd96b0d4ba245288b0a87a1f7e4c4ed1fa44e1e15242958f2a7137"
+        },
+        {
+          "path": "scripts/rerun_step_shot_repair.py",
+          "sha256": "db97886961dbea9622c9d5f18d8b77f8d54e46656b0fea782d19f0b5f87f6a14"
+        },
+        {
+          "path": "scripts/rescue_phase_shots.py",
+          "sha256": "5082f06e791f998eb33b99579845cf45bb697f450a7029bf207b450c62b353be"
+        },
+        {
+          "path": "scripts/retest_ball_detection_all.py",
+          "sha256": "70a05d0d27fae36eb0b53f5ff90e08d5e0b74fb1eefd36e91312b39c627130a3"
+        },
+        {
+          "path": "scripts/retest_camera_timing.py",
+          "sha256": "6f0bdb16d813e73c2101ef03b5fdbfa88244dd96ce724a0764ad0f352d3c5237"
+        },
+        {
+          "path": "scripts/review_ball_keeper_rebound.py",
+          "sha256": "08789169154f67cb7bd3583c6a3d5dcdbcb8b1e7b8f9105c59663426d8371980"
+        },
+        {
+          "path": "scripts/review_goalkeeper_direction_update.py",
+          "sha256": "53a320011df484380146a69a30fd9fd6295ed5c4718001e650bef73afa7513ee"
+        },
+        {
+          "path": "scripts/review_goalkeeper_pose_direction.py",
+          "sha256": "9158afe741f067e1249057355b0c1868fa052d550355ee846bfb25c3449d52d5"
+        },
+        {
+          "path": "scripts/run_ball_continuity_probe.py",
+          "sha256": "b3adb8a436cec002e08b12b6418bacb31e9c756c88c553bdeba77e5b692d6b33"
+        },
+        {
+          "path": "scripts/run_ball_direction_corridor_review.py",
+          "sha256": "2bce0ca84d86799b61ac4b3132b90776642fde605cbf9bb0afc5502dc2ae47e7"
+        },
+        {
+          "path": "scripts/run_ball_mask_continuity_review.py",
+          "sha256": "744310180d76cbbedb40842b6390f8c4ea11780f6b0a387f8d391d92cf374728"
+        },
+        {
+          "path": "scripts/run_ball_mask_seed_experiment.py",
+          "sha256": "ff533b35fe444f6497fbb972f73048efa2050a917f39245877e0ed386f4fb549"
+        },
+        {
+          "path": "scripts/run_ball_outcome_analysis.py",
+          "sha256": "17259505958c9375003539c894bf877a453d5a2487e5c44012bc199156165269"
+        },
+        {
+          "path": "scripts/run_ball_shot_focus_review.py",
+          "sha256": "7fc9984a41ad121b85aadd384cff9e90a2d12a213e7ef9571d35b3e6ba1b4198"
+        },
+        {
+          "path": "scripts/run_camera_dense_view_experiment.py",
+          "sha256": "412ffe6909a7b45c1c79fe5aa377d20ee67d61ddffec6f0db7b3a641b1c6cd8d"
+        },
+        {
+          "path": "scripts/run_camera_guarded_views.py",
+          "sha256": "36389a10a39ff9a95cc6001a2d1635449907f0e9c274fd28ba3210a44fc3e09a"
+        },
+        {
+          "path": "scripts/run_camera_partial_pose_experiment.py",
+          "sha256": "1a3712401c7e7ff76bec20476707ec119912d51ea49b5bd743307c4fad2524ca"
+        },
+        {
+          "path": "scripts/run_camera_timing_analysis.py",
+          "sha256": "cea3c3798b1182295c13b77afbdd255dd15656aaab535267e95fac120163f849"
+        },
+        {
+          "path": "scripts/run_canonical_camera_audit.py",
+          "sha256": "1f9262fe578bb4520db0fba3a8b5d2d420a11ea6a32da749c0d9d0c0e051347b"
+        },
+        {
+          "path": "scripts/run_evening_ball_experiment.py",
+          "sha256": "a6d478f61c49fd5d60a8519c21433126427fb896d0086fc0f28462e7a1573a7d"
+        },
+        {
+          "path": "scripts/run_evening_contact_experiment.py",
+          "sha256": "bc62c01197d1103c5e2d234a3a7428782ec6764a8c6b5b7ab67af0fbecf536cf"
+        },
+        {
+          "path": "scripts/run_evening_gk_appearance.py",
+          "sha256": "78148ab6825cbc1697d9dc156768ecbe594d4c400a5ffdb4dcc3e245ec37f4ad"
+        },
+        {
+          "path": "scripts/run_evening_gk_observation_guard.py",
+          "sha256": "1037969a24cb933f27c1b1e76c66aad9e956ff5ec46dab2d5e3d9b066c8e4817"
+        },
+        {
+          "path": "scripts/run_evening_goal_occupant.py",
+          "sha256": "ef33b4995c7061b7276581fecf76029f8f7881ebb43e61d0b71a259367877d7b"
+        },
+        {
+          "path": "scripts/run_evening_goal_pose.py",
+          "sha256": "676cfcd4ee4ef2a8cb2ab906ab02f508e80fa1e7519f28b48b0cbacd3ba47fbd"
+        },
+        {
+          "path": "scripts/run_evening_goalkeeper_experiment.py",
+          "sha256": "882da2b2eb850ebd44d8434ef3b1ee690c337a9f0e025d29243c474f71b53dfb"
+        },
+        {
+          "path": "scripts/run_evening_step_reanalysis.py",
+          "sha256": "8ccc8570be9950405fa6e81996fbf79ef504d986d6108a3ebb5c7812d357b2a1"
+        },
+        {
+          "path": "scripts/run_fresh_ball_experiment.py",
+          "sha256": "e4c53e8b5f4d15595d57cc68a8fd041bf0f71fd227b113a1d5108b614446bdfe"
+        },
+        {
+          "path": "scripts/run_fresh_camera_experiment.py",
+          "sha256": "7af9a241e709d828febbd498e702ea6d685d97b0d87b63231d456733f462d495"
+        },
+        {
+          "path": "scripts/run_fresh_foot_experiment.py",
+          "sha256": "a08fb4aa6182ac3fa37b31c9eee13d5c2c6a032d7451d65277bac18539fefef9"
+        },
+        {
+          "path": "scripts/run_fresh_phase_experiment.py",
+          "sha256": "ea740eb047c0d0c3369eafeabebc5260ac140d829501224827653253fcc0d7bb"
+        },
+        {
+          "path": "scripts/run_fresh_pitch_experiment.py",
+          "sha256": "9450d05cc54757479064a4126b1ae3603843252e8141e8e89daea0415bb9d35d"
+        },
+        {
+          "path": "scripts/run_fresh_pose_experiment.py",
+          "sha256": "26c028e182327fcd5ee1384bffd90388c2e7dc3f8871b632cdb4c3370c4782ea"
+        },
+        {
+          "path": "scripts/run_goal_right_foot_redetection.py",
+          "sha256": "f55b0e87698a23b59e7d8c2af34f8c1974aa312dd24df36fa26b6c3428110c75"
+        },
+        {
+          "path": "scripts/run_goal_temporal_pilot.py",
+          "sha256": "6e4c2e0ef6fda911706e2e3f596d6c9ff1b5358ce25c658f5997d48f5f0605c6"
+        },
+        {
+          "path": "scripts/run_goalkeeper_analysis.py",
+          "sha256": "cb4254b72c3a03079e90f747522565c2ad8449a064860ce12221cd130f48e1d2"
+        },
+        {
+          "path": "scripts/run_goalkeeper_direction_update.py",
+          "sha256": "5631542bb7d885756f533cae09cbf02212ca96530318e25291a28b1d86aca179"
+        },
+        {
+          "path": "scripts/run_goalkeeper_height_phase.py",
+          "sha256": "15430874e84ba794011a8a69e9713dc25aacf2d36ecfa84032c3fc904e6eb23c"
+        },
+        {
+          "path": "scripts/run_goalkeeper_mask_comparison.py",
+          "sha256": "ee741f0d35a3ab8aeecf69c70cbcf35b39b9339d56d4e94fb33321c823c9a5de"
+        },
+        {
+          "path": "scripts/run_goalkeeper_role_experiment.py",
+          "sha256": "10e46024e0b81f5b9df58b3c9faa2c0eb8ecdc5121779813f2213deba330d3aa"
+        },
+        {
+          "path": "scripts/run_goalkeeper_sam2_update.py",
+          "sha256": "98541e0f96ed65cfc99b9edc081ae0806e49f193e97b912e74882704d77cad95"
+        },
+        {
+          "path": "scripts/run_jersey_ocr_worker.py",
+          "sha256": "d5e09f9732fc4240b71d58aaa66377662a97bb1ff02c165531c0d042a7f0eecf"
+        },
+        {
+          "path": "scripts/run_jersey_upright_ocr.py",
+          "sha256": "9ec9d226da03b2cfd7da85d404997fc6305ccab6f5cc51144fbf039cec8ade1c"
+        },
+        {
+          "path": "scripts/run_mask_ablation.py",
+          "sha256": "0442d68572e0f864090a384e9eb571070a78c4a5fb3e7645423820c650834583"
+        },
+        {
+          "path": "scripts/run_penalty_phase_experiment.py",
+          "sha256": "a6b9c7ab5447b17f06453601e1cb90093c7a9a2ec4198cee4528f536689ffa3d"
+        },
+        {
+          "path": "scripts/run_pitch_calibration_pilot.py",
+          "sha256": "d7b7294f44ef77f67f2ef835a20744a3fd7ccaca1ab068065b48a0a273ea6c22"
+        },
+        {
+          "path": "scripts/run_step_counting.py",
+          "sha256": "7546493d7ce86456104f41c60df9b5ce999c3a5a21c6ecee592934c175fc9469"
+        },
+        {
+          "path": "scripts/run_style_aware_steps.py",
+          "sha256": "60477a0b8069b9fe976988cbba05a8d280ec71433a8517cf44150e5664e3e978"
+        },
+        {
+          "path": "scripts/run_terminal_footwork.py",
+          "sha256": "60bab7273703f97773e70050240f4346b5ccc3c98030857129fbc1e6e54aff43"
+        },
+        {
+          "path": "scripts/search_player_evidence.py",
+          "sha256": "55ca88a5c2e133dff3ca7b6c712359ab67918970dab1f296bab9098bcbdd8049"
+        },
+        {
+          "path": "scripts/serve_penalty_phase_review.py",
+          "sha256": "a56c379221447ad71ef6222051d440004e91ee889158607de5e35fb01e1f8d92"
+        },
+        {
+          "path": "scripts/update_ball_outcome_notebook.py",
+          "sha256": "8154618c839dadf51d14ecf5f1f8f7e3c60bdf2c7e40a0287d2039703a43ffa5"
+        },
+        {
+          "path": "scripts/update_goalkeeper_notebook.py",
+          "sha256": "5d8b69b0a7306b09e3cde573bafce90195f75dae4f8f9e6ac0b5838ca4078cf3"
+        },
+        {
+          "path": "scripts/update_step_counting_notebook.py",
+          "sha256": "994e705c20cdc149fe752e65be14cb1d6356797df1e9ed593cf618b8675892ad"
+        },
+        {
+          "path": "scripts/validate_evening_bundle.py",
+          "sha256": "1ca0cb9c88c4c7012cd0c87b19dfe010cbdafcf63cea23b4dbf8c778efd17499"
+        },
+        {
+          "path": "scripts/validate_evening_experiments.py",
+          "sha256": "882db5e1d5055d930bd4837641b55f69d4e1ad0e38ba6f343b3e4feed58b2f0d"
+        },
+        {
+          "path": "scripts/validate_penalty_phase_experiment.py",
+          "sha256": "639918a23a83bcf86efb9dc39b21fad1453d046674a106d1bccf59cfb61bc45d"
+        },
+        {
+          "path": "scripts/validate_step_shot_repair.py",
+          "sha256": "813eac74fd1980d66098d69cf59f4c3a984b7c487cc9f9b0448dadbbd3458f30"
+        },
+        {
+          "path": "scripts/validate_style_aware_steps.py",
+          "sha256": "a10f4731466a362ad760ca575b1468194d8c65ca0cfd6629981be4384111ff36"
+        },
+        {
+          "path": "scripts/validate_terminal_footwork.py",
+          "sha256": "9c796bb8e28dab17bde9b47836b7c1ae89ce18e5db058955520fa099b21acc1e"
+        },
+        {
+          "path": "scripts/verify_final_bundle.py",
+          "sha256": "7a002c7cf3a1fce4d114053f69315d4f5752d8eae9379f61b573dab2773a5085"
+        },
+        {
+          "path": "scripts/vision2_evening.py",
+          "sha256": "bfe55998b6f3f4bf0bd16baf9e3282090a005e53421cae2673a711debc6e1be6"
+        },
+        {
+          "path": "configs/config.yaml",
+          "sha256": "fe425962d87b34f1cc3159abc43e708f541a0fa5fd3bbabe545a48737a488b99"
+        },
+        {
+          "path": "configs/final_analysis.yaml",
+          "sha256": "c860302bb95a31b571c0b461d1a405a697ac33b8cf97a4d4606e53ef3483d0c1"
+        },
+        {
+          "path": "configs/penalty_slicing_manifest.yaml",
+          "sha256": "ae9e9142337f6a278d08ced5c78f2d87085d3204fee2ec7abb047893a468672a"
+        }
+      ],
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T18:58:18.965512+00:00"
+    },
+    {
+      "job_id": "ball-full39-v3-n",
+      "module": "scripts.run_fresh_ball_experiment",
+      "arguments": [
+        "--clips-dir",
+        "data/raw_clips",
+        "--pose-dir",
+        "outputs/fresh_course_experiment/pose_v7",
+        "--output-dir",
+        "outputs/fresh_course_experiment/ball_v3_n",
+        "--model",
+        "/home/boris/workspace/ind5003-vision-ii-experiments/2026-10-12/models/yolo11n.pt",
+        "--device",
+        "cuda:0",
+        "--imgsz",
+        "1280",
+        "--batch-size",
+        "4"
+      ],
+      "pid": 1524944,
+      "status": "complete",
+      "started_at_utc": "2026-10-11T18:42:01.732370+00:00",
+      "gpu_before": {
+        "name": "NVIDIA GeForce RTX 4090",
+        "memory_total_mib": 24564,
+        "memory_used_mib": 1107,
+        "utilization_percent": 0,
+        "driver_version": "580.178.04"
+      },
+      "torch_memory_fraction_limit": 0.35,
+      "preparation_runtime_sha256": "bd24621a2e1842cfa22ac4624d848dd9e4c67063373109e0890d7994e07a2fd5",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T18:49:09.880123+00:00"
+    },
+    {
+      "job_id": "ball-pilot-v2",
+      "module": "scripts.run_fresh_ball_experiment",
+      "arguments": [
+        "--clips-dir",
+        "data/raw_clips",
+        "--pose-dir",
+        "outputs/fresh_course_experiment/pose_v6",
+        "--output-dir",
+        "outputs/fresh_course_experiment/ball_pilot_v2",
+        "--model",
+        "/home/boris/workspace/ind5003-vision-ii-experiments/2026-10-12/models/yolo11n.pt",
+        "--device",
+        "cuda:0",
+        "--imgsz",
+        "1280",
+        "--batch-size",
+        "4",
+        "--clips",
+        "col_eng_p01_falcao_col9",
+        "cro_den_p01_eriksen_den10",
+        "cro_den_p05_krohn_dehli_den2",
+        "esp_rus_p01_iniesta_esp6",
+        "rus_cro_p02_brozovic_cro11"
+      ],
+      "pid": 1515701,
+      "status": "failed",
+      "started_at_utc": "2026-10-11T18:21:47.287718+00:00",
+      "gpu_before": {
+        "name": "NVIDIA GeForce RTX 4090",
+        "memory_total_mib": 24564,
+        "memory_used_mib": 1111,
+        "utilization_percent": 0,
+        "driver_version": "580.178.04"
+      },
+      "torch_memory_fraction_limit": 0.35,
+      "preparation_runtime_sha256": "bd24621a2e1842cfa22ac4624d848dd9e4c67063373109e0890d7994e07a2fd5",
+      "error_type": "ValueError",
+      "error": "Requested clips must be distinct members of the source manifest",
+      "finished_at_utc": "2026-10-11T18:21:48.075419+00:00"
+    },
+    {
+      "job_id": "ball-pilot-v3",
+      "module": "scripts.run_fresh_ball_experiment",
+      "arguments": [
+        "--clips-dir",
+        "data/raw_clips",
+        "--pose-dir",
+        "outputs/fresh_course_experiment/pose_v6",
+        "--output-dir",
+        "outputs/fresh_course_experiment/ball_pilot_v2",
+        "--model",
+        "/home/boris/workspace/ind5003-vision-ii-experiments/2026-10-12/models/yolo11n.pt",
+        "--device",
+        "cuda:0",
+        "--imgsz",
+        "1280",
+        "--batch-size",
+        "4",
+        "--clips",
+        "col_eng_p01_falcao_col9",
+        "cro_den_p01_eriksen_den10",
+        "cro_den_p05_krohndehli_den2",
+        "esp_rus_p01_iniesta_esp6",
+        "rus_cro_p02_brozovic_cro11"
+      ],
+      "pid": 1515880,
+      "status": "complete",
+      "started_at_utc": "2026-10-11T18:22:56.727803+00:00",
+      "gpu_before": {
+        "name": "NVIDIA GeForce RTX 4090",
+        "memory_total_mib": 24564,
+        "memory_used_mib": 1111,
+        "utilization_percent": 0,
+        "driver_version": "580.178.04"
+      },
+      "torch_memory_fraction_limit": 0.35,
+      "preparation_runtime_sha256": "bd24621a2e1842cfa22ac4624d848dd9e4c67063373109e0890d7994e07a2fd5",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T18:23:37.663514+00:00"
+    },
+    {
+      "job_id": "foot-krohn-pilot-v1",
+      "module": "scripts.run_fresh_foot_experiment",
+      "arguments": [
+        "--pose-input",
+        "outputs/fresh_course_experiment/pose_v6",
+        "--clips-dir",
+        "data/raw_clips",
+        "--contact-json-dir",
+        "outputs/fresh_course_experiment/ball_pilot_v2/contacts",
+        "--output-dir",
+        "outputs/fresh_course_experiment/foot_krohn_pilot_v1",
+        "--model",
+        "/home/boris/workspace/ind5003-vision-ii-experiments/2026-10-12/models/yolo11m-pose.pt",
+        "--device",
+        "cuda:0",
+        "--imgsz",
+        "960",
+        "--batch-size",
+        "8",
+        "--clips",
+        "cro_den_p05_krohndehli_den2"
+      ],
+      "pid": 1524377,
+      "status": "complete",
+      "started_at_utc": "2026-10-11T18:37:55.747239+00:00",
+      "gpu_before": {
+        "name": "NVIDIA GeForce RTX 4090",
+        "memory_total_mib": 24564,
+        "memory_used_mib": 1113,
+        "utilization_percent": 0,
+        "driver_version": "580.178.04"
+      },
+      "torch_memory_fraction_limit": 0.35,
+      "preparation_runtime_sha256": "bd24621a2e1842cfa22ac4624d848dd9e4c67063373109e0890d7994e07a2fd5",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T18:37:57.932017+00:00"
+    },
+    {
+      "job_id": "pose-full39-v3",
+      "module": "scripts.run_fresh_pose_experiment",
+      "arguments": [
+        "--clips-dir",
+        "data/raw_clips",
+        "--output-dir",
+        "outputs/fresh_course_experiment/pose_v3",
+        "--model",
+        "/home/boris/workspace/ind5003-vision-ii-experiments/2026-10-12/models/yolo11m-pose.pt",
+        "--device",
+        "cuda:0",
+        "--imgsz",
+        "1280",
+        "--batch-size",
+        "4",
+        "--max-shot-sec",
+        "30"
+      ],
+      "pid": 1496162,
+      "status": "complete",
+      "started_at_utc": "2026-10-11T17:47:55.109515+00:00",
+      "gpu_before": {
+        "name": "NVIDIA GeForce RTX 4090",
+        "memory_total_mib": 24564,
+        "memory_used_mib": 1111,
+        "utilization_percent": 0,
+        "driver_version": "580.178.04"
+      },
+      "torch_memory_fraction_limit": 0.35,
+      "preparation_runtime_sha256": "bd24621a2e1842cfa22ac4624d848dd9e4c67063373109e0890d7994e07a2fd5",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T17:55:08.664099+00:00"
+    },
+    {
+      "job_id": "pose-full39-v4",
+      "module": "scripts.run_fresh_pose_experiment",
+      "arguments": [
+        "--clips-dir",
+        "data/raw_clips",
+        "--output-dir",
+        "outputs/fresh_course_experiment/pose_v4",
+        "--model",
+        "/home/boris/workspace/ind5003-vision-ii-experiments/2026-10-12/models/yolo11m-pose.pt",
+        "--device",
+        "cuda:0",
+        "--imgsz",
+        "1280",
+        "--batch-size",
+        "4",
+        "--max-shot-sec",
+        "30"
+      ],
+      "pid": 1501387,
+      "status": "complete",
+      "started_at_utc": "2026-10-11T17:55:53.409182+00:00",
+      "gpu_before": {
+        "name": "NVIDIA GeForce RTX 4090",
+        "memory_total_mib": 24564,
+        "memory_used_mib": 1107,
+        "utilization_percent": 0,
+        "driver_version": "580.178.04"
+      },
+      "torch_memory_fraction_limit": 0.35,
+      "preparation_runtime_sha256": "bd24621a2e1842cfa22ac4624d848dd9e4c67063373109e0890d7994e07a2fd5",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T18:05:18.968731+00:00"
+    },
+    {
+      "job_id": "pose-full39-v6",
+      "module": "scripts.run_fresh_pose_experiment",
+      "arguments": [
+        "--clips-dir",
+        "data/raw_clips",
+        "--output-dir",
+        "outputs/fresh_course_experiment/pose_v6",
+        "--model",
+        "/home/boris/workspace/ind5003-vision-ii-experiments/2026-10-12/models/yolo11m-pose.pt",
+        "--device",
+        "cuda:0",
+        "--imgsz",
+        "1280",
+        "--batch-size",
+        "4",
+        "--max-shot-sec",
+        "30",
+        "--resume"
+      ],
+      "pid": 1509922,
+      "status": "complete",
+      "started_at_utc": "2026-10-11T18:13:19.573754+00:00",
+      "gpu_before": {
+        "name": "NVIDIA GeForce RTX 4090",
+        "memory_total_mib": 24564,
+        "memory_used_mib": 1111,
+        "utilization_percent": 0,
+        "driver_version": "580.178.04"
+      },
+      "torch_memory_fraction_limit": 0.35,
+      "preparation_runtime_sha256": "bd24621a2e1842cfa22ac4624d848dd9e4c67063373109e0890d7994e07a2fd5",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T18:20:47.894404+00:00"
+    },
+    {
+      "job_id": "pose-full39-v7",
+      "module": "scripts.run_fresh_pose_experiment",
+      "arguments": [
+        "--clips-dir",
+        "data/raw_clips",
+        "--output-dir",
+        "outputs/fresh_course_experiment/pose_v7",
+        "--model",
+        "/home/boris/workspace/ind5003-vision-ii-experiments/2026-10-12/models/yolo11m-pose.pt",
+        "--device",
+        "cuda:0",
+        "--imgsz",
+        "1280",
+        "--batch-size",
+        "4",
+        "--max-shot-sec",
+        "30",
+        "--resume"
+      ],
+      "pid": 1517276,
+      "status": "complete",
+      "started_at_utc": "2026-10-11T18:27:41.060084+00:00",
+      "gpu_before": {
+        "name": "NVIDIA GeForce RTX 4090",
+        "memory_total_mib": 24564,
+        "memory_used_mib": 1111,
+        "utilization_percent": 0,
+        "driver_version": "580.178.04"
+      },
+      "torch_memory_fraction_limit": 0.35,
+      "preparation_runtime_sha256": "bd24621a2e1842cfa22ac4624d848dd9e4c67063373109e0890d7994e07a2fd5",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T18:35:37.236603+00:00"
+    },
+    {
+      "job_id": "pose-pilot-01",
+      "module": "scripts.run_fresh_pose_experiment",
+      "arguments": [
+        "--clips-dir",
+        "data/raw_clips",
+        "--output-dir",
+        "outputs/fresh_course_experiment/pose",
+        "--model",
+        "/home/boris/workspace/ind5003-vision-ii-experiments/2026-10-12/models/yolo11m-pose.pt",
+        "--device",
+        "cuda:0",
+        "--imgsz",
+        "1280",
+        "--batch-size",
+        "4",
+        "--max-shot-sec",
+        "30",
+        "--clips",
+        "col_eng_p01_falcao_col9",
+        "cro_den_p01_eriksen_den10",
+        "rus_cro_p02_brozovic_cro11"
+      ],
+      "pid": 1494765,
+      "status": "complete",
+      "started_at_utc": "2026-10-11T17:42:17.774027+00:00",
+      "gpu_before": {
+        "name": "NVIDIA GeForce RTX 4090",
+        "memory_total_mib": 24564,
+        "memory_used_mib": 1107,
+        "utilization_percent": 0,
+        "driver_version": "580.178.04"
+      },
+      "torch_memory_fraction_limit": 0.35,
+      "preparation_runtime_sha256": "bd24621a2e1842cfa22ac4624d848dd9e4c67063373109e0890d7994e07a2fd5",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T17:42:42.061771+00:00"
+    },
+    {
+      "job_id": "pose-pilot-02",
+      "module": "scripts.run_fresh_pose_experiment",
+      "arguments": [
+        "--clips-dir",
+        "data/raw_clips",
+        "--output-dir",
+        "outputs/fresh_course_experiment/pose_v2",
+        "--model",
+        "/home/boris/workspace/ind5003-vision-ii-experiments/2026-10-12/models/yolo11m-pose.pt",
+        "--device",
+        "cuda:0",
+        "--imgsz",
+        "1280",
+        "--batch-size",
+        "4",
+        "--max-shot-sec",
+        "30",
+        "--clips",
+        "col_eng_p01_falcao_col9",
+        "cro_den_p01_eriksen_den10",
+        "rus_cro_p02_brozovic_cro11"
+      ],
+      "pid": 1495537,
+      "status": "complete",
+      "started_at_utc": "2026-10-11T17:46:32.898975+00:00",
+      "gpu_before": {
+        "name": "NVIDIA GeForce RTX 4090",
+        "memory_total_mib": 24564,
+        "memory_used_mib": 1107,
+        "utilization_percent": 0,
+        "driver_version": "580.178.04"
+      },
+      "torch_memory_fraction_limit": 0.35,
+      "preparation_runtime_sha256": "bd24621a2e1842cfa22ac4624d848dd9e4c67063373109e0890d7994e07a2fd5",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T17:47:12.234562+00:00"
+    },
+    {
+      "job_id": "pose-pilot-v5",
+      "module": "scripts.run_fresh_pose_experiment",
+      "arguments": [
+        "--clips-dir",
+        "data/raw_clips",
+        "--output-dir",
+        "outputs/fresh_course_experiment/pose_pilot_v5",
+        "--model",
+        "/home/boris/workspace/ind5003-vision-ii-experiments/2026-10-12/models/yolo11m-pose.pt",
+        "--device",
+        "cuda:0",
+        "--imgsz",
+        "1280",
+        "--batch-size",
+        "4",
+        "--max-shot-sec",
+        "30",
+        "--clips",
+        "col_eng_p01_falcao_col9",
+        "cro_den_p01_eriksen_den10",
+        "cro_den_p05_krohndehli_den2",
+        "esp_rus_p01_iniesta_esp6",
+        "rus_cro_p02_brozovic_cro11"
+      ],
+      "pid": 1507645,
+      "status": "complete",
+      "started_at_utc": "2026-10-11T18:06:58.345294+00:00",
+      "gpu_before": {
+        "name": "NVIDIA GeForce RTX 4090",
+        "memory_total_mib": 24564,
+        "memory_used_mib": 1107,
+        "utilization_percent": 0,
+        "driver_version": "580.178.04"
+      },
+      "torch_memory_fraction_limit": 0.35,
+      "preparation_runtime_sha256": "bd24621a2e1842cfa22ac4624d848dd9e4c67063373109e0890d7994e07a2fd5",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T18:08:18.942165+00:00"
+    },
+    {
+      "job_id": "pose-pilot-v6",
+      "module": "scripts.run_fresh_pose_experiment",
+      "arguments": [
+        "--clips-dir",
+        "data/raw_clips",
+        "--output-dir",
+        "outputs/fresh_course_experiment/pose_v6",
+        "--model",
+        "/home/boris/workspace/ind5003-vision-ii-experiments/2026-10-12/models/yolo11m-pose.pt",
+        "--device",
+        "cuda:0",
+        "--imgsz",
+        "1280",
+        "--batch-size",
+        "4",
+        "--max-shot-sec",
+        "30",
+        "--clips",
+        "col_eng_p01_falcao_col9",
+        "cro_den_p01_eriksen_den10",
+        "cro_den_p05_krohndehli_den2",
+        "esp_rus_p01_iniesta_esp6",
+        "rus_cro_p02_brozovic_cro11"
+      ],
+      "pid": 1508974,
+      "status": "complete",
+      "started_at_utc": "2026-10-11T18:11:31.669484+00:00",
+      "gpu_before": {
+        "name": "NVIDIA GeForce RTX 4090",
+        "memory_total_mib": 24564,
+        "memory_used_mib": 1107,
+        "utilization_percent": 0,
+        "driver_version": "580.178.04"
+      },
+      "torch_memory_fraction_limit": 0.35,
+      "preparation_runtime_sha256": "bd24621a2e1842cfa22ac4624d848dd9e4c67063373109e0890d7994e07a2fd5",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T18:12:28.470034+00:00"
+    },
+    {
+      "job_id": "pose-pilot-v7",
+      "module": "scripts.run_fresh_pose_experiment",
+      "arguments": [
+        "--clips-dir",
+        "data/raw_clips",
+        "--output-dir",
+        "outputs/fresh_course_experiment/pose_v7",
+        "--model",
+        "/home/boris/workspace/ind5003-vision-ii-experiments/2026-10-12/models/yolo11m-pose.pt",
+        "--device",
+        "cuda:0",
+        "--imgsz",
+        "1280",
+        "--batch-size",
+        "4",
+        "--max-shot-sec",
+        "30",
+        "--clips",
+        "rus_cro_p03_dzagoev_rus9"
+      ],
+      "pid": 1516822,
+      "status": "complete",
+      "started_at_utc": "2026-10-11T18:26:10.372546+00:00",
+      "gpu_before": {
+        "name": "NVIDIA GeForce RTX 4090",
+        "memory_total_mib": 24564,
+        "memory_used_mib": 1107,
+        "utilization_percent": 0,
+        "driver_version": "580.178.04"
+      },
+      "torch_memory_fraction_limit": 0.35,
+      "preparation_runtime_sha256": "bd24621a2e1842cfa22ac4624d848dd9e4c67063373109e0890d7994e07a2fd5",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T18:26:21.947248+00:00"
+    }
+  ],
+  "inference_evidence": "Inspect individual job outputs and their runtime protocols",
+  "ffmpeg": "ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers",
+  "pip_freeze_sha256": "41a088c74334317e66d2fd77849f5acb67b84de4a191b5a37c318e0d0e471254",
+  "pip_freeze_local_sha256": "2fa8bbd0e3c92f7507a8d7c17252e0d7a35ed236cfbf8ef8b26829edc4314953"
+}

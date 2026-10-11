@@ -1,0 +1,20 @@
+{
+  "schema_version": "source-scoreboard-protocol-v1",
+  "frozen_before_extraction": true,
+  "source_scope": "original_full_video",
+  "window": "canonical slice_end inclusive to next canonical slice_start exclusive; final attempt to source end",
+  "sampling_stride_seconds": 0.2,
+  "geometry": "long lower red bar plus two complete regularly spaced five-circle groups",
+  "stability": "at least three consecutive equal complete panels spanning at least 0.4s; absent samples break runs",
+  "association": "both icon rows have resolved contiguous prefixes; exact resolved total equals current attempt ordinal",
+  "shooting_order": "infer only from unique same-source-video odd-total prefix majority; even ordinal otherwise unknown",
+  "outcome": "current ordinal circle green/red only; score digits and human/external outcomes are not inputs",
+  "next_attempt": "search ends before next canonical slice start; any panel total differing from current ordinal is unusable",
+  "bounds_are_true_contact_times": false,
+  "code_sha256": {
+    "src/broadcast_scoreboard.py": "e0ef453da35263a1d511d6afe8a5ac526766a78bd4c20cb08a8e0d933e771483",
+    "scripts/run_fresh_scoreboard_experiment.py": "0198c4dd51a914391c97c1c2adb720f0819d9e7a3e97783e376b0e54072480e9"
+  },
+  "human_verified": false,
+  "accuracy_validated": false
+}

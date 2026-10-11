@@ -167,6 +167,84 @@ class ShotSelectionTests(unittest.TestCase):
             result = sp.process_video_steps(str(self.video), object())
         self.assertEqual(result["shot_start_frame"], 30)
 
+    def test_goal_guard_skips_non_action_scene_without_detector_inference(self):
+        def context(video, shot):
+            return {"supported": shot["shot_start_frame"] > 0, "samples": []}
+        with patch.object(sp, "_shot_goal_context", side_effect=context), \
+             patch.object(sp, "_process_shot_steps", side_effect=lambda *a, shot, **kw: self.fake_result(shot, True)) as process:
+            result = sp.process_video_steps(str(self.video), object(), require_goal_context=True)
+        self.assertEqual(process.call_count, 1)
+        self.assertEqual(result["shot_start_frame"], 30)
+        self.assertEqual(result["shot_selection"]["attempts"][0]["status"], "skipped")
+
+    def test_all_context_rejections_stay_missing_instead_of_background_kick(self):
+        with patch.object(sp, "_shot_goal_context", return_value={"supported": False, "samples": []}), \
+             patch.object(sp, "_process_shot_steps") as process:
+            result = sp.process_video_steps(str(self.video), object(), require_goal_context=True)
+        process.assert_not_called()
+        self.assertEqual(result["status"], "failed")
+        self.assertIsNone(result["kick_frame"])
+        self.assertIsNone(result["step_count"])
+        self.assertFalse(result["shot_selection"]["found_qualified_shot"])
+
+    def test_plain_nonfield_pixels_do_not_establish_goal_context(self):
+        shot = sp._scan_camera_shots(str(self.video), 8, 30)[0]
+        result = sp._shot_goal_context(str(self.video), shot)
+        self.assertFalse(result["supported"])
+        self.assertEqual(len(result["samples"]), 3)
+
+    def test_manual_event_slice_excludes_preceding_shot_but_retains_earlier_context(self):
+        with patch.object(sp, "_process_shot_steps", side_effect=lambda *a, shot, **kw: self.fake_result(shot, True)) as process:
+            result = sp.process_video_steps(str(self.video), object(), event_slice_interval=(50, 90))
+        self.assertEqual(process.call_count, 1)
+        self.assertEqual(result["shot_start_frame"], 30)
+        self.assertEqual(result["shot_selection"]["attempts"][0]["reason"], "camera_shot_outside_manual_event_slice")
+
+    def test_invalid_manual_event_slice_rejected(self):
+        for interval in ((-1, 90), (50, 50), (50, 121), (False, 90)):
+            with self.subTest(interval=interval), self.assertRaises(ValueError):
+                sp.process_video_steps(str(self.video), object(), event_slice_interval=interval)
+
+    def test_goal_line_people_removed_from_kicker_ranking_without_dropping_keeper_evidence(self):
+        tracks = {1: {"track_id": 1}, 2: {"track_id": 2}}
+        shot = sp._scan_camera_shots(str(self.video), 8, 30)[1]
+        with patch("src.goal_geometry.select_goal_occupant", return_value={"candidates": [{"track_id": 2}]}):
+            candidates, evidence = sp._goal_line_actor_tracks(str(self.video), tracks, shot)
+        self.assertEqual(list(candidates), [1])
+        self.assertEqual(evidence["excluded_track_ids"], [2])
+        self.assertEqual(list(tracks), [1, 2])
+
+    def test_adaptive_scene_scan_keeps_full_timeline_and_relative_caps(self):
+        writer = cv2.VideoWriter(str(self.video), cv2.VideoWriter_fourcc(*"MJPG"), 30, (160, 90))
+        for color in [(10, 90, 10)] * 30 + [(10, 10, 240)] * 90:
+            writer.write(np.full((90, 160, 3), color, np.uint8))
+        writer.release()
+        shots = sp._scan_adaptive_shots(str(self.video), 1.5)
+        self.assertEqual(shots[0]["shot_start_frame"], 0)
+        self.assertEqual(shots[-1]["camera_shot_end_frame"], 120)
+        self.assertTrue(all(row["shot_end_frame"] - row["shot_start_frame"] <= 45 for row in shots))
+        self.assertTrue(any(abs(row["shot_start_frame"] - 30) <= 1 for row in shots))
+        self.assertTrue(all("adaptive" in row["boundary_method"] for row in shots))
+
+    def test_late_keeper_fragment_reranks_with_existing_pose_instead_of_rejecting_whole_shot(self):
+        shot = sp._scan_camera_shots(str(self.video), 8, 30)[1]
+        tracks = {1: {"track_id": 1}, 9: {"track_id": 9}}
+        summaries = {9: {"kick_detection": {"kick_frame": 80}}}
+        remaining = {1: {"kick_detection": {"kick_frame": 85}}}
+        context = {"samples": [{"frame": 70, "goal": {"status": "candidate_supported"}}]}
+        roles = [{"status": "candidate_supported", "seed_track_id": 9},
+                 {"status": "candidate_supported", "seed_track_id": 9}]
+        with patch("src.goal_geometry.select_goal_occupant", side_effect=roles), \
+             patch.object(sp, "_analyse_tracks", return_value=(1, remaining, True)) as rank:
+            selected, excluded, evidence = sp._rerank_goal_occupant_selection(
+                str(self.video), tracks, tracks, shot, context, (9, summaries, True),
+                keypoint_conf=.15, extractor=object(), use_field_mask=True)
+        self.assertEqual(selected[0], 1)
+        self.assertEqual(excluded, [9])
+        self.assertEqual(list(rank.call_args.args[0]), [1])
+        self.assertEqual(len(evidence), 2)
+        self.assertEqual(list(tracks), [1, 9])
+
 
 if __name__ == "__main__":
     unittest.main()

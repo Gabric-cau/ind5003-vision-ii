@@ -94,3 +94,41 @@ def test_candidate_window_accounts_for_support_foot_before_strike():
     result=score_contact_candidates(b,p,t,30,sample_stride=2)
     assert result[0]["interval_frames"][1]>=result[0]["contact_frame"]+7
     assert result[0]["interval_kind"]=="heuristic_candidate_window_not_statistical_confidence_interval"
+
+
+def test_contact_observations_preserve_source_pixels_and_associated_departure():
+    b,p,t=fixture(camera_shift=2)
+    for index, ball in enumerate(b):
+        ball['detection_id']=f'ball-{index}'
+        ball['bbox']=[ball['xy'][0]-3,97,ball['xy'][0]+3,103]
+    result=score_contact_candidates(b,p,t,30)[0]
+    observed={ball['detection_id']:ball for ball in b}
+    assert result['stationary_ball_reference_xy']==[100.,100.]
+    for observation in result['stationary_ball_observations']+result['departure_ball_observations']:
+        assert observation['xy']==observed[observation['detection_id']]['xy']
+        assert observation['bbox']==observed[observation['detection_id']]['bbox']
+    assert result['stationary_ball_observations'][-1]['xy']==[160.,100.]
+    assert [row['frame'] for row in result['departure_ball_observations']]==result['ball_departure_frames']
+    assert result['contact_bracket_frames']==[30,36]
+
+
+def test_same_seed_frame_competitors_are_explicit_and_have_one_primary_observation():
+    b,p,t=fixture()
+    for index, ball in enumerate(b):ball['detection_id']=f'ball-{index}'
+    b.append({**b[2],'detection_id':'other-view','confidence':.9,'xy':[101,100]})
+    result=score_contact_candidates(b,p,t,30)[0]
+    same_frame=[row for row in result['stationary_ball_observations'] if row['frame']==12]
+    assert len(same_frame)==1
+    assert same_frame[0]['detection_id']=='other-view'
+    assert result['stationary_identity_ambiguous_frames']==[12]
+    assert {row['detection_id'] for row in result['stationary_observation_competitors'][0]['observations']}=={'ball-2','other-view'}
+
+
+def test_seed_only_gate_preserves_unmasked_neural_departure_observations():
+    b,p,t=fixture()
+    for index, ball in enumerate(b):ball['detection_id']=f'ball-{index}'
+    seed_ids={ball['detection_id'] for ball in b if ball['frame']<=30}
+    result=score_contact_candidates(b,p,t,30,stationary_seed_detection_ids=seed_ids)[0]
+    assert result['ball_departure_frames']==[36,42]
+    assert [row['detection_id'] for row in result['departure_ball_observations']]==['ball-6','ball-7']
+    assert all(row['detection_id'] in seed_ids for row in result['stationary_ball_observations'])

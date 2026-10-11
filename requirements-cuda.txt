@@ -1,0 +1,13 @@
+# Actual Linux/Python 3.11 extraction stack used by the isolated 4090 experiment.
+# Install in a separate environment from requirements-analysis.txt (Python 3.13).
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.7.0+cu128
+torchvision==0.22.0+cu128
+ultralytics==8.4.175
+numpy==1.26.0
+opencv-python==4.11.0.86
+scipy==1.15.3
+pandas==3.0.3
+matplotlib==3.10.3
+Pillow==11.3.0
+PyYAML==6.0.2

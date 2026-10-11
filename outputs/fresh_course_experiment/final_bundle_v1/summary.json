@@ -1,0 +1,119 @@
+{
+  "events": 39,
+  "candidate_availability": {
+    "contact": 33,
+    "foot": 8,
+    "phase_steps": 32,
+    "keeper_pre_movement": 29,
+    "keeper_direction_image": 23,
+    "ball_nonempty_trace": 33,
+    "ground_pre_contact_points": 32,
+    "camera_target_class": 11,
+    "camera_slow_motion": 0,
+    "keeper_strict_height": 0,
+    "ball_stationary_end": 0,
+    "keeper_observed_image_height": 6,
+    "scoreboard_outcome": 35,
+    "combined_outcome": 35
+  },
+  "matches": {
+    "col_eng": 10,
+    "cro_den": 10,
+    "esp_rus": 9,
+    "rus_cro": 10
+  },
+  "ball_rules": {
+    "unknown": 29,
+    "goal_likely": 8,
+    "no_goal_likely": 2
+  },
+  "scoreboard_rules": {
+    "goal_likely": 23,
+    "no_goal_likely": 12,
+    "unknown": 4
+  },
+  "combined_rules": {
+    "goal_likely": 24,
+    "no_goal_likely": 11,
+    "unknown": 4
+  },
+  "ball_evaluation": {
+    "decided": 10,
+    "abstained": 29,
+    "reference_agreements": 9,
+    "covered_reference_agreement": 0.9,
+    "decision_coverage": 0.2564102564102564,
+    "confusion": [
+      {
+        "reference": "goal",
+        "prediction": "goal",
+        "events": 7
+      },
+      {
+        "reference": "no_goal",
+        "prediction": "goal",
+        "events": 1
+      },
+      {
+        "reference": "no_goal",
+        "prediction": "no_goal",
+        "events": 2
+      }
+    ],
+    "disagreements": [
+      "esp_rus_p05_koke_esp8"
+    ],
+    "held_out_test": false,
+    "accuracy_validated": false,
+    "interpretation": "Development agreement against audited named-event references; video event identity is unverified"
+  },
+  "scoreboard_evaluation": {
+    "decided": 35,
+    "abstained": 4,
+    "reference_agreements": 35,
+    "covered_reference_agreement": 1.0,
+    "decision_coverage": 0.8974358974358975,
+    "confusion": [
+      {
+        "reference": "goal",
+        "prediction": "goal",
+        "events": 23
+      },
+      {
+        "reference": "no_goal",
+        "prediction": "no_goal",
+        "events": 12
+      }
+    ],
+    "disagreements": [],
+    "held_out_test": false,
+    "accuracy_validated": false,
+    "interpretation": "Development agreement against audited named-event references; video event identity is unverified"
+  },
+  "combined_evaluation": {
+    "decided": 35,
+    "abstained": 4,
+    "reference_agreements": 35,
+    "covered_reference_agreement": 1.0,
+    "decision_coverage": 0.8974358974358975,
+    "confusion": [
+      {
+        "reference": "goal",
+        "prediction": "goal",
+        "events": 24
+      },
+      {
+        "reference": "no_goal",
+        "prediction": "no_goal",
+        "events": 11
+      }
+    ],
+    "disagreements": [],
+    "held_out_test": false,
+    "accuracy_validated": false,
+    "interpretation": "Development agreement against audited named-event references; video event identity is unverified"
+  },
+  "verified_measurement_events": 0,
+  "unknown_is_zero": false,
+  "scope": "Candidate extraction from hashed course context clips; no guaranteed marks or human ground truth"
+}

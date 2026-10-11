@@ -1,0 +1,15 @@
+# Fresh Ball Detector Comparison
+
+This protocol compares two pretrained detectors on the same source bytes and downstream rules. It is a development experiment, not a held-out accuracy test. The five diagnostic events have already been inspected and cannot establish generalization.
+
+The baseline is official `yolo11n.pt`. The comparison is official `yolo11m.pt`, downloaded from the Ultralytics assets `v8.3.0` release. The [official model documentation](https://docs.ultralytics.com/models/yolo11/) identifies both as COCO object detection models; its COCO benchmark scores are not penalty-ball scores. Record the actual downloaded bytes, SHA-256, detected model task and class map before use. Keep pose extraction fixed at the source-bound `pose_v7` producer.
+
+The comparison asset was downloaded and loaded in the isolated lab runtime on 12 October 2026: 40,684,120 bytes, SHA-256 `d5ffc1a674953a08e11a8d21e022781b1b23a19b730afc309290bd9fb5305b95`, task `detect`. The byte length agrees with the official GitHub release API. That API did not supply a digest; the hash records the downloaded official asset and is pinned for later reproduction rather than asserted to be an independently published checksum.
+
+Use the same 1280-pixel image-size setting, batch size, detector confidence, complete selected-shot interval, original-pixel crop transforms, stationary-seed gate, causal departure validation, temporal bracket definition, identity arbitration and event rules. Freeze all prediction code before either comparison run. Never substitute an outcome reference or pose velocity peak for missing contact evidence.
+
+The explicit diagnostic cohort is Falcao, Eriksen, Krohn-Dehli, Iniesta and Brozovic. Compare actual source-frame ball detections, stationary/departure support, contact brackets, actor re-selection, same-identity observation coverage, rejected branches, false-object candidates and inference time. Inspect source-frame sheets alongside the retained raw neural predictions. AI visual inspection is a diagnostic and must not become a human annotation flag.
+
+After the complete 39-event nano run retained several contact abstentions, the medium comparison was extended to the same complete 39-event cohort, before inspecting its outcomes. Both runs use `pose_v7` and the same frozen ball/contact implementation. Retain all events in the comparison, including regressions and abstentions; the five diagnostic events are illustrations rather than the evaluation denominator. This extension still does not create a held-out test set.
+
+Do not choose a detector solely because it decides more events or agrees with more external outcomes. Report newly introduced false identities and ambiguous detections as well as additional plausible ball observations. If the comparison is useful, run the chosen frozen configuration across all 39 events and retain the baseline for an auditable ablation. Outcome references are joined only after predictions are frozen. No training, independent ball ground truth, held-out evaluation or physical final-position validation is implied by this experiment.

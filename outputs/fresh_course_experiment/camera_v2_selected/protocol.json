@@ -1,0 +1,92 @@
+{
+  "version": "source_bound_live_pose_reference_v2",
+  "cohort_clip_ids": [
+    "col_eng_p01_falcao_col9",
+    "col_eng_p02_kane_eng9",
+    "col_eng_p03_cuadrado_col11",
+    "col_eng_p04_rashford_eng19",
+    "col_eng_p05_muriel_col14",
+    "col_eng_p06_henderson_eng8",
+    "col_eng_p07_uribe_col15",
+    "col_eng_p08_trippier_eng12",
+    "col_eng_p09_bacca_col7",
+    "col_eng_p10_dier_eng4",
+    "cro_den_p01_eriksen_den10",
+    "cro_den_p02_badelj_cro19",
+    "cro_den_p03_kjaer_den4",
+    "cro_den_p04_kramaric_cro9",
+    "cro_den_p05_krohndehli_den2",
+    "cro_den_p06_modric_cro10",
+    "cro_den_p07_schone_den19",
+    "cro_den_p08_pivaric_cro22",
+    "cro_den_p09_jorgensen_den9",
+    "cro_den_p10_rakitic_cro7",
+    "esp_rus_p01_iniesta_esp6",
+    "esp_rus_p02_smolov_rus10",
+    "esp_rus_p03_pique_esp3",
+    "esp_rus_p04_ignashevich_rus4",
+    "esp_rus_p05_koke_esp8",
+    "esp_rus_p06_golovin_rus17",
+    "esp_rus_p07_ramos_esp15",
+    "esp_rus_p08_cheryshev_rus6",
+    "esp_rus_p09_aspas_esp17",
+    "rus_cro_p01_smolov_rus10",
+    "rus_cro_p02_brozovic_cro11",
+    "rus_cro_p03_dzagoev_rus9",
+    "rus_cro_p04_kovacic_cro8",
+    "rus_cro_p05_fernandes_rus2",
+    "rus_cro_p06_modric_cro10",
+    "rus_cro_p07_ignashevich_rus4",
+    "rus_cro_p08_vida_cro21",
+    "rus_cro_p09_kuzyaev_rus7",
+    "rus_cro_p10_rakitic_cro7"
+  ],
+  "source_manifest_sha256": "1affeb149a6fffea0a4b1814ec7b10be0c75ec8c0f2e6428cc920e62d325a38c",
+  "reference_labels_used_for_prediction": false,
+  "human_verified": false,
+  "accuracy_validated": false,
+  "held_out_test": false,
+  "plan_reference_only": false,
+  "model_task_validation": {
+    "task": "pose",
+    "kpt_shape": [
+      17,
+      3
+    ],
+    "validated": true
+  },
+  "runtime": {
+    "requested_device": "cuda:0",
+    "device": "cuda:0",
+    "python": "3.11.15",
+    "platform": "Linux",
+    "model_sha256": {
+      "/home/boris/workspace/ind5003-vision-ii-experiments/2026-10-12/models/yolo11m-pose.pt": "29b17eaf3a3117cbea906090dbedf9159f7c6a49db58ec8b99ed2dfde1cf6eb2"
+    },
+    "source_sha256": {},
+    "torch_version": "2.7.0+cu128",
+    "cuda_runtime": "12.8",
+    "gpu_name": "NVIDIA GeForce RTX 4090"
+  },
+  "settings": {
+    "cross_shot_imgsz": 960,
+    "confidence": 0.25,
+    "action_sampling_fps_target": 8,
+    "live_reference": "exact_source_pose_track_under_contact_and_shot_binding"
+  },
+  "code_sha256": {
+    "scripts/run_fresh_camera_experiment_v2.py": "844e5cf57ecb57d488a7456344a9dd455d6216112cf5b438c369c345af3c4006",
+    "scripts/run_fresh_camera_experiment.py": "777e3c9136ae85164b99c7d2d38ea83f51be59e5731d0d4895e461636c2e109e",
+    "scripts/run_fresh_phase_experiment.py": "6551053b32328c81e90f33a85c87af29572b6adb4ea3e260a7bb069cb7fae8e6",
+    "src/fresh_camera_reference.py": "71a911508683caf8c2fc1e5fbb06884887faa7ab625641f21547f1eb46b50ffd",
+    "src/camera_timing_v2.py": "c8ff8609956f9841dbbf3f07cfe0d6a78353caaae7f17039a0df17c29344eabf",
+    "src/camera_view_guard.py": "8cdfa8983bb2a97661a60adf3dd0ebe1cdf82e2463740b6082b8b3174034dd61",
+    "src/camera_partial_alignment.py": "e8b302b25607221de09ad82d0b60d8f7bc30e3a480fa0270cd1426fe1d7d6629",
+    "src/fresh_cache_provenance.py": "e69f59e55283474c915707d4132721469812408960f30984d5b6c694f804f41c",
+    "src/goalkeeper_pipeline.py": "ee865f687d07401f01e2feaa3a03b30f7b9b87081293a72f93498c86968242ff",
+    "src/goal_geometry.py": "c8e92d02f23f87b7f928d93ead2392cd677d14b345a17dd1e56472570931d8b1",
+    "src/goalkeeper_role_association.py": "a2c2986346f34c478b8dd659fad356cd59d9be47f2e87e66179008c15a7a05bd",
+    "scripts/camera_timing_context.py": "162f6838bd20faa16dc9cc6defb70224498dfc6ad823fab19050f9f267369dff",
+    "scripts/camera_timing_features.py": "dbf9181caafea4150252f172fec530230b5aa9edc743595444d3d85dcba9e594"
+  }
+}
