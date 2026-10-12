@@ -1,6 +1,6 @@
 # Current Fresh Package
 
-The repository contains a rerun of all 39 course penalty attempts using the lab RTX 4090. Start with [`final_bundle_v1`](../outputs/fresh_course_experiment/final_bundle_v1/), the [`final_eda_v1`](../outputs/fresh_course_experiment/final_eda_v1/) figures and [`REPORT_FRESH_REVIEW_DRAFT.md`](REPORT_FRESH_REVIEW_DRAFT.md).
+The repository contains a rerun of all 39 course penalty attempts. Start with [`final_bundle_v1`](../outputs/fresh_course_experiment/final_bundle_v1/), the [`final_eda_v1`](../outputs/fresh_course_experiment/final_eda_v1/) figures and [`REPORT_FRESH_REVIEW_DRAFT.md`](REPORT_FRESH_REVIEW_DRAFT.md).
 
 The bundle has 33 independent contact candidates, 32 contact-bound phase candidates, 8 cautious striking-foot candidates, 6 conditional image-plane goalkeeper signals, 23 keeper direction candidates, 11 target camera candidates, zero automatic slow-motion decisions, 35 source-only scoreboard candidates and zero verified event-final ball positions. These are development candidates with explicit unknowns, not human-verified accuracy. The scoreboard branch reads repeated red/green broadcast icons from original source frames; it is not ball-plane crossing evidence.
 
