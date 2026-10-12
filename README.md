@@ -55,7 +55,7 @@ python -m src.fresh_eda \
   --output-dir outputs/my_eda
 ```
 
-Windows 的虚拟环境激活命令为 `.venv-analysis\Scripts\Activate.ps1`。输出目录需要为空。
+Windows 的虚拟环境激活命令为 `.venv-analysis\Scripts\Activate.ps1`。统计图会写入 `outputs/my_eda`，重复运行会覆盖同名文件。
 
 如果要运行测试，再安装 OpenCV 和 SciPy：
 
