@@ -26,7 +26,9 @@ class InferenceRuntimeTest(unittest.TestCase):
         model=SimpleNamespace(predict=Mock(side_effect=lambda batch,**kwargs:
                                           [SimpleNamespace(boxes=[]) for _ in batch]))
         ultralytics.YOLO=Mock(return_value=model)
-        with patch.dict(sys.modules,{'ultralytics':ultralytics}):
+        torch=ModuleType('torch')
+        torch.set_num_threads=Mock()
+        with patch.dict(sys.modules,{'ultralytics':ultralytics,'torch':torch}):
             module=importlib.import_module('scripts.cache_ball_keeper_contact')
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder);source=root/'source';cache=root/'cache';tracks=root/'tracks';out=root/'out'
