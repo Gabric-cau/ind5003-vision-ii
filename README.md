@@ -1,131 +1,73 @@
-# IND5003 Vision II: 39 次点球分析
+# IND5003 Vision II：点球视频分析
 
-> **Fresh 4090 evidence package:** the current source-bound 39-event result is [`outputs/fresh_course_experiment/final_bundle_v1/`](outputs/fresh_course_experiment/final_bundle_v1/), with regenerated EDA in [`final_eda_v1/`](outputs/fresh_course_experiment/final_eda_v1/) and the six-section report [`REPORT_FRESH_REVIEW_DRAFT.md`](docs/REPORT_FRESH_REVIEW_DRAFT.md). The historical material below is retained for provenance; its older counts are not the current fresh experiment.
+这个项目分析了 2018 年世界杯四场点球大战中的 39 次罚球：哥伦比亚对英格兰、克罗地亚对丹麦、西班牙对俄罗斯，以及俄罗斯对克罗地亚。主要关注助跑步数、触球脚、守门员的移动和扑救、球的轨迹与赛果，也记录转播镜头的变化。
 
-这是在小组原项目上完善的私有开发仓库，保留原提交和来源记录。主入口现在提供统一的 39 段结果、可复现 EDA、验证状态与逐段复核模板。当前结果仍是开发候选，不能承诺满分或独立识别准确率。
+代码在小组原项目的基础上继续修改，并用实验室的 RTX 4090 重新跑了全部 39 段视频。
 
-原项目：[RX422040/vision-ii-penalty-analysis](https://github.com/RX422040/vision-ii-penalty-analysis)，基于提交 `f3eb946a1595c084af33edfbc2452b016736bc30`。模型、历史实验、缓存和早期算法来自原小组项目；本轮新增结果整合、EDA 防护、运行迁移、稳定器与球终点修复。仓库保留提交历史，不把原作者的工作重新标成个人独立完成。
+## 查看结果
 
-## 当前 4090 冻结入口
-
-本轮在实验室 RTX 4090 上对同一批 39 个课程事件完成了 source-bound 全量复跑。当前冻结包的候选覆盖是：触球 33、步数 32、门将预移动 29、门将图像方向 23、非空球轨迹 33、触球前地面点 32、目标机位 11、条件性图像平面高度信号 6、比分板结果 35；慢动作自动判定和事件最终球位置均为 0。严格高度的物理米制结果为 0，未知值没有被当作零。
-
-比分板分支在 35/39 段有可重复的 source-only 候选；冻结预测与独立审计参考在这 35 段开发样本上 35/35 一致。这个数字不是 held-out 准确率，也不是人工真值；报告、JSON 和逐段证据均保留未知、冲突和覆盖率。
-
-当前入口：[`docs/README_FRESH_2026.md`](docs/README_FRESH_2026.md)、[`final_bundle_v1`](outputs/fresh_course_experiment/final_bundle_v1/)、[`final_eda_v1`](outputs/fresh_course_experiment/final_eda_v1/)、[`REPORT_FRESH_REVIEW_DRAFT.pdf`](outputs/fresh_course_experiment/report_v1/REPORT_FRESH_REVIEW_DRAFT.pdf)、[`review_v1/index.html`](outputs/fresh_course_experiment/review_v1/index.html)。
-
-## 历史归档入口（非当前结果）
-
-| 内容 | 入口 |
+| 文件 | 内容 |
 |---|---|
-| 正式 39 条统一特征与状态 | [features_39.csv](outputs/final_analysis/features_39.csv) |
-| 开发集指标、弃权与冲突 | [evaluation.json](outputs/final_analysis/evaluation.json) |
-| 输入哈希和原始视频验证边界 | [provenance.json](outputs/final_analysis/provenance.json) |
-| EDA 图和独立重算摘要 | [EDA 目录](outputs/final_analysis/eda/) |
-| 可执行分析 Notebook | [final_analysis.ipynb](notebooks/final_analysis.ipynb) |
-| 英文方法与研究问题 | [FINAL_ANALYSIS_METHODS.md](docs/FINAL_ANALYSIS_METHODS.md) |
-| 英文报告审阅稿 | [REPORT_REVIEW_DRAFT.md](docs/REPORT_REVIEW_DRAFT.md) |
-| 提交前需要补齐的证据 | [SUBMISSION_READINESS.md](docs/SUBMISSION_READINESS.md) |
-| 真人复核空白表 | [human_review_template.csv](outputs/final_analysis/human_review_template.csv) |
-| 课程要求原文 | [课程 PDF](docs/ind5003_vision_ii_project_requirements.pdf) |
+| [报告 PDF](outputs/fresh_course_experiment/report_v1/REPORT_FRESH_REVIEW_DRAFT.pdf) / [Word](outputs/fresh_course_experiment/report_v1/REPORT_FRESH_REVIEW_DRAFT.docx) | 方法、分析和遇到的问题，目前为审阅稿 |
+| [结果表](outputs/fresh_course_experiment/final_bundle_v1/features_39.csv) | 每次罚球一行，共 39 行 |
+| [完整 JSON](outputs/fresh_course_experiment/final_bundle_v1/features_39.json) | 各模块的输出、帧号及来源记录 |
+| [逐段查看](outputs/fresh_course_experiment/review_v1/index.html) | 下载仓库后在浏览器打开，查看检测图片和对应结果 |
+| [统计图](outputs/fresh_course_experiment/final_eda_v1/) | 特征覆盖、步数比较和赛果分析 |
 
-## 本轮修复
+下面是 Kane 罚球片段的检测输出，图中保留了视频帧号，方便回看原画面。
 
-相机运动补偿在估计失败或视频解码缺口后立即断链，避免遗漏的相机位移被解释成门将移动。只保留有完整参考链的轨迹；受影响的观察窗口返回未知或空值。修复后尚未重算旧门将测量，统一表明确标记旧赛前移动结果需要重新运行。
+![Kane 罚球片段的检测输出](outputs/fresh_course_experiment/review_v1/evidence/col_eng_p02_kane_eng9_evidence.jpg)
 
-足球的最后观察点与事件结束位置现在分别保存。没有已验证事件结束时间和对应观测，就不会给出事件终点；空轨迹不会再产生 `(0, 0)` 或速度零这样的假测量。
+## 方法和当前结果
 
-正式 EDA 只接受 39 条、唯一 ID、哈希一致的结果包。旧 `data/processed/penalties_features.csv` 和历史 Notebook 保留为归档，不是本轮实证分析入口。旧合成流程 `src.pipeline` 默认禁用，只有显式 `--demo` 才能运行，并在每条记录中标注 `synthetic_demo`。
+先按罚球切片，再用 YOLO11m-pose 提取人物姿态，用 YOLO11n 和 YOLO11m 检测足球。触球时间通过球从静止到离开罚球点的观测确定，后续的步数和门将移动都围绕这个时间计算。球被挡住、人物身份有冲突或镜头切换时，脚本保留 `unknown`。
 
-最新门将方向、严格阶段高度、轮廓代理、左右脚开发候选、用户参考和自动球规则分别保存。现有赛果表和 AI 画面判断不会用于填补自动规则输出。可配置输入文件，后续新实验可以重新汇总。
+目前各项输出的覆盖情况如下。这里的次数表示脚本给出了候选结果，仍需逐段复核。
 
-主运行入口支持 `--device auto/cpu/mps/cuda:0` 和 `--ffmpeg`，记录模型及来源哈希。显式要求不可用 CUDA 会报错，不会悄悄改成 CPU。
+| 项目 | 有输出的罚球次数 |
+|---|---:|
+| 触球时间 | 33 / 39 |
+| 助跑步数 | 32 / 39 |
+| 左右触球脚 | 8 / 39 |
+| 门将触球前移动 | 29 / 39 |
+| 门将扑救方向 | 23 / 39 |
+| 球的可见轨迹 | 33 / 39 |
+| 助跑中的地面投影点 | 32 / 39 |
+| 课程指定机位类别 | 11 / 39 |
+| 转播比分板的进球／未进球结果 | 35 / 39 |
 
-## 当前实际结果
+比分板分析读取原视频里的红绿罚球图标；这 35 次输出与 FIFA 技术报告中的赛果记录一致，另有 4 次没有足够画面。它与球轨迹判断分开保存。因为这批视频已经用于调试，35/35 只说明当前样本上的一致性，不作为独立测试准确率。
 
-正式事件数是 39，来自四场点球大战：`col_eng` 10、`cro_den` 10、`esp_rus` 9、`rus_cro` 10。切片和回放不增加独立样本数。
+有几项还没做好：左右脚识别容易受到姿态模型的左右关节混淆影响；地面投影目前是稀疏点，还不是完整的俯视助跑轨迹；扑救高度只有 6 段图像平面信号，不能换算成真实高度。慢动作状态和球的最终停留位置目前都保留为未知。门将方向统一按画面左、右记录，步数只统计视频中可见的助跑部分。
 
-| 项目 | 目前可报告的事实 |
-|---|---|
-| 球的自动规则 | 20 次 `goal_likely`、6 次 `no_goal_likely`、13 次 `unknown` |
-| 与已有赛果参考对照 | 覆盖 26/39；其中一致 23/26；事件 22、25、30 冲突 |
-| 门将方向 | 36 个图像坐标候选、3 个未知；不是门将自身左右或真人准确率 |
-| 门将高度 | 严格阶段候选 0；轮廓代理 6；旧高度候选单独留存 |
-| 步数 | 39 个候选，0 个独立已验证总步数；Brozovic 一段已知助跑不完整 |
-| 左右触球脚 | 标称候选 39，但参数稳定候选仅 1；10 段已有用户参考属于方法开发样本 |
-| 地面俯视校准 | 0/39 已验证，不能把图像轨迹写成真实俯视轨迹或米制距离 |
-| 球的事件最终位置 | 0/39 已验证；末次观察单独记录 |
-| 正式机位区间 | 已恢复 197 个候选区间，覆盖 39 段；187 个课程类别未知，慢动作状态全部未知，人工核验数 0 |
+## 在本机运行
 
-赛果参考文件声称来源为 FIFA 技术报告，本轮没有逐项重新核对该 PDF。23/26 是开发数据上的参考一致率，需同时报告 26/39 覆盖率，不能写成总体准确率。10 段左右脚参考也不能外推成 39 段全部正确。三张图是本轮实际生成的：
-
-![Candidate availability](outputs/final_analysis/eda/01_candidate_coverage.png)
-
-![Step count sensitivity](outputs/final_analysis/eda/02_step_candidates.png)
-
-![Ball rules and reference outcomes](outputs/final_analysis/eda/03_ball_reference_comparison.png)
-
-## 无 GPU 的可复现分析
-
-本轮在 macOS / Python 3.13.15 上创建独立环境并验证此路线。它只使用仓库内的结构化实验记录，不需要下载模型、3.58 GB 补包或原始视频。
+查看报告、结果表和检测图片不需要 GPU。重新生成统计图可以直接使用仓库里的结果文件：
 
 ```sh
+git clone https://github.com/Gabric-cau/ind5003-vision-ii.git
+cd ind5003-vision-ii
 python3 -m venv .venv-analysis
 source .venv-analysis/bin/activate
 python -m pip install -r requirements-analysis.txt
-python -m scripts.build_final_results --output-dir outputs/my_final
-python -m src.eda_analysis --features-csv outputs/my_final/features_39.csv --output-dir outputs/my_final/eda
-python -m pytest -q tests/test_final_results.py tests/test_final_eda.py
-python -m scripts.verify_final_bundle --require-eda
+python -m src.fresh_eda \
+  --bundle-dir outputs/fresh_course_experiment/final_bundle_v1 \
+  --output-dir outputs/my_eda
 ```
 
-Windows 激活命令为 `.venv-analysis\Scripts\Activate.ps1`。每次选择新输出目录；构建器拒绝覆盖非空目录。仓库中保存的 `outputs/final_analysis/` 是本轮冻结结果。修改候选或输入后需要同时重新生成表、指标、哈希和图。
+Windows 的虚拟环境激活命令为 `.venv-analysis\Scripts\Activate.ps1`。输出目录需要为空。
 
-`configs/final_analysis.yaml` 指定各模块输入版本。若拥有原作者的同字节 rawclip，可以加入 `--raw-clips-dir data/raw_clips` 逐段校验原始视频 SHA-256；重新编码的视频不能复用旧来源验证。
-
-也可以使用主入口：
+如果要运行测试，再安装 OpenCV 和 SciPy：
 
 ```sh
-python run_project.py final-results --output-dir outputs/my_bundle
-python run_project.py eda --features-csv outputs/my_bundle/features_39.csv --output-dir outputs/my_eda
+python -m pip install -r requirements-experiments.txt
+python -m pytest -q
 ```
 
-## 模型推理和实验室 4090
+从原视频重新提取特征需要另外准备视频、模型权重和 FFmpeg。CUDA 环境记录在 [requirements-cuda.txt](requirements-cuda.txt)，各阶段的脚本位于 `scripts/run_fresh_*`；运行参数可通过 `--help` 查看。具体的特征定义和实验设置见 [实验说明](docs/FRESH_EXPERIMENT_PROTOCOL.md)。
 
-本段是历史 macOS 复现路线，不能代表当前状态。当前 39 段 source-bound 模型推理已经在实验室 `lab4090` 的 RTX 4090 上完成；模型、CUDA、源视频哈希和运行收据记录在 [`docs/LAB_RUNTIME_2026-10-12.json`](docs/LAB_RUNTIME_2026-10-12.json) 与 fresh protocol 中。下面的旧依赖说明仅用于复现历史 CPU 结构化结果。
+## 文件组织与来源
 
-先安装与实验室驱动兼容的 CUDA PyTorch、Ultralytics 和系统 FFmpeg，再恢复补包、放入来源匹配的 rawclip。原 `requirements-pycharm.txt` 是 Windows CPU 环境快照，不能直接当作已经验证的 Linux CUDA 配置。
+`src/` 放分析模块，`scripts/` 放运行脚本，`configs/` 放切片和分析配置，`tests/` 放测试。当前结果统一放在 `outputs/fresh_course_experiment/` 下，其他实验目录保留用于比较早期版本。
 
-以下命令已接通设备和路径参数；需要具备对应上游证据后才能运行：
-
-```sh
-python run_project.py check --device cuda:0 --ffmpeg /usr/bin/ffmpeg
-python run_project.py refresh-ball --device cuda:0 --ffmpeg /usr/bin/ffmpeg --output-dir outputs/ball_cuda_run
-python run_project.py steps --device cuda:0 --output-dir outputs/steps_cuda_run
-python run_project.py camera --device cuda:0 --output-dir outputs/camera_cuda_run
-python run_project.py goalkeeper --device cuda:0 --ffmpeg /usr/bin/ffmpeg --output-dir outputs/keeper_cuda_run
-```
-
-`refresh-ball` 只更新门前短窗口足球检测，仍使用已有球门、镜头、种子和轨迹输入。`goalkeeper` 是首次扑救阶段与高度实验，也依赖已有角色和方向结果。它们不代表从零重算所有历史实验。原基础门将稳定器的重算入口是 `python -m scripts.run_goalkeeper_analysis --help`，须提供真实视频、跟踪和触球证据。
-
-4090 优先用于重算修复后的运动补偿、比较更大姿态模型、球身份与首次扑救窗口。提分更关键的是完整事件范围、正确坐标定义、独立复核、失败分析和报告证据，增加 GPU 算力不会自动解决这些问题。
-
-## 可选原项目补包
-
-本仓库不复制缺失的 LFS 大对象。原提交历史保留，但当前检出无需 Git LFS。正式机位 CSV/JSON 已通过 HTTP Range 从固定 Release 取回，哈希与原清单一致，见 [获取记录](docs/camera_asset_recovery.json)。模型及其余历史资产仍需补包，原视频不在补包里。
-
-```sh
-python -m scripts.fetch_support_assets
-python -m scripts.fetch_support_assets --download
-python restore_project_files.py
-```
-
-第一条只列出大小与哈希；第二条下载约 3.58 GB 并核对 SHA-256；恢复约 4.69 GB 内容，建议额外预留至少 10 GB。Release 固定为 [v2026.10.11-assets](https://github.com/RX422040/vision-ii-penalty-analysis/releases/tag/v2026.10.11-assets)。还原器拒绝覆盖不同内容的现有文件。rawclip 需另外取得并放入 `data/raw_clips/`。
-
-原项目的实验报告和历史 Notebook 可用于追溯方法，部分需要此补包或原 Windows 路径迁移。当前正式 EDA 使用本 README 指定的新入口。
-
-## 学术与交付边界
-
-保存候选、测试通过、代码能执行、赛果一致和真人视觉验证是不同证据。复核模板当前为空，不是已完成的人工标注；人工补写最终字段不能冒充自动特征提取成功。学生需要理解并验证最终代码、报告和视频，按课程要求说明原小组工作、外部库、文献及 AI 辅助。
-
-本仓库是开发与审阅材料，尚未提交课程作业。英文报告提供 [PDF 审阅稿](docs/REPORT_REVIEW_DRAFT.pdf) 和 [Word 审阅稿](docs/REPORT_REVIEW_DRAFT.docx)，仍需小组核查测量、贡献与最终内容，并制作真人配音视频。排版脚本为 `scripts/render_report_draft.py`，可选依赖见 `requirements-report.txt`。
+原小组仓库：[RX422040/vision-ii-penalty-analysis](https://github.com/RX422040/vision-ii-penalty-analysis)。这里保留了原提交历史，后续修改主要涉及触球时间、足球跟踪、相机运动补偿、地面标定、比分板分析和结果整理。代码与文档更新使用了 AI 辅助。
