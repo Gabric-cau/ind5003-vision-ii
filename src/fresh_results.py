@@ -2,6 +2,7 @@
 from collections import Counter
 import csv
 import json
+import math
 from pathlib import Path
 
 from src.final_results import sha256
@@ -19,6 +20,18 @@ def read_json(path):
 
 def write_json(path, value):
     Path(path).write_text(json.dumps(value, indent=2, allow_nan=False) + "\n", encoding="utf-8")
+
+
+def contact_timing_audit(contact, source):
+    frame, stored = contact.get("contact_frame"), contact.get("contact_time_sec")
+    clip_time = frame / source["fps"] if frame is not None else None
+    source_time = ((source["source_start_frame"] + frame) / source["fps"]
+                   if frame is not None and source.get("source_start_frame") is not None else None)
+    consistent = math.isclose(stored, clip_time, rel_tol=0, abs_tol=1e-9) if stored is not None and clip_time is not None else None
+    return {"candidate_frame": frame, "candidate_clip_time_sec": clip_time,
+            "candidate_source_time_sec": source_time, "producer_stored_time_sec": stored,
+            "producer_time_matches_final_frame": consistent, "time_basis": "final_candidate_frame_and_source_fps",
+            "producer_artifact_modified": False}
 
 
 def bind_stage(stage, data, source, pose_hash, manifest_hash):
@@ -49,8 +62,17 @@ def bind_stage(stage, data, source, pose_hash, manifest_hash):
         raise ValueError(f"{stage}: prediction must not depend on outcome references")
     if stage == "endpoint" and (data.get("final_position") is not None or data.get("final_position_verified") is True):
         raise ValueError("An automatic endpoint candidate cannot verify an event-final position")
-    if stage == "height" and data.get("physical_height_metres") is not None:
-        raise ValueError("Image-plane keeper evidence cannot establish physical height")
+    if stage == "height":
+        if data.get("physical_height_metres") is not None:
+            raise ValueError("Image-plane keeper evidence cannot establish physical height")
+        signal = data.get("observed_image_plane_signal") or {}
+        if signal.get("reference_depth_assumption_failed") is True and (
+                signal.get("candidate") != "unknown" or signal.get("supported") is not False
+                or data.get("observed_image_plane_height_candidate") != "unknown"):
+            raise ValueError("Invalid height reference cannot support an observed category")
+    if stage == "foot" and data.get("schema_version") == "fresh-foot-pose33-fusion-v1":
+        from src.shoe_pose33_fusion import validate_fused_foot
+        validate_fused_foot(data, source, pose_hash, manifest_hash)
     return data
 
 
@@ -81,6 +103,9 @@ def compact_stage(stage, data):
     result = {key: data[key] for key in fields[stage] if key in data}
     result.update(status=data.get("status", "completed_candidate_experiment"), reason=data.get("reason"),
                   human_verified=False, accuracy_validated=False)
+    if stage == "ball":
+        contact = (data.get("independent_contact_search") or {}).get("selected_candidate") or {}
+        result["contact_timing_audit"] = contact_timing_audit(contact, data["source_mapping"])
     if stage == "camera":
         result["segments"] = [{key: segment[key] for key in (
             "start_frame", "end_frame_exclusive", "start_sec", "end_sec_exclusive", "view_candidate",
@@ -104,6 +129,7 @@ def feature_row(source, stages, reference):
     pose, ball, foot, phase, pitch, camera, endpoint, height, scoreboard = (stages.get(name) or {} for name in STAGE_PATHS)
     search = ball.get("independent_contact_search") or {}
     contact = search.get("selected_candidate") or {}
+    clock = contact_timing_audit(contact, source)
     keeper = ball.get("keeper") or {}
     segments = camera.get("segments") or []
     counts = [row["approach_candidates_including_precontact_strike_window"]
@@ -119,6 +145,9 @@ def feature_row(source, stages, reference):
             "source_fps": source["fps"],
             "pose_actor_baseline": pose.get("selected_track_id"), "pose_peak_frame_baseline": pose.get("kick_frame"),
             "contact_frame_candidate": contact.get("contact_frame"),
+            "contact_time_clip_sec_candidate": clock["candidate_clip_time_sec"],
+            "contact_time_source_sec_candidate": clock["candidate_source_time_sec"],
+            "contact_producer_time_consistent": clock["producer_time_matches_final_frame"],
             "contact_actor_candidate": contact.get("contact_associated_track_id"),
             "contact_status": search.get("status", "not_run"),
             "contact_actor_reselected": (contact["contact_associated_track_id"] != pose.get("selected_track_id")) if contact else None,
@@ -238,6 +267,11 @@ def build_bundle(source_manifest, audit_path, stage_dirs, output_dir):
             path = Path(directory) / pattern.format(clip_id=cid)
             data = read_json(path)
             stages[stage] = bind_stage(stage, data, source_record, pose_hash, manifest_hash)
+            if stage == "foot" and data.get("schema_version") == "fresh-foot-pose33-fusion-v1":
+                from src.shoe_pose33_fusion import validate_fused_ball_contract
+                if "ball" not in stages:
+                    raise ValueError("Foot fusion needs the bound ball stage in the same bundle")
+                validate_fused_ball_contract(data, stages["ball"])
             digest = sha256(path)
             if stage == "pose":
                 pose_hash = digest

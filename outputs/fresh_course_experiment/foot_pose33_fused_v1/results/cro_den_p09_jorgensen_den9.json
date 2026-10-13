@@ -1,0 +1,143 @@
+{
+  "schema_version": "fresh-foot-pose33-fusion-v1",
+  "clip_id": "cro_den_p09_jorgensen_den9",
+  "source_mapping": {
+    "clip_id": "cro_den_p09_jorgensen_den9",
+    "match_id": "cro_den",
+    "event_id": 19,
+    "kicker": "jorgensen_den9",
+    "team": "DEN",
+    "penalty_number": 9,
+    "slice_start_sec": 715.0,
+    "slice_end_sec": 738.0,
+    "source_filename": "cro_den_pen.mp4",
+    "source_video_sha256": "94895b92c5a1aa20a282ed405101fd1d1917463aa8fa446dfeda6ec83aea2572",
+    "fps": 30.0,
+    "source_start_frame": 21270,
+    "source_end_frame_exclusive": 22380,
+    "frame_count": 1110,
+    "original_slice_start_frame_in_clip": 180,
+    "original_slice_end_frame_in_clip": 870,
+    "semantic_event_start_verified": false,
+    "semantic_event_end_verified": false,
+    "context_is_not_event_boundary_ground_truth": true,
+    "clip_sha256": "2eaaecccc5c33a8cfc1d4207b7461abbbfe124c8cb087bdfb9d5aa94214e527a",
+    "clip_bytes": 20090750,
+    "clip_filename": "cro_den_p09_jorgensen_den9.mp4"
+  },
+  "kicking_foot_candidate": "right",
+  "status": "completed_conservative_foot_fusion",
+  "reason": "v2_retained_shoe_unavailable_or_abstained",
+  "new_neural_inference": false,
+  "human_verified": false,
+  "accuracy_validated": false,
+  "held_out_test": false,
+  "reference_labels_used_for_prediction": false,
+  "shoe_ball_contact_verified": false,
+  "inference_identity": {
+    "source_sha256": "2eaaecccc5c33a8cfc1d4207b7461abbbfe124c8cb087bdfb9d5aa94214e527a",
+    "pose_sha256": "771a46584d753dd5e6e21c3405d65ab817fe5695da6794c658c0d21a8b1cdf00",
+    "source_manifest_sha256": "1affeb149a6fffea0a4b1814ec7b10be0c75ec8c0f2e6428cc920e62d325a38c",
+    "code_sha256": {
+      "src/shoe_pose33_fusion.py": "b9014a644b5dc76756939382b932f8a0cea3299c8943b09eea6be7fe2c66236b",
+      "scripts/replay_fresh_foot_pose33_fusion.py": "4545e3fe84c681b7526e9926600cd550303632113840c08dd9874d3e89cc6b62",
+      "src/fresh_results.py": "9bae58c02fe5700804adf3aaabfe4f3eaf55d5edd443c33462dc22322d8f0569",
+      "docs/SHOE_POSE33_FUSION_PROTOCOL_2026-10-13.md": "315b38f22210223d49eb1d5899c1b84a78069fecb47cb56dfc2383a29b5f2b04"
+    }
+  },
+  "temporal_evidence": {
+    "schema_version": "fresh-foot-pose33-fusion-v1",
+    "v2_candidate": "right",
+    "shoe_region_candidate": "unknown",
+    "shoe_swing_diagnostic_candidate": "unknown",
+    "selection_reason": "v2_retained_shoe_unavailable_or_abstained",
+    "joint_shoe_region_frames": [],
+    "producer_bindings": {
+      "v2_result": {
+        "path": "outputs/fresh_course_experiment/foot_v2_selected/results/cro_den_p09_jorgensen_den9.json",
+        "sha256": "e85b2b4250a474bbf78a2aafca3b14e6b0b2c02b6593855ddb0f3beb155b367b"
+      },
+      "original_neural_result": {
+        "path": "outputs/fresh_course_experiment/foot_v1_selected/results/cro_den_p09_jorgensen_den9.json",
+        "sha256": "8dff7aa04fa5b9f44e02b657c907deba242456c462a7e1d1e832c361ed04bf9e"
+      },
+      "pose": {
+        "path": "outputs/fresh_course_experiment/pose_v7/cro_den_p09_jorgensen_den9.json",
+        "sha256": "771a46584d753dd5e6e21c3405d65ab817fe5695da6794c658c0d21a8b1cdf00"
+      },
+      "source_manifest": {
+        "path": "data/course_context_clips_2026-10-12/source_manifest.json",
+        "sha256": "1affeb149a6fffea0a4b1814ec7b10be0c75ec8c0f2e6428cc920e62d325a38c"
+      },
+      "shoe_cohort_protocol": {
+        "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/protocol.json",
+        "sha256": "469d2eab71ccd2908ab88cf6138f6a847d0d4e777da4594d9394b43cc921e8e1"
+      },
+      "shoe_cohort_summary": {
+        "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/summary.json",
+        "sha256": "49495ae69bca4aca32a6e934e910a3f270b235b9ada7353eee9029f6e4c92272"
+      },
+      "shoe_result": {
+        "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/cro_den_p09_jorgensen_den9/result.json",
+        "sha256": "412d6ef07ea9893f793eb5c268a463e3c339684ce8d625d7c66335fd99e8fb3c"
+      },
+      "shoe_protocol": {
+        "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/cro_den_p09_jorgensen_den9/protocol.json",
+        "sha256": "9e61dc7c602fbaea53f0a8c0b57e8729ab7dcf6d3bb4747f49359f4b5264b186"
+      },
+      "shoe_poses33": {
+        "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/cro_den_p09_jorgensen_den9/poses33.json",
+        "sha256": "3276bc000f63685f280d98caf323f8f7c7b0cb9eb17ff647fc9b1103ba962bfc"
+      },
+      "shoe_roi_plan": {
+        "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/cro_den_p09_jorgensen_den9/roi_plan.json",
+        "sha256": "cb8f06a39381c38b43b74b02071bac1581ed442eb5250f80b963f14788c55b6e"
+      },
+      "roi_cache": {
+        "path": "outputs/fresh_course_experiment/foot_v1_selected/poses/cro_den_p09_jorgensen_den9.json",
+        "sha256": "4e73b0297586b545597f482cc5457ee3fe74c327963f5e955c88d24cf17083c3"
+      },
+      "contact": {
+        "path": "outputs/fresh_course_experiment/ball_selected_v1/contacts/cro_den_p09_jorgensen_den9.json",
+        "sha256": "088e71ccedeb375829ee52003938effa05af6a74e24ca7ea35adfc32e669daea"
+      },
+      "shoe_code_snapshot": {
+        "scripts/run_fresh_shoe_pose_experiment.py": {
+          "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/cro_den_p09_jorgensen_den9/source_snapshot/scripts/run_fresh_shoe_pose_experiment.py",
+          "sha256": "0216a8c08948a50a74f3329ae3326a232057724619d0c7f33175a75e467adef8"
+        },
+        "src/mediapipe_shoe_evidence.py": {
+          "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/cro_den_p09_jorgensen_den9/source_snapshot/src/mediapipe_shoe_evidence.py",
+          "sha256": "fab407e46408ae3f1e3f92373c143dc64eb103bdbe7458f1eb1abc156f043974"
+        },
+        "src/kicking_foot_strike_window.py": {
+          "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/cro_den_p09_jorgensen_den9/source_snapshot/src/kicking_foot_strike_window.py",
+          "sha256": "2d10454afef9df862baa00eea79692756926f2368a10ca4af8c18df09310fd15"
+        },
+        "src/kicking_foot_evidence.py": {
+          "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/cro_den_p09_jorgensen_den9/source_snapshot/src/kicking_foot_evidence.py",
+          "sha256": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52"
+        },
+        "src/kicking_foot_evidence_v2.py": {
+          "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/cro_den_p09_jorgensen_den9/source_snapshot/src/kicking_foot_evidence_v2.py",
+          "sha256": "7c8ad16ec2f72c1f00024fa3b7eccd1caaa584eea163bc42eeeb88c2d29fe0b7"
+        },
+        "scripts/run_fresh_foot_experiment.py": {
+          "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/cro_den_p09_jorgensen_den9/source_snapshot/scripts/run_fresh_foot_experiment.py",
+          "sha256": "a08fb4aa6182ac3fa37b31c9eee13d5c2c6a032d7451d65277bac18539fefef9"
+        },
+        "src/pose_refinement.py": {
+          "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/cro_den_p09_jorgensen_den9/source_snapshot/src/pose_refinement.py",
+          "sha256": "d71da9d1d116b3d777357b5104436c9b2999a67b005956d12d6e255d1422683a"
+        },
+        "requirements-pose33.txt": {
+          "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/cro_den_p09_jorgensen_den9/source_snapshot/requirements-pose33.txt",
+          "sha256": "3cc30cb96c2ebe38e5217fc9cfe039589dfb056c523d52c5af61a78a9e74eb87"
+        }
+      }
+    },
+    "shoe_ball_contact_verified": false,
+    "anatomical_side_verified": false,
+    "narrow_strike_window_diagnostic_used_as_vote": false
+  }
+}

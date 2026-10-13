@@ -239,6 +239,22 @@ class FreshEventAnalysisTest(unittest.TestCase):
             self.assertEqual(proposal['contact_timing_status'], 'unknown')
             self.assertIsNone(proposal['contact_bracket_frames'])
 
+    def test_rebounded_contact_time_uses_final_candidate_frame_and_source_fps(self):
+        for fps in (50., 30000/1001):
+            with self.subTest(fps=fps):
+                proposal = {'contact_frame': 205, 'contact_time_sec': 205/fps,
+                            'stationary_ball_observations': [
+                                {'frame': f, 'detection_id': str(f)} for f in (211, 212, 213)]}
+                moving = [{'frame': f, 'detection_id': str(f)} for f in (217, 218)]
+                fresh.canonicalize_contact_timing(proposal,
+                    {'release_frame_prediction': 216.4, 'moving_observations': moving}, moving, fps)
+                self.assertEqual(proposal['contact_bracket_frames'], [213, 217])
+                self.assertEqual(proposal['contact_frame'], 215)
+                self.assertAlmostEqual(proposal['contact_time_sec'], 215/fps, places=12)
+                self.assertEqual(proposal['scored_ankle_proximity_frame'], 205)
+                self.assertEqual(proposal['scored_ankle_proximity_time_sec'], 205/fps)
+                self.assertNotEqual(proposal['contact_time_sec'], proposal['scored_ankle_proximity_time_sec'])
+
     def test_continuity_seed_cannot_switch_to_another_nearby_ball_detection(self):
         frames = {fid: np.full((80, 120, 3), 255, np.uint8) for fid in range(3)}
         detections = {str(fid): [

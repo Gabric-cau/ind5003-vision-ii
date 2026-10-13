@@ -1,0 +1,5433 @@
+{
+  "clip_id": "col_eng_p03_cuadrado_col11",
+  "fps": 50.0,
+  "source_mapping": {
+    "clip_id": "col_eng_p03_cuadrado_col11",
+    "match_id": "col_eng",
+    "event_id": 3,
+    "kicker": "cuadrado_col11",
+    "team": "COL",
+    "penalty_number": 3,
+    "slice_start_sec": 136.0,
+    "slice_end_sec": 144.0,
+    "source_filename": "NtvUzy00DuU.mp4",
+    "source_video_sha256": "6075b0d85ce05bc01880a395fea9e61e502ad20ab766cb4c34761cfa77f4b0f3",
+    "source_url": "https://www.youtube.com/watch?v=NtvUzy00DuU",
+    "source_title": "Colombia v England: Full Penalty Shoot-out | 2018 #FIFAWorldCup Round of 16",
+    "source_origin": "public_official_FIFA_alternate_edit",
+    "fps": 50.0,
+    "width": 1920,
+    "height": 1080,
+    "source_start_frame": 6800,
+    "source_end_frame_exclusive": 7200,
+    "frame_count": 400,
+    "original_slice_start_frame_in_clip": 0,
+    "original_slice_end_frame_in_clip": 400,
+    "semantic_event_start_verified": false,
+    "semantic_event_end_verified": false,
+    "context_is_not_event_boundary_ground_truth": true,
+    "interval_basis": "Manual visual inspection of source-video keyframe sheets sampled every 2 seconds. These are coarse experiment intervals, not annotated contact truth or automatic predictions.",
+    "clip_sha256": "4efeecb28d05c4d699c17621d95ed0ce387d3cd2c71a1e9828702e89b8ee5bde",
+    "clip_bytes": 29423898,
+    "clip_filename": "col_eng_p03_cuadrado_col11.mp4",
+    "ffmpeg_command_portable_paths": [
+      "FFMPEG",
+      "-hide_banner",
+      "-loglevel",
+      "error",
+      "-nostdin",
+      "-n",
+      "-ss",
+      "136.0",
+      "-i",
+      "NtvUzy00DuU.mp4",
+      "-frames:v",
+      "400",
+      "-an",
+      "-c:v",
+      "libx264",
+      "-preset",
+      "fast",
+      "-crf",
+      "10",
+      "-pix_fmt",
+      "yuv420p",
+      "-threads",
+      "2",
+      "-fps_mode",
+      "passthrough",
+      "-movflags",
+      "+faststart",
+      "col_eng_p03_cuadrado_col11.mp4"
+    ],
+    "reencoded": true,
+    "decoded_pixel_identity_verified": false,
+    "contact_truth_annotated": false,
+    "accuracy_validated": false,
+    "endpoint_frame_comparisons": [
+      {
+        "source_frame": 6800,
+        "pixel_mean_absolute_error_8bit": 0.5885712504386902,
+        "psnr_db": 47.1373973946133,
+        "decoded_pixels_identical": false
+      },
+      {
+        "source_frame": 7199,
+        "pixel_mean_absolute_error_8bit": 1.209196925163269,
+        "psnr_db": 42.273443027074464,
+        "decoded_pixels_identical": false
+      }
+    ]
+  },
+  "source_sha256": "4efeecb28d05c4d699c17621d95ed0ce387d3cd2c71a1e9828702e89b8ee5bde",
+  "pose_sha256": "ca3b2d3e028227409a9bb082440cad52121116f71d5fd3083012c3971f4dd7c2",
+  "inference_identity": {
+    "source_sha256": "4efeecb28d05c4d699c17621d95ed0ce387d3cd2c71a1e9828702e89b8ee5bde",
+    "pose_sha256": "ca3b2d3e028227409a9bb082440cad52121116f71d5fd3083012c3971f4dd7c2",
+    "model_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+    "source_manifest_sha256": "76e3250f328c226119ca27939e4f1ba710b870df5f3b26143ccb81a630420c4e",
+    "settings": {
+      "imgsz": 1280,
+      "batch_size": 4,
+      "device": "cuda:0",
+      "confidence": 0.01,
+      "pre_sec": 0.45,
+      "post_sec": 1.5
+    },
+    "code_sha256": {
+      "scripts/run_fresh_ball_experiment.py": "e4c53e8b5f4d15595d57cc68a8fd041bf0f71fd227b113a1d5108b614446bdfe",
+      "src/fresh_event_analysis.py": "d3d5cfdc9d30c58d775f8bed420078da46d3ed172558213cb0f71c993b9f2d9c",
+      "src/ball_pipeline.py": "fe3e275be906bb394dcb06659fb21329c8ecabbde854dd4fd80a8663831f754e",
+      "src/ball_continuity_v4.py": "031afb3a9eb38d78aedf27a3d8ad684a56e4afd1b333d048ce1ef94ba1f727e4",
+      "src/ball_continuity.py": "cf68ed587de4651adefc71a28c084aaaa64889dd3c685d14b593f58a715d6d4c",
+      "src/ball_direction_corridor.py": "48039049b823d90d8f36ab00017f7db1767531d0738c4ffefcbd05d85bb6bae5",
+      "src/ball_mask_seed.py": "1c0b4a4902e3871a6a5bf2e8c2de3cee0f4f47159b4273aea7700a7f2a4e65a3",
+      "src/ball_shot_focus.py": "57ffa5a2af205d2d61edb7fd8e1090a9aece6b9be3626dac27539f489fe12639",
+      "src/ball_keeper_rebound.py": "9cb73212dbd7590ffd2c6a46b05767b2ebccc4b5a920fa1adc5cd7c200d33f2d",
+      "src/ball_goal_decision.py": "fbcb05e9b8cbef824ed5be6bce245882697889a0252feefc6692a196cd717660",
+      "src/event_ball_tracking.py": "8275efcf15a572dc81cbbc5495bdce2c831ab00f2d3c2de83e3a83a7b3d1c030",
+      "src/goal_event_tracker_v2.py": "b5eab5934d3118daea2f991deb7fc4ae49e28aa4c079f5179e24b0e28983cf28",
+      "src/goal_plane_rectification.py": "441f7322622d574bbec4b113844b2829a7013a095134b50131c9331255870a27",
+      "src/goal_geometry.py": "c8e92d02f23f87b7f928d93ead2392cd677d14b345a17dd1e56472570931d8b1",
+      "src/motion_stabilization.py": "04a4783b5c91b9a2b29d97715a557f82c0900e5faea586d4d8cb0b80cdb24d01",
+      "src/goalkeeper_pipeline.py": "ee865f687d07401f01e2feaa3a03b30f7b9b87081293a72f93498c86968242ff",
+      "src/goalkeeper_analysis.py": "b18e38b1e8ffb78ab9cd1f08a782b9c5a44dbda580e2d55190e05426c23f0c33",
+      "src/goalkeeper_role_association.py": "a2c2986346f34c478b8dd659fad356cd59d9be47f2e87e66179008c15a7a05bd",
+      "src/goalkeeper_observation_guard.py": "165731a8aa486079b000bc3add83518180015ed32369619e81646ec016458220",
+      "src/goalkeeper_direction_evidence.py": "c657e31bbd7bebe98e829ce80c266ed8eb435196c67f57a8d2cdcaa9defb326c",
+      "src/goalkeeper_pose_direction.py": "a4ba39a89d6023f8bcdd2b6c36fc4273d5487287e5527c5229d9acbaddc08e10",
+      "src/person_appearance.py": "71376c1574fbf0db60f6d2bb7a8494a1d7e4256c17b6d1e35a8807245a6ef2df",
+      "src/field_masks.py": "0d16f5f4e6f686e6cb76b285e523dcab1848337cb63832f17a67fe35352f12af",
+      "src/kick_contact.py": "501f531eb46d9f598ec031def30331e739217a2009b6cf553927a3ee320dcfb4",
+      "scripts/probe_goal_event_tracking.py": "04a4e57655eb745472da3fa01c7ad00aae8072ad084d511d846982b4063046f8",
+      "scripts/run_ball_continuity_probe.py": "b3adb8a436cec002e08b12b6418bacb31e9c756c88c553bdeba77e5b692d6b33",
+      "scripts/run_ball_shot_focus_review.py": "7fc9984a41ad121b85aadd384cff9e90a2d12a213e7ef9571d35b3e6ba1b4198",
+      "scripts/review_ball_keeper_rebound.py": "08789169154f67cb7bd3583c6a3d5dcdbcb8b1e7b8f9105c59663426d8371980",
+      "scripts/detect_all_ball_goals.py": "fc944e1ccb7fda4a0013b124a46d916c5651be23fe921ec639b2ceef8ddd8b2d",
+      "src/runtime.py": "945db55a6449012c4ebad88e630378fa2da4f586b9d701fdb18b1977646c5dfb"
+    }
+  },
+  "contact": null,
+  "independent_contact_search": {
+    "status": "abstain",
+    "reason": null,
+    "policy": "global_onfield_actor_stationary_ball_causal_first_departure",
+    "eligible_actor_ids": [
+      4,
+      6,
+      7,
+      8,
+      12,
+      46,
+      49,
+      50,
+      54,
+      60,
+      61,
+      69,
+      70
+    ],
+    "goal_line_excluded_actor_ids": [
+      3
+    ],
+    "actor_score_margin_required": 0.08,
+    "actor_identity_ambiguous": false,
+    "distinct_actor_candidates": [],
+    "pose_kick_proposal_for_comparison_only": 287,
+    "full_selected_shot_search": [
+      0,
+      400
+    ],
+    "ranked_candidates": [
+      {
+        "contact_frame": 302,
+        "contact_time_sec": 6.04,
+        "interval_frames": [
+          297,
+          314
+        ],
+        "interval_kind": "heuristic_candidate_window_not_statistical_confidence_interval",
+        "score": 0.9265,
+        "ankle_ball_distance_px": 6.692646123416231,
+        "ankle_ball_distance_body_heights": 0.03289418767202008,
+        "stationary_ball_samples": 72,
+        "stationary_ball_first_frame": 239,
+        "stationary_ball_last_frame": 311,
+        "last_stationary_near_contact_frame": 303,
+        "stationary_ball_reference_xy": [
+          1492.5658200785901,
+          684.96716165409
+        ],
+        "ball_departure_frames": [
+          313,
+          315
+        ],
+        "stationary_ball_observations": [
+          {
+            "frame": 239,
+            "xy": [
+              1486.663,
+              687.849
+            ],
+            "confidence": 0.652501,
+            "diameter": 26.139,
+            "detection_id": "239:0",
+            "bbox": [
+              1473.249,
+              675.124,
+              1500.077,
+              700.5740000000001
+            ]
+          },
+          {
+            "frame": 240,
+            "xy": [
+              1487.326,
+              687.877
+            ],
+            "confidence": 0.696797,
+            "diameter": 26.0865,
+            "detection_id": "240:0",
+            "bbox": [
+              1473.8505,
+              675.266,
+              1500.8015,
+              700.4879999999999
+            ]
+          },
+          {
+            "frame": 241,
+            "xy": [
+              1488.283,
+              687.996
+            ],
+            "confidence": 0.641267,
+            "diameter": 25.4875,
+            "detection_id": "241:0",
+            "bbox": [
+              1475.1625,
+              675.629,
+              1501.4035,
+              700.3629999999999
+            ]
+          },
+          {
+            "frame": 242,
+            "xy": [
+              1489.207,
+              688.124
+            ],
+            "confidence": 0.571867,
+            "diameter": 24.7235,
+            "detection_id": "242:0",
+            "bbox": [
+              1476.553,
+              676.0545000000001,
+              1501.861,
+              700.1935
+            ]
+          },
+          {
+            "frame": 243,
+            "xy": [
+              1489.955,
+              688.171
+            ],
+            "confidence": 0.623131,
+            "diameter": 25.5675,
+            "detection_id": "243:0",
+            "bbox": [
+              1476.9945,
+              675.5640000000001,
+              1502.9154999999998,
+              700.778
+            ]
+          },
+          {
+            "frame": 244,
+            "xy": [
+              1491.031,
+              688.011
+            ],
+            "confidence": 0.725822,
+            "diameter": 25.506,
+            "detection_id": "244:0",
+            "bbox": [
+              1478.142,
+              675.394,
+              1503.9199999999998,
+              700.6279999999999
+            ]
+          },
+          {
+            "frame": 245,
+            "xy": [
+              1492.007,
+              688.118
+            ],
+            "confidence": 0.703981,
+            "diameter": 25.653,
+            "detection_id": "245:0",
+            "bbox": [
+              1479.1490000000001,
+              675.3230000000001,
+              1504.865,
+              700.913
+            ]
+          },
+          {
+            "frame": 246,
+            "xy": [
+              1493.161,
+              688.254
+            ],
+            "confidence": 0.563305,
+            "diameter": 25.8555,
+            "detection_id": "246:0",
+            "bbox": [
+              1479.983,
+              675.5765,
+              1506.3390000000002,
+              700.9315
+            ]
+          },
+          {
+            "frame": 247,
+            "xy": [
+              1494.078,
+              688.645
+            ],
+            "confidence": 0.455065,
+            "diameter": 25.974,
+            "detection_id": "247:0",
+            "bbox": [
+              1480.6585,
+              676.0905,
+              1507.4975,
+              701.1995
+            ]
+          },
+          {
+            "frame": 248,
+            "xy": [
+              1495.086,
+              689.0
+            ],
+            "confidence": 0.590086,
+            "diameter": 25.7095,
+            "detection_id": "248:0",
+            "bbox": [
+              1481.836,
+              676.5405,
+              1508.336,
+              701.4595
+            ]
+          },
+          {
+            "frame": 249,
+            "xy": [
+              1496.288,
+              689.532
+            ],
+            "confidence": 0.696298,
+            "diameter": 26.231,
+            "detection_id": "249:0",
+            "bbox": [
+              1482.5165,
+              677.0725,
+              1510.0595,
+              701.9915000000001
+            ]
+          },
+          {
+            "frame": 250,
+            "xy": [
+              1497.035,
+              689.566
+            ],
+            "confidence": 0.708815,
+            "diameter": 26.3265,
+            "detection_id": "250:0",
+            "bbox": [
+              1483.3575,
+              676.917,
+              1510.7125,
+              702.215
+            ]
+          },
+          {
+            "frame": 251,
+            "xy": [
+              1498.243,
+              690.037
+            ],
+            "confidence": 0.709237,
+            "diameter": 25.685000000000002,
+            "detection_id": "251:0",
+            "bbox": [
+              1484.8664999999999,
+              677.7285,
+              1511.6195,
+              702.3455
+            ]
+          },
+          {
+            "frame": 252,
+            "xy": [
+              1499.444,
+              690.332
+            ],
+            "confidence": 0.743088,
+            "diameter": 25.2755,
+            "detection_id": "252:0",
+            "bbox": [
+              1486.4455,
+              678.055,
+              1512.4424999999999,
+              702.609
+            ]
+          },
+          {
+            "frame": 253,
+            "xy": [
+              1501.156,
+              690.01
+            ],
+            "confidence": 0.695222,
+            "diameter": 25.5485,
+            "detection_id": "253:0",
+            "bbox": [
+              1488.0059999999999,
+              677.6115,
+              1514.306,
+              702.4085
+            ]
+          },
+          {
+            "frame": 254,
+            "xy": [
+              1502.447,
+              689.764
+            ],
+            "confidence": 0.702534,
+            "diameter": 25.0645,
+            "detection_id": "254:0",
+            "bbox": [
+              1489.4969999999998,
+              677.6495,
+              1515.397,
+              701.8785
+            ]
+          },
+          {
+            "frame": 255,
+            "xy": [
+              1503.432,
+              690.033
+            ],
+            "confidence": 0.540337,
+            "diameter": 25.7285,
+            "detection_id": "255:0",
+            "bbox": [
+              1489.831,
+              677.9055,
+              1517.0330000000001,
+              702.1605000000001
+            ]
+          },
+          {
+            "frame": 256,
+            "xy": [
+              1504.93,
+              690.481
+            ],
+            "confidence": 0.65332,
+            "diameter": 25.609,
+            "detection_id": "256:0",
+            "bbox": [
+              1491.7375,
+              678.0645,
+              1518.1225000000002,
+              702.8975
+            ]
+          },
+          {
+            "frame": 257,
+            "xy": [
+              1506.386,
+              690.878
+            ],
+            "confidence": 0.700553,
+            "diameter": 25.826,
+            "detection_id": "257:0",
+            "bbox": [
+              1493.1535,
+              678.2845000000001,
+              1519.6185,
+              703.4715
+            ]
+          },
+          {
+            "frame": 258,
+            "xy": [
+              1507.778,
+              691.529
+            ],
+            "confidence": 0.495536,
+            "diameter": 26.331000000000003,
+            "detection_id": "258:0",
+            "bbox": [
+              1494.42,
+              678.556,
+              1521.136,
+              704.502
+            ]
+          },
+          {
+            "frame": 259,
+            "xy": [
+              1509.264,
+              691.479
+            ],
+            "confidence": 0.605939,
+            "diameter": 25.822499999999998,
+            "detection_id": "259:0",
+            "bbox": [
+              1496.0984999999998,
+              678.822,
+              1522.4295,
+              704.1360000000001
+            ]
+          },
+          {
+            "frame": 260,
+            "xy": [
+              1511.051,
+              691.624
+            ],
+            "confidence": 0.72159,
+            "diameter": 25.6765,
+            "detection_id": "260:0",
+            "bbox": [
+              1498.0504999999998,
+              678.948,
+              1524.0515,
+              704.3000000000001
+            ]
+          },
+          {
+            "frame": 261,
+            "xy": [
+              1512.408,
+              692.135
+            ],
+            "confidence": 0.73777,
+            "diameter": 25.889,
+            "detection_id": "261:0",
+            "bbox": [
+              1499.4185,
+              679.2355,
+              1525.3974999999998,
+              705.0345
+            ]
+          },
+          {
+            "frame": 262,
+            "xy": [
+              1514.18,
+              691.918
+            ],
+            "confidence": 0.620231,
+            "diameter": 26.0535,
+            "detection_id": "262:0",
+            "bbox": [
+              1500.8895,
+              679.155,
+              1527.4705000000001,
+              704.681
+            ]
+          },
+          {
+            "frame": 263,
+            "xy": [
+              1515.707,
+              692.335
+            ],
+            "confidence": 0.717031,
+            "diameter": 26.209,
+            "detection_id": "263:0",
+            "bbox": [
+              1502.2275000000002,
+              679.6055,
+              1529.1865,
+              705.0645000000001
+            ]
+          },
+          {
+            "frame": 264,
+            "xy": [
+              1517.09,
+              692.917
+            ],
+            "confidence": 0.777109,
+            "diameter": 26.2815,
+            "detection_id": "264:0",
+            "bbox": [
+              1503.638,
+              680.0875,
+              1530.542,
+              705.7465000000001
+            ]
+          },
+          {
+            "frame": 265,
+            "xy": [
+              1518.357,
+              692.934
+            ],
+            "confidence": 0.528748,
+            "diameter": 25.8705,
+            "detection_id": "265:0",
+            "bbox": [
+              1505.0255,
+              680.395,
+              1531.6885,
+              705.473
+            ]
+          },
+          {
+            "frame": 266,
+            "xy": [
+              1520.162,
+              693.324
+            ],
+            "confidence": 0.676264,
+            "diameter": 25.575,
+            "detection_id": "266:0",
+            "bbox": [
+              1507.1770000000001,
+              680.7339999999999,
+              1533.147,
+              705.914
+            ]
+          },
+          {
+            "frame": 267,
+            "xy": [
+              1522.396,
+              693.784
+            ],
+            "confidence": 0.76009,
+            "diameter": 26.3645,
+            "detection_id": "267:0",
+            "bbox": [
+              1509.2365,
+              680.579,
+              1535.5555,
+              706.989
+            ]
+          },
+          {
+            "frame": 268,
+            "xy": [
+              1523.922,
+              693.635
+            ],
+            "confidence": 0.422644,
+            "diameter": 26.66,
+            "detection_id": "268:0",
+            "bbox": [
+              1510.0140000000001,
+              680.883,
+              1537.83,
+              706.387
+            ]
+          },
+          {
+            "frame": 269,
+            "xy": [
+              1525.907,
+              694.497
+            ],
+            "confidence": 0.6756,
+            "diameter": 27.195,
+            "detection_id": "269:0",
+            "bbox": [
+              1511.618,
+              681.591,
+              1540.196,
+              707.4029999999999
+            ]
+          },
+          {
+            "frame": 270,
+            "xy": [
+              1527.049,
+              694.646
+            ],
+            "confidence": 0.785541,
+            "diameter": 27.034,
+            "detection_id": "270:0",
+            "bbox": [
+              1512.921,
+              681.74,
+              1541.177,
+              707.5519999999999
+            ]
+          },
+          {
+            "frame": 271,
+            "xy": [
+              1528.664,
+              694.678
+            ],
+            "confidence": 0.429297,
+            "diameter": 27.340000000000003,
+            "detection_id": "271:0",
+            "bbox": [
+              1514.4379999999999,
+              681.564,
+              1542.89,
+              707.792
+            ]
+          },
+          {
+            "frame": 272,
+            "xy": [
+              1530.362,
+              694.953
+            ],
+            "confidence": 0.624626,
+            "diameter": 26.7885,
+            "detection_id": "272:0",
+            "bbox": [
+              1516.6000000000001,
+              681.9264999999999,
+              1544.124,
+              707.9795
+            ]
+          },
+          {
+            "frame": 273,
+            "xy": [
+              1532.35,
+              695.213
+            ],
+            "confidence": 0.428933,
+            "diameter": 26.355,
+            "detection_id": "273:0",
+            "bbox": [
+              1519.0449999999998,
+              682.163,
+              1545.655,
+              708.2629999999999
+            ]
+          },
+          {
+            "frame": 274,
+            "xy": [
+              1534.076,
+              695.807
+            ],
+            "confidence": 0.299905,
+            "diameter": 26.3305,
+            "detection_id": "274:0",
+            "bbox": [
+              1519.989,
+              683.5635,
+              1548.163,
+              708.0505
+            ]
+          },
+          {
+            "frame": 275,
+            "xy": [
+              1535.771,
+              696.186
+            ],
+            "confidence": 0.644712,
+            "diameter": 27.1615,
+            "detection_id": "275:0",
+            "bbox": [
+              1521.7385,
+              683.057,
+              1549.8035,
+              709.315
+            ]
+          },
+          {
+            "frame": 276,
+            "xy": [
+              1537.564,
+              696.579
+            ],
+            "confidence": 0.787873,
+            "diameter": 26.877,
+            "detection_id": "276:0",
+            "bbox": [
+              1523.6950000000002,
+              683.5709999999999,
+              1551.433,
+              709.587
+            ]
+          },
+          {
+            "frame": 277,
+            "xy": [
+              1539.013,
+              696.644
+            ],
+            "confidence": 0.719656,
+            "diameter": 27.3205,
+            "detection_id": "277:0",
+            "bbox": [
+              1525.2169999999999,
+              683.1195,
+              1552.809,
+              710.1685
+            ]
+          },
+          {
+            "frame": 278,
+            "xy": [
+              1540.693,
+              696.252
+            ],
+            "confidence": 0.810948,
+            "diameter": 26.637999999999998,
+            "detection_id": "278:0",
+            "bbox": [
+              1527.0674999999999,
+              683.2394999999999,
+              1554.3185,
+              709.2645
+            ]
+          },
+          {
+            "frame": 279,
+            "xy": [
+              1542.037,
+              696.842
+            ],
+            "confidence": 0.779892,
+            "diameter": 26.731,
+            "detection_id": "279:0",
+            "bbox": [
+              1528.4195,
+              683.7284999999999,
+              1555.6545,
+              709.9555
+            ]
+          },
+          {
+            "frame": 280,
+            "xy": [
+              1544.459,
+              696.939
+            ],
+            "confidence": 0.431318,
+            "diameter": 27.158,
+            "detection_id": "280:1",
+            "bbox": [
+              1530.5345,
+              683.7054999999999,
+              1558.3835000000001,
+              710.1725
+            ]
+          },
+          {
+            "frame": 281,
+            "xy": [
+              1545.842,
+              697.307
+            ],
+            "confidence": 0.697,
+            "diameter": 27.511000000000003,
+            "detection_id": "281:0",
+            "bbox": [
+              1531.7355,
+              683.9025,
+              1559.9485000000002,
+              710.7115
+            ]
+          },
+          {
+            "frame": 282,
+            "xy": [
+              1547.356,
+              697.989
+            ],
+            "confidence": 0.792291,
+            "diameter": 27.103,
+            "detection_id": "282:0",
+            "bbox": [
+              1533.51,
+              684.7320000000001,
+              1561.202,
+              711.246
+            ]
+          },
+          {
+            "frame": 283,
+            "xy": [
+              1548.595,
+              698.041
+            ],
+            "confidence": 0.834531,
+            "diameter": 26.448,
+            "detection_id": "283:0",
+            "bbox": [
+              1535.06,
+              685.128,
+              1562.13,
+              710.9540000000001
+            ]
+          },
+          {
+            "frame": 284,
+            "xy": [
+              1550.45,
+              698.447
+            ],
+            "confidence": 0.808056,
+            "diameter": 26.534,
+            "detection_id": "284:0",
+            "bbox": [
+              1536.91,
+              685.453,
+              1563.99,
+              711.441
+            ]
+          },
+          {
+            "frame": 285,
+            "xy": [
+              1552.091,
+              698.329
+            ],
+            "confidence": 0.840267,
+            "diameter": 26.947,
+            "detection_id": "285:0",
+            "bbox": [
+              1538.1595,
+              685.3135,
+              1566.0224999999998,
+              711.3444999999999
+            ]
+          },
+          {
+            "frame": 286,
+            "xy": [
+              1554.263,
+              698.667
+            ],
+            "confidence": 0.415806,
+            "diameter": 27.322499999999998,
+            "detection_id": "286:0",
+            "bbox": [
+              1539.906,
+              685.7015,
+              1568.62,
+              711.6325
+            ]
+          },
+          {
+            "frame": 287,
+            "xy": [
+              1556.096,
+              699.194
+            ],
+            "confidence": 0.755791,
+            "diameter": 27.1735,
+            "detection_id": "287:0",
+            "bbox": [
+              1541.776,
+              686.3404999999999,
+              1570.416,
+              712.0475
+            ]
+          },
+          {
+            "frame": 288,
+            "xy": [
+              1557.872,
+              699.447
+            ],
+            "confidence": 0.819803,
+            "diameter": 26.6385,
+            "detection_id": "288:0",
+            "bbox": [
+              1543.8165000000001,
+              686.864,
+              1571.9275,
+              712.03
+            ]
+          },
+          {
+            "frame": 289,
+            "xy": [
+              1559.444,
+              700.311
+            ],
+            "confidence": 0.807299,
+            "diameter": 26.133000000000003,
+            "detection_id": "289:0",
+            "bbox": [
+              1545.922,
+              687.7,
+              1572.966,
+              712.922
+            ]
+          },
+          {
+            "frame": 290,
+            "xy": [
+              1562.154,
+              699.757
+            ],
+            "confidence": 0.889715,
+            "diameter": 26.2685,
+            "detection_id": "290:0",
+            "bbox": [
+              1548.314,
+              687.3285,
+              1575.994,
+              712.1854999999999
+            ]
+          },
+          {
+            "frame": 291,
+            "xy": [
+              1564.009,
+              700.567
+            ],
+            "confidence": 0.83735,
+            "diameter": 26.8245,
+            "detection_id": "291:0",
+            "bbox": [
+              1550.038,
+              687.7135,
+              1577.98,
+              713.4205000000001
+            ]
+          },
+          {
+            "frame": 292,
+            "xy": [
+              1565.983,
+              700.881
+            ],
+            "confidence": 0.833894,
+            "diameter": 27.3965,
+            "detection_id": "292:0",
+            "bbox": [
+              1551.6465,
+              687.821,
+              1580.3194999999998,
+              713.9409999999999
+            ]
+          },
+          {
+            "frame": 293,
+            "xy": [
+              1567.579,
+              702.129
+            ],
+            "confidence": 0.723399,
+            "diameter": 26.5895,
+            "detection_id": "293:0",
+            "bbox": [
+              1554.1715,
+              688.947,
+              1580.9865,
+              715.311
+            ]
+          },
+          {
+            "frame": 294,
+            "xy": [
+              1569.658,
+              702.205
+            ],
+            "confidence": 0.652227,
+            "diameter": 26.076,
+            "detection_id": "294:0",
+            "bbox": [
+              1556.3715,
+              689.4155000000001,
+              1582.9444999999998,
+              714.9945
+            ]
+          },
+          {
+            "frame": 295,
+            "xy": [
+              1571.675,
+              702.355
+            ],
+            "confidence": 0.41008,
+            "diameter": 25.3205,
+            "detection_id": "295:1",
+            "bbox": [
+              1558.4645,
+              690.245,
+              1584.8854999999999,
+              714.465
+            ]
+          },
+          {
+            "frame": 296,
+            "xy": [
+              1573.828,
+              702.848
+            ],
+            "confidence": 0.417933,
+            "diameter": 26.234499999999997,
+            "detection_id": "296:1",
+            "bbox": [
+              1560.006,
+              690.4354999999999,
+              1587.6499999999999,
+              715.2605
+            ]
+          },
+          {
+            "frame": 297,
+            "xy": [
+              1575.733,
+              703.63
+            ],
+            "confidence": 0.320667,
+            "diameter": 26.451,
+            "detection_id": "297:0",
+            "bbox": [
+              1562.472,
+              690.4399999999999,
+              1588.994,
+              716.82
+            ]
+          },
+          {
+            "frame": 298,
+            "xy": [
+              1576.16,
+              705.142
+            ],
+            "confidence": 0.344702,
+            "diameter": 22.6415,
+            "detection_id": "298:0",
+            "bbox": [
+              1565.1075,
+              693.553,
+              1587.2125,
+              716.7310000000001
+            ]
+          },
+          {
+            "frame": 299,
+            "xy": [
+              1579.441,
+              705.389
+            ],
+            "confidence": 0.349396,
+            "diameter": 24.4395,
+            "detection_id": "299:0",
+            "bbox": [
+              1566.703,
+              693.6875,
+              1592.179,
+              717.0905
+            ]
+          },
+          {
+            "frame": 301,
+            "xy": [
+              1590.594,
+              706.312
+            ],
+            "confidence": 0.047792,
+            "diameter": 19.265,
+            "detection_id": "301:0",
+            "bbox": [
+              1581.6425000000002,
+              695.9985,
+              1599.5455,
+              716.6255
+            ]
+          },
+          {
+            "frame": 302,
+            "xy": [
+              1590.944,
+              705.239
+            ],
+            "confidence": 0.161484,
+            "diameter": 22.551,
+            "detection_id": "302:0",
+            "bbox": [
+              1580.481,
+              693.1510000000001,
+              1601.407,
+              717.327
+            ]
+          },
+          {
+            "frame": 303,
+            "xy": [
+              1589.999,
+              706.007
+            ],
+            "confidence": 0.250793,
+            "diameter": 25.664,
+            "detection_id": "303:0",
+            "bbox": [
+              1576.8225,
+              693.5195,
+              1603.1755,
+              718.4944999999999
+            ]
+          },
+          {
+            "frame": 304,
+            "xy": [
+              1592.482,
+              706.415
+            ],
+            "confidence": 0.280972,
+            "diameter": 26.804499999999997,
+            "detection_id": "304:0",
+            "bbox": [
+              1578.725,
+              693.3675,
+              1606.239,
+              719.4625
+            ]
+          },
+          {
+            "frame": 305,
+            "xy": [
+              1594.948,
+              706.837
+            ],
+            "confidence": 0.261512,
+            "diameter": 25.4295,
+            "detection_id": "305:0",
+            "bbox": [
+              1581.4125000000001,
+              694.943,
+              1608.4835,
+              718.731
+            ]
+          },
+          {
+            "frame": 306,
+            "xy": [
+              1597.504,
+              706.577
+            ],
+            "confidence": 0.35338,
+            "diameter": 24.402,
+            "detection_id": "306:0",
+            "bbox": [
+              1584.4234999999999,
+              695.2555,
+              1610.5845,
+              717.8985
+            ]
+          },
+          {
+            "frame": 307,
+            "xy": [
+              1599.665,
+              708.024
+            ],
+            "confidence": 0.544332,
+            "diameter": 24.996000000000002,
+            "detection_id": "307:0",
+            "bbox": [
+              1586.7359999999999,
+              695.957,
+              1612.594,
+              720.091
+            ]
+          },
+          {
+            "frame": 308,
+            "xy": [
+              1601.59,
+              708.77
+            ],
+            "confidence": 0.537968,
+            "diameter": 25.2335,
+            "detection_id": "308:0",
+            "bbox": [
+              1588.3874999999998,
+              696.739,
+              1614.7925,
+              720.8009999999999
+            ]
+          },
+          {
+            "frame": 309,
+            "xy": [
+              1604.551,
+              708.887
+            ],
+            "confidence": 0.317084,
+            "diameter": 26.1995,
+            "detection_id": "309:0",
+            "bbox": [
+              1590.292,
+              696.9464999999999,
+              1618.81,
+              720.8275
+            ]
+          },
+          {
+            "frame": 310,
+            "xy": [
+              1607.869,
+              709.116
+            ],
+            "confidence": 0.421754,
+            "diameter": 25.9815,
+            "detection_id": "310:0",
+            "bbox": [
+              1593.9315,
+              697.072,
+              1621.8065,
+              721.16
+            ]
+          },
+          {
+            "frame": 311,
+            "xy": [
+              1610.288,
+              710.814
+            ],
+            "confidence": 0.382493,
+            "diameter": 25.185499999999998,
+            "detection_id": "311:0",
+            "bbox": [
+              1597.1680000000001,
+              698.7484999999999,
+              1623.408,
+              722.8795
+            ]
+          }
+        ],
+        "departure_ball_observations": [
+          {
+            "frame": 313,
+            "xy": [
+              1462.576,
+              661.589
+            ],
+            "confidence": 0.083937,
+            "diameter": 21.3415,
+            "detection_id": "313:1",
+            "bbox": [
+              1450.263,
+              652.5605,
+              1474.8890000000001,
+              670.6175000000001
+            ]
+          },
+          {
+            "frame": 315,
+            "xy": [
+              1201.087,
+              405.437
+            ],
+            "confidence": 0.052817,
+            "diameter": 22.429,
+            "detection_id": "315:1",
+            "bbox": [
+              1186.5785,
+              397.5165,
+              1215.5955,
+              413.3575
+            ]
+          }
+        ],
+        "contact_bracket_frames": null,
+        "contact_bracket_status": "observed_stationary_to_departure_candidate",
+        "stationary_observation_selection_policy": "highest_detector_confidence_per_seed_cluster_frame; ties_detection_id_then_source_xy",
+        "stationary_observation_competitors": [
+          {
+            "frame": 298,
+            "observations": [
+              {
+                "frame": 298,
+                "xy": [
+                  1576.16,
+                  705.142
+                ],
+                "confidence": 0.344702,
+                "diameter": 22.6415,
+                "detection_id": "298:0",
+                "bbox": [
+                  1565.1075,
+                  693.553,
+                  1587.2125,
+                  716.7310000000001
+                ]
+              },
+              {
+                "frame": 298,
+                "xy": [
+                  1589.457,
+                  699.765
+                ],
+                "confidence": 0.230686,
+                "diameter": 24.3915,
+                "detection_id": "298:2",
+                "bbox": [
+                  1578.1450000000002,
+                  686.6854999999999,
+                  1600.769,
+                  712.8445
+                ]
+              }
+            ]
+          },
+          {
+            "frame": 299,
+            "observations": [
+              {
+                "frame": 299,
+                "xy": [
+                  1579.441,
+                  705.389
+                ],
+                "confidence": 0.349396,
+                "diameter": 24.4395,
+                "detection_id": "299:0",
+                "bbox": [
+                  1566.703,
+                  693.6875,
+                  1592.179,
+                  717.0905
+                ]
+              },
+              {
+                "frame": 299,
+                "xy": [
+                  1588.82,
+                  697.605
+                ],
+                "confidence": 0.086858,
+                "diameter": 25.8485,
+                "detection_id": "299:2",
+                "bbox": [
+                  1578.4714999999999,
+                  682.105,
+                  1599.1685,
+                  713.105
+                ]
+              }
+            ]
+          }
+        ],
+        "stationary_identity_ambiguous_frames": [
+          298,
+          299
+        ],
+        "contact_window_policy": "causal_first_departure",
+        "ankle_approach_supported": true,
+        "warnings": [],
+        "goalward_departure_support": {
+          "status": "unknown",
+          "policy": "retained_v4_goalward_speed_backward_miss_bootstrap",
+          "config": {
+            "max_gap_frames": 6,
+            "beam_width": 60,
+            "measurement_slack_px": 10.0,
+            "residual_speed_fraction": 0.12,
+            "gap_uncertainty_px": 0.8,
+            "reachable_speed_ratio": 1.5,
+            "turn_support_points": 3,
+            "max_turns": 2,
+            "miss_cost": 0.35,
+            "require_collision_for_turn": true,
+            "lock_flight_direction": true,
+            "direction_tolerance_degrees": 22.0,
+            "collision_margin_px": 22.0,
+            "association_lag_frames": 2,
+            "prediction_residual_weight": 0.4,
+            "departure_min_displacement_px": 60.0,
+            "departure_max_displacement_px": 300.0,
+            "departure_goal_distance_fraction": 0.6,
+            "departure_contact_uncertainty_frames": 8,
+            "departure_max_gap_frames": 8,
+            "departure_min_speed_px_per_frame": 15.0,
+            "small_motion_component_penalty": 0.45,
+            "stationary_release_confidence": 0.3,
+            "stationary_release_before_contact_frames": 2
+          },
+          "selected_hypothesis": null,
+          "hypotheses": [],
+          "neural_flight_detections_white_mask_filtered": false,
+          "human_verified": false,
+          "reason": "no_retained_v4_goalward_departure_hypothesis"
+        },
+        "scored_ankle_proximity_frame": 302,
+        "scored_ankle_proximity_interval_frames": [
+          297,
+          314
+        ],
+        "scored_ankle_proximity_warnings": [],
+        "contact_timing_status": "unknown",
+        "exact_contact_frame_established": false,
+        "contact_frame_is_estimated": true,
+        "maximum_contact_bracket_frames": 7,
+        "timing_interval_interpretation": "last_observed_stationary_to_first_observed_goalward_departure",
+        "contact_timing_reason": "no_causally_supported_departure",
+        "contact_associated_track_id": 7,
+        "original_pose_selected_track_id": 7,
+        "actor_reselected_by_ball_evidence": false,
+        "actor_field_support": 1.0,
+        "actor_goal_line_excluded": false,
+        "seed_ambiguous_frames": [
+          298,
+          299
+        ],
+        "search_window_index": 2,
+        "camera_chain_measured": true
+      },
+      {
+        "contact_frame": 303,
+        "contact_time_sec": 6.06,
+        "interval_frames": [
+          298,
+          315
+        ],
+        "interval_kind": "heuristic_candidate_window_not_statistical_confidence_interval",
+        "score": 0.7289,
+        "ankle_ball_distance_px": 5.627221619989944,
+        "ankle_ball_distance_body_heights": 0.029570410160146783,
+        "stationary_ball_samples": 85,
+        "stationary_ball_first_frame": 223,
+        "stationary_ball_last_frame": 308,
+        "last_stationary_near_contact_frame": 304,
+        "stationary_ball_reference_xy": [
+          1481.3197009673302,
+          680.95411753709
+        ],
+        "ball_departure_frames": null,
+        "stationary_ball_observations": [
+          {
+            "frame": 223,
+            "xy": [
+              1475.325,
+              685.873
+            ],
+            "confidence": 0.395863,
+            "diameter": 25.7395,
+            "detection_id": "223:0",
+            "bbox": [
+              1461.9165,
+              673.542,
+              1488.7335,
+              698.2040000000001
+            ]
+          },
+          {
+            "frame": 224,
+            "xy": [
+              1476.561,
+              685.698
+            ],
+            "confidence": 0.554261,
+            "diameter": 24.6995,
+            "detection_id": "224:0",
+            "bbox": [
+              1463.9064999999998,
+              673.653,
+              1489.2155,
+              697.7429999999999
+            ]
+          },
+          {
+            "frame": 225,
+            "xy": [
+              1477.471,
+              685.641
+            ],
+            "confidence": 0.586135,
+            "diameter": 24.963500000000003,
+            "detection_id": "225:0",
+            "bbox": [
+              1464.418,
+              673.7305,
+              1490.5240000000001,
+              697.5514999999999
+            ]
+          },
+          {
+            "frame": 226,
+            "xy": [
+              1477.839,
+              685.805
+            ],
+            "confidence": 0.587833,
+            "diameter": 24.926499999999997,
+            "detection_id": "226:0",
+            "bbox": [
+              1464.7359999999999,
+              673.9815,
+              1490.942,
+              697.6284999999999
+            ]
+          },
+          {
+            "frame": 227,
+            "xy": [
+              1478.265,
+              685.965
+            ],
+            "confidence": 0.602195,
+            "diameter": 24.731,
+            "detection_id": "227:0",
+            "bbox": [
+              1465.332,
+              674.167,
+              1491.198,
+              697.763
+            ]
+          },
+          {
+            "frame": 228,
+            "xy": [
+              1478.729,
+              686.419
+            ],
+            "confidence": 0.6505,
+            "diameter": 25.064,
+            "detection_id": "228:0",
+            "bbox": [
+              1465.8215,
+              674.2624999999999,
+              1491.6365,
+              698.5755
+            ]
+          },
+          {
+            "frame": 229,
+            "xy": [
+              1479.46,
+              686.519
+            ],
+            "confidence": 0.618834,
+            "diameter": 25.1585,
+            "detection_id": "229:0",
+            "bbox": [
+              1466.4615000000001,
+              674.359,
+              1492.4585,
+              698.679
+            ]
+          },
+          {
+            "frame": 230,
+            "xy": [
+              1480.045,
+              686.601
+            ],
+            "confidence": 0.675285,
+            "diameter": 25.04,
+            "detection_id": "230:0",
+            "bbox": [
+              1467.1885,
+              674.4175,
+              1492.9015000000002,
+              698.7845
+            ]
+          },
+          {
+            "frame": 231,
+            "xy": [
+              1481.109,
+              686.227
+            ],
+            "confidence": 0.736201,
+            "diameter": 25.8245,
+            "detection_id": "231:0",
+            "bbox": [
+              1467.9305,
+              673.581,
+              1494.2875,
+              698.8729999999999
+            ]
+          },
+          {
+            "frame": 232,
+            "xy": [
+              1481.411,
+              686.727
+            ],
+            "confidence": 0.837171,
+            "diameter": 26.122500000000002,
+            "detection_id": "232:0",
+            "bbox": [
+              1468.2930000000001,
+              673.7225,
+              1494.529,
+              699.7315
+            ]
+          },
+          {
+            "frame": 233,
+            "xy": [
+              1481.979,
+              686.763
+            ],
+            "confidence": 0.772652,
+            "diameter": 25.7245,
+            "detection_id": "233:0",
+            "bbox": [
+              1469.1845,
+              673.8330000000001,
+              1494.7735,
+              699.693
+            ]
+          },
+          {
+            "frame": 234,
+            "xy": [
+              1482.558,
+              686.756
+            ],
+            "confidence": 0.652635,
+            "diameter": 25.325499999999998,
+            "detection_id": "234:0",
+            "bbox": [
+              1469.9765,
+              674.012,
+              1495.1395,
+              699.5
+            ]
+          },
+          {
+            "frame": 235,
+            "xy": [
+              1483.558,
+              686.806
+            ],
+            "confidence": 0.484415,
+            "diameter": 25.7905,
+            "detection_id": "235:0",
+            "bbox": [
+              1470.4825,
+              674.091,
+              1496.6335,
+              699.5210000000001
+            ]
+          },
+          {
+            "frame": 236,
+            "xy": [
+              1484.422,
+              687.02
+            ],
+            "confidence": 0.494953,
+            "diameter": 25.985500000000002,
+            "detection_id": "236:0",
+            "bbox": [
+              1471.207,
+              674.2495,
+              1497.637,
+              699.7905
+            ]
+          },
+          {
+            "frame": 237,
+            "xy": [
+              1484.884,
+              686.938
+            ],
+            "confidence": 0.459535,
+            "diameter": 25.8765,
+            "detection_id": "237:0",
+            "bbox": [
+              1471.705,
+              674.2405,
+              1498.063,
+              699.6355
+            ]
+          },
+          {
+            "frame": 238,
+            "xy": [
+              1485.704,
+              687.394
+            ],
+            "confidence": 0.65159,
+            "diameter": 26.4005,
+            "detection_id": "238:0",
+            "bbox": [
+              1472.132,
+              674.5655,
+              1499.2759999999998,
+              700.2225
+            ]
+          },
+          {
+            "frame": 239,
+            "xy": [
+              1486.663,
+              687.849
+            ],
+            "confidence": 0.652501,
+            "diameter": 26.139,
+            "detection_id": "239:0",
+            "bbox": [
+              1473.249,
+              675.124,
+              1500.077,
+              700.5740000000001
+            ]
+          },
+          {
+            "frame": 240,
+            "xy": [
+              1487.326,
+              687.877
+            ],
+            "confidence": 0.696797,
+            "diameter": 26.0865,
+            "detection_id": "240:0",
+            "bbox": [
+              1473.8505,
+              675.266,
+              1500.8015,
+              700.4879999999999
+            ]
+          },
+          {
+            "frame": 241,
+            "xy": [
+              1488.283,
+              687.996
+            ],
+            "confidence": 0.641267,
+            "diameter": 25.4875,
+            "detection_id": "241:0",
+            "bbox": [
+              1475.1625,
+              675.629,
+              1501.4035,
+              700.3629999999999
+            ]
+          },
+          {
+            "frame": 242,
+            "xy": [
+              1489.207,
+              688.124
+            ],
+            "confidence": 0.571867,
+            "diameter": 24.7235,
+            "detection_id": "242:0",
+            "bbox": [
+              1476.553,
+              676.0545000000001,
+              1501.861,
+              700.1935
+            ]
+          },
+          {
+            "frame": 243,
+            "xy": [
+              1489.955,
+              688.171
+            ],
+            "confidence": 0.623131,
+            "diameter": 25.5675,
+            "detection_id": "243:0",
+            "bbox": [
+              1476.9945,
+              675.5640000000001,
+              1502.9154999999998,
+              700.778
+            ]
+          },
+          {
+            "frame": 244,
+            "xy": [
+              1491.031,
+              688.011
+            ],
+            "confidence": 0.725822,
+            "diameter": 25.506,
+            "detection_id": "244:0",
+            "bbox": [
+              1478.142,
+              675.394,
+              1503.9199999999998,
+              700.6279999999999
+            ]
+          },
+          {
+            "frame": 245,
+            "xy": [
+              1492.007,
+              688.118
+            ],
+            "confidence": 0.703981,
+            "diameter": 25.653,
+            "detection_id": "245:0",
+            "bbox": [
+              1479.1490000000001,
+              675.3230000000001,
+              1504.865,
+              700.913
+            ]
+          },
+          {
+            "frame": 246,
+            "xy": [
+              1493.161,
+              688.254
+            ],
+            "confidence": 0.563305,
+            "diameter": 25.8555,
+            "detection_id": "246:0",
+            "bbox": [
+              1479.983,
+              675.5765,
+              1506.3390000000002,
+              700.9315
+            ]
+          },
+          {
+            "frame": 247,
+            "xy": [
+              1494.078,
+              688.645
+            ],
+            "confidence": 0.455065,
+            "diameter": 25.974,
+            "detection_id": "247:0",
+            "bbox": [
+              1480.6585,
+              676.0905,
+              1507.4975,
+              701.1995
+            ]
+          },
+          {
+            "frame": 248,
+            "xy": [
+              1495.086,
+              689.0
+            ],
+            "confidence": 0.590086,
+            "diameter": 25.7095,
+            "detection_id": "248:0",
+            "bbox": [
+              1481.836,
+              676.5405,
+              1508.336,
+              701.4595
+            ]
+          },
+          {
+            "frame": 249,
+            "xy": [
+              1496.288,
+              689.532
+            ],
+            "confidence": 0.696298,
+            "diameter": 26.231,
+            "detection_id": "249:0",
+            "bbox": [
+              1482.5165,
+              677.0725,
+              1510.0595,
+              701.9915000000001
+            ]
+          },
+          {
+            "frame": 250,
+            "xy": [
+              1497.035,
+              689.566
+            ],
+            "confidence": 0.708815,
+            "diameter": 26.3265,
+            "detection_id": "250:0",
+            "bbox": [
+              1483.3575,
+              676.917,
+              1510.7125,
+              702.215
+            ]
+          },
+          {
+            "frame": 251,
+            "xy": [
+              1498.243,
+              690.037
+            ],
+            "confidence": 0.709237,
+            "diameter": 25.685000000000002,
+            "detection_id": "251:0",
+            "bbox": [
+              1484.8664999999999,
+              677.7285,
+              1511.6195,
+              702.3455
+            ]
+          },
+          {
+            "frame": 252,
+            "xy": [
+              1499.444,
+              690.332
+            ],
+            "confidence": 0.743088,
+            "diameter": 25.2755,
+            "detection_id": "252:0",
+            "bbox": [
+              1486.4455,
+              678.055,
+              1512.4424999999999,
+              702.609
+            ]
+          },
+          {
+            "frame": 253,
+            "xy": [
+              1501.156,
+              690.01
+            ],
+            "confidence": 0.695222,
+            "diameter": 25.5485,
+            "detection_id": "253:0",
+            "bbox": [
+              1488.0059999999999,
+              677.6115,
+              1514.306,
+              702.4085
+            ]
+          },
+          {
+            "frame": 254,
+            "xy": [
+              1502.447,
+              689.764
+            ],
+            "confidence": 0.702534,
+            "diameter": 25.0645,
+            "detection_id": "254:0",
+            "bbox": [
+              1489.4969999999998,
+              677.6495,
+              1515.397,
+              701.8785
+            ]
+          },
+          {
+            "frame": 255,
+            "xy": [
+              1503.432,
+              690.033
+            ],
+            "confidence": 0.540337,
+            "diameter": 25.7285,
+            "detection_id": "255:0",
+            "bbox": [
+              1489.831,
+              677.9055,
+              1517.0330000000001,
+              702.1605000000001
+            ]
+          },
+          {
+            "frame": 256,
+            "xy": [
+              1504.93,
+              690.481
+            ],
+            "confidence": 0.65332,
+            "diameter": 25.609,
+            "detection_id": "256:0",
+            "bbox": [
+              1491.7375,
+              678.0645,
+              1518.1225000000002,
+              702.8975
+            ]
+          },
+          {
+            "frame": 257,
+            "xy": [
+              1506.386,
+              690.878
+            ],
+            "confidence": 0.700553,
+            "diameter": 25.826,
+            "detection_id": "257:0",
+            "bbox": [
+              1493.1535,
+              678.2845000000001,
+              1519.6185,
+              703.4715
+            ]
+          },
+          {
+            "frame": 258,
+            "xy": [
+              1507.778,
+              691.529
+            ],
+            "confidence": 0.495536,
+            "diameter": 26.331000000000003,
+            "detection_id": "258:0",
+            "bbox": [
+              1494.42,
+              678.556,
+              1521.136,
+              704.502
+            ]
+          },
+          {
+            "frame": 259,
+            "xy": [
+              1509.264,
+              691.479
+            ],
+            "confidence": 0.605939,
+            "diameter": 25.822499999999998,
+            "detection_id": "259:0",
+            "bbox": [
+              1496.0984999999998,
+              678.822,
+              1522.4295,
+              704.1360000000001
+            ]
+          },
+          {
+            "frame": 260,
+            "xy": [
+              1511.051,
+              691.624
+            ],
+            "confidence": 0.72159,
+            "diameter": 25.6765,
+            "detection_id": "260:0",
+            "bbox": [
+              1498.0504999999998,
+              678.948,
+              1524.0515,
+              704.3000000000001
+            ]
+          },
+          {
+            "frame": 261,
+            "xy": [
+              1512.408,
+              692.135
+            ],
+            "confidence": 0.73777,
+            "diameter": 25.889,
+            "detection_id": "261:0",
+            "bbox": [
+              1499.4185,
+              679.2355,
+              1525.3974999999998,
+              705.0345
+            ]
+          },
+          {
+            "frame": 262,
+            "xy": [
+              1514.18,
+              691.918
+            ],
+            "confidence": 0.620231,
+            "diameter": 26.0535,
+            "detection_id": "262:0",
+            "bbox": [
+              1500.8895,
+              679.155,
+              1527.4705000000001,
+              704.681
+            ]
+          },
+          {
+            "frame": 263,
+            "xy": [
+              1515.707,
+              692.335
+            ],
+            "confidence": 0.717031,
+            "diameter": 26.209,
+            "detection_id": "263:0",
+            "bbox": [
+              1502.2275000000002,
+              679.6055,
+              1529.1865,
+              705.0645000000001
+            ]
+          },
+          {
+            "frame": 264,
+            "xy": [
+              1517.09,
+              692.917
+            ],
+            "confidence": 0.777109,
+            "diameter": 26.2815,
+            "detection_id": "264:0",
+            "bbox": [
+              1503.638,
+              680.0875,
+              1530.542,
+              705.7465000000001
+            ]
+          },
+          {
+            "frame": 265,
+            "xy": [
+              1518.357,
+              692.934
+            ],
+            "confidence": 0.528748,
+            "diameter": 25.8705,
+            "detection_id": "265:0",
+            "bbox": [
+              1505.0255,
+              680.395,
+              1531.6885,
+              705.473
+            ]
+          },
+          {
+            "frame": 266,
+            "xy": [
+              1520.162,
+              693.324
+            ],
+            "confidence": 0.676264,
+            "diameter": 25.575,
+            "detection_id": "266:0",
+            "bbox": [
+              1507.1770000000001,
+              680.7339999999999,
+              1533.147,
+              705.914
+            ]
+          },
+          {
+            "frame": 267,
+            "xy": [
+              1522.396,
+              693.784
+            ],
+            "confidence": 0.76009,
+            "diameter": 26.3645,
+            "detection_id": "267:0",
+            "bbox": [
+              1509.2365,
+              680.579,
+              1535.5555,
+              706.989
+            ]
+          },
+          {
+            "frame": 268,
+            "xy": [
+              1523.922,
+              693.635
+            ],
+            "confidence": 0.422644,
+            "diameter": 26.66,
+            "detection_id": "268:0",
+            "bbox": [
+              1510.0140000000001,
+              680.883,
+              1537.83,
+              706.387
+            ]
+          },
+          {
+            "frame": 269,
+            "xy": [
+              1525.907,
+              694.497
+            ],
+            "confidence": 0.6756,
+            "diameter": 27.195,
+            "detection_id": "269:0",
+            "bbox": [
+              1511.618,
+              681.591,
+              1540.196,
+              707.4029999999999
+            ]
+          },
+          {
+            "frame": 270,
+            "xy": [
+              1527.049,
+              694.646
+            ],
+            "confidence": 0.785541,
+            "diameter": 27.034,
+            "detection_id": "270:0",
+            "bbox": [
+              1512.921,
+              681.74,
+              1541.177,
+              707.5519999999999
+            ]
+          },
+          {
+            "frame": 271,
+            "xy": [
+              1528.664,
+              694.678
+            ],
+            "confidence": 0.429297,
+            "diameter": 27.340000000000003,
+            "detection_id": "271:0",
+            "bbox": [
+              1514.4379999999999,
+              681.564,
+              1542.89,
+              707.792
+            ]
+          },
+          {
+            "frame": 272,
+            "xy": [
+              1530.362,
+              694.953
+            ],
+            "confidence": 0.624626,
+            "diameter": 26.7885,
+            "detection_id": "272:0",
+            "bbox": [
+              1516.6000000000001,
+              681.9264999999999,
+              1544.124,
+              707.9795
+            ]
+          },
+          {
+            "frame": 273,
+            "xy": [
+              1532.35,
+              695.213
+            ],
+            "confidence": 0.428933,
+            "diameter": 26.355,
+            "detection_id": "273:0",
+            "bbox": [
+              1519.0449999999998,
+              682.163,
+              1545.655,
+              708.2629999999999
+            ]
+          },
+          {
+            "frame": 274,
+            "xy": [
+              1534.076,
+              695.807
+            ],
+            "confidence": 0.299905,
+            "diameter": 26.3305,
+            "detection_id": "274:0",
+            "bbox": [
+              1519.989,
+              683.5635,
+              1548.163,
+              708.0505
+            ]
+          },
+          {
+            "frame": 275,
+            "xy": [
+              1535.771,
+              696.186
+            ],
+            "confidence": 0.644712,
+            "diameter": 27.1615,
+            "detection_id": "275:0",
+            "bbox": [
+              1521.7385,
+              683.057,
+              1549.8035,
+              709.315
+            ]
+          },
+          {
+            "frame": 276,
+            "xy": [
+              1537.564,
+              696.579
+            ],
+            "confidence": 0.787873,
+            "diameter": 26.877,
+            "detection_id": "276:0",
+            "bbox": [
+              1523.6950000000002,
+              683.5709999999999,
+              1551.433,
+              709.587
+            ]
+          },
+          {
+            "frame": 277,
+            "xy": [
+              1539.013,
+              696.644
+            ],
+            "confidence": 0.719656,
+            "diameter": 27.3205,
+            "detection_id": "277:0",
+            "bbox": [
+              1525.2169999999999,
+              683.1195,
+              1552.809,
+              710.1685
+            ]
+          },
+          {
+            "frame": 278,
+            "xy": [
+              1540.693,
+              696.252
+            ],
+            "confidence": 0.810948,
+            "diameter": 26.637999999999998,
+            "detection_id": "278:0",
+            "bbox": [
+              1527.0674999999999,
+              683.2394999999999,
+              1554.3185,
+              709.2645
+            ]
+          },
+          {
+            "frame": 279,
+            "xy": [
+              1542.037,
+              696.842
+            ],
+            "confidence": 0.779892,
+            "diameter": 26.731,
+            "detection_id": "279:0",
+            "bbox": [
+              1528.4195,
+              683.7284999999999,
+              1555.6545,
+              709.9555
+            ]
+          },
+          {
+            "frame": 280,
+            "xy": [
+              1544.459,
+              696.939
+            ],
+            "confidence": 0.431318,
+            "diameter": 27.158,
+            "detection_id": "280:1",
+            "bbox": [
+              1530.5345,
+              683.7054999999999,
+              1558.3835000000001,
+              710.1725
+            ]
+          },
+          {
+            "frame": 281,
+            "xy": [
+              1545.842,
+              697.307
+            ],
+            "confidence": 0.697,
+            "diameter": 27.511000000000003,
+            "detection_id": "281:0",
+            "bbox": [
+              1531.7355,
+              683.9025,
+              1559.9485000000002,
+              710.7115
+            ]
+          },
+          {
+            "frame": 282,
+            "xy": [
+              1547.356,
+              697.989
+            ],
+            "confidence": 0.792291,
+            "diameter": 27.103,
+            "detection_id": "282:0",
+            "bbox": [
+              1533.51,
+              684.7320000000001,
+              1561.202,
+              711.246
+            ]
+          },
+          {
+            "frame": 283,
+            "xy": [
+              1548.595,
+              698.041
+            ],
+            "confidence": 0.834531,
+            "diameter": 26.448,
+            "detection_id": "283:0",
+            "bbox": [
+              1535.06,
+              685.128,
+              1562.13,
+              710.9540000000001
+            ]
+          },
+          {
+            "frame": 284,
+            "xy": [
+              1550.45,
+              698.447
+            ],
+            "confidence": 0.808056,
+            "diameter": 26.534,
+            "detection_id": "284:0",
+            "bbox": [
+              1536.91,
+              685.453,
+              1563.99,
+              711.441
+            ]
+          },
+          {
+            "frame": 285,
+            "xy": [
+              1552.091,
+              698.329
+            ],
+            "confidence": 0.840267,
+            "diameter": 26.947,
+            "detection_id": "285:0",
+            "bbox": [
+              1538.1595,
+              685.3135,
+              1566.0224999999998,
+              711.3444999999999
+            ]
+          },
+          {
+            "frame": 286,
+            "xy": [
+              1554.263,
+              698.667
+            ],
+            "confidence": 0.415806,
+            "diameter": 27.322499999999998,
+            "detection_id": "286:0",
+            "bbox": [
+              1539.906,
+              685.7015,
+              1568.62,
+              711.6325
+            ]
+          },
+          {
+            "frame": 287,
+            "xy": [
+              1556.096,
+              699.194
+            ],
+            "confidence": 0.755791,
+            "diameter": 27.1735,
+            "detection_id": "287:0",
+            "bbox": [
+              1541.776,
+              686.3404999999999,
+              1570.416,
+              712.0475
+            ]
+          },
+          {
+            "frame": 288,
+            "xy": [
+              1557.872,
+              699.447
+            ],
+            "confidence": 0.819803,
+            "diameter": 26.6385,
+            "detection_id": "288:0",
+            "bbox": [
+              1543.8165000000001,
+              686.864,
+              1571.9275,
+              712.03
+            ]
+          },
+          {
+            "frame": 289,
+            "xy": [
+              1559.444,
+              700.311
+            ],
+            "confidence": 0.807299,
+            "diameter": 26.133000000000003,
+            "detection_id": "289:0",
+            "bbox": [
+              1545.922,
+              687.7,
+              1572.966,
+              712.922
+            ]
+          },
+          {
+            "frame": 290,
+            "xy": [
+              1562.154,
+              699.757
+            ],
+            "confidence": 0.889715,
+            "diameter": 26.2685,
+            "detection_id": "290:0",
+            "bbox": [
+              1548.314,
+              687.3285,
+              1575.994,
+              712.1854999999999
+            ]
+          },
+          {
+            "frame": 291,
+            "xy": [
+              1564.009,
+              700.567
+            ],
+            "confidence": 0.83735,
+            "diameter": 26.8245,
+            "detection_id": "291:0",
+            "bbox": [
+              1550.038,
+              687.7135,
+              1577.98,
+              713.4205000000001
+            ]
+          },
+          {
+            "frame": 292,
+            "xy": [
+              1565.983,
+              700.881
+            ],
+            "confidence": 0.833894,
+            "diameter": 27.3965,
+            "detection_id": "292:0",
+            "bbox": [
+              1551.6465,
+              687.821,
+              1580.3194999999998,
+              713.9409999999999
+            ]
+          },
+          {
+            "frame": 293,
+            "xy": [
+              1567.579,
+              702.129
+            ],
+            "confidence": 0.723399,
+            "diameter": 26.5895,
+            "detection_id": "293:0",
+            "bbox": [
+              1554.1715,
+              688.947,
+              1580.9865,
+              715.311
+            ]
+          },
+          {
+            "frame": 294,
+            "xy": [
+              1569.658,
+              702.205
+            ],
+            "confidence": 0.652227,
+            "diameter": 26.076,
+            "detection_id": "294:0",
+            "bbox": [
+              1556.3715,
+              689.4155000000001,
+              1582.9444999999998,
+              714.9945
+            ]
+          },
+          {
+            "frame": 295,
+            "xy": [
+              1571.675,
+              702.355
+            ],
+            "confidence": 0.41008,
+            "diameter": 25.3205,
+            "detection_id": "295:1",
+            "bbox": [
+              1558.4645,
+              690.245,
+              1584.8854999999999,
+              714.465
+            ]
+          },
+          {
+            "frame": 296,
+            "xy": [
+              1573.828,
+              702.848
+            ],
+            "confidence": 0.417933,
+            "diameter": 26.234499999999997,
+            "detection_id": "296:1",
+            "bbox": [
+              1560.006,
+              690.4354999999999,
+              1587.6499999999999,
+              715.2605
+            ]
+          },
+          {
+            "frame": 297,
+            "xy": [
+              1575.733,
+              703.63
+            ],
+            "confidence": 0.320667,
+            "diameter": 26.451,
+            "detection_id": "297:0",
+            "bbox": [
+              1562.472,
+              690.4399999999999,
+              1588.994,
+              716.82
+            ]
+          },
+          {
+            "frame": 298,
+            "xy": [
+              1576.16,
+              705.142
+            ],
+            "confidence": 0.344702,
+            "diameter": 22.6415,
+            "detection_id": "298:0",
+            "bbox": [
+              1565.1075,
+              693.553,
+              1587.2125,
+              716.7310000000001
+            ]
+          },
+          {
+            "frame": 299,
+            "xy": [
+              1579.441,
+              705.389
+            ],
+            "confidence": 0.349396,
+            "diameter": 24.4395,
+            "detection_id": "299:0",
+            "bbox": [
+              1566.703,
+              693.6875,
+              1592.179,
+              717.0905
+            ]
+          },
+          {
+            "frame": 301,
+            "xy": [
+              1590.594,
+              706.312
+            ],
+            "confidence": 0.047792,
+            "diameter": 19.265,
+            "detection_id": "301:0",
+            "bbox": [
+              1581.6425000000002,
+              695.9985,
+              1599.5455,
+              716.6255
+            ]
+          },
+          {
+            "frame": 302,
+            "xy": [
+              1590.944,
+              705.239
+            ],
+            "confidence": 0.161484,
+            "diameter": 22.551,
+            "detection_id": "302:0",
+            "bbox": [
+              1580.481,
+              693.1510000000001,
+              1601.407,
+              717.327
+            ]
+          },
+          {
+            "frame": 303,
+            "xy": [
+              1589.999,
+              706.007
+            ],
+            "confidence": 0.250793,
+            "diameter": 25.664,
+            "detection_id": "303:0",
+            "bbox": [
+              1576.8225,
+              693.5195,
+              1603.1755,
+              718.4944999999999
+            ]
+          },
+          {
+            "frame": 304,
+            "xy": [
+              1592.482,
+              706.415
+            ],
+            "confidence": 0.280972,
+            "diameter": 26.804499999999997,
+            "detection_id": "304:0",
+            "bbox": [
+              1578.725,
+              693.3675,
+              1606.239,
+              719.4625
+            ]
+          },
+          {
+            "frame": 305,
+            "xy": [
+              1594.948,
+              706.837
+            ],
+            "confidence": 0.261512,
+            "diameter": 25.4295,
+            "detection_id": "305:0",
+            "bbox": [
+              1581.4125000000001,
+              694.943,
+              1608.4835,
+              718.731
+            ]
+          },
+          {
+            "frame": 306,
+            "xy": [
+              1597.504,
+              706.577
+            ],
+            "confidence": 0.35338,
+            "diameter": 24.402,
+            "detection_id": "306:0",
+            "bbox": [
+              1584.4234999999999,
+              695.2555,
+              1610.5845,
+              717.8985
+            ]
+          },
+          {
+            "frame": 307,
+            "xy": [
+              1599.665,
+              708.024
+            ],
+            "confidence": 0.544332,
+            "diameter": 24.996000000000002,
+            "detection_id": "307:0",
+            "bbox": [
+              1586.7359999999999,
+              695.957,
+              1612.594,
+              720.091
+            ]
+          },
+          {
+            "frame": 308,
+            "xy": [
+              1601.59,
+              708.77
+            ],
+            "confidence": 0.537968,
+            "diameter": 25.2335,
+            "detection_id": "308:0",
+            "bbox": [
+              1588.3874999999998,
+              696.739,
+              1614.7925,
+              720.8009999999999
+            ]
+          }
+        ],
+        "departure_ball_observations": [],
+        "contact_bracket_frames": null,
+        "contact_bracket_status": "insufficient_or_conflicting_observations",
+        "stationary_observation_selection_policy": "highest_detector_confidence_per_seed_cluster_frame; ties_detection_id_then_source_xy",
+        "stationary_observation_competitors": [
+          {
+            "frame": 298,
+            "observations": [
+              {
+                "frame": 298,
+                "xy": [
+                  1576.16,
+                  705.142
+                ],
+                "confidence": 0.344702,
+                "diameter": 22.6415,
+                "detection_id": "298:0",
+                "bbox": [
+                  1565.1075,
+                  693.553,
+                  1587.2125,
+                  716.7310000000001
+                ]
+              },
+              {
+                "frame": 298,
+                "xy": [
+                  1589.457,
+                  699.765
+                ],
+                "confidence": 0.230686,
+                "diameter": 24.3915,
+                "detection_id": "298:2",
+                "bbox": [
+                  1578.1450000000002,
+                  686.6854999999999,
+                  1600.769,
+                  712.8445
+                ]
+              }
+            ]
+          },
+          {
+            "frame": 299,
+            "observations": [
+              {
+                "frame": 299,
+                "xy": [
+                  1579.441,
+                  705.389
+                ],
+                "confidence": 0.349396,
+                "diameter": 24.4395,
+                "detection_id": "299:0",
+                "bbox": [
+                  1566.703,
+                  693.6875,
+                  1592.179,
+                  717.0905
+                ]
+              },
+              {
+                "frame": 299,
+                "xy": [
+                  1588.82,
+                  697.605
+                ],
+                "confidence": 0.086858,
+                "diameter": 25.8485,
+                "detection_id": "299:2",
+                "bbox": [
+                  1578.4714999999999,
+                  682.105,
+                  1599.1685,
+                  713.105
+                ]
+              }
+            ]
+          }
+        ],
+        "stationary_identity_ambiguous_frames": [
+          298,
+          299
+        ],
+        "contact_window_policy": "causal_first_departure",
+        "ankle_approach_supported": true,
+        "warnings": [
+          "ball_departure_not_confirmed"
+        ],
+        "goalward_departure_support": {
+          "status": "unknown",
+          "policy": "retained_v4_goalward_speed_backward_miss_bootstrap",
+          "config": {
+            "max_gap_frames": 6,
+            "beam_width": 60,
+            "measurement_slack_px": 10.0,
+            "residual_speed_fraction": 0.12,
+            "gap_uncertainty_px": 0.8,
+            "reachable_speed_ratio": 1.5,
+            "turn_support_points": 3,
+            "max_turns": 2,
+            "miss_cost": 0.35,
+            "require_collision_for_turn": true,
+            "lock_flight_direction": true,
+            "direction_tolerance_degrees": 22.0,
+            "collision_margin_px": 22.0,
+            "association_lag_frames": 2,
+            "prediction_residual_weight": 0.4,
+            "departure_min_displacement_px": 60.0,
+            "departure_max_displacement_px": 300.0,
+            "departure_goal_distance_fraction": 0.6,
+            "departure_contact_uncertainty_frames": 8,
+            "departure_max_gap_frames": 8,
+            "departure_min_speed_px_per_frame": 15.0,
+            "small_motion_component_penalty": 0.45,
+            "stationary_release_confidence": 0.3,
+            "stationary_release_before_contact_frames": 2
+          },
+          "selected_hypothesis": null,
+          "hypotheses": [],
+          "neural_flight_detections_white_mask_filtered": false,
+          "human_verified": false,
+          "reason": "no_retained_v4_goalward_departure_hypothesis"
+        },
+        "scored_ankle_proximity_frame": 303,
+        "scored_ankle_proximity_interval_frames": [
+          298,
+          315
+        ],
+        "scored_ankle_proximity_warnings": [
+          "ball_departure_not_confirmed"
+        ],
+        "contact_timing_status": "unknown",
+        "exact_contact_frame_established": false,
+        "contact_frame_is_estimated": true,
+        "maximum_contact_bracket_frames": 7,
+        "timing_interval_interpretation": "last_observed_stationary_to_first_observed_goalward_departure",
+        "contact_timing_reason": "no_causally_supported_departure",
+        "contact_associated_track_id": 7,
+        "original_pose_selected_track_id": 7,
+        "actor_reselected_by_ball_evidence": false,
+        "actor_field_support": 1.0,
+        "actor_goal_line_excluded": false,
+        "seed_ambiguous_frames": [
+          298,
+          299
+        ],
+        "search_window_index": 1,
+        "camera_chain_measured": true
+      },
+      {
+        "contact_frame": 279,
+        "contact_time_sec": 5.58,
+        "interval_frames": [
+          279,
+          280
+        ],
+        "interval_kind": "heuristic_candidate_window_not_statistical_confidence_interval",
+        "score": 0.4861,
+        "ankle_ball_distance_px": 3.82471342100552,
+        "ankle_ball_distance_body_heights": 0.019464408088958395,
+        "stationary_ball_samples": 4,
+        "stationary_ball_first_frame": 266,
+        "stationary_ball_last_frame": 279,
+        "last_stationary_near_contact_frame": 279,
+        "stationary_ball_reference_xy": [
+          1585.387495944855,
+          719.60970690928
+        ],
+        "ball_departure_frames": [
+          280,
+          283
+        ],
+        "stationary_ball_observations": [
+          {
+            "frame": 266,
+            "xy": [
+              1635.945,
+              735.013
+            ],
+            "confidence": 0.09773,
+            "diameter": 23.2235,
+            "detection_id": "266:2",
+            "bbox": [
+              1624.681,
+              723.0535,
+              1647.2089999999998,
+              746.9725000000001
+            ]
+          },
+          {
+            "frame": 267,
+            "xy": [
+              1631.242,
+              732.655
+            ],
+            "confidence": 0.043012,
+            "diameter": 19.167,
+            "detection_id": "267:5",
+            "bbox": [
+              1621.973,
+              722.757,
+              1640.511,
+              742.553
+            ]
+          },
+          {
+            "frame": 268,
+            "xy": [
+              1626.208,
+              732.38
+            ],
+            "confidence": 0.21122,
+            "diameter": 18.9675,
+            "detection_id": "268:2",
+            "bbox": [
+              1617.1485,
+              722.472,
+              1635.2675000000002,
+              742.288
+            ]
+          },
+          {
+            "frame": 279,
+            "xy": [
+              1646.153,
+              749.033
+            ],
+            "confidence": 0.053422,
+            "diameter": 26.4775,
+            "detection_id": "279:4",
+            "bbox": [
+              1638.8,
+              729.9085,
+              1653.506,
+              768.1575
+            ]
+          }
+        ],
+        "departure_ball_observations": [
+          {
+            "frame": 280,
+            "xy": [
+              1544.459,
+              696.939
+            ],
+            "bbox": [
+              1530.5345,
+              683.7054999999999,
+              1558.3835000000001,
+              710.1725
+            ],
+            "confidence": 0.431318,
+            "diameter": 27.158,
+            "detection_id": "280:1"
+          },
+          {
+            "frame": 283,
+            "xy": [
+              1066.715,
+              602.512
+            ],
+            "bbox": [
+              1061.5339999999999,
+              599.8715,
+              1071.896,
+              605.1524999999999
+            ],
+            "confidence": 0.053221,
+            "diameter": 7.8215,
+            "detection_id": "283:4"
+          }
+        ],
+        "contact_bracket_frames": [
+          279,
+          280
+        ],
+        "contact_bracket_status": "observed_stationary_to_departure_candidate",
+        "stationary_observation_selection_policy": "highest_detector_confidence_per_seed_cluster_frame; ties_detection_id_then_source_xy",
+        "stationary_observation_competitors": [],
+        "stationary_identity_ambiguous_frames": [],
+        "contact_window_policy": "causal_first_departure",
+        "ankle_approach_supported": false,
+        "warnings": [
+          "ankle_approach_not_clear"
+        ],
+        "goalward_departure_support": {
+          "status": "supported_goalward_departure_candidate",
+          "policy": "retained_v4_goalward_speed_backward_miss_bootstrap",
+          "config": {
+            "max_gap_frames": 6,
+            "beam_width": 60,
+            "measurement_slack_px": 10.0,
+            "residual_speed_fraction": 0.12,
+            "gap_uncertainty_px": 0.8,
+            "reachable_speed_ratio": 1.5,
+            "turn_support_points": 3,
+            "max_turns": 2,
+            "miss_cost": 0.35,
+            "require_collision_for_turn": true,
+            "lock_flight_direction": true,
+            "direction_tolerance_degrees": 22.0,
+            "collision_margin_px": 22.0,
+            "association_lag_frames": 2,
+            "prediction_residual_weight": 0.4,
+            "departure_min_displacement_px": 60.0,
+            "departure_max_displacement_px": 300.0,
+            "departure_goal_distance_fraction": 0.6,
+            "departure_contact_uncertainty_frames": 8,
+            "departure_max_gap_frames": 8,
+            "departure_min_speed_px_per_frame": 15.0,
+            "small_motion_component_penalty": 0.45,
+            "stationary_release_confidence": 0.3,
+            "stationary_release_before_contact_frames": 2
+          },
+          "selected_hypothesis": {
+            "release_frame_prediction": 279.3165647646458,
+            "backward_miss_px": 19.749803165308673,
+            "moving_observations": [
+              {
+                "frame": 280,
+                "xy": [
+                  1544.459,
+                  696.939
+                ],
+                "bbox": [
+                  1530.5345,
+                  683.7054999999999,
+                  1558.3835000000001,
+                  710.1725
+                ],
+                "confidence": 0.431318,
+                "diameter": 27.158,
+                "detection_id": "280:1"
+              },
+              {
+                "frame": 283,
+                "xy": [
+                  1066.715,
+                  602.512
+                ],
+                "bbox": [
+                  1061.5339999999999,
+                  599.8715,
+                  1071.896,
+                  605.1524999999999
+                ],
+                "confidence": 0.053221,
+                "diameter": 7.8215,
+                "detection_id": "283:4"
+              }
+            ]
+          },
+          "hypotheses": [
+            {
+              "release_frame_prediction": 279.3165647646458,
+              "backward_miss_px": 19.749803165308673,
+              "moving_observations": [
+                {
+                  "frame": 280,
+                  "xy": [
+                    1544.459,
+                    696.939
+                  ],
+                  "bbox": [
+                    1530.5345,
+                    683.7054999999999,
+                    1558.3835000000001,
+                    710.1725
+                  ],
+                  "confidence": 0.431318,
+                  "diameter": 27.158,
+                  "detection_id": "280:1"
+                },
+                {
+                  "frame": 283,
+                  "xy": [
+                    1066.715,
+                    602.512
+                  ],
+                  "bbox": [
+                    1061.5339999999999,
+                    599.8715,
+                    1071.896,
+                    605.1524999999999
+                  ],
+                  "confidence": 0.053221,
+                  "diameter": 7.8215,
+                  "detection_id": "283:4"
+                }
+              ]
+            },
+            {
+              "release_frame_prediction": 279.0916722409115,
+              "backward_miss_px": 19.791906014502356,
+              "moving_observations": [
+                {
+                  "frame": 280,
+                  "xy": [
+                    1544.459,
+                    696.939
+                  ],
+                  "bbox": [
+                    1530.5345,
+                    683.7054999999999,
+                    1558.3835000000001,
+                    710.1725
+                  ],
+                  "confidence": 0.431318,
+                  "diameter": 27.158,
+                  "detection_id": "280:1"
+                },
+                {
+                  "frame": 284,
+                  "xy": [
+                    1066.118,
+                    602.635
+                  ],
+                  "bbox": [
+                    1058.57,
+                    599.8824999999999,
+                    1073.666,
+                    605.3875
+                  ],
+                  "confidence": 0.068038,
+                  "diameter": 10.3005,
+                  "detection_id": "284:4"
+                }
+              ]
+            },
+            {
+              "release_frame_prediction": 280.3180102146797,
+              "backward_miss_px": 19.75932668123488,
+              "moving_observations": [
+                {
+                  "frame": 281,
+                  "xy": [
+                    1545.842,
+                    697.307
+                  ],
+                  "bbox": [
+                    1531.7355,
+                    683.9025,
+                    1559.9485000000002,
+                    710.7115
+                  ],
+                  "confidence": 0.697,
+                  "diameter": 27.511000000000003,
+                  "detection_id": "281:0"
+                },
+                {
+                  "frame": 284,
+                  "xy": [
+                    1066.118,
+                    602.635
+                  ],
+                  "bbox": [
+                    1058.57,
+                    599.8824999999999,
+                    1073.666,
+                    605.3875
+                  ],
+                  "confidence": 0.068038,
+                  "diameter": 10.3005,
+                  "detection_id": "284:4"
+                }
+              ]
+            },
+            {
+              "release_frame_prediction": 280.0920443960649,
+              "backward_miss_px": 19.728895429759692,
+              "moving_observations": [
+                {
+                  "frame": 281,
+                  "xy": [
+                    1545.842,
+                    697.307
+                  ],
+                  "bbox": [
+                    1531.7355,
+                    683.9025,
+                    1559.9485000000002,
+                    710.7115
+                  ],
+                  "confidence": 0.697,
+                  "diameter": 27.511000000000003,
+                  "detection_id": "281:0"
+                },
+                {
+                  "frame": 285,
+                  "xy": [
+                    1066.401,
+                    602.565
+                  ],
+                  "bbox": [
+                    1058.3400000000001,
+                    599.8795,
+                    1074.462,
+                    605.2505000000001
+                  ],
+                  "confidence": 0.043216,
+                  "diameter": 10.746500000000001,
+                  "detection_id": "285:6"
+                }
+              ]
+            },
+            {
+              "release_frame_prediction": 281.32024690093954,
+              "backward_miss_px": 19.374373918533678,
+              "moving_observations": [
+                {
+                  "frame": 282,
+                  "xy": [
+                    1547.356,
+                    697.989
+                  ],
+                  "bbox": [
+                    1533.51,
+                    684.7320000000001,
+                    1561.202,
+                    711.246
+                  ],
+                  "confidence": 0.792291,
+                  "diameter": 27.103,
+                  "detection_id": "282:0"
+                },
+                {
+                  "frame": 285,
+                  "xy": [
+                    1066.401,
+                    602.565
+                  ],
+                  "bbox": [
+                    1058.3400000000001,
+                    599.8795,
+                    1074.462,
+                    605.2505000000001
+                  ],
+                  "confidence": 0.043216,
+                  "diameter": 10.746500000000001,
+                  "detection_id": "285:6"
+                }
+              ]
+            },
+            {
+              "release_frame_prediction": 282.08309778106536,
+              "backward_miss_px": 19.443756162348752,
+              "moving_observations": [
+                {
+                  "frame": 283,
+                  "xy": [
+                    1548.595,
+                    698.041
+                  ],
+                  "bbox": [
+                    1535.06,
+                    685.128,
+                    1562.13,
+                    710.9540000000001
+                  ],
+                  "confidence": 0.834531,
+                  "diameter": 26.448,
+                  "detection_id": "283:0"
+                },
+                {
+                  "frame": 287,
+                  "xy": [
+                    1072.926,
+                    603.072
+                  ],
+                  "bbox": [
+                    1069.128,
+                    600.9,
+                    1076.724,
+                    605.244
+                  ],
+                  "confidence": 0.048049,
+                  "diameter": 5.970000000000001,
+                  "detection_id": "287:4"
+                }
+              ]
+            },
+            {
+              "release_frame_prediction": 283.31536361697164,
+              "backward_miss_px": 19.47759161265412,
+              "moving_observations": [
+                {
+                  "frame": 284,
+                  "xy": [
+                    1550.45,
+                    698.447
+                  ],
+                  "bbox": [
+                    1536.91,
+                    685.453,
+                    1563.99,
+                    711.441
+                  ],
+                  "confidence": 0.808056,
+                  "diameter": 26.534,
+                  "detection_id": "284:0"
+                },
+                {
+                  "frame": 287,
+                  "xy": [
+                    1072.926,
+                    603.072
+                  ],
+                  "bbox": [
+                    1069.128,
+                    600.9,
+                    1076.724,
+                    605.244
+                  ],
+                  "confidence": 0.048049,
+                  "diameter": 5.970000000000001,
+                  "detection_id": "287:4"
+                }
+              ]
+            }
+          ],
+          "neural_flight_detections_white_mask_filtered": false,
+          "human_verified": false
+        },
+        "scored_ankle_proximity_frame": 279,
+        "scored_ankle_proximity_interval_frames": [
+          274,
+          291
+        ],
+        "scored_ankle_proximity_warnings": [
+          "ankle_approach_not_clear"
+        ],
+        "contact_timing_status": "bounded_stationary_departure_candidate",
+        "exact_contact_frame_established": false,
+        "contact_frame_is_estimated": true,
+        "maximum_contact_bracket_frames": 7,
+        "timing_interval_interpretation": "last_observed_stationary_to_first_observed_goalward_departure",
+        "departure_backprojection_frame_for_comparison_only": 279.3165647646458,
+        "departure_backprojection_precedes_actual_stationary_observation": false,
+        "observed_stationary_departure_bracket_frames": [
+          279,
+          280
+        ],
+        "contact_timing_reason": null,
+        "contact_associated_track_id": 7,
+        "original_pose_selected_track_id": 7,
+        "actor_reselected_by_ball_evidence": false,
+        "actor_field_support": 1.0,
+        "actor_goal_line_excluded": false,
+        "seed_ambiguous_frames": [],
+        "search_window_index": 1,
+        "camera_chain_measured": true
+      },
+      {
+        "contact_frame": 373,
+        "contact_time_sec": 7.46,
+        "interval_frames": [
+          373,
+          385
+        ],
+        "interval_kind": "heuristic_candidate_window_not_statistical_confidence_interval",
+        "score": 0.4792,
+        "ankle_ball_distance_px": 14.211175424367166,
+        "ankle_ball_distance_body_heights": 0.09912436536036737,
+        "stationary_ball_samples": 12,
+        "stationary_ball_first_frame": 373,
+        "stationary_ball_last_frame": 386,
+        "last_stationary_near_contact_frame": 373,
+        "stationary_ball_reference_xy": [
+          638.0425925817451,
+          659.6816732949601
+        ],
+        "ball_departure_frames": [
+          380,
+          383
+        ],
+        "stationary_ball_observations": [
+          {
+            "frame": 373,
+            "xy": [
+              781.068,
+              680.376
+            ],
+            "confidence": 0.052234,
+            "diameter": 19.1845,
+            "detection_id": "373:0",
+            "bbox": [
+              771.21,
+              671.0495,
+              790.9259999999999,
+              689.7025
+            ]
+          },
+          {
+            "frame": 375,
+            "xy": [
+              780.464,
+              681.174
+            ],
+            "confidence": 0.147623,
+            "diameter": 16.431,
+            "detection_id": "375:0",
+            "bbox": [
+              772.2850000000001,
+              672.922,
+              788.643,
+              689.4259999999999
+            ]
+          },
+          {
+            "frame": 376,
+            "xy": [
+              780.162,
+              681.261
+            ],
+            "confidence": 0.135761,
+            "diameter": 16.934,
+            "detection_id": "376:0",
+            "bbox": [
+              771.403,
+              673.086,
+              788.921,
+              689.4359999999999
+            ]
+          },
+          {
+            "frame": 377,
+            "xy": [
+              779.627,
+              680.925
+            ],
+            "confidence": 0.133083,
+            "diameter": 16.596,
+            "detection_id": "377:1",
+            "bbox": [
+              771.1405,
+              672.8154999999999,
+              788.1134999999999,
+              689.0345
+            ]
+          },
+          {
+            "frame": 378,
+            "xy": [
+              779.265,
+              681.907
+            ],
+            "confidence": 0.19828,
+            "diameter": 16.3955,
+            "detection_id": "378:0",
+            "bbox": [
+              770.977,
+              673.7995000000001,
+              787.553,
+              690.0145
+            ]
+          },
+          {
+            "frame": 379,
+            "xy": [
+              778.881,
+              682.489
+            ],
+            "confidence": 0.047832,
+            "diameter": 17.463,
+            "detection_id": "379:1",
+            "bbox": [
+              769.693,
+              674.214,
+              788.069,
+              690.764
+            ]
+          },
+          {
+            "frame": 380,
+            "xy": [
+              779.942,
+              685.148
+            ],
+            "confidence": 0.113885,
+            "diameter": 12.015,
+            "detection_id": "380:0",
+            "bbox": [
+              773.897,
+              679.178,
+              785.987,
+              691.118
+            ]
+          },
+          {
+            "frame": 381,
+            "xy": [
+              777.141,
+              685.854
+            ],
+            "confidence": 0.104845,
+            "diameter": 12.222999999999999,
+            "detection_id": "381:0",
+            "bbox": [
+              770.2294999999999,
+              680.5425,
+              784.0525,
+              691.1655000000001
+            ]
+          },
+          {
+            "frame": 383,
+            "xy": [
+              768.159,
+              685.409
+            ],
+            "confidence": 0.09954,
+            "diameter": 16.2175,
+            "detection_id": "383:2",
+            "bbox": [
+              758.049,
+              679.3015,
+              778.269,
+              691.5165
+            ]
+          },
+          {
+            "frame": 384,
+            "xy": [
+              766.079,
+              686.485
+            ],
+            "confidence": 0.077497,
+            "diameter": 14.875,
+            "detection_id": "384:3",
+            "bbox": [
+              756.7784999999999,
+              680.9105000000001,
+              775.3795,
+              692.0595
+            ]
+          },
+          {
+            "frame": 385,
+            "xy": [
+              762.717,
+              686.003
+            ],
+            "confidence": 0.07276,
+            "diameter": 14.366,
+            "detection_id": "385:3",
+            "bbox": [
+              753.7479999999999,
+              680.606,
+              771.686,
+              691.4000000000001
+            ]
+          },
+          {
+            "frame": 386,
+            "xy": [
+              762.378,
+              685.19
+            ],
+            "confidence": 0.054356,
+            "diameter": 10.8775,
+            "detection_id": "386:2",
+            "bbox": [
+              756.7800000000001,
+              679.9105000000001,
+              767.976,
+              690.4695
+            ]
+          }
+        ],
+        "departure_ball_observations": [
+          {
+            "frame": 380,
+            "xy": [
+              626.185,
+              634.114
+            ],
+            "confidence": 0.09844,
+            "diameter": 15.6295,
+            "detection_id": "380:1",
+            "bbox": [
+              618.8834999999999,
+              625.7860000000001,
+              633.4865,
+              642.442
+            ]
+          },
+          {
+            "frame": 383,
+            "xy": [
+              578.438,
+              530.191
+            ],
+            "confidence": 0.042705,
+            "diameter": 27.680500000000002,
+            "detection_id": "383:5",
+            "bbox": [
+              563.8795,
+              517.0690000000001,
+              592.9965,
+              543.313
+            ]
+          }
+        ],
+        "contact_bracket_frames": null,
+        "contact_bracket_status": "observed_stationary_to_departure_candidate",
+        "stationary_observation_selection_policy": "highest_detector_confidence_per_seed_cluster_frame; ties_detection_id_then_source_xy",
+        "stationary_observation_competitors": [],
+        "stationary_identity_ambiguous_frames": [],
+        "contact_window_policy": "causal_first_departure",
+        "ankle_approach_supported": false,
+        "warnings": [
+          "ankle_approach_not_clear"
+        ],
+        "goalward_departure_support": {
+          "status": "unknown",
+          "policy": "retained_v4_goalward_speed_backward_miss_bootstrap",
+          "config": {
+            "max_gap_frames": 6,
+            "beam_width": 60,
+            "measurement_slack_px": 10.0,
+            "residual_speed_fraction": 0.12,
+            "gap_uncertainty_px": 0.8,
+            "reachable_speed_ratio": 1.5,
+            "turn_support_points": 3,
+            "max_turns": 2,
+            "miss_cost": 0.35,
+            "require_collision_for_turn": true,
+            "lock_flight_direction": true,
+            "direction_tolerance_degrees": 22.0,
+            "collision_margin_px": 22.0,
+            "association_lag_frames": 2,
+            "prediction_residual_weight": 0.4,
+            "departure_min_displacement_px": 60.0,
+            "departure_max_displacement_px": 300.0,
+            "departure_goal_distance_fraction": 0.6,
+            "departure_contact_uncertainty_frames": 8,
+            "departure_max_gap_frames": 8,
+            "departure_min_speed_px_per_frame": 15.0,
+            "small_motion_component_penalty": 0.45,
+            "stationary_release_confidence": 0.3,
+            "stationary_release_before_contact_frames": 2
+          },
+          "selected_hypothesis": null,
+          "hypotheses": [],
+          "neural_flight_detections_white_mask_filtered": false,
+          "human_verified": false,
+          "reason": "no_retained_v4_goalward_departure_hypothesis"
+        },
+        "scored_ankle_proximity_frame": 373,
+        "scored_ankle_proximity_interval_frames": [
+          373,
+          385
+        ],
+        "scored_ankle_proximity_warnings": [
+          "ankle_approach_not_clear"
+        ],
+        "contact_timing_status": "unknown",
+        "exact_contact_frame_established": false,
+        "contact_frame_is_estimated": true,
+        "maximum_contact_bracket_frames": 7,
+        "timing_interval_interpretation": "last_observed_stationary_to_first_observed_goalward_departure",
+        "contact_timing_reason": "no_causally_supported_departure",
+        "contact_associated_track_id": 54,
+        "original_pose_selected_track_id": 7,
+        "actor_reselected_by_ball_evidence": true,
+        "actor_field_support": 1.0,
+        "actor_goal_line_excluded": false,
+        "seed_ambiguous_frames": [],
+        "search_window_index": 3,
+        "camera_chain_measured": true
+      },
+      {
+        "contact_frame": 346,
+        "contact_time_sec": 6.92,
+        "interval_frames": [
+          341,
+          370
+        ],
+        "interval_kind": "heuristic_candidate_window_not_statistical_confidence_interval",
+        "score": 0.4756,
+        "ankle_ball_distance_px": 8.592037427601857,
+        "ankle_ball_distance_body_heights": 0.08671870079216125,
+        "stationary_ball_samples": 7,
+        "stationary_ball_first_frame": 331,
+        "stationary_ball_last_frame": 352,
+        "last_stationary_near_contact_frame": 346,
+        "stationary_ball_reference_xy": [
+          610.73823206278,
+          590.44836511801
+        ],
+        "ball_departure_frames": [
+          370,
+          375
+        ],
+        "stationary_ball_observations": [
+          {
+            "frame": 331,
+            "xy": [
+              670.846,
+              582.839
+            ],
+            "confidence": 0.17326,
+            "diameter": 13.739,
+            "detection_id": "331:1",
+            "bbox": [
+              662.833,
+              577.113,
+              678.859,
+              588.565
+            ]
+          },
+          {
+            "frame": 344,
+            "xy": [
+              740.63,
+              596.392
+            ],
+            "confidence": 0.058563,
+            "diameter": 27.762999999999998,
+            "detection_id": "344:1",
+            "bbox": [
+              725.519,
+              583.74,
+              755.741,
+              609.0440000000001
+            ]
+          },
+          {
+            "frame": 345,
+            "xy": [
+              747.776,
+              602.685
+            ],
+            "confidence": 0.060689,
+            "diameter": 35.8405,
+            "detection_id": "345:1",
+            "bbox": [
+              727.031,
+              587.5894999999999,
+              768.521,
+              617.7805
+            ]
+          },
+          {
+            "frame": 346,
+            "xy": [
+              758.717,
+              605.265
+            ],
+            "confidence": 0.05281,
+            "diameter": 25.4645,
+            "detection_id": "346:1",
+            "bbox": [
+              742.2655,
+              596.252,
+              775.1685,
+              614.278
+            ]
+          },
+          {
+            "frame": 348,
+            "xy": [
+              739.038,
+              598.719
+            ],
+            "confidence": 0.063372,
+            "diameter": 20.055,
+            "detection_id": "348:0",
+            "bbox": [
+              725.613,
+              592.089,
+              752.463,
+              605.349
+            ]
+          },
+          {
+            "frame": 349,
+            "xy": [
+              740.815,
+              604.692
+            ],
+            "confidence": 0.120286,
+            "diameter": 28.932499999999997,
+            "detection_id": "349:0",
+            "bbox": [
+              721.4245000000001,
+              595.15,
+              760.2055,
+              614.234
+            ]
+          },
+          {
+            "frame": 352,
+            "xy": [
+              758.152,
+              613.506
+            ],
+            "confidence": 0.084107,
+            "diameter": 25.412499999999998,
+            "detection_id": "352:1",
+            "bbox": [
+              740.22,
+              606.0255,
+              776.0840000000001,
+              620.9865
+            ]
+          }
+        ],
+        "departure_ball_observations": [
+          {
+            "frame": 370,
+            "xy": [
+              736.735,
+              682.286
+            ],
+            "confidence": 0.052565,
+            "diameter": 29.9635,
+            "detection_id": "370:2",
+            "bbox": [
+              720.788,
+              668.2695,
+              752.682,
+              696.3024999999999
+            ]
+          },
+          {
+            "frame": 375,
+            "xy": [
+              670.211,
+              726.502
+            ],
+            "confidence": 0.052676,
+            "diameter": 18.264499999999998,
+            "detection_id": "375:2",
+            "bbox": [
+              663.369,
+              715.0794999999999,
+              677.053,
+              737.9245
+            ]
+          }
+        ],
+        "contact_bracket_frames": null,
+        "contact_bracket_status": "observed_stationary_to_departure_candidate",
+        "stationary_observation_selection_policy": "highest_detector_confidence_per_seed_cluster_frame; ties_detection_id_then_source_xy",
+        "stationary_observation_competitors": [],
+        "stationary_identity_ambiguous_frames": [],
+        "contact_window_policy": "causal_first_departure",
+        "ankle_approach_supported": false,
+        "warnings": [
+          "ankle_approach_not_clear"
+        ],
+        "goalward_departure_support": {
+          "status": "unknown",
+          "policy": "retained_v4_goalward_speed_backward_miss_bootstrap",
+          "config": {
+            "max_gap_frames": 6,
+            "beam_width": 60,
+            "measurement_slack_px": 10.0,
+            "residual_speed_fraction": 0.12,
+            "gap_uncertainty_px": 0.8,
+            "reachable_speed_ratio": 1.5,
+            "turn_support_points": 3,
+            "max_turns": 2,
+            "miss_cost": 0.35,
+            "require_collision_for_turn": true,
+            "lock_flight_direction": true,
+            "direction_tolerance_degrees": 22.0,
+            "collision_margin_px": 22.0,
+            "association_lag_frames": 2,
+            "prediction_residual_weight": 0.4,
+            "departure_min_displacement_px": 60.0,
+            "departure_max_displacement_px": 300.0,
+            "departure_goal_distance_fraction": 0.6,
+            "departure_contact_uncertainty_frames": 8,
+            "departure_max_gap_frames": 8,
+            "departure_min_speed_px_per_frame": 15.0,
+            "small_motion_component_penalty": 0.45,
+            "stationary_release_confidence": 0.3,
+            "stationary_release_before_contact_frames": 2
+          },
+          "selected_hypothesis": null,
+          "hypotheses": [],
+          "neural_flight_detections_white_mask_filtered": false,
+          "human_verified": false,
+          "reason": "no_retained_v4_goalward_departure_hypothesis"
+        },
+        "scored_ankle_proximity_frame": 346,
+        "scored_ankle_proximity_interval_frames": [
+          341,
+          370
+        ],
+        "scored_ankle_proximity_warnings": [
+          "ankle_approach_not_clear"
+        ],
+        "contact_timing_status": "unknown",
+        "exact_contact_frame_established": false,
+        "contact_frame_is_estimated": true,
+        "maximum_contact_bracket_frames": 7,
+        "timing_interval_interpretation": "last_observed_stationary_to_first_observed_goalward_departure",
+        "contact_timing_reason": "no_causally_supported_departure",
+        "contact_associated_track_id": 54,
+        "original_pose_selected_track_id": 7,
+        "actor_reselected_by_ball_evidence": true,
+        "actor_field_support": 1.0,
+        "actor_goal_line_excluded": false,
+        "seed_ambiguous_frames": [],
+        "search_window_index": 3,
+        "camera_chain_measured": true
+      },
+      {
+        "contact_frame": 345,
+        "contact_time_sec": 6.9,
+        "interval_frames": [
+          340,
+          357
+        ],
+        "interval_kind": "heuristic_candidate_window_not_statistical_confidence_interval",
+        "score": 0.469,
+        "ankle_ball_distance_px": 11.838537481010288,
+        "ankle_ball_distance_body_heights": 0.11336842085847698,
+        "stationary_ball_samples": 8,
+        "stationary_ball_first_frame": 313,
+        "stationary_ball_last_frame": 346,
+        "last_stationary_near_contact_frame": 346,
+        "stationary_ball_reference_xy": [
+          548.386848733755,
+          568.03321017001
+        ],
+        "ball_departure_frames": [
+          349,
+          352
+        ],
+        "stationary_ball_observations": [
+          {
+            "frame": 313,
+            "xy": [
+              581.799,
+              578.109
+            ],
+            "confidence": 0.106265,
+            "diameter": 23.294,
+            "detection_id": "313:0",
+            "bbox": [
+              570.1365,
+              566.4775000000001,
+              593.4615,
+              589.7405
+            ]
+          },
+          {
+            "frame": 314,
+            "xy": [
+              587.475,
+              582.006
+            ],
+            "confidence": 0.046768,
+            "diameter": 21.0165,
+            "detection_id": "314:2",
+            "bbox": [
+              576.4485,
+              572.016,
+              598.5015000000001,
+              591.996
+            ]
+          },
+          {
+            "frame": 316,
+            "xy": [
+              599.337,
+              592.628
+            ],
+            "confidence": 0.040774,
+            "diameter": 20.602,
+            "detection_id": "316:3",
+            "bbox": [
+              587.721,
+              583.642,
+              610.953,
+              601.614
+            ]
+          },
+          {
+            "frame": 317,
+            "xy": [
+              602.002,
+              593.34
+            ],
+            "confidence": 0.100311,
+            "diameter": 23.219,
+            "detection_id": "317:1",
+            "bbox": [
+              588.5385,
+              583.5845,
+              615.4654999999999,
+              603.0955
+            ]
+          },
+          {
+            "frame": 331,
+            "xy": [
+              663.077,
+              589.639
+            ],
+            "confidence": 0.689918,
+            "diameter": 26.634,
+            "detection_id": "331:0",
+            "bbox": [
+              649.096,
+              576.986,
+              677.058,
+              602.292
+            ]
+          },
+          {
+            "frame": 332,
+            "xy": [
+              665.859,
+              590.725
+            ],
+            "confidence": 0.599002,
+            "diameter": 23.8155,
+            "detection_id": "332:0",
+            "bbox": [
+              650.7130000000001,
+              582.0555,
+              681.005,
+              599.3945
+            ]
+          },
+          {
+            "frame": 333,
+            "xy": [
+              667.5,
+              600.106
+            ],
+            "confidence": 0.560002,
+            "diameter": 26.4695,
+            "detection_id": "333:0",
+            "bbox": [
+              652.782,
+              588.3545,
+              682.218,
+              611.8575
+            ]
+          },
+          {
+            "frame": 346,
+            "xy": [
+              723.324,
+              585.617
+            ],
+            "confidence": 0.049716,
+            "diameter": 21.7335,
+            "detection_id": "346:2",
+            "bbox": [
+              709.8385,
+              577.3689999999999,
+              736.8095,
+              593.865
+            ]
+          }
+        ],
+        "departure_ball_observations": [
+          {
+            "frame": 349,
+            "xy": [
+              774.228,
+              637.712
+            ],
+            "confidence": 0.119211,
+            "diameter": 27.383499999999998,
+            "detection_id": "349:1",
+            "bbox": [
+              759.8394999999999,
+              624.717,
+              788.6165,
+              650.707
+            ]
+          },
+          {
+            "frame": 352,
+            "xy": [
+              770.635,
+              664.553
+            ],
+            "confidence": 0.213049,
+            "diameter": 27.618499999999997,
+            "detection_id": "352:0",
+            "bbox": [
+              756.765,
+              650.8045,
+              784.505,
+              678.3015
+            ]
+          }
+        ],
+        "contact_bracket_frames": null,
+        "contact_bracket_status": "observed_stationary_to_departure_candidate",
+        "stationary_observation_selection_policy": "highest_detector_confidence_per_seed_cluster_frame; ties_detection_id_then_source_xy",
+        "stationary_observation_competitors": [
+          {
+            "frame": 331,
+            "observations": [
+              {
+                "frame": 331,
+                "xy": [
+                  663.077,
+                  589.639
+                ],
+                "confidence": 0.689918,
+                "diameter": 26.634,
+                "detection_id": "331:0",
+                "bbox": [
+                  649.096,
+                  576.986,
+                  677.058,
+                  602.292
+                ]
+              },
+              {
+                "frame": 331,
+                "xy": [
+                  649.257,
+                  587.913
+                ],
+                "confidence": 0.102059,
+                "diameter": 47.795,
+                "detection_id": "331:2",
+                "bbox": [
+                  619.1624999999999,
+                  570.2125,
+                  679.3515,
+                  605.6135
+                ]
+              }
+            ]
+          },
+          {
+            "frame": 332,
+            "observations": [
+              {
+                "frame": 332,
+                "xy": [
+                  665.859,
+                  590.725
+                ],
+                "confidence": 0.599002,
+                "diameter": 23.8155,
+                "detection_id": "332:0",
+                "bbox": [
+                  650.7130000000001,
+                  582.0555,
+                  681.005,
+                  599.3945
+                ]
+              },
+              {
+                "frame": 332,
+                "xy": [
+                  650.694,
+                  588.079
+                ],
+                "confidence": 0.173473,
+                "diameter": 26.8035,
+                "detection_id": "332:1",
+                "bbox": [
+                  631.5989999999999,
+                  580.3705,
+                  669.789,
+                  595.7874999999999
+                ]
+              }
+            ]
+          }
+        ],
+        "stationary_identity_ambiguous_frames": [
+          331,
+          332
+        ],
+        "contact_window_policy": "causal_first_departure",
+        "ankle_approach_supported": false,
+        "warnings": [
+          "ankle_approach_not_clear"
+        ],
+        "goalward_departure_support": {
+          "status": "unknown",
+          "policy": "retained_v4_goalward_speed_backward_miss_bootstrap",
+          "config": {
+            "max_gap_frames": 6,
+            "beam_width": 60,
+            "measurement_slack_px": 10.0,
+            "residual_speed_fraction": 0.12,
+            "gap_uncertainty_px": 0.8,
+            "reachable_speed_ratio": 1.5,
+            "turn_support_points": 3,
+            "max_turns": 2,
+            "miss_cost": 0.35,
+            "require_collision_for_turn": true,
+            "lock_flight_direction": true,
+            "direction_tolerance_degrees": 22.0,
+            "collision_margin_px": 22.0,
+            "association_lag_frames": 2,
+            "prediction_residual_weight": 0.4,
+            "departure_min_displacement_px": 60.0,
+            "departure_max_displacement_px": 300.0,
+            "departure_goal_distance_fraction": 0.6,
+            "departure_contact_uncertainty_frames": 8,
+            "departure_max_gap_frames": 8,
+            "departure_min_speed_px_per_frame": 15.0,
+            "small_motion_component_penalty": 0.45,
+            "stationary_release_confidence": 0.3,
+            "stationary_release_before_contact_frames": 2
+          },
+          "selected_hypothesis": null,
+          "hypotheses": [],
+          "neural_flight_detections_white_mask_filtered": false,
+          "human_verified": false,
+          "reason": "no_retained_v4_goalward_departure_hypothesis"
+        },
+        "scored_ankle_proximity_frame": 345,
+        "scored_ankle_proximity_interval_frames": [
+          340,
+          357
+        ],
+        "scored_ankle_proximity_warnings": [
+          "ankle_approach_not_clear"
+        ],
+        "contact_timing_status": "unknown",
+        "exact_contact_frame_established": false,
+        "contact_frame_is_estimated": true,
+        "maximum_contact_bracket_frames": 7,
+        "timing_interval_interpretation": "last_observed_stationary_to_first_observed_goalward_departure",
+        "contact_timing_reason": "no_causally_supported_departure",
+        "contact_associated_track_id": 54,
+        "original_pose_selected_track_id": 7,
+        "actor_reselected_by_ball_evidence": true,
+        "actor_field_support": 1.0,
+        "actor_goal_line_excluded": false,
+        "seed_ambiguous_frames": [
+          331,
+          332
+        ],
+        "search_window_index": 2,
+        "camera_chain_measured": true
+      },
+      {
+        "contact_frame": 375,
+        "contact_time_sec": 7.5,
+        "interval_frames": [
+          373,
+          387
+        ],
+        "interval_kind": "heuristic_candidate_window_not_statistical_confidence_interval",
+        "score": 0.441,
+        "ankle_ball_distance_px": 23.568870198731723,
+        "ankle_ball_distance_body_heights": 0.15253941884451838,
+        "stationary_ball_samples": 12,
+        "stationary_ball_first_frame": 373,
+        "stationary_ball_last_frame": 386,
+        "last_stationary_near_contact_frame": 376,
+        "stationary_ball_reference_xy": [
+          638.0425925817451,
+          659.6816732949601
+        ],
+        "ball_departure_frames": [
+          380,
+          383
+        ],
+        "stationary_ball_observations": [
+          {
+            "frame": 373,
+            "xy": [
+              781.068,
+              680.376
+            ],
+            "confidence": 0.052234,
+            "diameter": 19.1845,
+            "detection_id": "373:0",
+            "bbox": [
+              771.21,
+              671.0495,
+              790.9259999999999,
+              689.7025
+            ]
+          },
+          {
+            "frame": 375,
+            "xy": [
+              780.464,
+              681.174
+            ],
+            "confidence": 0.147623,
+            "diameter": 16.431,
+            "detection_id": "375:0",
+            "bbox": [
+              772.2850000000001,
+              672.922,
+              788.643,
+              689.4259999999999
+            ]
+          },
+          {
+            "frame": 376,
+            "xy": [
+              780.162,
+              681.261
+            ],
+            "confidence": 0.135761,
+            "diameter": 16.934,
+            "detection_id": "376:0",
+            "bbox": [
+              771.403,
+              673.086,
+              788.921,
+              689.4359999999999
+            ]
+          },
+          {
+            "frame": 377,
+            "xy": [
+              779.627,
+              680.925
+            ],
+            "confidence": 0.133083,
+            "diameter": 16.596,
+            "detection_id": "377:1",
+            "bbox": [
+              771.1405,
+              672.8154999999999,
+              788.1134999999999,
+              689.0345
+            ]
+          },
+          {
+            "frame": 378,
+            "xy": [
+              779.265,
+              681.907
+            ],
+            "confidence": 0.19828,
+            "diameter": 16.3955,
+            "detection_id": "378:0",
+            "bbox": [
+              770.977,
+              673.7995000000001,
+              787.553,
+              690.0145
+            ]
+          },
+          {
+            "frame": 379,
+            "xy": [
+              778.881,
+              682.489
+            ],
+            "confidence": 0.047832,
+            "diameter": 17.463,
+            "detection_id": "379:1",
+            "bbox": [
+              769.693,
+              674.214,
+              788.069,
+              690.764
+            ]
+          },
+          {
+            "frame": 380,
+            "xy": [
+              779.942,
+              685.148
+            ],
+            "confidence": 0.113885,
+            "diameter": 12.015,
+            "detection_id": "380:0",
+            "bbox": [
+              773.897,
+              679.178,
+              785.987,
+              691.118
+            ]
+          },
+          {
+            "frame": 381,
+            "xy": [
+              777.141,
+              685.854
+            ],
+            "confidence": 0.104845,
+            "diameter": 12.222999999999999,
+            "detection_id": "381:0",
+            "bbox": [
+              770.2294999999999,
+              680.5425,
+              784.0525,
+              691.1655000000001
+            ]
+          },
+          {
+            "frame": 383,
+            "xy": [
+              768.159,
+              685.409
+            ],
+            "confidence": 0.09954,
+            "diameter": 16.2175,
+            "detection_id": "383:2",
+            "bbox": [
+              758.049,
+              679.3015,
+              778.269,
+              691.5165
+            ]
+          },
+          {
+            "frame": 384,
+            "xy": [
+              766.079,
+              686.485
+            ],
+            "confidence": 0.077497,
+            "diameter": 14.875,
+            "detection_id": "384:3",
+            "bbox": [
+              756.7784999999999,
+              680.9105000000001,
+              775.3795,
+              692.0595
+            ]
+          },
+          {
+            "frame": 385,
+            "xy": [
+              762.717,
+              686.003
+            ],
+            "confidence": 0.07276,
+            "diameter": 14.366,
+            "detection_id": "385:3",
+            "bbox": [
+              753.7479999999999,
+              680.606,
+              771.686,
+              691.4000000000001
+            ]
+          },
+          {
+            "frame": 386,
+            "xy": [
+              762.378,
+              685.19
+            ],
+            "confidence": 0.054356,
+            "diameter": 10.8775,
+            "detection_id": "386:2",
+            "bbox": [
+              756.7800000000001,
+              679.9105000000001,
+              767.976,
+              690.4695
+            ]
+          }
+        ],
+        "departure_ball_observations": [
+          {
+            "frame": 380,
+            "xy": [
+              626.185,
+              634.114
+            ],
+            "confidence": 0.09844,
+            "diameter": 15.6295,
+            "detection_id": "380:1",
+            "bbox": [
+              618.8834999999999,
+              625.7860000000001,
+              633.4865,
+              642.442
+            ]
+          },
+          {
+            "frame": 383,
+            "xy": [
+              578.438,
+              530.191
+            ],
+            "confidence": 0.042705,
+            "diameter": 27.680500000000002,
+            "detection_id": "383:5",
+            "bbox": [
+              563.8795,
+              517.0690000000001,
+              592.9965,
+              543.313
+            ]
+          }
+        ],
+        "contact_bracket_frames": null,
+        "contact_bracket_status": "observed_stationary_to_departure_candidate",
+        "stationary_observation_selection_policy": "highest_detector_confidence_per_seed_cluster_frame; ties_detection_id_then_source_xy",
+        "stationary_observation_competitors": [],
+        "stationary_identity_ambiguous_frames": [],
+        "contact_window_policy": "causal_first_departure",
+        "ankle_approach_supported": false,
+        "warnings": [
+          "ankle_approach_not_clear"
+        ],
+        "goalward_departure_support": {
+          "status": "unknown",
+          "policy": "retained_v4_goalward_speed_backward_miss_bootstrap",
+          "config": {
+            "max_gap_frames": 6,
+            "beam_width": 60,
+            "measurement_slack_px": 10.0,
+            "residual_speed_fraction": 0.12,
+            "gap_uncertainty_px": 0.8,
+            "reachable_speed_ratio": 1.5,
+            "turn_support_points": 3,
+            "max_turns": 2,
+            "miss_cost": 0.35,
+            "require_collision_for_turn": true,
+            "lock_flight_direction": true,
+            "direction_tolerance_degrees": 22.0,
+            "collision_margin_px": 22.0,
+            "association_lag_frames": 2,
+            "prediction_residual_weight": 0.4,
+            "departure_min_displacement_px": 60.0,
+            "departure_max_displacement_px": 300.0,
+            "departure_goal_distance_fraction": 0.6,
+            "departure_contact_uncertainty_frames": 8,
+            "departure_max_gap_frames": 8,
+            "departure_min_speed_px_per_frame": 15.0,
+            "small_motion_component_penalty": 0.45,
+            "stationary_release_confidence": 0.3,
+            "stationary_release_before_contact_frames": 2
+          },
+          "selected_hypothesis": null,
+          "hypotheses": [],
+          "neural_flight_detections_white_mask_filtered": false,
+          "human_verified": false,
+          "reason": "no_retained_v4_goalward_departure_hypothesis"
+        },
+        "scored_ankle_proximity_frame": 375,
+        "scored_ankle_proximity_interval_frames": [
+          373,
+          387
+        ],
+        "scored_ankle_proximity_warnings": [
+          "ankle_approach_not_clear"
+        ],
+        "contact_timing_status": "unknown",
+        "exact_contact_frame_established": false,
+        "contact_frame_is_estimated": true,
+        "maximum_contact_bracket_frames": 7,
+        "timing_interval_interpretation": "last_observed_stationary_to_first_observed_goalward_departure",
+        "contact_timing_reason": "no_causally_supported_departure",
+        "contact_associated_track_id": 70,
+        "original_pose_selected_track_id": 7,
+        "actor_reselected_by_ball_evidence": true,
+        "actor_field_support": 1.0,
+        "actor_goal_line_excluded": false,
+        "seed_ambiguous_frames": [],
+        "search_window_index": 3,
+        "camera_chain_measured": true
+      },
+      {
+        "contact_frame": 346,
+        "contact_time_sec": 6.92,
+        "interval_frames": [
+          341,
+          358
+        ],
+        "interval_kind": "heuristic_candidate_window_not_statistical_confidence_interval",
+        "score": 0.4013,
+        "ankle_ball_distance_px": 55.40632257578698,
+        "ankle_ball_distance_body_heights": 0.20817214827949296,
+        "stationary_ball_samples": 8,
+        "stationary_ball_first_frame": 313,
+        "stationary_ball_last_frame": 346,
+        "last_stationary_near_contact_frame": 346,
+        "stationary_ball_reference_xy": [
+          548.386848733755,
+          568.03321017001
+        ],
+        "ball_departure_frames": [
+          346,
+          347
+        ],
+        "stationary_ball_observations": [
+          {
+            "frame": 313,
+            "xy": [
+              581.799,
+              578.109
+            ],
+            "confidence": 0.106265,
+            "diameter": 23.294,
+            "detection_id": "313:0",
+            "bbox": [
+              570.1365,
+              566.4775000000001,
+              593.4615,
+              589.7405
+            ]
+          },
+          {
+            "frame": 314,
+            "xy": [
+              587.475,
+              582.006
+            ],
+            "confidence": 0.046768,
+            "diameter": 21.0165,
+            "detection_id": "314:2",
+            "bbox": [
+              576.4485,
+              572.016,
+              598.5015000000001,
+              591.996
+            ]
+          },
+          {
+            "frame": 316,
+            "xy": [
+              599.337,
+              592.628
+            ],
+            "confidence": 0.040774,
+            "diameter": 20.602,
+            "detection_id": "316:3",
+            "bbox": [
+              587.721,
+              583.642,
+              610.953,
+              601.614
+            ]
+          },
+          {
+            "frame": 317,
+            "xy": [
+              602.002,
+              593.34
+            ],
+            "confidence": 0.100311,
+            "diameter": 23.219,
+            "detection_id": "317:1",
+            "bbox": [
+              588.5385,
+              583.5845,
+              615.4654999999999,
+              603.0955
+            ]
+          },
+          {
+            "frame": 331,
+            "xy": [
+              663.077,
+              589.639
+            ],
+            "confidence": 0.689918,
+            "diameter": 26.634,
+            "detection_id": "331:0",
+            "bbox": [
+              649.096,
+              576.986,
+              677.058,
+              602.292
+            ]
+          },
+          {
+            "frame": 332,
+            "xy": [
+              665.859,
+              590.725
+            ],
+            "confidence": 0.599002,
+            "diameter": 23.8155,
+            "detection_id": "332:0",
+            "bbox": [
+              650.7130000000001,
+              582.0555,
+              681.005,
+              599.3945
+            ]
+          },
+          {
+            "frame": 333,
+            "xy": [
+              667.5,
+              600.106
+            ],
+            "confidence": 0.560002,
+            "diameter": 26.4695,
+            "detection_id": "333:0",
+            "bbox": [
+              652.782,
+              588.3545,
+              682.218,
+              611.8575
+            ]
+          },
+          {
+            "frame": 346,
+            "xy": [
+              723.324,
+              585.617
+            ],
+            "confidence": 0.049716,
+            "diameter": 21.7335,
+            "detection_id": "346:2",
+            "bbox": [
+              709.8385,
+              577.3689999999999,
+              736.8095,
+              593.865
+            ]
+          }
+        ],
+        "departure_ball_observations": [
+          {
+            "frame": 346,
+            "xy": [
+              239.107,
+              678.991
+            ],
+            "confidence": 0.044227,
+            "diameter": 31.2185,
+            "detection_id": "346:3",
+            "bbox": [
+              216.695,
+              670.1845,
+              261.519,
+              687.7975
+            ]
+          },
+          {
+            "frame": 347,
+            "xy": [
+              159.358,
+              627.594
+            ],
+            "confidence": 0.047623,
+            "diameter": 35.012,
+            "detection_id": "347:2",
+            "bbox": [
+              136.75650000000002,
+              615.1835000000001,
+              181.9595,
+              640.0045
+            ]
+          }
+        ],
+        "contact_bracket_frames": null,
+        "contact_bracket_status": "observed_stationary_to_departure_candidate",
+        "stationary_observation_selection_policy": "highest_detector_confidence_per_seed_cluster_frame; ties_detection_id_then_source_xy",
+        "stationary_observation_competitors": [
+          {
+            "frame": 331,
+            "observations": [
+              {
+                "frame": 331,
+                "xy": [
+                  663.077,
+                  589.639
+                ],
+                "confidence": 0.689918,
+                "diameter": 26.634,
+                "detection_id": "331:0",
+                "bbox": [
+                  649.096,
+                  576.986,
+                  677.058,
+                  602.292
+                ]
+              },
+              {
+                "frame": 331,
+                "xy": [
+                  649.257,
+                  587.913
+                ],
+                "confidence": 0.102059,
+                "diameter": 47.795,
+                "detection_id": "331:2",
+                "bbox": [
+                  619.1624999999999,
+                  570.2125,
+                  679.3515,
+                  605.6135
+                ]
+              }
+            ]
+          },
+          {
+            "frame": 332,
+            "observations": [
+              {
+                "frame": 332,
+                "xy": [
+                  665.859,
+                  590.725
+                ],
+                "confidence": 0.599002,
+                "diameter": 23.8155,
+                "detection_id": "332:0",
+                "bbox": [
+                  650.7130000000001,
+                  582.0555,
+                  681.005,
+                  599.3945
+                ]
+              },
+              {
+                "frame": 332,
+                "xy": [
+                  650.694,
+                  588.079
+                ],
+                "confidence": 0.173473,
+                "diameter": 26.8035,
+                "detection_id": "332:1",
+                "bbox": [
+                  631.5989999999999,
+                  580.3705,
+                  669.789,
+                  595.7874999999999
+                ]
+              }
+            ]
+          }
+        ],
+        "stationary_identity_ambiguous_frames": [
+          331,
+          332
+        ],
+        "contact_window_policy": "causal_first_departure",
+        "ankle_approach_supported": false,
+        "warnings": [
+          "ankle_approach_not_clear"
+        ],
+        "goalward_departure_support": {
+          "status": "unknown",
+          "policy": "retained_v4_goalward_speed_backward_miss_bootstrap",
+          "config": {
+            "max_gap_frames": 6,
+            "beam_width": 60,
+            "measurement_slack_px": 10.0,
+            "residual_speed_fraction": 0.12,
+            "gap_uncertainty_px": 0.8,
+            "reachable_speed_ratio": 1.5,
+            "turn_support_points": 3,
+            "max_turns": 2,
+            "miss_cost": 0.35,
+            "require_collision_for_turn": true,
+            "lock_flight_direction": true,
+            "direction_tolerance_degrees": 22.0,
+            "collision_margin_px": 22.0,
+            "association_lag_frames": 2,
+            "prediction_residual_weight": 0.4,
+            "departure_min_displacement_px": 60.0,
+            "departure_max_displacement_px": 300.0,
+            "departure_goal_distance_fraction": 0.6,
+            "departure_contact_uncertainty_frames": 8,
+            "departure_max_gap_frames": 8,
+            "departure_min_speed_px_per_frame": 15.0,
+            "small_motion_component_penalty": 0.45,
+            "stationary_release_confidence": 0.3,
+            "stationary_release_before_contact_frames": 2
+          },
+          "selected_hypothesis": null,
+          "hypotheses": [],
+          "neural_flight_detections_white_mask_filtered": false,
+          "human_verified": false,
+          "reason": "no_retained_v4_goalward_departure_hypothesis"
+        },
+        "scored_ankle_proximity_frame": 346,
+        "scored_ankle_proximity_interval_frames": [
+          341,
+          358
+        ],
+        "scored_ankle_proximity_warnings": [
+          "ankle_approach_not_clear"
+        ],
+        "contact_timing_status": "unknown",
+        "exact_contact_frame_established": false,
+        "contact_frame_is_estimated": true,
+        "maximum_contact_bracket_frames": 7,
+        "timing_interval_interpretation": "last_observed_stationary_to_first_observed_goalward_departure",
+        "contact_timing_reason": "no_causally_supported_departure",
+        "contact_associated_track_id": 46,
+        "original_pose_selected_track_id": 7,
+        "actor_reselected_by_ball_evidence": true,
+        "actor_field_support": 1.0,
+        "actor_goal_line_excluded": false,
+        "seed_ambiguous_frames": [
+          331,
+          332
+        ],
+        "search_window_index": 2,
+        "camera_chain_measured": true
+      },
+      {
+        "contact_frame": 388,
+        "contact_time_sec": 7.76,
+        "interval_frames": [
+          383,
+          400
+        ],
+        "interval_kind": "heuristic_candidate_window_not_statistical_confidence_interval",
+        "score": 0.3946,
+        "ankle_ball_distance_px": 39.462778179046424,
+        "ankle_ball_distance_body_heights": 0.21751311107124457,
+        "stationary_ball_samples": 12,
+        "stationary_ball_first_frame": 373,
+        "stationary_ball_last_frame": 386,
+        "last_stationary_near_contact_frame": 386,
+        "stationary_ball_reference_xy": [
+          638.0425925817451,
+          659.6816732949601
+        ],
+        "ball_departure_frames": [
+          388,
+          389
+        ],
+        "stationary_ball_observations": [
+          {
+            "frame": 373,
+            "xy": [
+              781.068,
+              680.376
+            ],
+            "confidence": 0.052234,
+            "diameter": 19.1845,
+            "detection_id": "373:0",
+            "bbox": [
+              771.21,
+              671.0495,
+              790.9259999999999,
+              689.7025
+            ]
+          },
+          {
+            "frame": 375,
+            "xy": [
+              780.464,
+              681.174
+            ],
+            "confidence": 0.147623,
+            "diameter": 16.431,
+            "detection_id": "375:0",
+            "bbox": [
+              772.2850000000001,
+              672.922,
+              788.643,
+              689.4259999999999
+            ]
+          },
+          {
+            "frame": 376,
+            "xy": [
+              780.162,
+              681.261
+            ],
+            "confidence": 0.135761,
+            "diameter": 16.934,
+            "detection_id": "376:0",
+            "bbox": [
+              771.403,
+              673.086,
+              788.921,
+              689.4359999999999
+            ]
+          },
+          {
+            "frame": 377,
+            "xy": [
+              779.627,
+              680.925
+            ],
+            "confidence": 0.133083,
+            "diameter": 16.596,
+            "detection_id": "377:1",
+            "bbox": [
+              771.1405,
+              672.8154999999999,
+              788.1134999999999,
+              689.0345
+            ]
+          },
+          {
+            "frame": 378,
+            "xy": [
+              779.265,
+              681.907
+            ],
+            "confidence": 0.19828,
+            "diameter": 16.3955,
+            "detection_id": "378:0",
+            "bbox": [
+              770.977,
+              673.7995000000001,
+              787.553,
+              690.0145
+            ]
+          },
+          {
+            "frame": 379,
+            "xy": [
+              778.881,
+              682.489
+            ],
+            "confidence": 0.047832,
+            "diameter": 17.463,
+            "detection_id": "379:1",
+            "bbox": [
+              769.693,
+              674.214,
+              788.069,
+              690.764
+            ]
+          },
+          {
+            "frame": 380,
+            "xy": [
+              779.942,
+              685.148
+            ],
+            "confidence": 0.113885,
+            "diameter": 12.015,
+            "detection_id": "380:0",
+            "bbox": [
+              773.897,
+              679.178,
+              785.987,
+              691.118
+            ]
+          },
+          {
+            "frame": 381,
+            "xy": [
+              777.141,
+              685.854
+            ],
+            "confidence": 0.104845,
+            "diameter": 12.222999999999999,
+            "detection_id": "381:0",
+            "bbox": [
+              770.2294999999999,
+              680.5425,
+              784.0525,
+              691.1655000000001
+            ]
+          },
+          {
+            "frame": 383,
+            "xy": [
+              768.159,
+              685.409
+            ],
+            "confidence": 0.09954,
+            "diameter": 16.2175,
+            "detection_id": "383:2",
+            "bbox": [
+              758.049,
+              679.3015,
+              778.269,
+              691.5165
+            ]
+          },
+          {
+            "frame": 384,
+            "xy": [
+              766.079,
+              686.485
+            ],
+            "confidence": 0.077497,
+            "diameter": 14.875,
+            "detection_id": "384:3",
+            "bbox": [
+              756.7784999999999,
+              680.9105000000001,
+              775.3795,
+              692.0595
+            ]
+          },
+          {
+            "frame": 385,
+            "xy": [
+              762.717,
+              686.003
+            ],
+            "confidence": 0.07276,
+            "diameter": 14.366,
+            "detection_id": "385:3",
+            "bbox": [
+              753.7479999999999,
+              680.606,
+              771.686,
+              691.4000000000001
+            ]
+          },
+          {
+            "frame": 386,
+            "xy": [
+              762.378,
+              685.19
+            ],
+            "confidence": 0.054356,
+            "diameter": 10.8775,
+            "detection_id": "386:2",
+            "bbox": [
+              756.7800000000001,
+              679.9105000000001,
+              767.976,
+              690.4695
+            ]
+          }
+        ],
+        "departure_ball_observations": [
+          {
+            "frame": 388,
+            "xy": [
+              670.457,
+              683.308
+            ],
+            "confidence": 0.17678,
+            "diameter": 15.68,
+            "detection_id": "388:1",
+            "bbox": [
+              663.7785,
+              674.3065,
+              677.1355,
+              692.3095
+            ]
+          },
+          {
+            "frame": 389,
+            "xy": [
+              657.381,
+              687.853
+            ],
+            "confidence": 0.118092,
+            "diameter": 22.7505,
+            "detection_id": "389:2",
+            "bbox": [
+              649.6419999999999,
+              672.8415,
+              665.12,
+              702.8644999999999
+            ]
+          }
+        ],
+        "contact_bracket_frames": null,
+        "contact_bracket_status": "observed_stationary_to_departure_candidate",
+        "stationary_observation_selection_policy": "highest_detector_confidence_per_seed_cluster_frame; ties_detection_id_then_source_xy",
+        "stationary_observation_competitors": [],
+        "stationary_identity_ambiguous_frames": [],
+        "contact_window_policy": "causal_first_departure",
+        "ankle_approach_supported": false,
+        "warnings": [
+          "ankle_approach_not_clear"
+        ],
+        "goalward_departure_support": {
+          "status": "unknown",
+          "policy": "retained_v4_goalward_speed_backward_miss_bootstrap",
+          "config": {
+            "max_gap_frames": 6,
+            "beam_width": 60,
+            "measurement_slack_px": 10.0,
+            "residual_speed_fraction": 0.12,
+            "gap_uncertainty_px": 0.8,
+            "reachable_speed_ratio": 1.5,
+            "turn_support_points": 3,
+            "max_turns": 2,
+            "miss_cost": 0.35,
+            "require_collision_for_turn": true,
+            "lock_flight_direction": true,
+            "direction_tolerance_degrees": 22.0,
+            "collision_margin_px": 22.0,
+            "association_lag_frames": 2,
+            "prediction_residual_weight": 0.4,
+            "departure_min_displacement_px": 60.0,
+            "departure_max_displacement_px": 300.0,
+            "departure_goal_distance_fraction": 0.6,
+            "departure_contact_uncertainty_frames": 8,
+            "departure_max_gap_frames": 8,
+            "departure_min_speed_px_per_frame": 15.0,
+            "small_motion_component_penalty": 0.45,
+            "stationary_release_confidence": 0.3,
+            "stationary_release_before_contact_frames": 2
+          },
+          "selected_hypothesis": null,
+          "hypotheses": [],
+          "neural_flight_detections_white_mask_filtered": false,
+          "human_verified": false,
+          "reason": "no_retained_v4_goalward_departure_hypothesis"
+        },
+        "scored_ankle_proximity_frame": 388,
+        "scored_ankle_proximity_interval_frames": [
+          383,
+          400
+        ],
+        "scored_ankle_proximity_warnings": [
+          "ankle_approach_not_clear"
+        ],
+        "contact_timing_status": "unknown",
+        "exact_contact_frame_established": false,
+        "contact_frame_is_estimated": true,
+        "maximum_contact_bracket_frames": 7,
+        "timing_interval_interpretation": "last_observed_stationary_to_first_observed_goalward_departure",
+        "contact_timing_reason": "no_causally_supported_departure",
+        "contact_associated_track_id": 69,
+        "original_pose_selected_track_id": 7,
+        "actor_reselected_by_ball_evidence": true,
+        "actor_field_support": 1.0,
+        "actor_goal_line_excluded": false,
+        "seed_ambiguous_frames": [],
+        "search_window_index": 3,
+        "camera_chain_measured": true
+      }
+    ],
+    "eligible_candidates": [],
+    "selected_candidate": null,
+    "old_contact_or_outcome_labels_used": false,
+    "human_verified": false,
+    "accuracy_validated": false
+  },
+  "ball_departure": null,
+  "new_neural_inference": true,
+  "reference_labels_used_for_prediction": false,
+  "human_verified": false,
+  "accuracy_validated": false
+}

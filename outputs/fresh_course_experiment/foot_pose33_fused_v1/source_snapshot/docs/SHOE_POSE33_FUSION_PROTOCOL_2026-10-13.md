@@ -1,0 +1,9 @@
+# Shoe-landmark candidate selection
+
+This development protocol is written after the Kane and alternate-source pilots were inspected, before selecting any complete-cohort fusion result. It is not a held-out evaluation or a registration made before all development work.
+
+The MediaPipe 33-point experiment uses two independent normal/mirror trackers on a fixed source-pixel ROI within one camera shot. Its measured torso must match the original kicker anchor. Source video, pose, contact and manifest bytes must match. Missing contact, ambiguous local ball identity, unsupported scene, interrupted observations, anatomical channel instability or contradictory paired views retain `unknown`. A heel-to-foot-index segment near the observed stationary-ball region supports a candidate only when the same anatomical channel also passes the fixed paired swing rule. Shoe proximity alone cannot select the striking leg.
+
+If all these checks pass, the model's shoe-region output may provide a fallback candidate when the existing V2 result is unknown. Where both methods decide, agreement retains the candidate and disagreement abstains. An unavailable new experiment does not retract the original V2 candidate. Each selected row must retain both producer hashes, their original candidates, the selection reason and the source evidence. The narrow strike-window diagnostic is not another fallback vote.
+
+The original V2 and all new model outputs remain available. The main result may be updated only after the implementation and source evidence are reviewed. More decided candidates establish improved availability, not anatomical accuracy. The new cohort uses the previously inspected 39 attempts and cannot be counted as independent validation. Alternate FIFA views of those attempts have different source clocks and must be kept separate until action correspondence is established.

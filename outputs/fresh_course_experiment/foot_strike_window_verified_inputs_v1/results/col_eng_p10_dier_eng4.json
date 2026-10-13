@@ -1,0 +1,655 @@
+{
+  "clip_id": "col_eng_p10_dier_eng4",
+  "candidate": "right",
+  "status": "paired_predeparture_strike_motion_candidate",
+  "new_neural_inference": false,
+  "human_verified": false,
+  "accuracy_validated": false,
+  "held_out_test": false,
+  "reference_labels_used_for_prediction": false,
+  "shoe_ball_contact_verified": false,
+  "source_mapping": {
+    "clip_id": "col_eng_p10_dier_eng4",
+    "match_id": "col_eng",
+    "event_id": 10,
+    "kicker": "dier_eng4",
+    "team": "ENG",
+    "penalty_number": 10,
+    "slice_start_sec": 716.0,
+    "slice_end_sec": 722.0,
+    "source_filename": "col_eng_pen.mp4",
+    "source_video_sha256": "f13efaf49ed5a196ca404c85862887255ad60afd057c7788c6a4aea353c48928",
+    "fps": 30.0,
+    "source_start_frame": 21300,
+    "source_end_frame_exclusive": 21900,
+    "frame_count": 600,
+    "original_slice_start_frame_in_clip": 180,
+    "original_slice_end_frame_in_clip": 360,
+    "semantic_event_start_verified": false,
+    "semantic_event_end_verified": false,
+    "context_is_not_event_boundary_ground_truth": true,
+    "clip_sha256": "335686e6ad4a608d0a084d3a062cf622b329ad8f1769cc2acf6a4ddc21a0d11b",
+    "clip_bytes": 11047407,
+    "clip_filename": "col_eng_p10_dier_eng4.mp4"
+  },
+  "original_neural_producer": {
+    "path": "/Users/gabric/Downloads/all/01_\u8bfe\u7a0b\u5b66\u4e60\u8d44\u6599/IND5003_\u6570\u636e\u5206\u6790\u4e0e\u610f\u4e49\u5efa\u6784/\u4f5c\u4e1a/\u6211\u7684\u7b54\u6848/Project_Improved_2026-10-12/outputs/fresh_course_experiment/foot_v1_selected/results/col_eng_p10_dier_eng4.json",
+    "sha256": "5382ad20ac7945fe06d4ae8fe6e79696a4a76ee3cf02729828589c882203029d",
+    "new_neural_inference": true,
+    "inference_identity": {
+      "pose_sha256": "f730fc0598920251eb77e0fa5c53869799686f2336502d8da103c4c4d596c050",
+      "source_sha256": "335686e6ad4a608d0a084d3a062cf622b329ad8f1769cc2acf6a4ddc21a0d11b",
+      "contact_sha256": "d06ebc413aad60594eacb2f39e8c45064797789b274e8b5c3e09a63371d63549",
+      "model_sha256": "29b17eaf3a3117cbea906090dbedf9159f7c6a49db58ec8b99ed2dfde1cf6eb2",
+      "script_sha256": "a08fb4aa6182ac3fa37b31c9eee13d5c2c6a032d7451d65277bac18539fefef9",
+      "module_sha256": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52",
+      "source_manifest_sha256": "1affeb149a6fffea0a4b1814ec7b10be0c75ec8c0f2e6428cc920e62d325a38c",
+      "code_sha256": {
+        "scripts/run_fresh_foot_experiment.py": "a08fb4aa6182ac3fa37b31c9eee13d5c2c6a032d7451d65277bac18539fefef9",
+        "src/kicking_foot_evidence.py": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52",
+        "src/pose_refinement.py": "d71da9d1d116b3d777357b5104436c9b2999a67b005956d12d6e255d1422683a",
+        "src/kicking_foot_redetection.py": "ed587b59177377f538b33d03cb2b273070b6fc5c23ba42305078236eff26734d",
+        "src/runtime.py": "945db55a6449012c4ebad88e630378fa2da4f586b9d701fdb18b1977646c5dfb"
+      },
+      "settings": {
+        "imgsz": 960,
+        "batch_size": 8,
+        "crop_margin": 0.45,
+        "confidence": 0.15,
+        "device": "cuda:0",
+        "allow_pose_timing": false
+      }
+    }
+  },
+  "inference_identity": {
+    "pose_sha256": "f730fc0598920251eb77e0fa5c53869799686f2336502d8da103c4c4d596c050",
+    "source_sha256": "335686e6ad4a608d0a084d3a062cf622b329ad8f1769cc2acf6a4ddc21a0d11b",
+    "source_manifest_sha256": "1affeb149a6fffea0a4b1814ec7b10be0c75ec8c0f2e6428cc920e62d325a38c",
+    "code_sha256": {
+      "src/kicking_foot_strike_window.py": "2d10454afef9df862baa00eea79692756926f2368a10ca4af8c18df09310fd15",
+      "scripts/replay_fresh_foot_strike_window.py": "15729eb5db6bb19fcd53f157c90ca561b2b23d9ce225677c70d7afb01470d2a2",
+      "src/kicking_foot_evidence.py": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52",
+      "src/kicking_foot_evidence_v2.py": "7c8ad16ec2f72c1f00024fa3b7eccd1caaa584eea163bc42eeeb88c2d29fe0b7",
+      "scripts/replay_fresh_foot_v2.py": "896e37a861e77a07af10f1562ae2dc51af4aecc18aaf99ced8d7c9f01db41d72",
+      "scripts/run_fresh_foot_experiment.py": "a08fb4aa6182ac3fa37b31c9eee13d5c2c6a032d7451d65277bac18539fefef9",
+      "scripts/run_fresh_pitch_experiment.py": "9450d05cc54757479064a4126b1ae3603843252e8141e8e89daea0415bb9d35d",
+      "docs/FRESH_STRIKE_WINDOW_PROTOCOL_2026-10-13.md": "8727c16740f4847fb4c82dd25798fff209a53aedd60311d2e00a80fefa0b28c2"
+    }
+  },
+  "temporal_evidence": {
+    "schema_version": "fresh-foot-strike-window-v1",
+    "candidate": "right",
+    "status": "paired_predeparture_strike_motion_candidate",
+    "contact_bracket_frames": [
+      294,
+      297
+    ],
+    "analysis_window_frames": [
+      290,
+      297
+    ],
+    "source_fps": 30.0,
+    "parameters": {
+      "confidence_min": 0.4,
+      "precontact_seconds": 0.13,
+      "postdeparture_seconds": 0.2,
+      "maximum_pair_gap_seconds": 0.07,
+      "minimum_pairs": 4,
+      "motion_ratio_min": 1.25,
+      "pair_support_fraction_min": 0.65,
+      "minimum_motion_body_heights_per_second": 0.3,
+      "mirror_relative_error_max": 0.15,
+      "channel_jump_body_heights_min": 0.12,
+      "crossed_assignment_cost_ratio_max": 0.55,
+      "ball_distance_body_heights_max": 0.25,
+      "ball_distance_margin_body_heights_min": 0.05,
+      "ball_approach_body_heights_min": 0.03,
+      "minimum_contact_samples": 3
+    },
+    "policy": {
+      "precontact_seconds": 0.13,
+      "maximum_bracket_seconds": 0.15,
+      "maximum_ankle_distance_body": 0.35,
+      "minimum_approach_body": 0.03,
+      "minimum_stationary_samples": 2
+    },
+    "new_neural_inference": false,
+    "human_verified": false,
+    "accuracy_validated": false,
+    "held_out_test": false,
+    "reference_labels_used_for_prediction": false,
+    "shoe_ball_contact_verified": false,
+    "nearest_ankle_used_as_label": false,
+    "post_departure_pose_used": false,
+    "departure_coordinates_used_as_distance_target": false,
+    "anatomical_channel_permutation_applied": false,
+    "limitations": [
+      "paired pose agreement is not anatomical ground truth",
+      "ankle proximity does not establish shoe-ball contact",
+      "source camera motion and departure identity remain unverified"
+    ],
+    "preparation_scale_source_px": 113.78787040710449,
+    "strike_window_channel_checks": {
+      "normal": {
+        "ambiguous_pairs": [],
+        "channel_permutation_applied": false,
+        "interpretation": "crossing limbs or channel swaps require observation; no automatic anatomical relabeling"
+      },
+      "mirrored_inverse_mapped": {
+        "ambiguous_pairs": [],
+        "channel_permutation_applied": false,
+        "interpretation": "crossing limbs or channel swaps require observation; no automatic anatomical relabeling"
+      }
+    },
+    "accepted_paired_frames": [
+      {
+        "frame": 290,
+        "maximum_leg_joint_error_body": 0.03770581388888907
+      },
+      {
+        "frame": 291,
+        "maximum_leg_joint_error_body": 0.04323560679193514
+      },
+      {
+        "frame": 292,
+        "maximum_leg_joint_error_body": 0.04785314717273419
+      },
+      {
+        "frame": 293,
+        "maximum_leg_joint_error_body": 0.1478170187309358
+      },
+      {
+        "frame": 294,
+        "maximum_leg_joint_error_body": 0.13745610528433216
+      },
+      {
+        "frame": 295,
+        "maximum_leg_joint_error_body": 0.04792237833155639
+      },
+      {
+        "frame": 296,
+        "maximum_leg_joint_error_body": 0.07313541905432548
+      },
+      {
+        "frame": 297,
+        "maximum_leg_joint_error_body": 0.021412066223941414
+      }
+    ],
+    "rejected_paired_frames": [],
+    "stationary_distance_reference": {
+      "frame": 294,
+      "xy": [
+        1002.187,
+        464.587
+      ],
+      "detection_id": "294:1"
+    },
+    "views": {
+      "normal": {
+        "motion": {
+          "candidate": "right",
+          "reason": "sustained_paired_relative_ankle_motion",
+          "window_frames": [
+            290,
+            297
+          ],
+          "valid_pairs": 7,
+          "pairs": [
+            {
+              "frames": [
+                290,
+                291
+              ],
+              "ankle_speed": [
+                1.4156718934123365,
+                2.0402796020698752
+              ],
+              "knee_speed": [
+                0.43609636811353336,
+                1.2590610295446132
+              ]
+            },
+            {
+              "frames": [
+                291,
+                292
+              ],
+              "ankle_speed": [
+                1.5453107882817705,
+                1.861614811236447
+              ],
+              "knee_speed": [
+                1.229604278927539,
+                1.2336626912421067
+              ]
+            },
+            {
+              "frames": [
+                292,
+                293
+              ],
+              "ankle_speed": [
+                1.3448522740071807,
+                3.588369493125921
+              ],
+              "knee_speed": [
+                1.0453071879277562,
+                1.5432428230617303
+              ]
+            },
+            {
+              "frames": [
+                293,
+                294
+              ],
+              "ankle_speed": [
+                0.062069545013283094,
+                0.1860732810735634
+              ],
+              "knee_speed": [
+                0.0795323288742407,
+                0.12284074900058015
+              ]
+            },
+            {
+              "frames": [
+                294,
+                295
+              ],
+              "ankle_speed": [
+                1.5423038443782977,
+                6.016688509777602
+              ],
+              "knee_speed": [
+                0.2660945496400693,
+                2.2597580117549025
+              ]
+            },
+            {
+              "frames": [
+                295,
+                296
+              ],
+              "ankle_speed": [
+                0.954626340732025,
+                3.9832993740109024
+              ],
+              "knee_speed": [
+                0.509160274870144,
+                1.9209264297387585
+              ]
+            },
+            {
+              "frames": [
+                296,
+                297
+              ],
+              "ankle_speed": [
+                2.107297611897258,
+                4.31024404825796
+              ],
+              "knee_speed": [
+                0.4455856439506986,
+                2.738091460003695
+              ]
+            }
+          ],
+          "median_ankle_speeds": [
+            1.4156718934123365,
+            3.588369493125921
+          ],
+          "median_motion_ratio": 2.534746582046291,
+          "median_direction": "right",
+          "pair_support_fraction": 0.8571428571428571
+        },
+        "target_relevance": {
+          "left": {
+            "minimum_bracket_ankle_distance_body": 0.013646991059449384,
+            "preparation_to_bracket_reduction_body": 0.07108268392629209,
+            "source_early_frames": [
+              290,
+              291,
+              292
+            ],
+            "source_bracket_frames": [
+              293,
+              294,
+              295,
+              296,
+              297
+            ],
+            "relevant": true
+          },
+          "right": {
+            "minimum_bracket_ankle_distance_body": 0.031394630964831,
+            "preparation_to_bracket_reduction_body": 0.1822847275968719,
+            "source_early_frames": [
+              290,
+              291,
+              292
+            ],
+            "source_bracket_frames": [
+              293,
+              294,
+              295,
+              296,
+              297
+            ],
+            "relevant": true
+          }
+        }
+      },
+      "mirrored_inverse_mapped": {
+        "motion": {
+          "candidate": "right",
+          "reason": "sustained_paired_relative_ankle_motion",
+          "window_frames": [
+            290,
+            297
+          ],
+          "valid_pairs": 7,
+          "pairs": [
+            {
+              "frames": [
+                290,
+                291
+              ],
+              "ankle_speed": [
+                1.8678289882082741,
+                3.0743386864065254
+              ],
+              "knee_speed": [
+                1.079608600347945,
+                1.6780474583333786
+              ]
+            },
+            {
+              "frames": [
+                291,
+                292
+              ],
+              "ankle_speed": [
+                1.5199229464049162,
+                1.0107438550679517
+              ],
+              "knee_speed": [
+                0.7852757103237323,
+                0.4900959231173152
+              ]
+            },
+            {
+              "frames": [
+                292,
+                293
+              ],
+              "ankle_speed": [
+                1.9956347727560249,
+                2.908328473864129
+              ],
+              "knee_speed": [
+                1.2576940819629603,
+                1.7515498456393437
+              ]
+            },
+            {
+              "frames": [
+                293,
+                294
+              ],
+              "ankle_speed": [
+                0.027178687141288665,
+                0.15474015056534118
+              ],
+              "knee_speed": [
+                0.006200664509696365,
+                0.06825410169641033
+              ]
+            },
+            {
+              "frames": [
+                294,
+                295
+              ],
+              "ankle_speed": [
+                0.3187052540189591,
+                1.2353738130205396
+              ],
+              "knee_speed": [
+                0.4601066912772903,
+                0.5918683625253145
+              ]
+            },
+            {
+              "frames": [
+                295,
+                296
+              ],
+              "ankle_speed": [
+                2.6615843704154654,
+                2.8680211022997257
+              ],
+              "knee_speed": [
+                0.4616081067875994,
+                2.093713361792716
+              ]
+            },
+            {
+              "frames": [
+                296,
+                297
+              ],
+              "ankle_speed": [
+                0.32621490161619965,
+                5.41869450947317
+              ],
+              "knee_speed": [
+                0.23384606502150812,
+                2.992672323459924
+              ]
+            }
+          ],
+          "median_ankle_speeds": [
+            1.5199229464049162,
+            2.8680211022997257
+          ],
+          "median_motion_ratio": 1.886951643886603,
+          "median_direction": "right",
+          "pair_support_fraction": 0.7142857142857143
+        },
+        "target_relevance": {
+          "left": {
+            "minimum_bracket_ankle_distance_body": 0.027739253658106415,
+            "preparation_to_bracket_reduction_body": 0.06450705298009479,
+            "source_early_frames": [
+              290,
+              291,
+              292
+            ],
+            "source_bracket_frames": [
+              293,
+              294,
+              295,
+              296,
+              297
+            ],
+            "relevant": true
+          },
+          "right": {
+            "minimum_bracket_ankle_distance_body": 0.03439794009542882,
+            "preparation_to_bracket_reduction_body": 0.1722388498999468,
+            "source_early_frames": [
+              290,
+              291,
+              292
+            ],
+            "source_bracket_frames": [
+              293,
+              294,
+              295,
+              296,
+              297
+            ],
+            "relevant": true
+          }
+        }
+      },
+      "paired": {
+        "motion": {
+          "candidate": "right",
+          "reason": "sustained_paired_relative_ankle_motion",
+          "window_frames": [
+            290,
+            297
+          ],
+          "valid_pairs": 7,
+          "pairs": [
+            {
+              "frames": [
+                290,
+                291
+              ],
+              "ankle_speed": [
+                1.5803406731556946,
+                2.1929044968456033
+              ],
+              "knee_speed": [
+                0.642302362526969,
+                1.2821940907320768
+              ]
+            },
+            {
+              "frames": [
+                291,
+                292
+              ],
+              "ankle_speed": [
+                1.5083872933019546,
+                0.6619927563846643
+              ],
+              "knee_speed": [
+                0.9661941927297618,
+                0.6633754629863285
+              ]
+            },
+            {
+              "frames": [
+                292,
+                293
+              ],
+              "ankle_speed": [
+                1.5082838684816147,
+                0.6507765838129135
+              ],
+              "knee_speed": [
+                0.9245086561090464,
+                0.26501369653922746
+              ]
+            },
+            {
+              "frames": [
+                293,
+                294
+              ],
+              "ankle_speed": [
+                0.025741684793329687,
+                0.06418890350981567
+              ],
+              "knee_speed": [
+                0.04077716526504121,
+                0.038235356579346756
+              ]
+            },
+            {
+              "frames": [
+                294,
+                295
+              ],
+              "ankle_speed": [
+                0.8974311428522938,
+                3.5681237919765003
+              ],
+              "knee_speed": [
+                0.1232052916943248,
+                1.4074869678803579
+              ]
+            },
+            {
+              "frames": [
+                295,
+                296
+              ],
+              "ankle_speed": [
+                1.6604536338221174,
+                3.4171939057709237
+              ],
+              "knee_speed": [
+                0.48412214583943136,
+                1.9985395954534504
+              ]
+            },
+            {
+              "frames": [
+                296,
+                297
+              ],
+              "ankle_speed": [
+                0.8994322099294577,
+                4.86296903281351
+              ],
+              "knee_speed": [
+                0.29259057283870255,
+                2.848050266727602
+              ]
+            }
+          ],
+          "median_ankle_speeds": [
+            1.5082838684816147,
+            2.1929044968456033
+          ],
+          "median_motion_ratio": 1.4539070148997844,
+          "median_direction": "right",
+          "pair_support_fraction": 0.7142857142857143
+        },
+        "target_relevance": {
+          "left": {
+            "minimum_bracket_ankle_distance_body": 0.019058702323298867,
+            "preparation_to_bracket_reduction_body": 0.06942678634689026,
+            "source_early_frames": [
+              290,
+              291,
+              292
+            ],
+            "source_bracket_frames": [
+              293,
+              294,
+              295,
+              296,
+              297
+            ],
+            "relevant": true
+          },
+          "right": {
+            "minimum_bracket_ankle_distance_body": 0.03176074375237638,
+            "preparation_to_bracket_reduction_body": 0.16154688249225968,
+            "source_early_frames": [
+              290,
+              291,
+              292
+            ],
+            "source_bracket_frames": [
+              293,
+              294,
+              295,
+              296,
+              297
+            ],
+            "relevant": true
+          }
+        }
+      }
+    }
+  },
+  "actual_contact_sha256": "d06ebc413aad60594eacb2f39e8c45064797789b274e8b5c3e09a63371d63549",
+  "cached_pose_sha256": "166d45d777bde2cf129783cb1a662a6e665eb338c174d3759481a246182e05ef",
+  "original_neural_evidence_reproduced": true
+}

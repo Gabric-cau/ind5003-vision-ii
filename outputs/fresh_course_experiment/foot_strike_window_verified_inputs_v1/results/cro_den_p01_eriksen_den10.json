@@ -1,0 +1,157 @@
+{
+  "clip_id": "cro_den_p01_eriksen_den10",
+  "candidate": "unknown",
+  "status": "temporal_anatomical_channel_ambiguity",
+  "new_neural_inference": false,
+  "human_verified": false,
+  "accuracy_validated": false,
+  "held_out_test": false,
+  "reference_labels_used_for_prediction": false,
+  "shoe_ball_contact_verified": false,
+  "source_mapping": {
+    "clip_id": "cro_den_p01_eriksen_den10",
+    "match_id": "cro_den",
+    "event_id": 11,
+    "kicker": "eriksen_den10",
+    "team": "DEN",
+    "penalty_number": 1,
+    "slice_start_sec": 295.0,
+    "slice_end_sec": 320.0,
+    "source_filename": "cro_den_pen.mp4",
+    "source_video_sha256": "94895b92c5a1aa20a282ed405101fd1d1917463aa8fa446dfeda6ec83aea2572",
+    "fps": 30.0,
+    "source_start_frame": 8670,
+    "source_end_frame_exclusive": 9840,
+    "frame_count": 1170,
+    "original_slice_start_frame_in_clip": 180,
+    "original_slice_end_frame_in_clip": 930,
+    "semantic_event_start_verified": false,
+    "semantic_event_end_verified": false,
+    "context_is_not_event_boundary_ground_truth": true,
+    "clip_sha256": "09ddfe2ca451943eb91a58c172de6a1239c973ba18db88d4f64351d98fd3b28a",
+    "clip_bytes": 19109093,
+    "clip_filename": "cro_den_p01_eriksen_den10.mp4"
+  },
+  "original_neural_producer": {
+    "path": "/Users/gabric/Downloads/all/01_\u8bfe\u7a0b\u5b66\u4e60\u8d44\u6599/IND5003_\u6570\u636e\u5206\u6790\u4e0e\u610f\u4e49\u5efa\u6784/\u4f5c\u4e1a/\u6211\u7684\u7b54\u6848/Project_Improved_2026-10-12/outputs/fresh_course_experiment/foot_v1_selected/results/cro_den_p01_eriksen_den10.json",
+    "sha256": "794fd033977b9b3c9760b796897ef4cad95fb48db38697162680280c91d9f031",
+    "new_neural_inference": true,
+    "inference_identity": {
+      "pose_sha256": "a283a2cddab0d419e49f292c36f32504da4d8a8238144dcf31efae3a7bfd3652",
+      "source_sha256": "09ddfe2ca451943eb91a58c172de6a1239c973ba18db88d4f64351d98fd3b28a",
+      "contact_sha256": "111a6a6601436ce5a89eb1f724add63967a6163763500c1b8b4fd9c16814a0a4",
+      "model_sha256": "29b17eaf3a3117cbea906090dbedf9159f7c6a49db58ec8b99ed2dfde1cf6eb2",
+      "script_sha256": "a08fb4aa6182ac3fa37b31c9eee13d5c2c6a032d7451d65277bac18539fefef9",
+      "module_sha256": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52",
+      "source_manifest_sha256": "1affeb149a6fffea0a4b1814ec7b10be0c75ec8c0f2e6428cc920e62d325a38c",
+      "code_sha256": {
+        "scripts/run_fresh_foot_experiment.py": "a08fb4aa6182ac3fa37b31c9eee13d5c2c6a032d7451d65277bac18539fefef9",
+        "src/kicking_foot_evidence.py": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52",
+        "src/pose_refinement.py": "d71da9d1d116b3d777357b5104436c9b2999a67b005956d12d6e255d1422683a",
+        "src/kicking_foot_redetection.py": "ed587b59177377f538b33d03cb2b273070b6fc5c23ba42305078236eff26734d",
+        "src/runtime.py": "945db55a6449012c4ebad88e630378fa2da4f586b9d701fdb18b1977646c5dfb"
+      },
+      "settings": {
+        "imgsz": 960,
+        "batch_size": 8,
+        "crop_margin": 0.45,
+        "confidence": 0.15,
+        "device": "cuda:0",
+        "allow_pose_timing": false
+      }
+    }
+  },
+  "inference_identity": {
+    "pose_sha256": "a283a2cddab0d419e49f292c36f32504da4d8a8238144dcf31efae3a7bfd3652",
+    "source_sha256": "09ddfe2ca451943eb91a58c172de6a1239c973ba18db88d4f64351d98fd3b28a",
+    "source_manifest_sha256": "1affeb149a6fffea0a4b1814ec7b10be0c75ec8c0f2e6428cc920e62d325a38c",
+    "code_sha256": {
+      "src/kicking_foot_strike_window.py": "2d10454afef9df862baa00eea79692756926f2368a10ca4af8c18df09310fd15",
+      "scripts/replay_fresh_foot_strike_window.py": "15729eb5db6bb19fcd53f157c90ca561b2b23d9ce225677c70d7afb01470d2a2",
+      "src/kicking_foot_evidence.py": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52",
+      "src/kicking_foot_evidence_v2.py": "7c8ad16ec2f72c1f00024fa3b7eccd1caaa584eea163bc42eeeb88c2d29fe0b7",
+      "scripts/replay_fresh_foot_v2.py": "896e37a861e77a07af10f1562ae2dc51af4aecc18aaf99ced8d7c9f01db41d72",
+      "scripts/run_fresh_foot_experiment.py": "a08fb4aa6182ac3fa37b31c9eee13d5c2c6a032d7451d65277bac18539fefef9",
+      "scripts/run_fresh_pitch_experiment.py": "9450d05cc54757479064a4126b1ae3603843252e8141e8e89daea0415bb9d35d",
+      "docs/FRESH_STRIKE_WINDOW_PROTOCOL_2026-10-13.md": "8727c16740f4847fb4c82dd25798fff209a53aedd60311d2e00a80fefa0b28c2"
+    }
+  },
+  "temporal_evidence": {
+    "schema_version": "fresh-foot-strike-window-v1",
+    "candidate": "unknown",
+    "status": "temporal_anatomical_channel_ambiguity",
+    "contact_bracket_frames": [
+      253,
+      257
+    ],
+    "analysis_window_frames": [
+      249,
+      257
+    ],
+    "source_fps": 30.0,
+    "parameters": {
+      "confidence_min": 0.4,
+      "precontact_seconds": 0.13,
+      "postdeparture_seconds": 0.2,
+      "maximum_pair_gap_seconds": 0.07,
+      "minimum_pairs": 4,
+      "motion_ratio_min": 1.25,
+      "pair_support_fraction_min": 0.65,
+      "minimum_motion_body_heights_per_second": 0.3,
+      "mirror_relative_error_max": 0.15,
+      "channel_jump_body_heights_min": 0.12,
+      "crossed_assignment_cost_ratio_max": 0.55,
+      "ball_distance_body_heights_max": 0.25,
+      "ball_distance_margin_body_heights_min": 0.05,
+      "ball_approach_body_heights_min": 0.03,
+      "minimum_contact_samples": 3
+    },
+    "policy": {
+      "precontact_seconds": 0.13,
+      "maximum_bracket_seconds": 0.15,
+      "maximum_ankle_distance_body": 0.35,
+      "minimum_approach_body": 0.03,
+      "minimum_stationary_samples": 2
+    },
+    "new_neural_inference": false,
+    "human_verified": false,
+    "accuracy_validated": false,
+    "held_out_test": false,
+    "reference_labels_used_for_prediction": false,
+    "shoe_ball_contact_verified": false,
+    "nearest_ankle_used_as_label": false,
+    "post_departure_pose_used": false,
+    "departure_coordinates_used_as_distance_target": false,
+    "anatomical_channel_permutation_applied": false,
+    "limitations": [
+      "paired pose agreement is not anatomical ground truth",
+      "ankle proximity does not establish shoe-ball contact",
+      "source camera motion and departure identity remain unverified"
+    ],
+    "preparation_scale_source_px": 94.07455635070801,
+    "strike_window_channel_checks": {
+      "normal": {
+        "ambiguous_pairs": [],
+        "channel_permutation_applied": false,
+        "interpretation": "crossing limbs or channel swaps require observation; no automatic anatomical relabeling"
+      },
+      "mirrored_inverse_mapped": {
+        "ambiguous_pairs": [
+          {
+            "frames": [
+              249,
+              250
+            ],
+            "direct_assignment_cost": 0.22276760049606842,
+            "crossed_assignment_cost": 0.11616971794392428
+          }
+        ],
+        "channel_permutation_applied": false,
+        "interpretation": "crossing limbs or channel swaps require observation; no automatic anatomical relabeling"
+      }
+    }
+  },
+  "actual_contact_sha256": "111a6a6601436ce5a89eb1f724add63967a6163763500c1b8b4fd9c16814a0a4",
+  "cached_pose_sha256": "07d443cce23e4e29b7510888513b01db662a19681c2345e1136d6831e2cdb4cf",
+  "original_neural_evidence_reproduced": true
+}

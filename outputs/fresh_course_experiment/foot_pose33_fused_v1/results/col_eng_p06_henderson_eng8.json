@@ -1,0 +1,143 @@
+{
+  "schema_version": "fresh-foot-pose33-fusion-v1",
+  "clip_id": "col_eng_p06_henderson_eng8",
+  "source_mapping": {
+    "clip_id": "col_eng_p06_henderson_eng8",
+    "match_id": "col_eng",
+    "event_id": 6,
+    "kicker": "henderson_eng8",
+    "team": "ENG",
+    "penalty_number": 6,
+    "slice_start_sec": 520.0,
+    "slice_end_sec": 541.0,
+    "source_filename": "col_eng_pen.mp4",
+    "source_video_sha256": "f13efaf49ed5a196ca404c85862887255ad60afd057c7788c6a4aea353c48928",
+    "fps": 30.0,
+    "source_start_frame": 15420,
+    "source_end_frame_exclusive": 16470,
+    "frame_count": 1050,
+    "original_slice_start_frame_in_clip": 180,
+    "original_slice_end_frame_in_clip": 810,
+    "semantic_event_start_verified": false,
+    "semantic_event_end_verified": false,
+    "context_is_not_event_boundary_ground_truth": true,
+    "clip_sha256": "3d66ea761c5fdf2e6dc7e2c85bdee384535342644280fd1c88ab824af23b1810",
+    "clip_bytes": 19205940,
+    "clip_filename": "col_eng_p06_henderson_eng8.mp4"
+  },
+  "kicking_foot_candidate": "unknown",
+  "status": "completed_conservative_foot_fusion",
+  "reason": "both_methods_unavailable_or_abstained",
+  "new_neural_inference": false,
+  "human_verified": false,
+  "accuracy_validated": false,
+  "held_out_test": false,
+  "reference_labels_used_for_prediction": false,
+  "shoe_ball_contact_verified": false,
+  "inference_identity": {
+    "source_sha256": "3d66ea761c5fdf2e6dc7e2c85bdee384535342644280fd1c88ab824af23b1810",
+    "pose_sha256": "72394c7b5ef87db1ee841b999dc7a9b50dcabc7d5f78f83979fbb8d5e9a04951",
+    "source_manifest_sha256": "1affeb149a6fffea0a4b1814ec7b10be0c75ec8c0f2e6428cc920e62d325a38c",
+    "code_sha256": {
+      "src/shoe_pose33_fusion.py": "b9014a644b5dc76756939382b932f8a0cea3299c8943b09eea6be7fe2c66236b",
+      "scripts/replay_fresh_foot_pose33_fusion.py": "4545e3fe84c681b7526e9926600cd550303632113840c08dd9874d3e89cc6b62",
+      "src/fresh_results.py": "9bae58c02fe5700804adf3aaabfe4f3eaf55d5edd443c33462dc22322d8f0569",
+      "docs/SHOE_POSE33_FUSION_PROTOCOL_2026-10-13.md": "315b38f22210223d49eb1d5899c1b84a78069fecb47cb56dfc2383a29b5f2b04"
+    }
+  },
+  "temporal_evidence": {
+    "schema_version": "fresh-foot-pose33-fusion-v1",
+    "v2_candidate": "unknown",
+    "shoe_region_candidate": "unknown",
+    "shoe_swing_diagnostic_candidate": "unknown",
+    "selection_reason": "both_methods_unavailable_or_abstained",
+    "joint_shoe_region_frames": [],
+    "producer_bindings": {
+      "v2_result": {
+        "path": "outputs/fresh_course_experiment/foot_v2_selected/results/col_eng_p06_henderson_eng8.json",
+        "sha256": "d3686b972cf6c105c1a51ce26fd8eafdca372a0616374d23bbd0dab415286ce8"
+      },
+      "original_neural_result": {
+        "path": "outputs/fresh_course_experiment/foot_v1_selected/results/col_eng_p06_henderson_eng8.json",
+        "sha256": "f47190b5951d1b85a59e975274728cdff40012f20d3bf12fd2ae0a16ced403e0"
+      },
+      "pose": {
+        "path": "outputs/fresh_course_experiment/pose_v7/col_eng_p06_henderson_eng8.json",
+        "sha256": "72394c7b5ef87db1ee841b999dc7a9b50dcabc7d5f78f83979fbb8d5e9a04951"
+      },
+      "source_manifest": {
+        "path": "data/course_context_clips_2026-10-12/source_manifest.json",
+        "sha256": "1affeb149a6fffea0a4b1814ec7b10be0c75ec8c0f2e6428cc920e62d325a38c"
+      },
+      "shoe_cohort_protocol": {
+        "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/protocol.json",
+        "sha256": "469d2eab71ccd2908ab88cf6138f6a847d0d4e777da4594d9394b43cc921e8e1"
+      },
+      "shoe_cohort_summary": {
+        "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/summary.json",
+        "sha256": "49495ae69bca4aca32a6e934e910a3f270b235b9ada7353eee9029f6e4c92272"
+      },
+      "shoe_result": {
+        "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/col_eng_p06_henderson_eng8/result.json",
+        "sha256": "45cdefc2c143fa4f58a419d2e3fe7c4a3161ac01e0273fcbd993911ae798a581"
+      },
+      "shoe_protocol": {
+        "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/col_eng_p06_henderson_eng8/protocol.json",
+        "sha256": "85831d42c8fb2f3eec1698ea52e4cf6ca213e66fe570c1bd512e5ef7cddc7940"
+      },
+      "shoe_poses33": {
+        "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/col_eng_p06_henderson_eng8/poses33.json",
+        "sha256": "0e2dee6fce668aaa31fe1316da15bc33ff3911cd5fac6c691111bb704c44ed6d"
+      },
+      "shoe_roi_plan": {
+        "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/col_eng_p06_henderson_eng8/roi_plan.json",
+        "sha256": "b2c3023e0d2574e6c6b7aedcb4451949e48fafe63bf81ea5435ebc46fccf4742"
+      },
+      "roi_cache": {
+        "path": "outputs/fresh_course_experiment/foot_v1_selected/poses/col_eng_p06_henderson_eng8.json",
+        "sha256": "e40c2a30c24cd5a0069b7ef05133be4b868f0ad0dc2f246d6b8c9d2ce4db4d78"
+      },
+      "contact": {
+        "path": "outputs/fresh_course_experiment/ball_selected_v1/contacts/col_eng_p06_henderson_eng8.json",
+        "sha256": "f388d811ba77e2bcd074f192163707e846c7c67de237ed5f2dc7ab0377a4dfb4"
+      },
+      "shoe_code_snapshot": {
+        "scripts/run_fresh_shoe_pose_experiment.py": {
+          "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/col_eng_p06_henderson_eng8/source_snapshot/scripts/run_fresh_shoe_pose_experiment.py",
+          "sha256": "0216a8c08948a50a74f3329ae3326a232057724619d0c7f33175a75e467adef8"
+        },
+        "src/mediapipe_shoe_evidence.py": {
+          "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/col_eng_p06_henderson_eng8/source_snapshot/src/mediapipe_shoe_evidence.py",
+          "sha256": "fab407e46408ae3f1e3f92373c143dc64eb103bdbe7458f1eb1abc156f043974"
+        },
+        "src/kicking_foot_strike_window.py": {
+          "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/col_eng_p06_henderson_eng8/source_snapshot/src/kicking_foot_strike_window.py",
+          "sha256": "2d10454afef9df862baa00eea79692756926f2368a10ca4af8c18df09310fd15"
+        },
+        "src/kicking_foot_evidence.py": {
+          "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/col_eng_p06_henderson_eng8/source_snapshot/src/kicking_foot_evidence.py",
+          "sha256": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52"
+        },
+        "src/kicking_foot_evidence_v2.py": {
+          "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/col_eng_p06_henderson_eng8/source_snapshot/src/kicking_foot_evidence_v2.py",
+          "sha256": "7c8ad16ec2f72c1f00024fa3b7eccd1caaa584eea163bc42eeeb88c2d29fe0b7"
+        },
+        "scripts/run_fresh_foot_experiment.py": {
+          "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/col_eng_p06_henderson_eng8/source_snapshot/scripts/run_fresh_foot_experiment.py",
+          "sha256": "a08fb4aa6182ac3fa37b31c9eee13d5c2c6a032d7451d65277bac18539fefef9"
+        },
+        "src/pose_refinement.py": {
+          "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/col_eng_p06_henderson_eng8/source_snapshot/src/pose_refinement.py",
+          "sha256": "d71da9d1d116b3d777357b5104436c9b2999a67b005956d12d6e255d1422683a"
+        },
+        "requirements-pose33.txt": {
+          "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/col_eng_p06_henderson_eng8/source_snapshot/requirements-pose33.txt",
+          "sha256": "3cc30cb96c2ebe38e5217fc9cfe039589dfb056c523d52c5af61a78a9e74eb87"
+        }
+      }
+    },
+    "shoe_ball_contact_verified": false,
+    "anatomical_side_verified": false,
+    "narrow_strike_window_diagnostic_used_as_vote": false
+  }
+}

@@ -270,6 +270,17 @@ def analyse_height_phases(samples, kick, fps, reference):
     return out
 
 
+def guard_observed_height_reference(signal):
+    """Retain measured diagnostics while rejecting an invalid reference line."""
+    out = dict(signal, reasons=list(signal.get('reasons', [])))
+    if out.get('reference_depth_assumption_failed') is True:
+        out.update(candidate='unknown', supported=False)
+        reason = 'depth_motion_or_ankle_error_invalidates_fixed_ground_reference'
+        if reason not in out['reasons']:
+            out['reasons'].append(reason)
+    return out
+
+
 def observed_image_plane_signal(samples, phase, kick, fps, reference):
     """Summarize measured torso samples without asserting an entire dive peak."""
     out = dict(candidate='unknown', supported=False, reasons=[],
@@ -336,7 +347,7 @@ def observed_image_plane_signal(samples, phase, kick, fps, reference):
                candidate=category, supported=category != 'unknown')
     if reason:
         out['reasons'].append(reason)
-    return out
+    return guard_observed_height_reference(out)
 
 
 def _mask_guard(mask, row, *, first, previous, scale, initial_area, excluded, roi=None):

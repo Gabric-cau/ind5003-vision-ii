@@ -1,0 +1,731 @@
+{
+  "schema_version": 1,
+  "scope": "three_existing_penalties_in_alternate_FIFA_source_clock",
+  "source_manifest_sha256": "76e3250f328c226119ca27939e4f1ba710b870df5f3b26143ccb81a630420c4e",
+  "source_url": "https://www.youtube.com/watch?v=NtvUzy00DuU",
+  "source_video_sha256": "6075b0d85ce05bc01880a395fea9e61e502ad20ab766cb4c34761cfa77f4b0f3",
+  "events": 3,
+  "independent_new_events": 0,
+  "merged_into_course_39": false,
+  "settings_and_code_identical_between_ball_models": true,
+  "ball_model_settings": {
+    "imgsz": 1280,
+    "batch_size": 4,
+    "device": "cuda:0",
+    "confidence": 0.01,
+    "pre_sec": 0.45,
+    "post_sec": 1.5
+  },
+  "ball_model_sha256": {
+    "n": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+    "m": "d5ffc1a674953a08e11a8d21e022781b1b23a19b730afc309290bd9fb5305b95"
+  },
+  "frozen_ball_code_sha256": {
+    "scripts/run_fresh_ball_experiment.py": "e4c53e8b5f4d15595d57cc68a8fd041bf0f71fd227b113a1d5108b614446bdfe",
+    "src/fresh_event_analysis.py": "d3d5cfdc9d30c58d775f8bed420078da46d3ed172558213cb0f71c993b9f2d9c",
+    "src/ball_pipeline.py": "fe3e275be906bb394dcb06659fb21329c8ecabbde854dd4fd80a8663831f754e",
+    "src/ball_continuity_v4.py": "031afb3a9eb38d78aedf27a3d8ad684a56e4afd1b333d048ce1ef94ba1f727e4",
+    "src/ball_continuity.py": "cf68ed587de4651adefc71a28c084aaaa64889dd3c685d14b593f58a715d6d4c",
+    "src/ball_direction_corridor.py": "48039049b823d90d8f36ab00017f7db1767531d0738c4ffefcbd05d85bb6bae5",
+    "src/ball_mask_seed.py": "1c0b4a4902e3871a6a5bf2e8c2de3cee0f4f47159b4273aea7700a7f2a4e65a3",
+    "src/ball_shot_focus.py": "57ffa5a2af205d2d61edb7fd8e1090a9aece6b9be3626dac27539f489fe12639",
+    "src/ball_keeper_rebound.py": "9cb73212dbd7590ffd2c6a46b05767b2ebccc4b5a920fa1adc5cd7c200d33f2d",
+    "src/ball_goal_decision.py": "fbcb05e9b8cbef824ed5be6bce245882697889a0252feefc6692a196cd717660",
+    "src/event_ball_tracking.py": "8275efcf15a572dc81cbbc5495bdce2c831ab00f2d3c2de83e3a83a7b3d1c030",
+    "src/goal_event_tracker_v2.py": "b5eab5934d3118daea2f991deb7fc4ae49e28aa4c079f5179e24b0e28983cf28",
+    "src/goal_plane_rectification.py": "441f7322622d574bbec4b113844b2829a7013a095134b50131c9331255870a27",
+    "src/goal_geometry.py": "c8e92d02f23f87b7f928d93ead2392cd677d14b345a17dd1e56472570931d8b1",
+    "src/motion_stabilization.py": "04a4783b5c91b9a2b29d97715a557f82c0900e5faea586d4d8cb0b80cdb24d01",
+    "src/goalkeeper_pipeline.py": "ee865f687d07401f01e2feaa3a03b30f7b9b87081293a72f93498c86968242ff",
+    "src/goalkeeper_analysis.py": "b18e38b1e8ffb78ab9cd1f08a782b9c5a44dbda580e2d55190e05426c23f0c33",
+    "src/goalkeeper_role_association.py": "a2c2986346f34c478b8dd659fad356cd59d9be47f2e87e66179008c15a7a05bd",
+    "src/goalkeeper_observation_guard.py": "165731a8aa486079b000bc3add83518180015ed32369619e81646ec016458220",
+    "src/goalkeeper_direction_evidence.py": "c657e31bbd7bebe98e829ce80c266ed8eb435196c67f57a8d2cdcaa9defb326c",
+    "src/goalkeeper_pose_direction.py": "a4ba39a89d6023f8bcdd2b6c36fc4273d5487287e5527c5229d9acbaddc08e10",
+    "src/person_appearance.py": "71376c1574fbf0db60f6d2bb7a8494a1d7e4256c17b6d1e35a8807245a6ef2df",
+    "src/field_masks.py": "0d16f5f4e6f686e6cb76b285e523dcab1848337cb63832f17a67fe35352f12af",
+    "src/kick_contact.py": "501f531eb46d9f598ec031def30331e739217a2009b6cf553927a3ee320dcfb4",
+    "scripts/probe_goal_event_tracking.py": "04a4e57655eb745472da3fa01c7ad00aae8072ad084d511d846982b4063046f8",
+    "scripts/run_ball_continuity_probe.py": "b3adb8a436cec002e08b12b6418bacb31e9c756c88c553bdeba77e5b692d6b33",
+    "scripts/run_ball_shot_focus_review.py": "7fc9984a41ad121b85aadd384cff9e90a2d12a213e7ef9571d35b3e6ba1b4198",
+    "scripts/review_ball_keeper_rebound.py": "08789169154f67cb7bd3583c6a3d5dcdbcb8b1e7b8f9105c59663426d8371980",
+    "scripts/detect_all_ball_goals.py": "fc944e1ccb7fda4a0013b124a46d916c5651be23fe921ec639b2ceef8ddd8b2d",
+    "src/runtime.py": "945db55a6449012c4ebad88e630378fa2da4f586b9d701fdb18b1977646c5dfb"
+  },
+  "pose_model_sha256": "29b17eaf3a3117cbea906090dbedf9159f7c6a49db58ec8b99ed2dfde1cf6eb2",
+  "pose_settings": {
+    "imgsz": 1280,
+    "batch_size": 4,
+    "max_shot_sec": 30.0,
+    "confidence": 0.1,
+    "keypoint_confidence": 0.15,
+    "roi_mode": "auto",
+    "shot_selection": "first_viable",
+    "device": "cuda:0",
+    "use_field_mask": true,
+    "require_goal_context": true,
+    "exclude_goal_line_actors": true,
+    "shot_scan_method": "adaptive",
+    "event_slice_policy": "selected_shot_must_overlap_manual_course_slice_contact_remains_automatic"
+  },
+  "foot17_settings": {
+    "imgsz": 960,
+    "batch_size": 8,
+    "crop_margin": 0.45,
+    "confidence": 0.15,
+    "device": "cuda:0",
+    "allow_pose_timing": false
+  },
+  "shoe33_model_sha256": "64437af838a65d18e5ba7a0d39b465540069bc8aae8308de3e318aad31fcbc7b",
+  "shoe33_settings": {
+    "running_mode": "VIDEO",
+    "num_poses": 1,
+    "detection_confidence": 0.5,
+    "presence_confidence": 0.5,
+    "landmark_visibility_presence_min": 0.5,
+    "shoe_contact_region_maximum_body_distance": 0.08,
+    "fixed_union_roi_xyxy": [
+      1356,
+      362,
+      1695,
+      792
+    ],
+    "roi_reference_changes_between_frames": false
+  },
+  "contact_candidates": {
+    "n": 1,
+    "m": 2
+  },
+  "contact_pairs_n_m": {
+    "11": 1,
+    "01": 1,
+    "00": 1
+  },
+  "guarded_foot17_candidates": {
+    "unknown": 3
+  },
+  "foot17_new_neural_inference_events": 2,
+  "stored_contact_time_inconsistencies": 3,
+  "time_mapping": "official_source_video_sec = (source_start_frame + clip_contact_frame) / source_fps",
+  "time_field_note": "Frozen producers left contact_time_sec at the earlier scored ankle frame. This comparison recomputes final candidate seconds from frames; the producer is fixed separately and frozen inputs remain unchanged.",
+  "keeper_height_note": "Legacy low values in unguarded ball summaries are excluded; no reliable keeper height is established by this pilot.",
+  "human_verified": false,
+  "accuracy_validated": false,
+  "held_out_test": false,
+  "reference_labels_used_for_prediction": false,
+  "contact_truth_annotated": false,
+  "resolution_effect_isolated": false,
+  "interpretation": "Same-event development diagnostics. Alternate edit, resolution, frame rate and manual interval differ from the course recordings; this is not a pure resolution ablation or an accuracy result.",
+  "public_artifact_package": {
+    "selection_scope": "Frozen protocols, summaries, results, contact proposals, media, and the compact Kane guarded shoe review inputs. Full frame detections, event windows, inputs, source snapshots and full body pose traces are excluded. Original videos and weights are outside this package.",
+    "receipts_file": "artifact_receipts.json",
+    "included_files": 29,
+    "included_bytes": 46479496
+  },
+  "raw_artifacts_not_included": [
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_n_pilot_v1/contact_search/col_eng_p01_falcao_col9.json",
+      "bytes": 521389,
+      "sha256": "24e4e3e2f742d6a54ccfd6f50cf669fdaec4217da8192b2f6bf7d87bc6cf46cb"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_n_pilot_v1/contact_search/col_eng_p02_kane_eng9.json",
+      "bytes": 1102724,
+      "sha256": "7ca680729b48c21db1ee768510220b3429268900c2ef30f33f281376795f5616"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_n_pilot_v1/contact_search/col_eng_p03_cuadrado_col11.json",
+      "bytes": 617768,
+      "sha256": "86aef245c31e64007ac409582c4a328a690a493f04f8474a57793f485e3f801a"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_n_pilot_v1/detections/col_eng_p01_falcao_col9.json",
+      "bytes": 244178288,
+      "sha256": "b49c872dfae9d5c9f2c421d99b96d8a9a003a9ecb467dff0120cce945612478e"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_n_pilot_v1/detections/col_eng_p02_kane_eng9.json",
+      "bytes": 105216682,
+      "sha256": "0ee6a4d361f4542a684c2546018ffe0201a4dd7a92bda1a46a75257c7cef1083"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_n_pilot_v1/detections/col_eng_p03_cuadrado_col11.json",
+      "bytes": 138525019,
+      "sha256": "0e3b974f5306d922d00507e46f7dc0d675ce1d7f3f48baf7ee847f151ec4efe2"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_n_pilot_v1/event_windows/col_eng_p01_falcao_col9.json",
+      "bytes": 38695054,
+      "sha256": "efd423a6798a6c5be9366f73a9366d0bb6bafd2cb9e51ba93b1c0b10af80c024"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_n_pilot_v1/inputs/col_eng_p01_falcao_col9.json",
+      "bytes": 19999622,
+      "sha256": "f03bbfdb3713f7c616189de8a7fb08f276635a6225703ac52c1e549ddd6486f1"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/contact_search/col_eng_p01_falcao_col9.json",
+      "bytes": 1831675,
+      "sha256": "699fbbcf822da4467273e166ee7da10eb15778fefc5f3d849c78a98f38633154"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/contact_search/col_eng_p02_kane_eng9.json",
+      "bytes": 807543,
+      "sha256": "c9cd1fc0bef8437b12ad70370b77badb481d5b00e713e91b92ae94521e337fbd"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/contact_search/col_eng_p03_cuadrado_col11.json",
+      "bytes": 370213,
+      "sha256": "a462425f80b31108cbb897df1c540cce35820335aecace9c4aeab32736c3c2a6"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/detections/col_eng_p01_falcao_col9.json",
+      "bytes": 142463721,
+      "sha256": "8da2ecb3d3a76d8a7cf1f0dca1a2c3bd9fd932c620dd335b3b8edae77df1a9a2"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/detections/col_eng_p02_kane_eng9.json",
+      "bytes": 65986721,
+      "sha256": "45e555410b9e6627204b1f2321be995c33d393360ed709cac46b1ebf2953b8b7"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/detections/col_eng_p03_cuadrado_col11.json",
+      "bytes": 79341084,
+      "sha256": "2841b67292a4a2433c492838911a074a89770db36a9f086f9736138d5d7160e5"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/event_windows/col_eng_p01_falcao_col9.json",
+      "bytes": 21736771,
+      "sha256": "b64981ac2decb49b43c83601fe2c6f724db332ca1655693fefcc025eabf99e41"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/event_windows/col_eng_p02_kane_eng9.json",
+      "bytes": 19334079,
+      "sha256": "7bba9b8128654c8359fc5e890bbda3e940b12e521d8c7f33ec17d61bc2a0d03a"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/inputs/col_eng_p01_falcao_col9.json",
+      "bytes": 19566881,
+      "sha256": "6f861b1ea71e09ec40f8dc4fb37cb11c0d1bea262768a4c1e52bd0d5c10b1a21"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/inputs/col_eng_p02_kane_eng9.json",
+      "bytes": 19354584,
+      "sha256": "1072efa6a61fc3b36e5fd8072846f4fc69641e14ac464118d3b91122f3ce06e8"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_foot_pilot_v1/poses/col_eng_p01_falcao_col9.json",
+      "bytes": 171015,
+      "sha256": "699da9e000c7df15b4761aa13d0f06f82bd37c61fb2b3cefdaa8756e2ab89ef9"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_foot_pilot_v1/poses/col_eng_p02_kane_eng9.json",
+      "bytes": 171409,
+      "sha256": "49233ba7f0bfd3eac5a0a7558dd90eb3879b8ecd1dd6fba9ac63b32d684cd724"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_foot_pilot_v1/source_snapshot/scripts/run_fresh_foot_experiment.py",
+      "bytes": 25283,
+      "sha256": "a08fb4aa6182ac3fa37b31c9eee13d5c2c6a032d7451d65277bac18539fefef9"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_foot_pilot_v1/source_snapshot/src/kicking_foot_evidence.py",
+      "bytes": 19387,
+      "sha256": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_foot_pilot_v1/source_snapshot/src/kicking_foot_redetection.py",
+      "bytes": 7292,
+      "sha256": "ed587b59177377f538b33d03cb2b273070b6fc5c23ba42305078236eff26734d"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_foot_pilot_v1/source_snapshot/src/pose_refinement.py",
+      "bytes": 15286,
+      "sha256": "d71da9d1d116b3d777357b5104436c9b2999a67b005956d12d6e255d1422683a"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_foot_pilot_v1/source_snapshot/src/runtime.py",
+      "bytes": 3947,
+      "sha256": "945db55a6449012c4ebad88e630378fa2da4f586b9d701fdb18b1977646c5dfb"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_pose_pilot_v1/col_eng_p01_falcao_col9.json",
+      "bytes": 27370302,
+      "sha256": "f4d6c9e3fab6b01f2758c95df32e5cee718284d75d5b016d5907a1df51043f48"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_pose_pilot_v1/col_eng_p02_kane_eng9.json",
+      "bytes": 13439993,
+      "sha256": "d12a59639de333eab670810e17d6ba5e6350a1b354341dfd8d02038055ca14e0"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_pose_pilot_v1/col_eng_p03_cuadrado_col11.json",
+      "bytes": 18041301,
+      "sha256": "ca3b2d3e028227409a9bb082440cad52121116f71d5fd3083012c3971f4dd7c2"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_pose_pilot_v1/progress.json",
+      "bytes": 80,
+      "sha256": "1e1daf790c4e5e54a7eea009c9bd0160db8761fe1f062028b98fed4751618726"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_pose_pilot_v1/step_diagnostics.json",
+      "bytes": 63576056,
+      "sha256": "6265ee9cf794258394d8cc46f7c3c50752d061b8570b5f3c833c3deb45e56771"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/shoe_pose33_hd_kane_guarded_video_pilot_v1/source_snapshot/requirements-pose33.txt",
+      "bytes": 45,
+      "sha256": "3cc30cb96c2ebe38e5217fc9cfe039589dfb056c523d52c5af61a78a9e74eb87"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/shoe_pose33_hd_kane_guarded_video_pilot_v1/source_snapshot/scripts/run_fresh_foot_experiment.py",
+      "bytes": 25283,
+      "sha256": "a08fb4aa6182ac3fa37b31c9eee13d5c2c6a032d7451d65277bac18539fefef9"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/shoe_pose33_hd_kane_guarded_video_pilot_v1/source_snapshot/scripts/run_fresh_shoe_pose_experiment.py",
+      "bytes": 17996,
+      "sha256": "0216a8c08948a50a74f3329ae3326a232057724619d0c7f33175a75e467adef8"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/shoe_pose33_hd_kane_guarded_video_pilot_v1/source_snapshot/src/kicking_foot_evidence.py",
+      "bytes": 19387,
+      "sha256": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/shoe_pose33_hd_kane_guarded_video_pilot_v1/source_snapshot/src/kicking_foot_evidence_v2.py",
+      "bytes": 10171,
+      "sha256": "7c8ad16ec2f72c1f00024fa3b7eccd1caaa584eea163bc42eeeb88c2d29fe0b7"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/shoe_pose33_hd_kane_guarded_video_pilot_v1/source_snapshot/src/kicking_foot_strike_window.py",
+      "bytes": 8224,
+      "sha256": "2d10454afef9df862baa00eea79692756926f2368a10ca4af8c18df09310fd15"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/shoe_pose33_hd_kane_guarded_video_pilot_v1/source_snapshot/src/mediapipe_shoe_evidence.py",
+      "bytes": 4437,
+      "sha256": "fab407e46408ae3f1e3f92373c143dc64eb103bdbe7458f1eb1abc156f043974"
+    },
+    {
+      "path": "outputs/fresh_course_experiment/shoe_pose33_hd_kane_guarded_video_pilot_v1/source_snapshot/src/pose_refinement.py",
+      "bytes": 15286,
+      "sha256": "d71da9d1d116b3d777357b5104436c9b2999a67b005956d12d6e255d1422683a"
+    }
+  ],
+  "shoe33": {
+    "clip_id": "col_eng_p02_kane_eng9",
+    "source_coordinate_shoe_swing_candidate": "right",
+    "source_coordinate_shoe_contact_region_candidate": "unknown",
+    "shoe_contact_verified": false,
+    "anatomical_side_verified": false,
+    "ball_identity_verified": false,
+    "actual_inference_calls": 70,
+    "detected_pose_calls": 70,
+    "accepted_roi_pose_calls": 65,
+    "calls_by_view": {
+      "normal": 35,
+      "mirror": 35
+    },
+    "source_video_contact_bracket_sec": [
+      98.26,
+      98.34
+    ],
+    "ankle_motion_status": "strike_motion_not_supported_in_all_paired_views",
+    "shoe_centroid_motion_status": "paired_predeparture_strike_motion_candidate",
+    "local_ball_identity_ambiguous_frames": []
+  },
+  "rows": [
+    {
+      "clip_id": "col_eng_p01_falcao_col9",
+      "n": {
+        "contact": true,
+        "contact_frame": 529,
+        "actor": 6,
+        "bracket": [
+          527,
+          531
+        ],
+        "outcome": "goal_likely",
+        "observations": 23,
+        "elapsed_sec": 80.858,
+        "candidate_support_score": 0.9306,
+        "exact_contact_frame_established": false,
+        "contact_time_sec_from_frame": 10.58,
+        "contact_source_video_sec_from_frame": 54.58,
+        "contact_source_frame": 2729,
+        "bracket_source_video_sec": [
+          54.54,
+          54.62
+        ],
+        "stored_contact_time_sec": 10.42,
+        "stored_time_consistent_with_final_candidate_frame": false,
+        "scored_ankle_proximity_frame": 521,
+        "outcome_scope": "unguarded_ball_rule_diagnostic_not_verified_goal"
+      },
+      "m": {
+        "contact": true,
+        "contact_frame": 529,
+        "actor": 6,
+        "bracket": [
+          527,
+          531
+        ],
+        "outcome": "goal_likely",
+        "observations": 22,
+        "elapsed_sec": 73.069,
+        "candidate_support_score": 0.9391,
+        "exact_contact_frame_established": false,
+        "contact_time_sec_from_frame": 10.58,
+        "contact_source_video_sec_from_frame": 54.58,
+        "contact_source_frame": 2729,
+        "bracket_source_video_sec": [
+          54.54,
+          54.62
+        ],
+        "stored_contact_time_sec": 10.44,
+        "stored_time_consistent_with_final_candidate_frame": false,
+        "scored_ankle_proximity_frame": 522,
+        "outcome_scope": "unguarded_ball_rule_diagnostic_not_verified_goal"
+      },
+      "contact_pair": "11",
+      "actor_difference": false,
+      "contact_frame_difference": 0,
+      "outcome_difference": false,
+      "source_start_frame": 2200,
+      "source_fps": 50.0,
+      "source_interval_video_sec": [
+        44.0,
+        57.0
+      ],
+      "pose_diagnostic": {
+        "status": "ok",
+        "step_count": 4,
+        "kick_frame": 528,
+        "kicking_foot": "right",
+        "selected_track_id": 6,
+        "foot_label_is_unverified_legacy_diagnostic": true
+      },
+      "foot17_guarded": {
+        "kicking_foot_candidate": "unknown",
+        "status": "insufficient_temporal_evidence",
+        "new_neural_inference": true,
+        "normal_pose_frames": 35,
+        "mirrored_pose_frames": 35,
+        "contact_bracket_frames": [
+          527,
+          531
+        ]
+      },
+      "strict_keeper_height_included": false
+    },
+    {
+      "clip_id": "col_eng_p02_kane_eng9",
+      "n": {
+        "contact": false,
+        "contact_frame": null,
+        "actor": null,
+        "bracket": null,
+        "outcome": "unknown",
+        "observations": 0,
+        "elapsed_sec": 26.264,
+        "candidate_support_score": null,
+        "exact_contact_frame_established": false,
+        "contact_time_sec_from_frame": null,
+        "contact_source_video_sec_from_frame": null,
+        "contact_source_frame": null,
+        "bracket_source_video_sec": null,
+        "stored_contact_time_sec": null,
+        "stored_time_consistent_with_final_candidate_frame": null,
+        "outcome_scope": "unguarded_ball_rule_diagnostic_not_verified_goal"
+      },
+      "m": {
+        "contact": true,
+        "contact_frame": 215,
+        "actor": 5,
+        "bracket": [
+          213,
+          217
+        ],
+        "outcome": "goal_likely",
+        "observations": 22,
+        "elapsed_sec": 62.311,
+        "candidate_support_score": 0.9342,
+        "exact_contact_frame_established": false,
+        "contact_time_sec_from_frame": 4.3,
+        "contact_source_video_sec_from_frame": 98.3,
+        "contact_source_frame": 4915,
+        "bracket_source_video_sec": [
+          98.26,
+          98.34
+        ],
+        "stored_contact_time_sec": 4.1,
+        "stored_time_consistent_with_final_candidate_frame": false,
+        "scored_ankle_proximity_frame": 205,
+        "outcome_scope": "unguarded_ball_rule_diagnostic_not_verified_goal"
+      },
+      "contact_pair": "01",
+      "actor_difference": null,
+      "contact_frame_difference": null,
+      "outcome_difference": true,
+      "source_start_frame": 4700,
+      "source_fps": 50.0,
+      "source_interval_video_sec": [
+        94.0,
+        102.0
+      ],
+      "pose_diagnostic": {
+        "status": "ok",
+        "step_count": 4,
+        "kick_frame": 220,
+        "kicking_foot": "right",
+        "selected_track_id": 5,
+        "foot_label_is_unverified_legacy_diagnostic": true
+      },
+      "foot17_guarded": {
+        "kicking_foot_candidate": "unknown",
+        "status": "insufficient_temporal_evidence",
+        "new_neural_inference": true,
+        "normal_pose_frames": 35,
+        "mirrored_pose_frames": 35,
+        "contact_bracket_frames": [
+          213,
+          217
+        ]
+      },
+      "strict_keeper_height_included": false
+    },
+    {
+      "clip_id": "col_eng_p03_cuadrado_col11",
+      "n": {
+        "contact": false,
+        "contact_frame": null,
+        "actor": null,
+        "bracket": null,
+        "outcome": "unknown",
+        "observations": 0,
+        "elapsed_sec": 31.485,
+        "candidate_support_score": null,
+        "exact_contact_frame_established": false,
+        "contact_time_sec_from_frame": null,
+        "contact_source_video_sec_from_frame": null,
+        "contact_source_frame": null,
+        "bracket_source_video_sec": null,
+        "stored_contact_time_sec": null,
+        "stored_time_consistent_with_final_candidate_frame": null,
+        "outcome_scope": "unguarded_ball_rule_diagnostic_not_verified_goal"
+      },
+      "m": {
+        "contact": false,
+        "contact_frame": null,
+        "actor": null,
+        "bracket": null,
+        "outcome": "unknown",
+        "observations": 0,
+        "elapsed_sec": 32.895,
+        "candidate_support_score": null,
+        "exact_contact_frame_established": false,
+        "contact_time_sec_from_frame": null,
+        "contact_source_video_sec_from_frame": null,
+        "contact_source_frame": null,
+        "bracket_source_video_sec": null,
+        "stored_contact_time_sec": null,
+        "stored_time_consistent_with_final_candidate_frame": null,
+        "outcome_scope": "unguarded_ball_rule_diagnostic_not_verified_goal"
+      },
+      "contact_pair": "00",
+      "actor_difference": null,
+      "contact_frame_difference": null,
+      "outcome_difference": false,
+      "source_start_frame": 6800,
+      "source_fps": 50.0,
+      "source_interval_video_sec": [
+        136.0,
+        144.0
+      ],
+      "pose_diagnostic": {
+        "status": "ok",
+        "step_count": 3,
+        "kick_frame": 287,
+        "kicking_foot": "right",
+        "selected_track_id": 7,
+        "foot_label_is_unverified_legacy_diagnostic": true
+      },
+      "foot17_guarded": {
+        "kicking_foot_candidate": "unknown",
+        "status": "awaiting_independent_ball_departure_evidence",
+        "new_neural_inference": false,
+        "normal_pose_frames": null,
+        "mirrored_pose_frames": null,
+        "contact_bracket_frames": null
+      },
+      "strict_keeper_height_included": false
+    }
+  ],
+  "artifact_bindings": [
+    {
+      "path": "outputs/fresh_course_experiment/hd_pose_pilot_v1/protocol.json",
+      "sha256": "24aaa693187c1c6d608c78dfd24c38d6208cf1d94369f65acd82d68e2706871e",
+      "bytes": 1957,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_n_pilot_v1/protocol.json",
+      "sha256": "835a89bd7d89758a74e9cc3334d3ab4fbb57d845918e1212e850cad3f545e0e2",
+      "bytes": 4357,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/protocol.json",
+      "sha256": "da765eb17a43107813aec447e73cec096284aca3b0090c19426d61de9b67292b",
+      "bytes": 4357,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_foot_pilot_v1/protocol.json",
+      "sha256": "8dd2e0617b1219d3a3940f1e51e3d7f1a8eda53fc83700687fe646f01e73a77d",
+      "bytes": 1925,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/shoe_pose33_hd_kane_guarded_video_pilot_v1/protocol.json",
+      "sha256": "9a453cbb80d1ff2d985a39cfaaf13609f4534547b8d8c5366237cc3809cf3851",
+      "bytes": 2946,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_n_pilot_v1/summary.json",
+      "sha256": "4d50091047274e5423be7451e6fd9038e7f061fa29e0c2972b184b80e9fa435a",
+      "bytes": 1228,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/summary.json",
+      "sha256": "01b2e24dcb349099cbc753d555d91382243365ee8f7ab0a54ad2abc3636da2b1",
+      "bytes": 1189,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_foot_pilot_v1/summary.json",
+      "sha256": "2c64ff03e69e640d263cc8fae97a421377511778211692423a318e66a27e57b9",
+      "bytes": 278,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_n_pilot_v1/results/col_eng_p01_falcao_col9.json",
+      "sha256": "c287b0a137368fdf1623c5be9aeccf6bdbf3b89e1f5855d08634d8bb77a5abe4",
+      "bytes": 13385700,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/results/col_eng_p01_falcao_col9.json",
+      "sha256": "f89b7ece090dd8a1f54ac1dba79b2118360d56f8dba24cc475e20e1bf9cfbfec",
+      "bytes": 14059442,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_n_pilot_v1/contacts/col_eng_p01_falcao_col9.json",
+      "sha256": "52c9a4dc88b49d4903a72634274ce8541d9167fa04acd920bfc0d28120631661",
+      "bytes": 143321,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/contacts/col_eng_p01_falcao_col9.json",
+      "sha256": "c1a4eb3581d683baf265b90163f40069526c2a82d5bee4646dfc146afa74294d",
+      "bytes": 1221793,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_pose_pilot_v1/col_eng_p01_falcao_col9.json",
+      "sha256": "f4d6c9e3fab6b01f2758c95df32e5cee718284d75d5b016d5907a1df51043f48",
+      "bytes": 27370302,
+      "included_in_recommended_public_package": false
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_foot_pilot_v1/results/col_eng_p01_falcao_col9.json",
+      "sha256": "4bb62f13278b1379917d475253856533242eccdbc696bdc67472911af37c3d18",
+      "bytes": 66852,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_n_pilot_v1/results/col_eng_p02_kane_eng9.json",
+      "sha256": "a42624355a539883f1a3338e8f0cb4b27a3a462a6984ec772c7ab40aaf440997",
+      "bytes": 361724,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/results/col_eng_p02_kane_eng9.json",
+      "sha256": "3b1ef5be06d907da69d53c8de91762c5d6969f0881be914821a943537848089e",
+      "bytes": 13212656,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_n_pilot_v1/contacts/col_eng_p02_kane_eng9.json",
+      "sha256": "164c87fe912d7757d8e671eaa062c29529db72b0a8c4056ac54e1fae3c496d0c",
+      "bytes": 361443,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/contacts/col_eng_p02_kane_eng9.json",
+      "sha256": "5ac3391e9327d4b246f36029f3c3ca2c857744672aec8c25338b36d8ded57418",
+      "bytes": 326704,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_pose_pilot_v1/col_eng_p02_kane_eng9.json",
+      "sha256": "d12a59639de333eab670810e17d6ba5e6350a1b354341dfd8d02038055ca14e0",
+      "bytes": 13439993,
+      "included_in_recommended_public_package": false
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_foot_pilot_v1/results/col_eng_p02_kane_eng9.json",
+      "sha256": "4df100eabe910cf0be2f62e23bd7c169f3bf66eef119b0b529efe9876857642a",
+      "bytes": 67073,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_n_pilot_v1/results/col_eng_p03_cuadrado_col11.json",
+      "sha256": "f208200c6cc462caa838f0ced0da34c863686349c977cb2f143505792dcd74a0",
+      "bytes": 148603,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/results/col_eng_p03_cuadrado_col11.json",
+      "sha256": "ac8b2aa449ab70f8d5d67e7b5c2555fa6b86ff6a481717f506a2f4e087025a9f",
+      "bytes": 88860,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_n_pilot_v1/contacts/col_eng_p03_cuadrado_col11.json",
+      "sha256": "898ae4a9d0f20b7bb7fad2937b9e9160abcb68cfa5a5a4c85a98c04e0032687d",
+      "bytes": 148322,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_ball_pilot_v1/contacts/col_eng_p03_cuadrado_col11.json",
+      "sha256": "41031826bcf59c3cdfe1d61f3e5630c100aca855c233acecae68bd3064c62b37",
+      "bytes": 88579,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_pose_pilot_v1/col_eng_p03_cuadrado_col11.json",
+      "sha256": "ca3b2d3e028227409a9bb082440cad52121116f71d5fd3083012c3971f4dd7c2",
+      "bytes": 18041301,
+      "included_in_recommended_public_package": false
+    },
+    {
+      "path": "outputs/fresh_course_experiment/hd_foot_pilot_v1/results/col_eng_p03_cuadrado_col11.json",
+      "sha256": "8b4bc73508fb1bb5d444d19cdbabe3782a9724bb0edb16975cfbf9a25f897161",
+      "bytes": 4684,
+      "included_in_recommended_public_package": true
+    },
+    {
+      "path": "outputs/fresh_course_experiment/shoe_pose33_hd_kane_guarded_video_pilot_v1/result.json",
+      "sha256": "42bc4d1cf09ccaab80a2c18203cd6d398b4ef449c5f7c79c34815fc6a733d1d7",
+      "bytes": 102554,
+      "included_in_recommended_public_package": true
+    }
+  ],
+  "summary_generator_sha256": "64b15ccf5ae5b1e208fa70ec588b28946297efb28188516f81f201fa893ede2e"
+}

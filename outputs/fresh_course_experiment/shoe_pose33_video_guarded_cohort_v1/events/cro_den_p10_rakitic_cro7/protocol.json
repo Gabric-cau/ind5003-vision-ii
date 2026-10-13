@@ -1,0 +1,60 @@
+{
+  "schema_version": "fresh-shoe-pose33-pilot-v2",
+  "clip_id": "cro_den_p10_rakitic_cro7",
+  "source_sha256": "255e920b9f46369116973375aaccff8284bf3a68d9247cc67e85fd03a36afd9f",
+  "source_manifest_sha256": "1affeb149a6fffea0a4b1814ec7b10be0c75ec8c0f2e6428cc920e62d325a38c",
+  "roi_cache_sha256": "a114f2f1c58560d310237c5fdfa7a6469eca6ac845322bcd24cd218670816840",
+  "original_neural_producer_sha256": "722f1ae8b86d106c7e41ca80e544293ba499beaa6f2073170cfdcef1c88bc274",
+  "rival_pose_sha256": "aaf11b70aa053a5fc472492e025d461e043ff99795a0824946c976643d51f85f",
+  "actor_track_id_candidate": 0,
+  "contact_sha256": "995964f7fa6fa50812cdc00ac90ddf25e051d66c51c3186b5fd08ba3ecd18179",
+  "model_sha256": "64437af838a65d18e5ba7a0d39b465540069bc8aae8308de3e318aad31fcbc7b",
+  "model_bytes": 30664242,
+  "model_source": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_heavy/float16/latest/pose_landmarker_heavy.task",
+  "documentation": "https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker/python",
+  "code_sha256": {
+    "scripts/run_fresh_shoe_pose_experiment.py": "0216a8c08948a50a74f3329ae3326a232057724619d0c7f33175a75e467adef8",
+    "src/mediapipe_shoe_evidence.py": "fab407e46408ae3f1e3f92373c143dc64eb103bdbe7458f1eb1abc156f043974",
+    "src/kicking_foot_strike_window.py": "2d10454afef9df862baa00eea79692756926f2368a10ca4af8c18df09310fd15",
+    "src/kicking_foot_evidence.py": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52",
+    "src/kicking_foot_evidence_v2.py": "7c8ad16ec2f72c1f00024fa3b7eccd1caaa584eea163bc42eeeb88c2d29fe0b7",
+    "scripts/run_fresh_foot_experiment.py": "a08fb4aa6182ac3fa37b31c9eee13d5c2c6a032d7451d65277bac18539fefef9",
+    "src/pose_refinement.py": "d71da9d1d116b3d777357b5104436c9b2999a67b005956d12d6e255d1422683a",
+    "requirements-pose33.txt": "3cc30cb96c2ebe38e5217fc9cfe039589dfb056c523d52c5af61a78a9e74eb87"
+  },
+  "new_neural_inference": true,
+  "runtime": {
+    "python": "3.13.15 (main, Sep  1 2026, 14:05:45) [Clang 22.1.3 ]",
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "delegate": "CPU",
+    "packages": {
+      "mediapipe": "1.1.0",
+      "numpy": "2.5.4",
+      "opencv-contrib-python": "5.0.0.93",
+      "scipy": "1.18.1"
+    }
+  },
+  "settings": {
+    "running_mode": "VIDEO",
+    "num_poses": 1,
+    "detection_confidence": 0.5,
+    "presence_confidence": 0.5,
+    "landmark_visibility_presence_min": 0.5,
+    "shoe_contact_region_maximum_body_distance": 0.08,
+    "fixed_union_roi_xyxy": [
+      301,
+      366,
+      501,
+      534
+    ],
+    "roi_reference_changes_between_frames": false
+  },
+  "roi_basis": "original source-only COCO person ROI; no event foot labels",
+  "prediction_scope": "source-coordinate shoe-swing and local stationary-region hypotheses",
+  "world_coordinates_used": false,
+  "reference_labels_read": false,
+  "human_verified": false,
+  "accuracy_validated": false,
+  "held_out_test": false,
+  "development_data_previously_inspected": true
+}

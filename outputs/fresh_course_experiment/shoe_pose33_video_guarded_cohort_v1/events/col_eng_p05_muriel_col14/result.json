@@ -1,0 +1,2282 @@
+{
+  "clip_id": "col_eng_p05_muriel_col14",
+  "source_mapping": {
+    "clip_id": "col_eng_p05_muriel_col14",
+    "match_id": "col_eng",
+    "event_id": 5,
+    "kicker": "muriel_col14",
+    "team": "COL",
+    "penalty_number": 5,
+    "slice_start_sec": 476.0,
+    "slice_end_sec": 496.0,
+    "source_filename": "col_eng_pen.mp4",
+    "source_video_sha256": "f13efaf49ed5a196ca404c85862887255ad60afd057c7788c6a4aea353c48928",
+    "fps": 30.0,
+    "source_start_frame": 14100,
+    "source_end_frame_exclusive": 15120,
+    "frame_count": 1020,
+    "original_slice_start_frame_in_clip": 180,
+    "original_slice_end_frame_in_clip": 780,
+    "semantic_event_start_verified": false,
+    "semantic_event_end_verified": false,
+    "context_is_not_event_boundary_ground_truth": true,
+    "clip_sha256": "b525ccaa3d90cbdeed1991a9053acaf7541ddab3da5818b013b35dad4b5eee95",
+    "clip_bytes": 17504808,
+    "clip_filename": "col_eng_p05_muriel_col14.mp4"
+  },
+  "contact_bracket_frames": [
+    258,
+    261
+  ],
+  "source_fps": 30.0,
+  "source_coordinate_shoe_swing_candidate": "unknown",
+  "source_coordinate_shoe_contact_region_candidate": "unknown",
+  "shoe_contact_verified": false,
+  "anatomical_side_verified": false,
+  "ball_identity_verified": false,
+  "new_neural_inference": true,
+  "actual_inference_calls": 44,
+  "detected_pose_calls": 44,
+  "accepted_roi_pose_calls": 44,
+  "calls_by_view": {
+    "normal": 22,
+    "mirror": 22
+  },
+  "elapsed_seconds": 2.2237892909979564,
+  "evidence": {
+    "ankle_motion": {
+      "schema_version": "fresh-foot-strike-window-v1",
+      "candidate": "right",
+      "status": "paired_predeparture_strike_motion_candidate",
+      "contact_bracket_frames": [
+        258,
+        261
+      ],
+      "analysis_window_frames": [
+        254,
+        261
+      ],
+      "source_fps": 30.0,
+      "parameters": {
+        "confidence_min": 0.4,
+        "precontact_seconds": 0.13,
+        "postdeparture_seconds": 0.2,
+        "maximum_pair_gap_seconds": 0.07,
+        "minimum_pairs": 4,
+        "motion_ratio_min": 1.25,
+        "pair_support_fraction_min": 0.65,
+        "minimum_motion_body_heights_per_second": 0.3,
+        "mirror_relative_error_max": 0.15,
+        "channel_jump_body_heights_min": 0.12,
+        "crossed_assignment_cost_ratio_max": 0.55,
+        "ball_distance_body_heights_max": 0.25,
+        "ball_distance_margin_body_heights_min": 0.05,
+        "ball_approach_body_heights_min": 0.03,
+        "minimum_contact_samples": 3
+      },
+      "policy": {
+        "precontact_seconds": 0.13,
+        "maximum_bracket_seconds": 0.15,
+        "maximum_ankle_distance_body": 0.35,
+        "minimum_approach_body": 0.03,
+        "minimum_stationary_samples": 2
+      },
+      "new_neural_inference": false,
+      "human_verified": false,
+      "accuracy_validated": false,
+      "held_out_test": false,
+      "reference_labels_used_for_prediction": false,
+      "shoe_ball_contact_verified": false,
+      "nearest_ankle_used_as_label": false,
+      "post_departure_pose_used": false,
+      "departure_coordinates_used_as_distance_target": false,
+      "anatomical_channel_permutation_applied": false,
+      "limitations": [
+        "paired pose agreement is not anatomical ground truth",
+        "ankle proximity does not establish shoe-ball contact",
+        "source camera motion and departure identity remain unverified"
+      ],
+      "preparation_scale_source_px": 101.90633138020831,
+      "strike_window_channel_checks": {
+        "normal": {
+          "ambiguous_pairs": [],
+          "channel_permutation_applied": false,
+          "interpretation": "crossing limbs or channel swaps require observation; no automatic anatomical relabeling"
+        },
+        "mirrored_inverse_mapped": {
+          "ambiguous_pairs": [],
+          "channel_permutation_applied": false,
+          "interpretation": "crossing limbs or channel swaps require observation; no automatic anatomical relabeling"
+        }
+      },
+      "accepted_paired_frames": [
+        {
+          "frame": 254,
+          "maximum_leg_joint_error_body": 0.028250866022691647
+        },
+        {
+          "frame": 255,
+          "maximum_leg_joint_error_body": 0.049884357979083506
+        },
+        {
+          "frame": 256,
+          "maximum_leg_joint_error_body": 0.04098325850967254
+        },
+        {
+          "frame": 257,
+          "maximum_leg_joint_error_body": 0.02907083184609657
+        },
+        {
+          "frame": 258,
+          "maximum_leg_joint_error_body": 0.047213121809027876
+        },
+        {
+          "frame": 259,
+          "maximum_leg_joint_error_body": 0.019391158896549205
+        },
+        {
+          "frame": 260,
+          "maximum_leg_joint_error_body": 0.01925653619654332
+        },
+        {
+          "frame": 261,
+          "maximum_leg_joint_error_body": 0.0359093899096968
+        }
+      ],
+      "rejected_paired_frames": [],
+      "stationary_distance_reference": {
+        "frame": 258,
+        "xy": [
+          934.689,
+          480.251
+        ],
+        "detection_id": "258:3"
+      },
+      "views": {
+        "normal": {
+          "motion": {
+            "candidate": "right",
+            "reason": "sustained_paired_relative_ankle_motion",
+            "window_frames": [
+              254,
+              261
+            ],
+            "valid_pairs": 7,
+            "pairs": [
+              {
+                "frames": [
+                  254,
+                  255
+                ],
+                "ankle_speed": [
+                  1.031881856951145,
+                  2.8683339754456543
+                ],
+                "knee_speed": [
+                  0.4009436337573238,
+                  0.5568081259353564
+                ]
+              },
+              {
+                "frames": [
+                  255,
+                  256
+                ],
+                "ankle_speed": [
+                  0.8770158706852952,
+                  1.8063257769468357
+                ],
+                "knee_speed": [
+                  0.7971593507844901,
+                  1.0704394168293212
+                ]
+              },
+              {
+                "frames": [
+                  256,
+                  257
+                ],
+                "ankle_speed": [
+                  1.9109067362579855,
+                  1.5449777168423946
+                ],
+                "knee_speed": [
+                  0.7314200259353497,
+                  0.15643351598382663
+                ]
+              },
+              {
+                "frames": [
+                  257,
+                  258
+                ],
+                "ankle_speed": [
+                  1.4936620988831737,
+                  3.390575598824896
+                ],
+                "knee_speed": [
+                  1.4331054430876164,
+                  0.8809216127227114
+                ]
+              },
+              {
+                "frames": [
+                  258,
+                  259
+                ],
+                "ankle_speed": [
+                  1.1272634577641496,
+                  4.644022358559827
+                ],
+                "knee_speed": [
+                  0.5568377819253753,
+                  1.9901239311082197
+                ]
+              },
+              {
+                "frames": [
+                  259,
+                  260
+                ],
+                "ankle_speed": [
+                  0.5681986296517081,
+                  0.7438993562871876
+                ],
+                "knee_speed": [
+                  0.330897200537712,
+                  0.3376992326857205
+                ]
+              },
+              {
+                "frames": [
+                  260,
+                  261
+                ],
+                "ankle_speed": [
+                  2.0203484221282206,
+                  5.2456456484283835
+                ],
+                "knee_speed": [
+                  0.17731367529824088,
+                  2.586354389181467
+                ]
+              }
+            ],
+            "median_ankle_speeds": [
+              1.1272634577641496,
+              2.8683339754456543
+            ],
+            "median_motion_ratio": 2.5445107403151344,
+            "median_direction": "right",
+            "pair_support_fraction": 0.8571428571428571
+          },
+          "target_relevance": {
+            "left": {
+              "minimum_bracket_ankle_distance_body": 0.009082502140473436,
+              "preparation_to_bracket_reduction_body": 0.1737337127617078,
+              "source_early_frames": [
+                254,
+                255,
+                256
+              ],
+              "source_bracket_frames": [
+                257,
+                258,
+                259,
+                260,
+                261
+              ],
+              "relevant": true
+            },
+            "right": {
+              "minimum_bracket_ankle_distance_body": 0.033069670121828314,
+              "preparation_to_bracket_reduction_body": 0.3262960725559492,
+              "source_early_frames": [
+                254,
+                255,
+                256
+              ],
+              "source_bracket_frames": [
+                257,
+                258,
+                259,
+                260,
+                261
+              ],
+              "relevant": true
+            }
+          }
+        },
+        "mirrored_inverse_mapped": {
+          "motion": {
+            "candidate": "right",
+            "reason": "sustained_paired_relative_ankle_motion",
+            "window_frames": [
+              254,
+              261
+            ],
+            "valid_pairs": 7,
+            "pairs": [
+              {
+                "frames": [
+                  254,
+                  255
+                ],
+                "ankle_speed": [
+                  0.41850305344999394,
+                  3.1373672472306664
+                ],
+                "knee_speed": [
+                  0.34368877458373326,
+                  0.5858615748220399
+                ]
+              },
+              {
+                "frames": [
+                  255,
+                  256
+                ],
+                "ankle_speed": [
+                  0.5609894744775964,
+                  1.9877304407630405
+                ],
+                "knee_speed": [
+                  0.48994773816685583,
+                  0.945931145697593
+                ]
+              },
+              {
+                "frames": [
+                  256,
+                  257
+                ],
+                "ankle_speed": [
+                  1.76871284639388,
+                  1.8919526987542088
+                ],
+                "knee_speed": [
+                  0.47454454349269765,
+                  0.585109277210693
+                ]
+              },
+              {
+                "frames": [
+                  257,
+                  258
+                ],
+                "ankle_speed": [
+                  1.2685868414270605,
+                  4.1151721427079995
+                ],
+                "knee_speed": [
+                  1.4365428603475636,
+                  1.9886739257390293
+                ]
+              },
+              {
+                "frames": [
+                  258,
+                  259
+                ],
+                "ankle_speed": [
+                  1.810584141134929,
+                  4.195258360394883
+                ],
+                "knee_speed": [
+                  0.5804904230274611,
+                  1.8954287524946551
+                ]
+              },
+              {
+                "frames": [
+                  259,
+                  260
+                ],
+                "ankle_speed": [
+                  0.7120541161545112,
+                  0.7461457125451852
+                ],
+                "knee_speed": [
+                  0.38484800105335426,
+                  0.594776237060763
+                ]
+              },
+              {
+                "frames": [
+                  260,
+                  261
+                ],
+                "ankle_speed": [
+                  1.4982872120549198,
+                  4.799028530500747
+                ],
+                "knee_speed": [
+                  0.5981545227926928,
+                  1.5197083698884764
+                ]
+              }
+            ],
+            "median_ankle_speeds": [
+              1.2685868414270605,
+              3.1373672472306664
+            ],
+            "median_motion_ratio": 2.473119809205474,
+            "median_direction": "right",
+            "pair_support_fraction": 0.7142857142857143
+          },
+          "target_relevance": {
+            "left": {
+              "minimum_bracket_ankle_distance_body": 0.009334345788812665,
+              "preparation_to_bracket_reduction_body": 0.1749762764110902,
+              "source_early_frames": [
+                254,
+                255,
+                256
+              ],
+              "source_bracket_frames": [
+                257,
+                258,
+                259,
+                260,
+                261
+              ],
+              "relevant": true
+            },
+            "right": {
+              "minimum_bracket_ankle_distance_body": 0.021270578992873393,
+              "preparation_to_bracket_reduction_body": 0.3386935541293372,
+              "source_early_frames": [
+                254,
+                255,
+                256
+              ],
+              "source_bracket_frames": [
+                257,
+                258,
+                259,
+                260,
+                261
+              ],
+              "relevant": true
+            }
+          }
+        },
+        "paired": {
+          "motion": {
+            "candidate": "right",
+            "reason": "sustained_paired_relative_ankle_motion",
+            "window_frames": [
+              254,
+              261
+            ],
+            "valid_pairs": 7,
+            "pairs": [
+              {
+                "frames": [
+                  254,
+                  255
+                ],
+                "ankle_speed": [
+                  0.6494510586144912,
+                  2.993799457331733
+                ],
+                "knee_speed": [
+                  0.34995766475836615,
+                  0.01881573568611989
+                ]
+              },
+              {
+                "frames": [
+                  255,
+                  256
+                ],
+                "ankle_speed": [
+                  0.7186454606490262,
+                  1.8967530649787634
+                ],
+                "knee_speed": [
+                  0.631695027634483,
+                  1.0081542557665768
+                ]
+              },
+              {
+                "frames": [
+                  256,
+                  257
+                ],
+                "ankle_speed": [
+                  1.8384958768435768,
+                  1.7095377468728379
+                ],
+                "knee_speed": [
+                  0.5560127130985528,
+                  0.3405558427996034
+                ]
+              },
+              {
+                "frames": [
+                  257,
+                  258
+                ],
+                "ankle_speed": [
+                  1.3703604071743947,
+                  3.6065265714015884
+                ],
+                "knee_speed": [
+                  1.2981031154136466,
+                  1.4007070475163363
+                ]
+              },
+              {
+                "frames": [
+                  258,
+                  259
+                ],
+                "ankle_speed": [
+                  1.4616928435653322,
+                  4.403932819374333
+                ],
+                "knee_speed": [
+                  0.5187841198446876,
+                  1.9415745089338217
+                ]
+              },
+              {
+                "frames": [
+                  259,
+                  260
+                ],
+                "ankle_speed": [
+                  0.6395780563358233,
+                  0.7112123303072753
+                ],
+                "knee_speed": [
+                  0.32981657825624444,
+                  0.46551903405458667
+                ]
+              },
+              {
+                "frames": [
+                  260,
+                  261
+                ],
+                "ankle_speed": [
+                  1.7499411873448854,
+                  5.015341172449877
+                ],
+                "knee_speed": [
+                  0.386603426272039,
+                  2.0468319026616797
+                ]
+              }
+            ],
+            "median_ankle_speeds": [
+              1.3703604071743947,
+              2.993799457331733
+            ],
+            "median_motion_ratio": 2.1846803524517884,
+            "median_direction": "right",
+            "pair_support_fraction": 0.7142857142857143
+          },
+          "target_relevance": {
+            "left": {
+              "minimum_bracket_ankle_distance_body": 0.009124770181562328,
+              "preparation_to_bracket_reduction_body": 0.17651458643373527,
+              "source_early_frames": [
+                254,
+                255,
+                256
+              ],
+              "source_bracket_frames": [
+                257,
+                258,
+                259,
+                260,
+                261
+              ],
+              "relevant": true
+            },
+            "right": {
+              "minimum_bracket_ankle_distance_body": 0.02704742513583624,
+              "preparation_to_bracket_reduction_body": 0.3324336793772873,
+              "source_early_frames": [
+                254,
+                255,
+                256
+              ],
+              "source_bracket_frames": [
+                257,
+                258,
+                259,
+                260,
+                261
+              ],
+              "relevant": true
+            }
+          }
+        }
+      }
+    },
+    "shoe_centroid_motion": {
+      "schema_version": "fresh-foot-strike-window-v1",
+      "candidate": "unknown",
+      "status": "temporal_anatomical_channel_ambiguity",
+      "contact_bracket_frames": [
+        258,
+        261
+      ],
+      "analysis_window_frames": [
+        254,
+        261
+      ],
+      "source_fps": 30.0,
+      "parameters": {
+        "confidence_min": 0.4,
+        "precontact_seconds": 0.13,
+        "postdeparture_seconds": 0.2,
+        "maximum_pair_gap_seconds": 0.07,
+        "minimum_pairs": 4,
+        "motion_ratio_min": 1.25,
+        "pair_support_fraction_min": 0.65,
+        "minimum_motion_body_heights_per_second": 0.3,
+        "mirror_relative_error_max": 0.15,
+        "channel_jump_body_heights_min": 0.12,
+        "crossed_assignment_cost_ratio_max": 0.55,
+        "ball_distance_body_heights_max": 0.25,
+        "ball_distance_margin_body_heights_min": 0.05,
+        "ball_approach_body_heights_min": 0.03,
+        "minimum_contact_samples": 3
+      },
+      "policy": {
+        "precontact_seconds": 0.13,
+        "maximum_bracket_seconds": 0.15,
+        "maximum_ankle_distance_body": 0.35,
+        "minimum_approach_body": 0.03,
+        "minimum_stationary_samples": 2
+      },
+      "new_neural_inference": false,
+      "human_verified": false,
+      "accuracy_validated": false,
+      "held_out_test": false,
+      "reference_labels_used_for_prediction": false,
+      "shoe_ball_contact_verified": false,
+      "nearest_ankle_used_as_label": false,
+      "post_departure_pose_used": false,
+      "departure_coordinates_used_as_distance_target": false,
+      "anatomical_channel_permutation_applied": false,
+      "limitations": [
+        "paired pose agreement is not anatomical ground truth",
+        "ankle proximity does not establish shoe-ball contact",
+        "source camera motion and departure identity remain unverified"
+      ],
+      "preparation_scale_source_px": 101.90633138020831,
+      "strike_window_channel_checks": {
+        "normal": {
+          "ambiguous_pairs": [],
+          "channel_permutation_applied": false,
+          "interpretation": "crossing limbs or channel swaps require observation; no automatic anatomical relabeling"
+        },
+        "mirrored_inverse_mapped": {
+          "ambiguous_pairs": [
+            {
+              "frames": [
+                260,
+                261
+              ],
+              "direct_assignment_cost": 0.22801495184979131,
+              "crossed_assignment_cost": 0.11887586824482413
+            }
+          ],
+          "channel_permutation_applied": false,
+          "interpretation": "crossing limbs or channel swaps require observation; no automatic anatomical relabeling"
+        }
+      }
+    }
+  },
+  "stationary_ball_reference": {
+    "frame": 258,
+    "xy": [
+      934.689,
+      480.251
+    ]
+  },
+  "observed_preparation_scale_source_px": 101.90633138020831,
+  "shoe_ball_distances": {
+    "normal": [
+      {
+        "frame": 249,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              950.343065738678,
+              489.22489058971405
+            ],
+            [
+              945.6306390762329,
+              495.6262652873993
+            ]
+          ],
+          "minimum_confidence": 0.5258063673973083,
+          "stationary_point_distance_source_px": 17.926612103312856,
+          "stationary_point_distance_body": 0.17591264311566085
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              951.0471799373627,
+              493.2528750896454
+            ],
+            [
+              948.3790825605392,
+              494.9359405040741
+            ]
+          ],
+          "minimum_confidence": 0.30544933676719666,
+          "stationary_point_distance_source_px": 20.076499648160244,
+          "stationary_point_distance_body": 0.19700934550627333
+        }
+      },
+      {
+        "frame": 250,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              945.7900567054749,
+              486.7303984761238
+            ],
+            [
+              941.7003359794617,
+              494.2642242908478
+            ]
+          ],
+          "minimum_confidence": 0.5320746302604675,
+          "stationary_point_distance_source_px": 12.853640129961818,
+          "stationary_point_distance_body": 0.1261319091353158
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              951.9591460227966,
+              490.4409207701683
+            ],
+            [
+              951.2422741651535,
+              494.82751899957657
+            ]
+          ],
+          "minimum_confidence": 0.3185421824455261,
+          "stationary_point_distance_source_px": 20.052242491826878,
+          "stationary_point_distance_body": 0.19677131165690567
+        }
+      },
+      {
+        "frame": 251,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              939.9068994522095,
+              485.78780794143677
+            ],
+            [
+              935.6643582582474,
+              492.0064597725868
+            ]
+          ],
+          "minimum_confidence": 0.5439480543136597,
+          "stationary_point_distance_source_px": 7.60806919485659,
+          "stationary_point_distance_body": 0.07465747311098068
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              955.0923845767975,
+              488.36569303274155
+            ],
+            [
+              958.0143841505051,
+              494.96911692619324
+            ]
+          ],
+          "minimum_confidence": 0.3525439202785492,
+          "stationary_point_distance_source_px": 21.95783106785193,
+          "stationary_point_distance_body": 0.21547072463955325
+        }
+      },
+      {
+        "frame": 252,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              933.2426807880402,
+              485.2006410956383
+            ],
+            [
+              924.2264384031296,
+              486.559518635273
+            ]
+          ],
+          "minimum_confidence": 0.5708747506141663,
+          "stationary_point_distance_source_px": 5.156625470064267,
+          "stationary_point_distance_body": 0.05060162013707578
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              959.2362515926361,
+              478.99570643901825
+            ],
+            [
+              963.3612948656082,
+              486.72367280721664
+            ]
+          ],
+          "minimum_confidence": 0.39443686604499817,
+          "stationary_point_distance_source_px": 24.57932714043287,
+          "stationary_point_distance_body": 0.24119528990527994
+        }
+      },
+      {
+        "frame": 253,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              922.5711233019829,
+              481.7150299549103
+            ],
+            [
+              909.9134013056755,
+              479.32369577884674
+            ]
+          ],
+          "minimum_confidence": 0.6109445095062256,
+          "stationary_point_distance_source_px": 12.205995222726418,
+          "stationary_point_distance_body": 0.11977661306623191
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              959.2357323169708,
+              464.24138325452805
+            ],
+            [
+              966.038939833641,
+              472.3603555560112
+            ]
+          ],
+          "minimum_confidence": 0.4300912022590637,
+          "stationary_point_distance_source_px": 29.30614092264481,
+          "stationary_point_distance_body": 0.2875791967557424
+        }
+      },
+      {
+        "frame": 254,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              922.3287985920906,
+              481.53411477804184
+            ],
+            [
+              910.3076377511024,
+              478.7800995707512
+            ]
+          ],
+          "minimum_confidence": 0.6460239291191101,
+          "stationary_point_distance_source_px": 12.426623128497697,
+          "stationary_point_distance_body": 0.12194161991892809
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              959.6389616727829,
+              463.142321228981
+            ],
+            [
+              966.1232395172119,
+              470.4496275782585
+            ]
+          ],
+          "minimum_confidence": 0.47493988275527954,
+          "stationary_point_distance_source_px": 30.25239621522983,
+          "stationary_point_distance_body": 0.2968647365231841
+        }
+      },
+      {
+        "frame": 255,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              918.5914300084114,
+              478.83643037080765
+            ],
+            [
+              908.0377480983734,
+              479.04812943935394
+            ]
+          ],
+          "minimum_confidence": 0.6759964823722839,
+          "stationary_point_distance_source_px": 16.159602930453634,
+          "stationary_point_distance_body": 0.15857310052859053
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              958.8492968082428,
+              450.9219270348549
+            ],
+            [
+              967.544851064682,
+              456.37441086769104
+            ]
+          ],
+          "minimum_confidence": 0.5029193162918091,
+          "stationary_point_distance_source_px": 37.99887449461093,
+          "stationary_point_distance_body": 0.37288040870432965
+        }
+      },
+      {
+        "frame": 256,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              917.7246173024178,
+              480.2113777399063
+            ],
+            [
+              912.0238851308823,
+              483.68347108364105
+            ]
+          ],
+          "minimum_confidence": 0.6677075624465942,
+          "stationary_point_distance_source_px": 16.9644289686839,
+          "stationary_point_distance_body": 0.16647080450173715
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              958.7547178268433,
+              448.93741607666016
+            ],
+            [
+              964.617186665535,
+              450.26784908771515
+            ]
+          ],
+          "minimum_confidence": 0.5423411726951599,
+          "stationary_point_distance_source_px": 39.49302865880622,
+          "stationary_point_distance_body": 0.38754244337831534
+        }
+      },
+      {
+        "frame": 257,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              922.7951671481133,
+              479.8094725012779
+            ],
+            [
+              914.8909654021263,
+              483.5712082386017
+            ]
+          ],
+          "minimum_confidence": 0.6945695281028748,
+          "stationary_point_distance_source_px": 11.902025308356027,
+          "stationary_point_distance_body": 0.11679377666879266
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              958.3571650981903,
+              456.07321786880493
+            ],
+            [
+              963.6025810241699,
+              459.6715039014816
+            ]
+          ],
+          "minimum_confidence": 0.5816161632537842,
+          "stationary_point_distance_source_px": 33.8341127842704,
+          "stationary_point_distance_body": 0.3320118811660163
+        }
+      },
+      {
+        "frame": 258,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              925.047106385231,
+              480.65630865097046
+            ],
+            [
+              917.5154554247856,
+              484.28937941789627
+            ]
+          ],
+          "minimum_confidence": 0.7162727117538452,
+          "stationary_point_distance_source_px": 9.650408674303575,
+          "stationary_point_distance_body": 0.09469881354376598
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              951.4190167188644,
+              473.1000063419342
+            ],
+            [
+              957.2341488599777,
+              474.9807745218277
+            ]
+          ],
+          "minimum_confidence": 0.6048315167427063,
+          "stationary_point_distance_source_px": 18.19423451841769,
+          "stationary_point_distance_body": 0.17853880393884217
+        }
+      },
+      {
+        "frame": 259,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              927.2599406242371,
+              481.17134070396423
+            ],
+            [
+              922.8621360063553,
+              484.51217716932297
+            ]
+          ],
+          "minimum_confidence": 0.6743948459625244,
+          "stationary_point_distance_source_px": 7.4858499998319585,
+          "stationary_point_distance_body": 0.07345814434142037
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              936.2972844839096,
+              479.67757761478424
+            ],
+            [
+              939.9937483072281,
+              481.10298079252243
+            ]
+          ],
+          "minimum_confidence": 0.5647044777870178,
+          "stationary_point_distance_source_px": 1.707451965078669,
+          "stationary_point_distance_body": 0.016755111698685692
+        }
+      },
+      {
+        "frame": 260,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              929.3198835849762,
+              482.1259603500366
+            ],
+            [
+              925.3044487833977,
+              483.95930325984955
+            ]
+          ],
+          "minimum_confidence": 0.625298798084259,
+          "stationary_point_distance_source_px": 5.687080744308737,
+          "stationary_point_distance_body": 0.0558069421917513
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              935.3894490003586,
+              480.1678735613823
+            ],
+            [
+              939.2664083242416,
+              481.0224189758301
+            ]
+          ],
+          "minimum_confidence": 0.5195826292037964,
+          "stationary_point_distance_source_px": 0.7053643079293459,
+          "stationary_point_distance_body": 0.006921692679698779
+        }
+      },
+      {
+        "frame": 261,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              935.84139585495,
+              482.60287141799927
+            ],
+            [
+              933.4736404418945,
+              484.25161731243134
+            ]
+          ],
+          "minimum_confidence": 0.61090487241745,
+          "stationary_point_distance_source_px": 2.619029471637902,
+          "stationary_point_distance_body": 0.02570036067598598
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              919.9213008880615,
+              473.781518638134
+            ],
+            [
+              916.5582651495934,
+              468.06015425920486
+            ]
+          ],
+          "minimum_confidence": 0.47431331872940063,
+          "stationary_point_distance_source_px": 16.122627768210695,
+          "stationary_point_distance_body": 0.15821026573960195
+        }
+      },
+      {
+        "frame": 262,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              936.0491651296616,
+              482.5964913368225
+            ],
+            [
+              937.4537703990936,
+              483.6598116159439
+            ]
+          ],
+          "minimum_confidence": 0.6240243315696716,
+          "stationary_point_distance_source_px": 2.711342617792318,
+          "stationary_point_distance_body": 0.0266062233923073
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              916.7162842750549,
+              469.63894522190094
+            ],
+            [
+              918.5693253874779,
+              468.9893466234207
+            ]
+          ],
+          "minimum_confidence": 0.4454035758972168,
+          "stationary_point_distance_source_px": 19.663894486795037,
+          "stationary_point_distance_body": 0.1929604787108846
+        }
+      },
+      {
+        "frame": 263,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              934.9971008300781,
+              482.2548512816429
+            ],
+            [
+              933.3272165060043,
+              483.5993869304657
+            ]
+          ],
+          "minimum_confidence": 0.6343889236450195,
+          "stationary_point_distance_source_px": 2.0273988459197896,
+          "stationary_point_distance_body": 0.019894728997314683
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              921.38672041893,
+              473.45368880033493
+            ],
+            [
+              922.9740458130836,
+              472.6115047931671
+            ]
+          ],
+          "minimum_confidence": 0.44467291235923767,
+          "stationary_point_distance_source_px": 13.985779871597092,
+          "stationary_point_distance_body": 0.13724152054318123
+        }
+      },
+      {
+        "frame": 264,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              931.2482137680054,
+              481.03230810165405
+            ],
+            [
+              928.4590130448341,
+              482.6185424923897
+            ]
+          ],
+          "minimum_confidence": 0.6078221201896667,
+          "stationary_point_distance_source_px": 3.5283781322292898,
+          "stationary_point_distance_body": 0.034623738137182634
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              927.7180007696152,
+              478.8836695551872
+            ],
+            [
+              930.5675731897354,
+              480.31908148527145
+            ]
+          ],
+          "minimum_confidence": 0.433178186416626,
+          "stationary_point_distance_source_px": 4.121989087928814,
+          "stationary_point_distance_body": 0.04044880266123841
+        }
+      },
+      {
+        "frame": 265,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              935.0647010803223,
+              481.26199102401733
+            ],
+            [
+              930.4201992154121,
+              482.6622061729431
+            ]
+          ],
+          "minimum_confidence": 0.5851046442985535,
+          "stationary_point_distance_source_px": 1.0764036975589257,
+          "stationary_point_distance_body": 0.010562677342813059
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              932.5094635486603,
+              481.93096911907196
+            ],
+            [
+              934.4924829006195,
+              482.80772519111633
+            ]
+          ],
+          "minimum_confidence": 0.4202836751937866,
+          "stationary_point_distance_source_px": 2.4178335160269557,
+          "stationary_point_distance_body": 0.02372603824787018
+        }
+      },
+      {
+        "frame": 266,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              935.5797399282455,
+              481.7469835281372
+            ],
+            [
+              931.3756605386734,
+              482.905818939209
+            ]
+          ],
+          "minimum_confidence": 0.5800804495811462,
+          "stationary_point_distance_source_px": 1.678897853936461,
+          "stationary_point_distance_body": 0.016474912119763808
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              935.1870967149734,
+              482.9623757004738
+            ],
+            [
+              937.3001592159271,
+              483.5292857885361
+            ]
+          ],
+          "minimum_confidence": 0.41800549626350403,
+          "stationary_point_distance_source_px": 2.756747817009604,
+          "stationary_point_distance_body": 0.027051781569138147
+        }
+      },
+      {
+        "frame": 267,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              942.214631319046,
+              481.8777353167534
+            ],
+            [
+              940.2821115255356,
+              484.2982450723648
+            ]
+          ],
+          "minimum_confidence": 0.6002347469329834,
+          "stationary_point_distance_source_px": 6.903845972562017,
+          "stationary_point_distance_body": 0.06774697782813957
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              943.3252675533295,
+              484.2823746204376
+            ],
+            [
+              943.2718529701233,
+              486.5730630159378
+            ]
+          ],
+          "minimum_confidence": 0.43378114700317383,
+          "stationary_point_distance_source_px": 9.530849835298044,
+          "stationary_point_distance_body": 0.09352559066952217
+        }
+      },
+      {
+        "frame": 268,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              945.5755722522736,
+              479.9033926129341
+            ],
+            [
+              941.8978023529053,
+              484.8175836801529
+            ]
+          ],
+          "minimum_confidence": 0.6329683661460876,
+          "stationary_point_distance_source_px": 8.533493884165622,
+          "stationary_point_distance_body": 0.08373860356455684
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              952.5435671806335,
+              483.2930898666382
+            ],
+            [
+              951.1527581214905,
+              487.6564672589302
+            ]
+          ],
+          "minimum_confidence": 0.469619482755661,
+          "stationary_point_distance_source_px": 17.93515969319663,
+          "stationary_point_distance_body": 0.17599652004232486
+        }
+      },
+      {
+        "frame": 269,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              946.8997133970261,
+              478.08701008558273
+            ],
+            [
+              940.3452625274658,
+              484.8605030179024
+            ]
+          ],
+          "minimum_confidence": 0.6586743593215942,
+          "stationary_point_distance_source_px": 7.296630993250635,
+          "stationary_point_distance_body": 0.07160135091142872
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              962.0340144634247,
+              485.0328715443611
+            ],
+            [
+              960.3804519176483,
+              489.59896272420883
+            ]
+          ],
+          "minimum_confidence": 0.5028325319290161,
+          "stationary_point_distance_source_px": 27.33922807509795,
+          "stationary_point_distance_body": 0.2682780128066471
+        }
+      },
+      {
+        "frame": 270,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              946.9732263088226,
+              478.82417529821396
+            ],
+            [
+              939.867399096489,
+              485.6942998766899
+            ]
+          ],
+          "minimum_confidence": 0.6885913610458374,
+          "stationary_point_distance_source_px": 7.51276605455574,
+          "stationary_point_distance_body": 0.07372226978249193
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              971.0638996362686,
+              483.533924639225
+            ],
+            [
+              970.548872590065,
+              487.82099360227585
+            ]
+          ],
+          "minimum_confidence": 0.5427718758583069,
+          "stationary_point_distance_source_px": 36.50679682739558,
+          "stationary_point_distance_body": 0.3582387505560399
+        }
+      }
+    ],
+    "mirrored_inverse_mapped": [
+      {
+        "frame": 249,
+        "left": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              948.9711817502975,
+              490.36871951818466
+            ],
+            [
+              946.1430648565292,
+              494.99473029375076
+            ]
+          ],
+          "minimum_confidence": 0.2175079882144928,
+          "stationary_point_distance_source_px": 17.50282730867184,
+          "stationary_point_distance_body": 0.17175407132820347
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              950.9498816728592,
+              492.3489239215851
+            ],
+            [
+              949.1998518705368,
+              493.5869255065918
+            ]
+          ],
+          "minimum_confidence": 0.262899786233902,
+          "stationary_point_distance_source_px": 19.708164072942687,
+          "stationary_point_distance_body": 0.1933948931927727
+        }
+      },
+      {
+        "frame": 250,
+        "left": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              945.2571156620979,
+              486.930055141449
+            ],
+            [
+              941.8901853561401,
+              494.2426915168762
+            ]
+          ],
+          "minimum_confidence": 0.25228145718574524,
+          "stationary_point_distance_source_px": 12.501793720502535,
+          "stationary_point_distance_body": 0.12267926390028563
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              952.1280532479286,
+              488.873082280159
+            ],
+            [
+              953.0384438037872,
+              493.5992470383644
+            ]
+          ],
+          "minimum_confidence": 0.3019251227378845,
+          "stationary_point_distance_source_px": 19.454071065715862,
+          "stationary_point_distance_body": 0.19090149554234787
+        }
+      },
+      {
+        "frame": 251,
+        "left": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              939.2088936567307,
+              486.0154837965965
+            ],
+            [
+              934.9735810160637,
+              492.4235974550247
+            ]
+          ],
+          "minimum_confidence": 0.24983011186122894,
+          "stationary_point_distance_source_px": 7.325210721158709,
+          "stationary_point_distance_body": 0.07188180186595718
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              953.8339682221413,
+              487.3753715157509
+            ],
+            [
+              957.983370244503,
+              494.3969831466675
+            ]
+          ],
+          "minimum_confidence": 0.3159193694591522,
+          "stationary_point_distance_source_px": 20.42759108953484,
+          "stationary_point_distance_body": 0.20045458229008697
+        }
+      },
+      {
+        "frame": 252,
+        "left": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              932.6267323493958,
+              485.6009114384651
+            ],
+            [
+              926.2100547552109,
+              486.9769886136055
+            ]
+          ],
+          "minimum_confidence": 0.23928679525852203,
+          "stationary_point_distance_source_px": 5.733628891212684,
+          "stationary_point_distance_body": 0.056263716037630196
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              958.2893534302711,
+              480.34975904226303
+            ],
+            [
+              964.5712376832962,
+              486.52456110715866
+            ]
+          ],
+          "minimum_confidence": 0.3100862503051758,
+          "stationary_point_distance_source_px": 23.600560065009933,
+          "stationary_point_distance_body": 0.23159071419181226
+        }
+      },
+      {
+        "frame": 253,
+        "left": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              920.8956931829453,
+              480.64804112911224
+            ],
+            [
+              911.0466152429581,
+              477.4048331975937
+            ]
+          ],
+          "minimum_confidence": 0.31377798318862915,
+          "stationary_point_distance_source_px": 13.799020059685933,
+          "stationary_point_distance_body": 0.13540885902567093
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              961.986017882824,
+              465.9910939335823
+            ],
+            [
+              966.6149532794952,
+              472.65391904115677
+            ]
+          ],
+          "minimum_confidence": 0.37802714109420776,
+          "stationary_point_distance_source_px": 30.797274332613718,
+          "stationary_point_distance_body": 0.3022115889709576
+        }
+      },
+      {
+        "frame": 254,
+        "left": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              919.7145770788193,
+              479.3858616948128
+            ],
+            [
+              911.4008674621582,
+              477.31968569755554
+            ]
+          ],
+          "minimum_confidence": 0.38202428817749023,
+          "stationary_point_distance_source_px": 14.999393524722384,
+          "stationary_point_distance_body": 0.14718804338819996
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              961.6507133245468,
+              464.14982908964157
+            ],
+            [
+              966.8414341807365,
+              471.32341957092285
+            ]
+          ],
+          "minimum_confidence": 0.44012734293937683,
+          "stationary_point_distance_source_px": 31.403529898398666,
+          "stationary_point_distance_body": 0.30816073420633106
+        }
+      },
+      {
+        "frame": 255,
+        "left": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              917.9278911352158,
+              478.065304517746
+            ],
+            [
+              913.3536744117737,
+              479.97558057308197
+            ]
+          ],
+          "minimum_confidence": 0.44018471240997314,
+          "stationary_point_distance_source_px": 16.903018520911974,
+          "stationary_point_distance_body": 0.16586818789352265
+        },
+        "right": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              961.4649188518524,
+              453.13721084594727
+            ],
+            [
+              968.4984074234962,
+              456.6757234930992
+            ]
+          ],
+          "minimum_confidence": 0.49524539709091187,
+          "stationary_point_distance_source_px": 38.1065269035557,
+          "stationary_point_distance_body": 0.3739367945783645
+        }
+      },
+      {
+        "frame": 256,
+        "left": {
+          "confident": false,
+          "heel_to_foot_index_source_xy": [
+            [
+              916.5323613882065,
+              479.99303275346756
+            ],
+            [
+              912.7577111721039,
+              482.12873834371567
+            ]
+          ],
+          "minimum_confidence": 0.48158034682273865,
+          "stationary_point_distance_source_px": 18.158471102478686,
+          "stationary_point_distance_body": 0.17818785993512198
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              958.8769551515579,
+              450.8185032606125
+            ],
+            [
+              967.8230835199356,
+              452.47687244415283
+            ]
+          ],
+          "minimum_confidence": 0.5418732166290283,
+          "stationary_point_distance_source_px": 38.09631266576641,
+          "stationary_point_distance_body": 0.37383656294750367
+        }
+      },
+      {
+        "frame": 257,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              921.58216381073,
+              479.95588207244873
+            ],
+            [
+              917.2677619457245,
+              483.1088517308235
+            ]
+          ],
+          "minimum_confidence": 0.5272184610366821,
+          "stationary_point_distance_source_px": 13.110158255471955,
+          "stationary_point_distance_body": 0.12864910430892165
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              958.5939263105392,
+              458.09685999155045
+            ],
+            [
+              967.0076850056648,
+              461.74912416934967
+            ]
+          ],
+          "minimum_confidence": 0.5853865146636963,
+          "stationary_point_distance_source_px": 32.59219878170691,
+          "stationary_point_distance_body": 0.3198250622928105
+        }
+      },
+      {
+        "frame": 258,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              923.4809424877167,
+              479.6357614994049
+            ],
+            [
+              924.4501823186874,
+              483.385056078434
+            ]
+          ],
+          "minimum_confidence": 0.5721397399902344,
+          "stationary_point_distance_source_px": 10.697345780424344,
+          "stationary_point_distance_body": 0.10497233719966809
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              940.9376803636551,
+              475.6939346790314
+            ],
+            [
+              949.7827152013779,
+              482.3614385128021
+            ]
+          ],
+          "minimum_confidence": 0.6255499124526978,
+          "stationary_point_distance_source_px": 7.733876817399139,
+          "stationary_point_distance_body": 0.0758920148792754
+        }
+      },
+      {
+        "frame": 259,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              929.4245009422302,
+              480.38110119104385
+            ],
+            [
+              928.9495289325714,
+              483.64190751314163
+            ]
+          ],
+          "minimum_confidence": 0.5553120374679565,
+          "stationary_point_distance_source_px": 5.266106403137854,
+          "stationary_point_distance_body": 0.05167594919583778
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              935.1992948055267,
+              479.8037437200546
+            ],
+            [
+              939.6176049113274,
+              484.8011815547943
+            ]
+          ],
+          "minimum_confidence": 0.6173840165138245,
+          "stationary_point_distance_source_px": 0.6785565330156037,
+          "stationary_point_distance_body": 0.006658629781146151
+        }
+      },
+      {
+        "frame": 260,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              931.0941846370697,
+              481.55560767650604
+            ],
+            [
+              928.8012993335724,
+              483.79764795303345
+            ]
+          ],
+          "minimum_confidence": 0.5251126289367676,
+          "stationary_point_distance_source_px": 3.824225239595334,
+          "stationary_point_distance_body": 0.037526865973884466
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              934.9171983003616,
+              482.1891364455223
+            ],
+            [
+              940.3207041621208,
+              484.2712094783783
+            ]
+          ],
+          "minimum_confidence": 0.5908845067024231,
+          "stationary_point_distance_source_px": 1.9515243646313756,
+          "stationary_point_distance_body": 0.019150177797592562
+        }
+      },
+      {
+        "frame": 261,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              936.19773209095,
+              482.7818326950073
+            ],
+            [
+              938.36279296875,
+              486.5517562031746
+            ]
+          ],
+          "minimum_confidence": 0.557068407535553,
+          "stationary_point_distance_source_px": 2.9464192933763957,
+          "stationary_point_distance_body": 0.028913015054809765
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              921.6970535516739,
+              476.57384091615677
+            ],
+            [
+              926.2193781137466,
+              471.98104643821716
+            ]
+          ],
+          "minimum_confidence": 0.6017550230026245,
+          "stationary_point_distance_source_px": 11.837509316158764,
+          "stationary_point_distance_body": 0.11616068556126807
+        }
+      },
+      {
+        "frame": 262,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              935.5461355447769,
+              483.1254399418831
+            ],
+            [
+              939.7220383286476,
+              485.92148393392563
+            ]
+          ],
+          "minimum_confidence": 0.5885371565818787,
+          "stationary_point_distance_source_px": 2.9995143476258055,
+          "stationary_point_distance_body": 0.029434033263691352
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              917.1309918165207,
+              469.9172098040581
+            ],
+            [
+              926.0291934013367,
+              469.06209284067154
+            ]
+          ],
+          "minimum_confidence": 0.626915454864502,
+          "stationary_point_distance_source_px": 14.148635755659395,
+          "stationary_point_distance_body": 0.13883961441876874
+        }
+      },
+      {
+        "frame": 263,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              935.4024496078491,
+              484.2366507053375
+            ],
+            [
+              940.6619803905487,
+              485.87416499853134
+            ]
+          ],
+          "minimum_confidence": 0.5977436304092407,
+          "stationary_point_distance_source_px": 4.049002579388881,
+          "stationary_point_distance_body": 0.03973259094454317
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              920.1077513694763,
+              473.45447301864624
+            ],
+            [
+              928.1383141279221,
+              470.41486942768097
+            ]
+          ],
+          "minimum_confidence": 0.6302441954612732,
+          "stationary_point_distance_source_px": 11.817823404940087,
+          "stationary_point_distance_body": 0.11596750903384281
+        }
+      },
+      {
+        "frame": 264,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              929.8854407072067,
+              481.11212557554245
+            ],
+            [
+              936.5309890508652,
+              483.14909940958023
+            ]
+          ],
+          "minimum_confidence": 0.5758885145187378,
+          "stationary_point_distance_source_px": 2.231044486328332,
+          "stationary_point_distance_body": 0.0218930900181697
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              927.6916190385818,
+              479.54488521814346
+            ],
+            [
+              934.6113449335098,
+              482.33252876996994
+            ]
+          ],
+          "minimum_confidence": 0.6350566744804382,
+          "stationary_point_distance_source_px": 1.9597621087417245,
+          "stationary_point_distance_body": 0.019231014228448015
+        }
+      },
+      {
+        "frame": 265,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              933.5359486341476,
+              481.4826089143753
+            ],
+            [
+              936.1619728803635,
+              483.29997503757477
+            ]
+          ],
+          "minimum_confidence": 0.5546652674674988,
+          "stationary_point_distance_source_px": 1.6689061788248452,
+          "stationary_point_distance_body": 0.016376864481542616
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              933.912034034729,
+              482.03157502412796
+            ],
+            [
+              934.9960691928864,
+              483.38678401708603
+            ]
+          ],
+          "minimum_confidence": 0.6248840689659119,
+          "stationary_point_distance_source_px": 1.9427103561101964,
+          "stationary_point_distance_body": 0.01906368652269528
+        }
+      },
+      {
+        "frame": 266,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              935.0902469158173,
+              482.34636557102203
+            ],
+            [
+              936.4379029870033,
+              482.75469076633453
+            ]
+          ],
+          "minimum_confidence": 0.5403945446014404,
+          "stationary_point_distance_source_px": 2.1334375931058975,
+          "stationary_point_distance_body": 0.020935280116660564
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              935.96661901474,
+              483.2350975871086
+            ],
+            [
+              935.9053798913956,
+              483.50700867176056
+            ]
+          ],
+          "minimum_confidence": 0.6204041838645935,
+          "stationary_point_distance_source_px": 3.2460974656058705,
+          "stationary_point_distance_body": 0.03185373687425578
+        }
+      },
+      {
+        "frame": 267,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              941.8086531758308,
+              482.7630912065506
+            ],
+            [
+              941.5125126242638,
+              484.6536421775818
+            ]
+          ],
+          "minimum_confidence": 0.5094289183616638,
+          "stationary_point_distance_source_px": 7.549838645570357,
+          "stationary_point_distance_body": 0.07408606063348724
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              942.4874054789543,
+              483.72118002176285
+            ],
+            [
+              942.7245787382126,
+              485.45967239141464
+            ]
+          ],
+          "minimum_confidence": 0.5881557464599609,
+          "stationary_point_distance_source_px": 8.53564745040629,
+          "stationary_point_distance_body": 0.08375973636574298
+        }
+      },
+      {
+        "frame": 268,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              944.3432613015175,
+              478.8339049220085
+            ],
+            [
+              943.0230383276939,
+              484.93742287158966
+            ]
+          ],
+          "minimum_confidence": 0.510560154914856,
+          "stationary_point_distance_source_px": 9.136441714885708,
+          "stationary_point_distance_body": 0.08965529021742547
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              950.6821419596672,
+              482.55003637075424
+            ],
+            [
+              953.3192598223686,
+              487.1078068614006
+            ]
+          ],
+          "minimum_confidence": 0.5920758843421936,
+          "stationary_point_distance_source_px": 16.157541829626187,
+          "stationary_point_distance_body": 0.15855287508430724
+        }
+      },
+      {
+        "frame": 269,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              945.6717513799667,
+              477.7718074917793
+            ],
+            [
+              941.3286949396133,
+              485.7366742491722
+            ]
+          ],
+          "minimum_confidence": 0.5347129106521606,
+          "stationary_point_distance_source_px": 8.45556123107783,
+          "stationary_point_distance_body": 0.08297385566290755
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              962.1256322264671,
+              483.9626793861389
+            ],
+            [
+              962.2262595891953,
+              488.66381561756134
+            ]
+          ],
+          "minimum_confidence": 0.6203509569168091,
+          "stationary_point_distance_source_px": 27.68655543392687,
+          "stationary_point_distance_body": 0.2716863129007115
+        }
+      },
+      {
+        "frame": 270,
+        "left": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              946.2108126282692,
+              478.7220408320427
+            ],
+            [
+              940.6084241867065,
+              486.6995082497597
+            ]
+          ],
+          "minimum_confidence": 0.5681650638580322,
+          "stationary_point_distance_source_px": 8.550229926506017,
+          "stationary_point_distance_body": 0.0839028332263818
+        },
+        "right": {
+          "confident": true,
+          "heel_to_foot_index_source_xy": [
+            [
+              971.6694114804268,
+              483.4799464941025
+            ],
+            [
+              972.2157720923424,
+              487.374188542366
+            ]
+          ],
+          "minimum_confidence": 0.6478323936462402,
+          "stationary_point_distance_source_px": 37.12111163103094,
+          "stationary_point_distance_body": 0.36426698055230355
+        }
+      }
+    ]
+  },
+  "shoe_region_near_bracket_frames": {
+    "normal": {
+      "left": [
+        259,
+        260,
+        261
+      ],
+      "right": [
+        259,
+        260
+      ]
+    },
+    "mirrored_inverse_mapped": {
+      "left": [
+        259,
+        260,
+        261
+      ],
+      "right": [
+        258,
+        259,
+        260
+      ]
+    }
+  },
+  "joint_near_shoe_and_paired_pose_frames": [],
+  "local_ball_identity_ambiguous_frames": [],
+  "reference_labels_used_for_prediction": false,
+  "human_verified": false,
+  "accuracy_validated": false,
+  "held_out_test": false,
+  "interpretation": "Independent 33-point model pilot; anatomical channels and shoe proximity require source review"
+}

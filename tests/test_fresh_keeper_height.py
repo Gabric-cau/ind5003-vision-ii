@@ -190,13 +190,19 @@ class ObservedSignalTests(unittest.TestCase):
         self.assertEqual(signal['candidate'], 'unknown')
         self.assertIsNone(signal['observed_maximum_torso_clearance_body'])
 
-    def test_depth_failure_is_exposed_not_reclassified_as_ground_truth(self):
+    def test_depth_failure_rejects_category_and_preserves_observed_diagnostics(self):
         rows, reference = measurements(.6)
         rows[20]['bottom_clearance_body'] = -.3
         phase = analyse_height_phases(rows, 15, 30., reference)
         signal = observed_image_plane_signal(rows, phase, 15, 30., reference)
         self.assertTrue(signal['reference_depth_assumption_failed'])
-        self.assertEqual(signal['candidate'], 'mid')
+        self.assertEqual(signal['candidate'], 'unknown')
+        self.assertFalse(signal['supported'])
+        self.assertAlmostEqual(signal['observed_maximum_torso_clearance_body'], .6)
+        self.assertTrue(signal['supporting_frames'])
+        self.assertTrue(signal['continuous_samples'])
+        self.assertIn('depth_motion_or_ankle_error_invalidates_fixed_ground_reference',
+                      signal['reasons'])
         self.assertFalse(phase['supported'])
         self.assertTrue(signal['category_is_observed_signal_not_complete_event_peak'])
 

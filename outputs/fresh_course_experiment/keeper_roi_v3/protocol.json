@@ -1,0 +1,35 @@
+{
+  "runtime": {
+    "requested_device": "cuda:0",
+    "device": "cuda:0",
+    "python": "3.11.15",
+    "platform": "Linux",
+    "model_sha256": {
+      "../models/yolo11m-pose.pt": "29b17eaf3a3117cbea906090dbedf9159f7c6a49db58ec8b99ed2dfde1cf6eb2"
+    },
+    "source_sha256": {},
+    "torch_version": "2.7.0+cu128",
+    "cuda_runtime": "12.8",
+    "gpu_name": "NVIDIA GeForce RTX 4090"
+  },
+  "cohort": [
+    "col_eng_p02_kane_eng9",
+    "col_eng_p04_rashford_eng19",
+    "col_eng_p03_cuadrado_col11"
+  ],
+  "source_manifest_sha256": "1affeb149a6fffea0a4b1814ec7b10be0c75ec8c0f2e6428cc920e62d325a38c",
+  "code_sha256": {
+    "scripts/run_fresh_keeper_roi_experiment.py": "a3fab74fc4364d89bc2eff8ee978ec641602c61be2083a94f9852bff92f95faf",
+    "src/fresh_keeper_height.py": "894a78177c4cccf8f70bb5220becad37da567bf1220c70fc3d7e402f27d15995",
+    "src/goalkeeper_role_association.py": "a2c2986346f34c478b8dd659fad356cd59d9be47f2e87e66179008c15a7a05bd",
+    "scripts/run_fresh_keeper_height_experiment.py": "26fe605cf87b48b616a43c1be52fcfc233f11913ff20ce8b2ec9c064d8db58af"
+  },
+  "imgsz": 960,
+  "reference_labels_used_for_prediction": false,
+  "new_neural_inference": true,
+  "held_out_test": false,
+  "human_verified": false,
+  "accuracy_validated": false,
+  "scope": "fixed source-role ROI pose ablation; original contact and camera evidence unchanged",
+  "identity_policy": "refine same-frame original person only; preserve all original source track IDs"
+}

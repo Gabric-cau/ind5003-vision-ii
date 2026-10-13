@@ -1,0 +1,2277 @@
+{
+  "clip_id": "col_eng_p01_falcao_col9",
+  "timing": {
+    "contact_bracket_frames": [
+      527,
+      531
+    ],
+    "actor_track_id_candidate": 6,
+    "explicit_contact_bracket_supplied": true,
+    "original_pose_selected_track_id": 6,
+    "actor_reselected_by_ball_evidence": false,
+    "actor_field_support": 1.0,
+    "actor_goal_line_excluded": false,
+    "seed_ambiguous_frames": [],
+    "ball_departure_evidence_available": true,
+    "timing_source": "independent_ball_contact_candidate",
+    "contact_observed_and_verified": false,
+    "actor_identity_verified": false
+  },
+  "inference_identity": {
+    "pose_sha256": "f4d6c9e3fab6b01f2758c95df32e5cee718284d75d5b016d5907a1df51043f48",
+    "source_sha256": "693f7d05d31173b59e77df60fd03d6fc460a1987c62258cd6bcde0d6f03df008",
+    "contact_sha256": "c1a4eb3581d683baf265b90163f40069526c2a82d5bee4646dfc146afa74294d",
+    "model_sha256": "29b17eaf3a3117cbea906090dbedf9159f7c6a49db58ec8b99ed2dfde1cf6eb2",
+    "script_sha256": "a08fb4aa6182ac3fa37b31c9eee13d5c2c6a032d7451d65277bac18539fefef9",
+    "module_sha256": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52",
+    "source_manifest_sha256": "76e3250f328c226119ca27939e4f1ba710b870df5f3b26143ccb81a630420c4e",
+    "code_sha256": {
+      "scripts/run_fresh_foot_experiment.py": "a08fb4aa6182ac3fa37b31c9eee13d5c2c6a032d7451d65277bac18539fefef9",
+      "src/kicking_foot_evidence.py": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52",
+      "src/pose_refinement.py": "d71da9d1d116b3d777357b5104436c9b2999a67b005956d12d6e255d1422683a",
+      "src/kicking_foot_redetection.py": "ed587b59177377f538b33d03cb2b273070b6fc5c23ba42305078236eff26734d",
+      "src/runtime.py": "945db55a6449012c4ebad88e630378fa2da4f586b9d701fdb18b1977646c5dfb"
+    },
+    "settings": {
+      "imgsz": 960,
+      "batch_size": 8,
+      "crop_margin": 0.45,
+      "confidence": 0.15,
+      "device": "cuda:0",
+      "allow_pose_timing": false
+    }
+  },
+  "kicking_foot_candidate": "unknown",
+  "human_verified": false,
+  "accuracy_validated": false,
+  "held_out_test": false,
+  "reference_labels_used_for_prediction": false,
+  "source_mapping": {
+    "clip_id": "col_eng_p01_falcao_col9",
+    "match_id": "col_eng",
+    "event_id": 1,
+    "kicker": "falcao_col9",
+    "team": "COL",
+    "penalty_number": 1,
+    "slice_start_sec": 44.0,
+    "slice_end_sec": 57.0,
+    "source_filename": "NtvUzy00DuU.mp4",
+    "source_video_sha256": "6075b0d85ce05bc01880a395fea9e61e502ad20ab766cb4c34761cfa77f4b0f3",
+    "source_url": "https://www.youtube.com/watch?v=NtvUzy00DuU",
+    "source_title": "Colombia v England: Full Penalty Shoot-out | 2018 #FIFAWorldCup Round of 16",
+    "source_origin": "public_official_FIFA_alternate_edit",
+    "fps": 50.0,
+    "width": 1920,
+    "height": 1080,
+    "source_start_frame": 2200,
+    "source_end_frame_exclusive": 2850,
+    "frame_count": 650,
+    "original_slice_start_frame_in_clip": 0,
+    "original_slice_end_frame_in_clip": 650,
+    "semantic_event_start_verified": false,
+    "semantic_event_end_verified": false,
+    "context_is_not_event_boundary_ground_truth": true,
+    "interval_basis": "Manual visual inspection of source-video keyframe sheets sampled every 2 seconds. These are coarse experiment intervals, not annotated contact truth or automatic predictions.",
+    "clip_sha256": "693f7d05d31173b59e77df60fd03d6fc460a1987c62258cd6bcde0d6f03df008",
+    "clip_bytes": 43949346,
+    "clip_filename": "col_eng_p01_falcao_col9.mp4",
+    "ffmpeg_command_portable_paths": [
+      "FFMPEG",
+      "-hide_banner",
+      "-loglevel",
+      "error",
+      "-nostdin",
+      "-n",
+      "-ss",
+      "44.0",
+      "-i",
+      "NtvUzy00DuU.mp4",
+      "-frames:v",
+      "650",
+      "-an",
+      "-c:v",
+      "libx264",
+      "-preset",
+      "fast",
+      "-crf",
+      "10",
+      "-pix_fmt",
+      "yuv420p",
+      "-threads",
+      "2",
+      "-fps_mode",
+      "passthrough",
+      "-movflags",
+      "+faststart",
+      "col_eng_p01_falcao_col9.mp4"
+    ],
+    "reencoded": true,
+    "decoded_pixel_identity_verified": false,
+    "contact_truth_annotated": false,
+    "accuracy_validated": false,
+    "endpoint_frame_comparisons": [
+      {
+        "source_frame": 2200,
+        "pixel_mean_absolute_error_8bit": 0.6915884017944336,
+        "psnr_db": 46.40946368515947,
+        "decoded_pixels_identical": false
+      },
+      {
+        "source_frame": 2849,
+        "pixel_mean_absolute_error_8bit": 1.1990374326705933,
+        "psnr_db": 42.256629892370825,
+        "decoded_pixels_identical": false
+      }
+    ]
+  },
+  "new_neural_inference": true,
+  "upstream_scene_rejections": [],
+  "planned_pose_crops": 70,
+  "source_rejections": [],
+  "plan": {
+    "source_pixel_dimensions": [
+      1920,
+      1080
+    ],
+    "source_fps": 50.0,
+    "contact_bracket_frames": [
+      527,
+      531
+    ],
+    "contact_bracket_clip_seconds": [
+      10.54,
+      10.62
+    ],
+    "timing_source": "independent_ball_contact_candidate",
+    "actor_track_id": 6,
+    "actor_reselected_by_ball_evidence": false,
+    "planned_frame_ids": [
+      512,
+      513,
+      514,
+      515,
+      516,
+      517,
+      518,
+      519,
+      520,
+      521,
+      522,
+      523,
+      524,
+      525,
+      526,
+      527,
+      528,
+      529,
+      530,
+      531,
+      532,
+      533,
+      534,
+      535,
+      536,
+      537,
+      538,
+      539,
+      540,
+      541,
+      542,
+      543,
+      544,
+      545,
+      546
+    ],
+    "planned_source_frames": 35,
+    "planned_normal_pose_crops": 35,
+    "planned_mirrored_pose_crops": 35,
+    "actual_ball_observation_count": 528,
+    "planned_contact_ball_frame_matches": [
+      526,
+      527,
+      531
+    ],
+    "local_seed_identity_ambiguous_frames": [],
+    "source_rejection_counts": {},
+    "warnings": [],
+    "new_neural_inference": false
+  },
+  "model_task_validation": {
+    "expected_task": "pose",
+    "actual_task": "pose",
+    "keypoint_shape": [
+      17,
+      3
+    ],
+    "model_loaded_and_checked": true
+  },
+  "status": "insufficient_temporal_evidence",
+  "temporal_evidence": {
+    "schema_version": 1,
+    "method": "continuous_contact_window_ankle_evidence_v2",
+    "candidate": "unknown",
+    "status": "insufficient_temporal_evidence",
+    "contact_bracket_frames": [
+      527,
+      531
+    ],
+    "source_fps": 50.0,
+    "parameters": {
+      "confidence_min": 0.4,
+      "precontact_seconds": 0.13,
+      "postdeparture_seconds": 0.2,
+      "maximum_pair_gap_seconds": 0.07,
+      "minimum_pairs": 4,
+      "motion_ratio_min": 1.25,
+      "pair_support_fraction_min": 0.65,
+      "minimum_motion_body_heights_per_second": 0.3,
+      "mirror_relative_error_max": 0.15,
+      "channel_jump_body_heights_min": 0.12,
+      "crossed_assignment_cost_ratio_max": 0.55,
+      "ball_distance_body_heights_max": 0.25,
+      "ball_distance_margin_body_heights_min": 0.05,
+      "ball_approach_body_heights_min": 0.03,
+      "minimum_contact_samples": 3
+    },
+    "views": {
+      "normal": {
+        "bracket_context": {
+          "candidate": "unknown",
+          "window_frames": [
+            521,
+            541
+          ],
+          "observed_samples": 21,
+          "valid_pairs": 20,
+          "pairs": [
+            {
+              "frames": [
+                521,
+                522
+              ],
+              "left_speed": 3.045009467019795,
+              "right_speed": 8.714302745180637
+            },
+            {
+              "frames": [
+                522,
+                523
+              ],
+              "left_speed": 5.147389839131357,
+              "right_speed": 12.24985017601784
+            },
+            {
+              "frames": [
+                523,
+                524
+              ],
+              "left_speed": 4.348643031407837,
+              "right_speed": 4.537384404919373
+            },
+            {
+              "frames": [
+                524,
+                525
+              ],
+              "left_speed": 1.4488148529421847,
+              "right_speed": 8.16999587695572
+            },
+            {
+              "frames": [
+                525,
+                526
+              ],
+              "left_speed": 2.955350349014757,
+              "right_speed": 2.703909949567573
+            },
+            {
+              "frames": [
+                526,
+                527
+              ],
+              "left_speed": 1.6472457216178227,
+              "right_speed": 1.1015983234958762
+            },
+            {
+              "frames": [
+                527,
+                528
+              ],
+              "left_speed": 5.687976821226999,
+              "right_speed": 3.3094813558035985
+            },
+            {
+              "frames": [
+                528,
+                529
+              ],
+              "left_speed": 0.29828486171701457,
+              "right_speed": 1.9456898012144057
+            },
+            {
+              "frames": [
+                529,
+                530
+              ],
+              "left_speed": 3.950873503585648,
+              "right_speed": 1.9278350167022156
+            },
+            {
+              "frames": [
+                530,
+                531
+              ],
+              "left_speed": 1.439975011180389,
+              "right_speed": 1.9586164773446684
+            },
+            {
+              "frames": [
+                531,
+                532
+              ],
+              "left_speed": 27.336075756334175,
+              "right_speed": 3.118567431316675
+            },
+            {
+              "frames": [
+                532,
+                533
+              ],
+              "left_speed": 27.246765957891412,
+              "right_speed": 24.517077940179373
+            },
+            {
+              "frames": [
+                533,
+                534
+              ],
+              "left_speed": 3.2969222552737603,
+              "right_speed": 1.2425216619922095
+            },
+            {
+              "frames": [
+                534,
+                535
+              ],
+              "left_speed": 13.987230287393187,
+              "right_speed": 11.773867157719197
+            },
+            {
+              "frames": [
+                535,
+                536
+              ],
+              "left_speed": 13.62292911922823,
+              "right_speed": 8.463787927145315
+            },
+            {
+              "frames": [
+                536,
+                537
+              ],
+              "left_speed": 0.20912372448523348,
+              "right_speed": 2.8296640119769325
+            },
+            {
+              "frames": [
+                537,
+                538
+              ],
+              "left_speed": 0.18698364774745826,
+              "right_speed": 0.558925717888365
+            },
+            {
+              "frames": [
+                538,
+                539
+              ],
+              "left_speed": 1.5530887665622435,
+              "right_speed": 5.732599596903029
+            },
+            {
+              "frames": [
+                539,
+                540
+              ],
+              "left_speed": 0.9603543605364608,
+              "right_speed": 3.390865714433628
+            },
+            {
+              "frames": [
+                540,
+                541
+              ],
+              "left_speed": 10.832402269168066,
+              "right_speed": 7.095093293458164
+            }
+          ],
+          "reason": "weak_or_inconsistent_temporal_motion",
+          "median_speeds": {
+            "left": 3.1709658611467777,
+            "right": 3.3501735351186133
+          },
+          "motion_units": "person_box_heights_per_source_second_relative_to_hips",
+          "median_motion_ratio": 1.056515169768187,
+          "pair_support_fraction": 0.45
+        },
+        "departure_followthrough": {
+          "candidate": "unknown",
+          "window_frames": [
+            531,
+            541
+          ],
+          "observed_samples": 11,
+          "valid_pairs": 10,
+          "pairs": [
+            {
+              "frames": [
+                531,
+                532
+              ],
+              "left_speed": 27.336075756334175,
+              "right_speed": 3.118567431316675
+            },
+            {
+              "frames": [
+                532,
+                533
+              ],
+              "left_speed": 27.246765957891412,
+              "right_speed": 24.517077940179373
+            },
+            {
+              "frames": [
+                533,
+                534
+              ],
+              "left_speed": 3.2969222552737603,
+              "right_speed": 1.2425216619922095
+            },
+            {
+              "frames": [
+                534,
+                535
+              ],
+              "left_speed": 13.987230287393187,
+              "right_speed": 11.773867157719197
+            },
+            {
+              "frames": [
+                535,
+                536
+              ],
+              "left_speed": 13.62292911922823,
+              "right_speed": 8.463787927145315
+            },
+            {
+              "frames": [
+                536,
+                537
+              ],
+              "left_speed": 0.20912372448523348,
+              "right_speed": 2.8296640119769325
+            },
+            {
+              "frames": [
+                537,
+                538
+              ],
+              "left_speed": 0.18698364774745826,
+              "right_speed": 0.558925717888365
+            },
+            {
+              "frames": [
+                538,
+                539
+              ],
+              "left_speed": 1.5530887665622435,
+              "right_speed": 5.732599596903029
+            },
+            {
+              "frames": [
+                539,
+                540
+              ],
+              "left_speed": 0.9603543605364608,
+              "right_speed": 3.390865714433628
+            },
+            {
+              "frames": [
+                540,
+                541
+              ],
+              "left_speed": 10.832402269168066,
+              "right_speed": 7.095093293458164
+            }
+          ],
+          "reason": "weak_or_inconsistent_temporal_motion",
+          "median_speeds": {
+            "left": 7.064662262220913,
+            "right": 4.561732655668329
+          },
+          "motion_units": "person_box_heights_per_source_second_relative_to_hips",
+          "median_motion_ratio": 1.5486795907345619,
+          "pair_support_fraction": 0.4
+        }
+      },
+      "mirrored_inverse_mapped": {
+        "bracket_context": {
+          "candidate": "right",
+          "window_frames": [
+            521,
+            541
+          ],
+          "observed_samples": 21,
+          "valid_pairs": 20,
+          "pairs": [
+            {
+              "frames": [
+                521,
+                522
+              ],
+              "left_speed": 6.343357921422059,
+              "right_speed": 4.434057045249751
+            },
+            {
+              "frames": [
+                522,
+                523
+              ],
+              "left_speed": 1.2892339856623027,
+              "right_speed": 3.989217319211759
+            },
+            {
+              "frames": [
+                523,
+                524
+              ],
+              "left_speed": 2.921156073520213,
+              "right_speed": 3.0186319573242826
+            },
+            {
+              "frames": [
+                524,
+                525
+              ],
+              "left_speed": 1.3694214183325273,
+              "right_speed": 9.968510249801584
+            },
+            {
+              "frames": [
+                525,
+                526
+              ],
+              "left_speed": 3.3509039346451415,
+              "right_speed": 4.483608830479622
+            },
+            {
+              "frames": [
+                526,
+                527
+              ],
+              "left_speed": 4.044623353166109,
+              "right_speed": 5.4581968334404305
+            },
+            {
+              "frames": [
+                527,
+                528
+              ],
+              "left_speed": 1.7380451405625332,
+              "right_speed": 6.6782783039865645
+            },
+            {
+              "frames": [
+                528,
+                529
+              ],
+              "left_speed": 3.8374028007144374,
+              "right_speed": 1.0077104732621205
+            },
+            {
+              "frames": [
+                529,
+                530
+              ],
+              "left_speed": 1.271424667731122,
+              "right_speed": 2.5676205280563096
+            },
+            {
+              "frames": [
+                530,
+                531
+              ],
+              "left_speed": 1.0532954891141346,
+              "right_speed": 1.5505351732210915
+            },
+            {
+              "frames": [
+                531,
+                532
+              ],
+              "left_speed": 1.7303960946241093,
+              "right_speed": 19.796653750507613
+            },
+            {
+              "frames": [
+                532,
+                533
+              ],
+              "left_speed": 2.275009179036851,
+              "right_speed": 2.259219799511666
+            },
+            {
+              "frames": [
+                533,
+                534
+              ],
+              "left_speed": 1.3150686820761073,
+              "right_speed": 1.7987713219426025
+            },
+            {
+              "frames": [
+                534,
+                535
+              ],
+              "left_speed": 3.5936720236970654,
+              "right_speed": 5.558301172997049
+            },
+            {
+              "frames": [
+                535,
+                536
+              ],
+              "left_speed": 4.07572482816151,
+              "right_speed": 5.081604116055868
+            },
+            {
+              "frames": [
+                536,
+                537
+              ],
+              "left_speed": 0.4639251525359634,
+              "right_speed": 2.826995033788164
+            },
+            {
+              "frames": [
+                537,
+                538
+              ],
+              "left_speed": 0.5577547966325321,
+              "right_speed": 1.8478112498417718
+            },
+            {
+              "frames": [
+                538,
+                539
+              ],
+              "left_speed": 0.9435869324541111,
+              "right_speed": 2.364153390105937
+            },
+            {
+              "frames": [
+                539,
+                540
+              ],
+              "left_speed": 7.559218690885657,
+              "right_speed": 12.764754923252866
+            },
+            {
+              "frames": [
+                540,
+                541
+              ],
+              "left_speed": 4.841717678555695,
+              "right_speed": 0.911859581180802
+            }
+          ],
+          "reason": "sustained_relative_ankle_motion_hypothesis",
+          "median_speeds": {
+            "left": 2.006527159799692,
+            "right": 3.5039246382680207
+          },
+          "motion_units": "person_box_heights_per_source_second_relative_to_hips",
+          "median_motion_ratio": 1.746263249493125,
+          "pair_support_fraction": 0.7
+        },
+        "departure_followthrough": {
+          "candidate": "right",
+          "window_frames": [
+            531,
+            541
+          ],
+          "observed_samples": 11,
+          "valid_pairs": 10,
+          "pairs": [
+            {
+              "frames": [
+                531,
+                532
+              ],
+              "left_speed": 1.7303960946241093,
+              "right_speed": 19.796653750507613
+            },
+            {
+              "frames": [
+                532,
+                533
+              ],
+              "left_speed": 2.275009179036851,
+              "right_speed": 2.259219799511666
+            },
+            {
+              "frames": [
+                533,
+                534
+              ],
+              "left_speed": 1.3150686820761073,
+              "right_speed": 1.7987713219426025
+            },
+            {
+              "frames": [
+                534,
+                535
+              ],
+              "left_speed": 3.5936720236970654,
+              "right_speed": 5.558301172997049
+            },
+            {
+              "frames": [
+                535,
+                536
+              ],
+              "left_speed": 4.07572482816151,
+              "right_speed": 5.081604116055868
+            },
+            {
+              "frames": [
+                536,
+                537
+              ],
+              "left_speed": 0.4639251525359634,
+              "right_speed": 2.826995033788164
+            },
+            {
+              "frames": [
+                537,
+                538
+              ],
+              "left_speed": 0.5577547966325321,
+              "right_speed": 1.8478112498417718
+            },
+            {
+              "frames": [
+                538,
+                539
+              ],
+              "left_speed": 0.9435869324541111,
+              "right_speed": 2.364153390105937
+            },
+            {
+              "frames": [
+                539,
+                540
+              ],
+              "left_speed": 7.559218690885657,
+              "right_speed": 12.764754923252866
+            },
+            {
+              "frames": [
+                540,
+                541
+              ],
+              "left_speed": 4.841717678555695,
+              "right_speed": 0.911859581180802
+            }
+          ],
+          "reason": "sustained_relative_ankle_motion_hypothesis",
+          "median_speeds": {
+            "left": 2.00270263683048,
+            "right": 2.59557421194705
+          },
+          "motion_units": "person_box_heights_per_source_second_relative_to_hips",
+          "median_motion_ratio": 1.2960357489990932,
+          "pair_support_fraction": 0.7
+        }
+      }
+    },
+    "component_labels": [
+      "right",
+      "right"
+    ],
+    "requires_review": true,
+    "human_verified": false,
+    "shoe_ball_contact_verified": false,
+    "confidence_calibrated": false,
+    "reviewer_labels_read": false,
+    "ground_calibrated": false,
+    "limitations": [
+      "pose anatomical channels may be wrong",
+      "source clock may contain slow motion",
+      "relative ankle motion is not observed shoe-ball contact",
+      "upstream actor and departure identities require verification"
+    ],
+    "temporal_channel_checks": {
+      "normal": {
+        "ambiguous_pairs": [
+          {
+            "frames": [
+              532,
+              533
+            ],
+            "direct_assignment_cost": 1.0352768779614157,
+            "crossed_assignment_cost": 0.07437844614271322
+          },
+          {
+            "frames": [
+              540,
+              541
+            ],
+            "direct_assignment_cost": 0.3585499112525246,
+            "crossed_assignment_cost": 0.0796953307801291
+          }
+        ],
+        "channel_permutation_applied": false,
+        "interpretation": "crossing limbs or channel swaps require observation; no automatic anatomical relabeling"
+      },
+      "mirrored_inverse_mapped": {
+        "ambiguous_pairs": [],
+        "channel_permutation_applied": false,
+        "interpretation": "crossing limbs or channel swaps require observation; no automatic anatomical relabeling"
+      }
+    },
+    "contact_window_channel_checks": {
+      "normal": {
+        "ambiguous_pairs": [],
+        "channel_permutation_applied": false,
+        "interpretation": "crossing limbs or channel swaps require observation; no automatic anatomical relabeling"
+      },
+      "mirrored_inverse_mapped": {
+        "ambiguous_pairs": [],
+        "channel_permutation_applied": false,
+        "interpretation": "crossing limbs or channel swaps require observation; no automatic anatomical relabeling"
+      }
+    },
+    "leg_trajectory_association": {
+      "normal": {
+        "method": "Hungarian_hip_relative_knee_ankle_association",
+        "observations": [
+          {
+            "frame": 521,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.15377235406518458,
+                0.19023539407677964
+              ],
+              [
+                -0.14799961356444322,
+                0.3396849340742229
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.15073985605424214,
+                0.15539086276199213
+              ],
+              [
+                0.3069793800742902,
+                0.2978920971400646
+              ]
+            ],
+            "assignment_cost_margin": null,
+            "ambiguous_assignment": false,
+            "segment_start": true
+          },
+          {
+            "frame": 522,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.13035971286144638,
+                0.17731712510282777
+              ],
+              [
+                -0.09911672186292984,
+                0.30336282014077753
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.04189251053902066,
+                0.19104251666843064
+              ],
+              [
+                0.13924359342055823,
+                0.3452242723438181
+              ]
+            ],
+            "assignment_cost_margin": 0.4094830198136784,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 523,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.20837694213139832,
+                0.226557273276893
+              ],
+              [
+                -0.19320304854109344,
+                0.34514812849918236
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.14779401320148083,
+                0.10641261088443527
+              ],
+              [
+                0.32127594714373126,
+                0.18124941472242742
+              ]
+            ],
+            "assignment_cost_margin": 0.37816480709931866,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 524,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.1565337663841499,
+                0.20541330549435227
+              ],
+              [
+                -0.10623037437980336,
+                0.34532822591405254
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.16775079624374092,
+                0.14545622192011237
+              ],
+              [
+                0.35723286618497374,
+                0.26456953755157203
+              ]
+            ],
+            "assignment_cost_margin": 0.743880645681651,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 525,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.1778108424569944,
+                0.1948954095921458
+              ],
+              [
+                -0.09615112619824104,
+                0.37249501717354483
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.07618464777805073,
+                0.15162803052921858
+              ],
+              [
+                0.20908436506707231,
+                0.333501059138641
+              ]
+            ],
+            "assignment_cost_margin": 0.5424974907413894,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 526,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.1514245340056096,
+                0.17216130572347899
+              ],
+              [
+                -0.0389090638064791,
+                0.35776462113995866
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.02817994519775186,
+                0.1214454703166543
+              ],
+              [
+                0.17253853700558017,
+                0.29364062691007553
+              ]
+            ],
+            "assignment_cost_margin": 0.39188582547760786,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 527,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.11735156004053583,
+                0.22846359573231723
+              ],
+              [
+                -0.049989790304107426,
+                0.3267390689733969
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.0406916423698493,
+                0.18332298744172526
+              ],
+              [
+                0.1547490432832309,
+                0.3066383751625255
+              ]
+            ],
+            "assignment_cost_margin": 0.3198335076152448,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 528,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.03878386893664904,
+                0.20163666694914323
+              ],
+              [
+                0.06096121770676066,
+                0.35186089113856883
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.02207586401515545,
+                0.18262656825583454
+              ],
+              [
+                0.11279299291344906,
+                0.3578317006565094
+              ]
+            ],
+            "assignment_cost_margin": 0.10460927681428153,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 529,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.027909671836804074,
+                0.21302678509761774
+              ],
+              [
+                0.06444383815365967,
+                0.35670453628604365
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.013880541903929563,
+                0.18886598439109376
+              ],
+              [
+                0.07581464596869303,
+                0.3699513284665188
+              ]
+            ],
+            "assignment_cost_margin": 0.05079273202786718,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 530,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "right",
+            "trajectory_B_source_channel": "left",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.04781810806093353,
+                0.18759794074396735
+              ],
+              [
+                0.0374956653135494,
+                0.3656764176838216
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.0487828412836696,
+                0.24804345383182422
+              ],
+              [
+                0.11786963387056414,
+                0.41492347588948925
+              ]
+            ],
+            "assignment_cost_margin": 0.010156904694899715,
+            "ambiguous_assignment": true,
+            "segment_start": false
+          },
+          {
+            "frame": 531,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "right",
+            "trajectory_B_source_channel": "left",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.033597410708075835,
+                0.20086027704104278
+              ],
+              [
+                0.05584482412886613,
+                0.40028537278074267
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.03842102332193515,
+                0.23141275539848102
+              ],
+              [
+                0.14295465034544685,
+                0.42907102555663823
+              ]
+            ],
+            "assignment_cost_margin": 0.09341731377693929,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 532,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.26185710878183144,
+                0.13042636957341824
+              ],
+              [
+                -0.3680522004403441,
+                0.23470947186763105
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.021644585260925112,
+                0.217713738434744
+              ],
+              [
+                0.11630342939281937,
+                0.3849575490929154
+              ]
+            ],
+            "assignment_cost_margin": 0.062466462368141906,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 533,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "right",
+            "trajectory_B_source_channel": "left",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.20134889581123344,
+                0.08924771732525498
+              ],
+              [
+                -0.34252291279869473,
+                0.21200312734808788
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.028238046867479383,
+                0.22275565588353163
+              ],
+              [
+                0.1480372656734777,
+                0.40965564939659166
+              ]
+            ],
+            "assignment_cost_margin": 0.7306292864844018,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 534,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "right",
+            "trajectory_B_source_channel": "left",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.19785720005417662,
+                0.06819633520158398
+              ],
+              [
+                -0.3459408048124284,
+                0.18738886224854837
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.01566783349500232,
+                0.21750174689826857
+              ],
+              [
+                0.08214630024503952,
+                0.4121574922845714
+              ]
+            ],
+            "assignment_cost_margin": 0.7202916415377569,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 535,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.14688023118052856,
+                0.18525786011971587
+              ],
+              [
+                -0.19627649475992018,
+                0.3849951715690301
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.06887268458936431,
+                0.12267537062086868
+              ],
+              [
+                -0.1380004819303501,
+                0.29788954667513695
+              ]
+            ],
+            "assignment_cost_margin": 0.027068516132685627,
+            "ambiguous_assignment": true,
+            "segment_start": false
+          },
+          {
+            "frame": 536,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "right",
+            "trajectory_B_source_channel": "left",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.1812947696659318,
+                0.1057692997701888
+              ],
+              [
+                -0.3005619066544694,
+                0.2506871566727143
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.04739705490163034,
+                0.2384201785061554
+              ],
+              [
+                0.0674027569672142,
+                0.45360225082201316
+              ]
+            ],
+            "assignment_cost_margin": 0.017221197151678358,
+            "ambiguous_assignment": true,
+            "segment_start": false
+          },
+          {
+            "frame": 537,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "right",
+            "trajectory_B_source_channel": "left",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.174329832940177,
+                0.11186238099714993
+              ],
+              [
+                -0.24858195018396925,
+                0.2730675832458577
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.054071648493481735,
+                0.24114219243402654
+              ],
+              [
+                0.06361373528114654,
+                0.4518312602744553
+              ]
+            ],
+            "assignment_cost_margin": 0.5709292717495167,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 538,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "right",
+            "trajectory_B_source_channel": "left",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.18324042927890488,
+                0.09514736609894855
+              ],
+              [
+                -0.2566836763205005,
+                0.28076961004764545
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.04954081886555907,
+                0.24539760431755356
+              ],
+              [
+                0.06497424739895082,
+                0.4553146724790739
+              ]
+            ],
+            "assignment_cost_margin": 0.5675390613224355,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 539,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "right",
+            "trajectory_B_source_channel": "left",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.14452791588707858,
+                0.17665032403902853
+              ],
+              [
+                -0.17643486001347503,
+                0.3626549367960098
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.034694616664614326,
+                0.23168755326044066
+              ],
+              [
+                0.07563525713655225,
+                0.426139738749869
+              ]
+            ],
+            "assignment_cost_margin": 0.3687872955451953,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 540,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "right",
+            "trajectory_B_source_channel": "left",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.11794053172044515,
+                0.1852526042425483
+              ],
+              [
+                -0.10991267543046027,
+                0.37584535284827686
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.06216534714091259,
+                0.22429496555489425
+              ],
+              [
+                0.056772695685668645,
+                0.42251814039662805
+              ]
+            ],
+            "assignment_cost_margin": 0.26122401577537196,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 541,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.1738135828595109,
+                0.17235320161659734
+              ],
+              [
+                -0.15482248943452992,
+                0.3760009048555957
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.07728186783152272,
+                0.1961300453123904
+              ],
+              [
+                0.029827694784398014,
+                0.40051858671342633
+              ]
+            ],
+            "assignment_cost_margin": 0.19768069528012758,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          }
+        ],
+        "source_channel_switch_frames": [
+          530,
+          532,
+          533,
+          535,
+          536,
+          541
+        ],
+        "segments": 1,
+        "anatomical_side_A": "unknown",
+        "anatomical_side_B": "unknown",
+        "human_verified": false,
+        "scope": "continuous image-plane leg hypotheses, not anatomical labels or ground contacts"
+      },
+      "mirrored_inverse_mapped": {
+        "method": "Hungarian_hip_relative_knee_ankle_association",
+        "observations": [
+          {
+            "frame": 521,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.07230240946918481,
+                0.20999791538318868
+              ],
+              [
+                -0.06272219044617192,
+                0.30179003027922024
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.14783827912429445,
+                0.20418576388570592
+              ],
+              [
+                0.20257406323430158,
+                0.33169969804025706
+              ]
+            ],
+            "assignment_cost_margin": null,
+            "ambiguous_assignment": false,
+            "segment_start": true
+          },
+          {
+            "frame": 522,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.1487496421573633,
+                0.17984248103158182
+              ],
+              [
+                -0.18915712235740612,
+                0.31225348479045917
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.1662089524153049,
+                0.16906868432070485
+              ],
+              [
+                0.29101709158745315,
+                0.3252054322668837
+              ]
+            ],
+            "assignment_cost_margin": 0.4858156571498098,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 523,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.165792383057096,
+                0.22609386506088897
+              ],
+              [
+                -0.16398502322519923,
+                0.3178405352818215
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.15366721283538173,
+                0.1672588108791805
+              ],
+              [
+                0.31668127850383126,
+                0.24966146203840797
+              ]
+            ],
+            "assignment_cost_margin": 0.746544782091001,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 524,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.14827664404335497,
+                0.20144094067193236
+              ],
+              [
+                -0.10572502237318503,
+                0.3222032664297282
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.1936760909635452,
+                0.12794310541517023
+              ],
+              [
+                0.369636831162894,
+                0.2206689630070204
+              ]
+            ],
+            "assignment_cost_margin": 0.7473807914757514,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 525,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.17170593011371565,
+                0.17260073249078384
+              ],
+              [
+                -0.11833325579196502,
+                0.346517016828478
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.06645512881122079,
+                0.13634589053259913
+              ],
+              [
+                0.19151054587622496,
+                0.3102206527182252
+              ]
+            ],
+            "assignment_cost_margin": 0.5159239570410596,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 526,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.19565924860646453,
+                0.10870713143099411
+              ],
+              [
+                -0.0632202953054826,
+                0.3083858686933439
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.01224383893196142,
+                0.06450853156640003
+              ],
+              [
+                0.11537909653208915,
+                0.2628381487883649
+              ]
+            ],
+            "assignment_cost_margin": 0.3203412281832282,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 527,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.09582259981237141,
+                0.22806326169846894
+              ],
+              [
+                -0.00406239183432798,
+                0.36355772460274954
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.07705036726500743,
+                0.1543716790548634
+              ],
+              [
+                0.2243560282098046,
+                0.2692251223394451
+              ]
+            ],
+            "assignment_cost_margin": 0.225003466906255,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 528,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.0743838660944287,
+                0.2058729516213802
+              ],
+              [
+                0.025658350597102517,
+                0.38158542089422787
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.04107893254520986,
+                0.1796650180650909
+              ],
+              [
+                0.12832347196984517,
+                0.3620556592560121
+              ]
+            ],
+            "assignment_cost_margin": 0.20753192636619988,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 529,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.01972363803302893,
+                0.23633139740189485
+              ],
+              [
+                0.10208862034879902,
+                0.3885623806658841
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                0.015423371579971654,
+                0.19652112215055031
+              ],
+              [
+                0.10820754306238577,
+                0.36081406215594064
+              ]
+            ],
+            "assignment_cost_margin": 0.047363234949543725,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 530,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.027829244970496377,
+                0.2294671216739407
+              ],
+              [
+                0.12513338955826778,
+                0.3993116544259294
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.006828508645668631,
+                0.20946377518127238
+              ],
+              [
+                0.06879904311526643,
+                0.3937388279463963
+              ]
+            ],
+            "assignment_cost_margin": 0.018501437639055207,
+            "ambiguous_assignment": true,
+            "segment_start": false
+          },
+          {
+            "frame": 531,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.033527576628125076,
+                0.24211002160545123
+              ],
+              [
+                0.11320449203447375,
+                0.41667465989221014
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.01588617963389444,
+                0.18498938721242195
+              ],
+              [
+                0.05340573138013723,
+                0.3668183954984686
+              ]
+            ],
+            "assignment_cost_margin": 0.06529301701542675,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 532,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.0026642240580724273,
+                0.20891185413646915
+              ],
+              [
+                0.13732410906919437,
+                0.391856272921769
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.21259258431095926,
+                0.12054097723635104
+              ],
+              [
+                -0.32395118403068374,
+                0.2469653259565276
+              ]
+            ],
+            "assignment_cost_margin": 0.07216189015542002,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 533,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.016142896516672448,
+                0.21783275521528453
+              ],
+              [
+                0.09445384553797334,
+                0.4071011806172728
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.17101662415115604,
+                0.09499452191129204
+              ],
+              [
+                -0.2843818616338001,
+                0.26878042086930976
+              ]
+            ],
+            "assignment_cost_margin": 0.6209835056504878,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 534,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.04023614863503497,
+                0.21010911066737503
+              ],
+              [
+                0.07106594271620326,
+                0.3950692124893897
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.15344847052496685,
+                0.09076443204310872
+              ],
+              [
+                -0.24915628041387664,
+                0.26147359288612637
+              ]
+            ],
+            "assignment_cost_margin": 0.5400556527576762,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 535,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.05879065014297269,
+                0.19388729454088077
+              ],
+              [
+                0.00019099104055842443,
+                0.3831305077633235
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.09572425854549611,
+                0.09488935485391214
+              ],
+              [
+                -0.13873097615362986,
+                0.274285187280583
+              ]
+            ],
+            "assignment_cost_margin": 0.2760300170714157,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 536,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.03889874481725453,
+                0.20601616886611937
+              ],
+              [
+                0.0745497218628132,
+                0.41652799719681727
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.15728055667676138,
+                0.08943437456211398
+              ],
+              [
+                -0.24035894056643733,
+                0.2752000677293383
+              ]
+            ],
+            "assignment_cost_margin": 0.2754343685749492,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 537,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.05021020254808641,
+                0.20187739592888013
+              ],
+              [
+                0.07496738175561528,
+                0.42579709526923787
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.19739634649231738,
+                0.09200979221325922
+              ],
+              [
+                -0.2967601222282201,
+                0.2712419020456214
+              ]
+            ],
+            "assignment_cost_margin": 0.5287129534774087,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 538,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.036920187160253796,
+                0.23142969209614556
+              ],
+              [
+                0.08187991459425739,
+                0.434552268312721
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.1668862768818819,
+                0.08927800860002752
+              ],
+              [
+                -0.269817839782594,
+                0.2965376720998583
+              ]
+            ],
+            "assignment_cost_margin": 0.5641559598615083,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 539,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "left",
+            "trajectory_B_source_channel": "right",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.03966645369702936,
+                0.21602746044012494
+              ],
+              [
+                0.06638896182237812,
+                0.42377391491998656
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.16032212422578407,
+                0.13141809894376527
+              ],
+              [
+                -0.23834746790127861,
+                0.3318265399540623
+              ]
+            ],
+            "assignment_cost_margin": 0.48982640766745456,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 540,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "right",
+            "trajectory_B_source_channel": "left",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.07756650051202052,
+                0.20470348060566396
+              ],
+              [
+                0.006839597951851972,
+                0.40295241456109904
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.14283490196694462,
+                0.18288671051856337
+              ],
+              [
+                -0.0723073899298138,
+                0.36360717246797847
+              ]
+            ],
+            "assignment_cost_margin": 0.15459943374773466,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          },
+          {
+            "frame": 541,
+            "segment_id": 0,
+            "trajectory_A_source_channel": "right",
+            "trajectory_B_source_channel": "left",
+            "trajectory_A_relative_knee_ankle": [
+              [
+                -0.09231154174188336,
+                0.20352777274522443
+              ],
+              [
+                0.02463462535274509,
+                0.398960903804762
+              ]
+            ],
+            "trajectory_B_relative_knee_ankle": [
+              [
+                -0.1915505417794789,
+                0.1565379509664901
+              ],
+              [
+                -0.16659768686219048,
+                0.34155650499645424
+              ]
+            ],
+            "assignment_cost_margin": 0.14651698607892527,
+            "ambiguous_assignment": false,
+            "segment_start": false
+          }
+        ],
+        "source_channel_switch_frames": [
+          540
+        ],
+        "segments": 1,
+        "anatomical_side_A": "unknown",
+        "anatomical_side_B": "unknown",
+        "human_verified": false,
+        "scope": "continuous image-plane leg hypotheses, not anatomical labels or ground contacts"
+      }
+    },
+    "ball_proximity": {
+      "normal": {
+        "candidate": "unknown",
+        "reason": "ankle_ball_distance_or_approach_not_separated",
+        "contact_samples": 3,
+        "observations": [
+          {
+            "frame": 523,
+            "ball_source_xy": [
+              1513.959,
+              733.875
+            ],
+            "ball_detection_id": "523:0",
+            "left_distance": 0.10629769419248296,
+            "right_distance": 0.4341247635844312
+          },
+          {
+            "frame": 524,
+            "ball_source_xy": [
+              1516.053,
+              732.5
+            ],
+            "ball_detection_id": "524:0",
+            "left_distance": 0.08561647545319273,
+            "right_distance": 0.38492789642785613
+          },
+          {
+            "frame": 525,
+            "ball_source_xy": [
+              1517.229,
+              733.57
+            ],
+            "ball_detection_id": "525:0",
+            "left_distance": 0.0961958185381027,
+            "right_distance": 0.21782655359125044
+          },
+          {
+            "frame": 526,
+            "ball_source_xy": [
+              1519.566,
+              734.145
+            ],
+            "ball_detection_id": "526:0",
+            "left_distance": 0.0874247942259956,
+            "right_distance": 0.13477735244628122
+          },
+          {
+            "frame": 527,
+            "ball_source_xy": [
+              1521.183,
+              734.581
+            ],
+            "ball_detection_id": "527:0",
+            "left_distance": 0.10880698410169602,
+            "right_distance": 0.09982850704668393
+          },
+          {
+            "frame": 531,
+            "ball_source_xy": [
+              1358.395,
+              684.101
+            ],
+            "ball_detection_id": "531:3",
+            "left_distance": 1.0901816691013426,
+            "right_distance": 0.998438910593806
+          }
+        ],
+        "ball_identity_verified": false,
+        "shoe_ball_contact_verified": false,
+        "median_distance_body_heights": {
+          "left": 0.10880698410169602,
+          "right": 0.13477735244628122
+        },
+        "distance_margin_body_heights": 0.0259703683445852,
+        "nearest_side_support_fraction": 0.3333333333333333,
+        "approach_distance_reduction_body_heights": -0.012611165563593318
+      },
+      "mirrored_inverse_mapped": {
+        "candidate": "unknown",
+        "reason": "ankle_ball_distance_or_approach_not_separated",
+        "contact_samples": 3,
+        "observations": [
+          {
+            "frame": 523,
+            "ball_source_xy": [
+              1513.959,
+              733.875
+            ],
+            "ball_detection_id": "523:0",
+            "left_distance": 0.10577896697853975,
+            "right_distance": 0.38594080499542
+          },
+          {
+            "frame": 524,
+            "ball_source_xy": [
+              1516.053,
+              732.5
+            ],
+            "ball_detection_id": "524:0",
+            "left_distance": 0.10330530421775345,
+            "right_distance": 0.3843977252408221
+          },
+          {
+            "frame": 525,
+            "ball_source_xy": [
+              1517.229,
+              733.57
+            ],
+            "ball_detection_id": "525:0",
+            "left_distance": 0.12575392713441383,
+            "right_distance": 0.18654724857317656
+          },
+          {
+            "frame": 526,
+            "ball_source_xy": [
+              1519.566,
+              734.145
+            ],
+            "ball_detection_id": "526:0",
+            "left_distance": 0.10287644231156359,
+            "right_distance": 0.08940005855833291
+          },
+          {
+            "frame": 527,
+            "ball_source_xy": [
+              1521.183,
+              734.581
+            ],
+            "ball_detection_id": "527:0",
+            "left_distance": 0.1101526050495269,
+            "right_distance": 0.138371479604593
+          },
+          {
+            "frame": 531,
+            "ball_source_xy": [
+              1358.395,
+              684.101
+            ],
+            "ball_detection_id": "531:3",
+            "left_distance": 1.047753935971561,
+            "right_distance": 0.9753779867517963
+          }
+        ],
+        "ball_identity_verified": false,
+        "shoe_ball_contact_verified": false,
+        "median_distance_body_heights": {
+          "left": 0.1101526050495269,
+          "right": 0.138371479604593
+        },
+        "distance_margin_body_heights": 0.02821887455506611,
+        "nearest_side_support_fraction": 0.3333333333333333,
+        "approach_distance_reduction_body_heights": -0.004373638070987146
+      }
+    },
+    "contact_window_mirror_consistency": {
+      "matched_frames": 8,
+      "median_relative_ankle_error_body_heights": 0.03718950836971155,
+      "consistent": true,
+      "scope": "original-coordinate anatomical channels must already be inverse-mapped"
+    },
+    "mirror_consistency": {
+      "matched_frames": 21,
+      "median_relative_ankle_error_body_heights": 0.051379499448596114,
+      "consistent": true,
+      "scope": "original-coordinate anatomical channels must already be inverse-mapped"
+    }
+  },
+  "inference_elapsed_sec": 1.322,
+  "normal_pose_frames": 35,
+  "mirrored_pose_frames": 35,
+  "local_seed_identity_ambiguous_frames": []
+}

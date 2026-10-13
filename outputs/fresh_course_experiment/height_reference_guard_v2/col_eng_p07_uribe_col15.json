@@ -1,0 +1,5147 @@
+{
+  "dive_height": "unknown",
+  "strict_height_candidate": "unknown",
+  "ordinal_pose_height_candidate": "unknown",
+  "landing_candidate_frame": null,
+  "observed_image_plane_height_candidate": "unknown",
+  "physical_height_metres": null,
+  "physical_ground_plane_calibrated": false,
+  "human_verified": false,
+  "accuracy_validated": false,
+  "identity_verified": false,
+  "new_keeper_neural_inference": false,
+  "requires_review": true,
+  "height_definition": "camera-stabilized torso midpoint clearance / pre-kick body height",
+  "coordinate_system": "selected_shot_image_plane_not_3d",
+  "reasons": [
+    "pose_only_first_dive_support_inadequate"
+  ],
+  "camera_prefix_stop_frame": null,
+  "role": {
+    "policy": "pre_kick_ankle_goal_line_weighted_role_v1",
+    "status": "candidate_supported",
+    "seed_track_id": 1,
+    "candidates": [
+      {
+        "track_id": 1,
+        "score": 0.8767980194606803,
+        "eligible": true,
+        "components": {
+          "foot_goal_line": 0.9265114876517787,
+          "body_goal_mouth": 1.0,
+          "pre_visibility": 0.42857142857142855,
+          "wrist_ready_pose": 0.7803398401247021
+        },
+        "samples": [
+          {
+            "frame": 327,
+            "foot_distance_goal_height": 0.03757077013516072,
+            "ankle_distances_goal_height": [
+              0.03757077013516072,
+              0.045309891098616016
+            ],
+            "goal_line_projection": 0.4999701126350489,
+            "body_goal_mouth": 1.0,
+            "wrist_ready_pose": 0.8001719021425904,
+            "body_height_goal_height": 0.7061689253158099,
+            "reasons": [],
+            "eligible": true
+          },
+          {
+            "frame": 329,
+            "foot_distance_goal_height": 0.03476168336848515,
+            "ankle_distances_goal_height": [
+              0.04027569031285533,
+              0.03476168336848515
+            ],
+            "goal_line_projection": 0.5024593763383902,
+            "body_goal_mouth": 1.0,
+            "wrist_ready_pose": 0.829062478961763,
+            "body_height_goal_height": 0.6917292121709686,
+            "reasons": [],
+            "eligible": true
+          },
+          {
+            "frame": 331,
+            "foot_distance_goal_height": 0.03524225948447945,
+            "ankle_distances_goal_height": [
+              0.03524225948447945,
+              0.04833898607868285
+            ],
+            "goal_line_projection": 0.4860281363471026,
+            "body_goal_mouth": 1.0,
+            "wrist_ready_pose": 0.7803398401247021,
+            "body_height_goal_height": 0.7615893144996886,
+            "reasons": [],
+            "eligible": true
+          },
+          {
+            "frame": 333,
+            "foot_distance_goal_height": 0.04554526635486278,
+            "ankle_distances_goal_height": [
+              0.04554526635486278,
+              0.06033938258958422
+            ],
+            "goal_line_projection": 0.5100906496680631,
+            "body_goal_mouth": 1.0,
+            "wrist_ready_pose": 0.7067960270453615,
+            "body_height_goal_height": 0.6893683040346745,
+            "reasons": [],
+            "eligible": true
+          },
+          {
+            "frame": 334,
+            "foot_distance_goal_height": 0.07401913809449968,
+            "ankle_distances_goal_height": [
+              0.07401913809449968,
+              0.07410652722369135
+            ],
+            "goal_line_projection": 0.5186857232158584,
+            "body_goal_mouth": 1.0,
+            "wrist_ready_pose": 0.7612050265066254,
+            "body_height_goal_height": 0.6443444264526457,
+            "reasons": [],
+            "eligible": true
+          },
+          {
+            "frame": 337,
+            "foot_distance_goal_height": 0.04531225039457767,
+            "ankle_distances_goal_height": [
+              0.04531225039457767,
+              0.05042957603730431
+            ],
+            "goal_line_projection": 0.5387676392055019,
+            "body_goal_mouth": 1.0,
+            "wrist_ready_pose": null,
+            "body_height_goal_height": 0.5937388291794965,
+            "reasons": [],
+            "eligible": true
+          }
+        ],
+        "median_foot_distance_goal_height": 0.0414415102648692,
+        "rejection_reasons": [],
+        "same_person_source_ids": [
+          1
+        ]
+      },
+      {
+        "track_id": 6,
+        "score": 0.6640912658219249,
+        "eligible": false,
+        "components": {
+          "foot_goal_line": 0.9102368061306331,
+          "body_goal_mouth": 0.0,
+          "pre_visibility": 0.42857142857142855,
+          "wrist_ready_pose": 0.750920392864022
+        },
+        "samples": [
+          {
+            "frame": 327,
+            "foot_distance_goal_height": 0.0473442054895144,
+            "ankle_distances_goal_height": [
+              0.0473442054895144,
+              0.08732278325623291
+            ],
+            "goal_line_projection": 1.6668042836113557,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.7650411180199285,
+            "body_height_goal_height": 0.6214479026719504,
+            "reasons": [
+              "feet_outside_goal_span",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 329,
+            "foot_distance_goal_height": 0.044387398108924336,
+            "ankle_distances_goal_height": [
+              0.044387398108924336,
+              0.07805128755230767
+            ],
+            "goal_line_projection": 1.6648896526158241,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.7513116471823125,
+            "body_height_goal_height": 0.6244739144633183,
+            "reasons": [
+              "feet_outside_goal_span",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 331,
+            "foot_distance_goal_height": 0.1858568792073675,
+            "ankle_distances_goal_height": [
+              0.1858568792073675,
+              0.20432536724618033
+            ],
+            "goal_line_projection": 1.6710435575911173,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.7505291385457317,
+            "body_height_goal_height": 0.6863675778017233,
+            "reasons": [
+              "feet_outside_goal_span",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 333,
+            "foot_distance_goal_height": 0.04465874996649174,
+            "ankle_distances_goal_height": [
+              0.04465874996649174,
+              0.07988717777468532
+            ],
+            "goal_line_projection": 1.6748546934956767,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.7628132278105997,
+            "body_height_goal_height": 0.6288357450782598,
+            "reasons": [
+              "feet_outside_goal_span",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 334,
+            "foot_distance_goal_height": 0.02922749651227307,
+            "ankle_distances_goal_height": [
+              0.02922749651227307,
+              0.07369261273043008
+            ],
+            "goal_line_projection": 1.6550894861345344,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.7483258387763723,
+            "body_height_goal_height": 0.6497599375673294,
+            "reasons": [
+              "feet_outside_goal_span",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 337,
+            "foot_distance_goal_height": 0.04865148378699943,
+            "ankle_distances_goal_height": [
+              0.04865148378699943,
+              0.08699704788707217
+            ],
+            "goal_line_projection": 1.6644858125417525,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.7435931213644491,
+            "body_height_goal_height": 0.6230698777819526,
+            "reasons": [
+              "feet_outside_goal_span",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          }
+        ],
+        "median_foot_distance_goal_height": 0.04600147772800307,
+        "rejection_reasons": [
+          "feet_outside_goal_span",
+          "torso_outside_goal_mouth"
+        ],
+        "same_person_source_ids": [
+          6
+        ]
+      },
+      {
+        "track_id": 7,
+        "score": 0.12893445864898662,
+        "eligible": false,
+        "components": {
+          "foot_goal_line": 1.2552767264523537e-16,
+          "body_goal_mouth": 0.0,
+          "pre_visibility": 0.42857142857142855,
+          "wrist_ready_pose": 0.8607731579184369
+        },
+        "samples": [
+          {
+            "frame": 327,
+            "foot_distance_goal_height": 1.0372981185617283,
+            "ankle_distances_goal_height": [
+              1.0374017755861487,
+              1.0372981185617283
+            ],
+            "goal_line_projection": 2.6164226294612645,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.9005044565018783,
+            "body_height_goal_height": 0.7026534810227504,
+            "reasons": [
+              "feet_outside_goal_span",
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 329,
+            "foot_distance_goal_height": 1.0084436575439628,
+            "ankle_distances_goal_height": [
+              1.0084436575439628,
+              1.0503658681166836
+            ],
+            "goal_line_projection": 2.5800882354642516,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.7997634232899997,
+            "body_height_goal_height": 0.7230088875004693,
+            "reasons": [
+              "feet_outside_goal_span",
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 331,
+            "foot_distance_goal_height": 0.7592846530601453,
+            "ankle_distances_goal_height": [
+              0.7592846530601453,
+              0.8166519092568729
+            ],
+            "goal_line_projection": 2.602124519849723,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.7664460954368246,
+            "body_height_goal_height": 0.8034319331520351,
+            "reasons": [
+              "feet_outside_goal_span",
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 333,
+            "foot_distance_goal_height": 0.9092070469498306,
+            "ankle_distances_goal_height": [
+              0.9092070469498306,
+              0.9345626264493324
+            ],
+            "goal_line_projection": 2.5243294271218124,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.8283728415117361,
+            "body_height_goal_height": 0.6330471394079376,
+            "reasons": [
+              "feet_outside_goal_span",
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 334,
+            "foot_distance_goal_height": 0.9060781894914267,
+            "ankle_distances_goal_height": [
+              0.9581055829829189,
+              0.9060781894914267
+            ],
+            "goal_line_projection": 2.4506066272713545,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.8931734743251377,
+            "body_height_goal_height": 0.645179692517781,
+            "reasons": [
+              "feet_outside_goal_span",
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 337,
+            "foot_distance_goal_height": 0.8868256583715131,
+            "ankle_distances_goal_height": [
+              0.8879813026244737,
+              0.8868256583715131
+            ],
+            "goal_line_projection": 2.411759216399285,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.9178096306523725,
+            "body_height_goal_height": 0.6462958142045763,
+            "reasons": [
+              "feet_outside_goal_span",
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          }
+        ],
+        "median_foot_distance_goal_height": 0.9076426182206286,
+        "rejection_reasons": [
+          "feet_far_from_goal_line",
+          "feet_outside_goal_span",
+          "torso_outside_goal_mouth"
+        ],
+        "same_person_source_ids": [
+          7
+        ]
+      },
+      {
+        "track_id": 3,
+        "score": 0.11620401292122388,
+        "eligible": false,
+        "components": {
+          "foot_goal_line": 2.0432281312411487e-08,
+          "body_goal_mouth": 0.0,
+          "pre_visibility": 0.42857142857142855,
+          "wrist_ready_pose": 0.7334685780471224
+        },
+        "samples": [
+          {
+            "frame": 327,
+            "foot_distance_goal_height": 0.6299823718068359,
+            "ankle_distances_goal_height": [
+              0.6299823718068359,
+              0.655699841872986
+            ],
+            "goal_line_projection": -0.011292233171853888,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.7329782948554696,
+            "body_height_goal_height": 0.8374295177361525,
+            "reasons": [
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 329,
+            "foot_distance_goal_height": 0.6335807024325825,
+            "ankle_distances_goal_height": [
+              0.6335807024325825,
+              0.6610270043105911
+            ],
+            "goal_line_projection": -0.0070109446264308185,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.7295779896413684,
+            "body_height_goal_height": 0.8379944383277602,
+            "reasons": [
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 331,
+            "foot_distance_goal_height": 0.8792018724272054,
+            "ankle_distances_goal_height": [
+              0.8792018724272054,
+              0.8962124303079937
+            ],
+            "goal_line_projection": -0.003926449033765565,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.7363785854681202,
+            "body_height_goal_height": 0.9187337722013099,
+            "reasons": [
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 333,
+            "foot_distance_goal_height": 0.6238186197936721,
+            "ankle_distances_goal_height": [
+              0.6238186197936721,
+              0.6611441724498194
+            ],
+            "goal_line_projection": -0.012113321260941712,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.7387320232814267,
+            "body_height_goal_height": 0.8385578540851697,
+            "reasons": [
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 334,
+            "foot_distance_goal_height": 0.6323779092766479,
+            "ankle_distances_goal_height": [
+              0.6323779092766479,
+              0.6595599189528208
+            ],
+            "goal_line_projection": 0.0038884120725942786,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.729056693298247,
+            "body_height_goal_height": 0.8621842497486204,
+            "reasons": [
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 337,
+            "foot_distance_goal_height": 0.6293476377614843,
+            "ankle_distances_goal_height": [
+              0.6293476377614843,
+              0.6527127820612653
+            ],
+            "goal_line_projection": -0.007847119570368821,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": 0.7339588612387751,
+            "body_height_goal_height": 0.8381514785967232,
+            "reasons": [
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          }
+        ],
+        "median_foot_distance_goal_height": 0.6311801405417419,
+        "rejection_reasons": [
+          "feet_far_from_goal_line",
+          "torso_outside_goal_mouth"
+        ],
+        "same_person_source_ids": [
+          3
+        ]
+      },
+      {
+        "track_id": 37,
+        "score": 0.04285714346421174,
+        "eligible": false,
+        "components": {
+          "foot_goal_line": 1.011781471532742e-09,
+          "body_goal_mouth": 0.0,
+          "pre_visibility": 0.42857142857142855
+        },
+        "samples": [
+          {
+            "frame": 327,
+            "foot_distance_goal_height": 0.6895306786588496,
+            "ankle_distances_goal_height": [
+              0.7050933799354596,
+              0.6895306786588496
+            ],
+            "goal_line_projection": -0.3545229288224471,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": null,
+            "body_height_goal_height": 0.6124519486363615,
+            "reasons": [
+              "feet_outside_goal_span",
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 329,
+            "foot_distance_goal_height": 0.69270064718099,
+            "ankle_distances_goal_height": [
+              0.7097014713729638,
+              0.69270064718099
+            ],
+            "goal_line_projection": -0.35360977075054345,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": null,
+            "body_height_goal_height": 0.6156069731484242,
+            "reasons": [
+              "feet_outside_goal_span",
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 331,
+            "foot_distance_goal_height": 0.49787232563062034,
+            "ankle_distances_goal_height": [
+              0.5012740194262552,
+              0.49787232563062034
+            ],
+            "goal_line_projection": -0.42963002451868776,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": null,
+            "body_height_goal_height": 0.6886557435166689,
+            "reasons": [
+              "feet_outside_goal_span",
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 333,
+            "foot_distance_goal_height": 0.6735021648606928,
+            "ankle_distances_goal_height": [
+              0.6935879668172831,
+              0.6735021648606928
+            ],
+            "goal_line_projection": -0.3630279547430495,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": null,
+            "body_height_goal_height": 0.6275254384699294,
+            "reasons": [
+              "feet_outside_goal_span",
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 334,
+            "foot_distance_goal_height": 0.7228549305582178,
+            "ankle_distances_goal_height": [
+              0.7357488922311556,
+              0.7228549305582178
+            ],
+            "goal_line_projection": -0.33256391909540495,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": null,
+            "body_height_goal_height": 0.6461298345070416,
+            "reasons": [
+              "feet_outside_goal_span",
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 337,
+            "foot_distance_goal_height": 0.6757677467397,
+            "ankle_distances_goal_height": [
+              0.6927600322441326,
+              0.6757677467397
+            ],
+            "goal_line_projection": -0.3502540447507949,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": null,
+            "body_height_goal_height": 0.618437288576651,
+            "reasons": [
+              "feet_outside_goal_span",
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          }
+        ],
+        "median_foot_distance_goal_height": 0.6826492126992748,
+        "rejection_reasons": [
+          "feet_far_from_goal_line",
+          "feet_outside_goal_span",
+          "torso_outside_goal_mouth"
+        ],
+        "same_person_source_ids": [
+          37
+        ]
+      },
+      {
+        "track_id": 33,
+        "score": 0.035714285986218966,
+        "eligible": false,
+        "components": {
+          "foot_goal_line": 4.532220836700263e-10,
+          "body_goal_mouth": 0.0,
+          "pre_visibility": 0.35714285714285715
+        },
+        "samples": [
+          {
+            "frame": 327,
+            "foot_distance_goal_height": 0.685552528040296,
+            "ankle_distances_goal_height": [
+              0.6930536582253093,
+              0.685552528040296
+            ],
+            "goal_line_projection": -0.03362324770560869,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": null,
+            "body_height_goal_height": 0.5506297180830928,
+            "reasons": [
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 329,
+            "foot_distance_goal_height": 0.6957581291958942,
+            "ankle_distances_goal_height": [
+              0.7025389926249028,
+              0.6957581291958942
+            ],
+            "goal_line_projection": -0.03353244478942917,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": null,
+            "body_height_goal_height": 0.542626105818301,
+            "reasons": [
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 331,
+            "foot_distance_goal_height": 0.6185839950377628,
+            "ankle_distances_goal_height": [
+              0.6205215327736149,
+              0.6185839950377628
+            ],
+            "goal_line_projection": -0.09664675440277805,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": null,
+            "body_height_goal_height": 0.5467421898962349,
+            "reasons": [
+              "feet_outside_goal_span",
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 333,
+            "foot_distance_goal_height": 0.7049343029384242,
+            "ankle_distances_goal_height": [
+              0.711725339324706,
+              0.7049343029384242
+            ],
+            "goal_line_projection": -0.03407421910208705,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": null,
+            "body_height_goal_height": 0.5417983743260925,
+            "reasons": [
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          },
+          {
+            "frame": 337,
+            "foot_distance_goal_height": 0.7148898409665108,
+            "ankle_distances_goal_height": [
+              0.7188462946987135,
+              0.7148898409665108
+            ],
+            "goal_line_projection": -0.03256300264446378,
+            "body_goal_mouth": 0.0,
+            "wrist_ready_pose": null,
+            "body_height_goal_height": 0.5330235793194784,
+            "reasons": [
+              "feet_far_from_goal_line",
+              "torso_outside_goal_mouth"
+            ],
+            "eligible": false
+          }
+        ],
+        "median_foot_distance_goal_height": 0.6957581291958942,
+        "rejection_reasons": [
+          "feet_far_from_goal_line",
+          "feet_outside_goal_span",
+          "torso_outside_goal_mouth"
+        ],
+        "same_person_source_ids": [
+          33
+        ]
+      }
+    ],
+    "excluded_pre_person_ids": [
+      6,
+      7,
+      3,
+      37,
+      33
+    ],
+    "weights": {
+      "foot_goal_line": 0.6,
+      "body_goal_mouth": 0.2,
+      "wrist_ready_pose": 0.1,
+      "pre_visibility": 0.1
+    },
+    "geometry_sample_frames": [
+      324,
+      325,
+      326,
+      327,
+      328,
+      329,
+      330,
+      331,
+      332,
+      333,
+      334,
+      335,
+      336,
+      337
+    ],
+    "human_verified": false,
+    "identity_verified": false,
+    "calibrated_probability": false,
+    "reason": "multi_frame_feet_on_goal_line_with_auxiliary_pose",
+    "distinct_goal_person_candidates": [
+      {
+        "track_id": 1,
+        "score": 0.8767980194606803,
+        "eligible": true,
+        "components": {
+          "foot_goal_line": 0.9265114876517787,
+          "body_goal_mouth": 1.0,
+          "pre_visibility": 0.42857142857142855,
+          "wrist_ready_pose": 0.7803398401247021
+        },
+        "samples": [
+          {
+            "frame": 327,
+            "foot_distance_goal_height": 0.03757077013516072,
+            "ankle_distances_goal_height": [
+              0.03757077013516072,
+              0.045309891098616016
+            ],
+            "goal_line_projection": 0.4999701126350489,
+            "body_goal_mouth": 1.0,
+            "wrist_ready_pose": 0.8001719021425904,
+            "body_height_goal_height": 0.7061689253158099,
+            "reasons": [],
+            "eligible": true
+          },
+          {
+            "frame": 329,
+            "foot_distance_goal_height": 0.03476168336848515,
+            "ankle_distances_goal_height": [
+              0.04027569031285533,
+              0.03476168336848515
+            ],
+            "goal_line_projection": 0.5024593763383902,
+            "body_goal_mouth": 1.0,
+            "wrist_ready_pose": 0.829062478961763,
+            "body_height_goal_height": 0.6917292121709686,
+            "reasons": [],
+            "eligible": true
+          },
+          {
+            "frame": 331,
+            "foot_distance_goal_height": 0.03524225948447945,
+            "ankle_distances_goal_height": [
+              0.03524225948447945,
+              0.04833898607868285
+            ],
+            "goal_line_projection": 0.4860281363471026,
+            "body_goal_mouth": 1.0,
+            "wrist_ready_pose": 0.7803398401247021,
+            "body_height_goal_height": 0.7615893144996886,
+            "reasons": [],
+            "eligible": true
+          },
+          {
+            "frame": 333,
+            "foot_distance_goal_height": 0.04554526635486278,
+            "ankle_distances_goal_height": [
+              0.04554526635486278,
+              0.06033938258958422
+            ],
+            "goal_line_projection": 0.5100906496680631,
+            "body_goal_mouth": 1.0,
+            "wrist_ready_pose": 0.7067960270453615,
+            "body_height_goal_height": 0.6893683040346745,
+            "reasons": [],
+            "eligible": true
+          },
+          {
+            "frame": 334,
+            "foot_distance_goal_height": 0.07401913809449968,
+            "ankle_distances_goal_height": [
+              0.07401913809449968,
+              0.07410652722369135
+            ],
+            "goal_line_projection": 0.5186857232158584,
+            "body_goal_mouth": 1.0,
+            "wrist_ready_pose": 0.7612050265066254,
+            "body_height_goal_height": 0.6443444264526457,
+            "reasons": [],
+            "eligible": true
+          },
+          {
+            "frame": 337,
+            "foot_distance_goal_height": 0.04531225039457767,
+            "ankle_distances_goal_height": [
+              0.04531225039457767,
+              0.05042957603730431
+            ],
+            "goal_line_projection": 0.5387676392055019,
+            "body_goal_mouth": 1.0,
+            "wrist_ready_pose": null,
+            "body_height_goal_height": 0.5937388291794965,
+            "reasons": [],
+            "eligible": true
+          }
+        ],
+        "median_foot_distance_goal_height": 0.0414415102648692,
+        "rejection_reasons": [],
+        "same_person_source_ids": [
+          1
+        ]
+      }
+    ],
+    "runner_up_margin": null,
+    "same_person_seed_ids": [
+      1
+    ],
+    "ambiguous_identity": false
+  },
+  "keeper_track_id_candidate": 1,
+  "association": {
+    "policy": "pre_role_excluded_person_lock_v1",
+    "observations": [
+      {
+        "frame": 323,
+        "bbox": [
+          339.31731390953064,
+          370.2845560709635,
+          402.8638080596924,
+          495.79960123697913
+        ],
+        "box_confidence": 0.8861637115478516,
+        "keypoints": [
+          [
+            381.0083679199219,
+            378.745371500651
+          ],
+          [
+            381.3512462615967,
+            376.76301066080725
+          ],
+          [
+            378.3148182868958,
+            376.65431722005206
+          ],
+          [
+            380.3613784790039,
+            379.17653401692706
+          ],
+          [
+            371.65446758270264,
+            378.6407775878906
+          ],
+          [
+            380.3847528457642,
+            393.4349873860677
+          ],
+          [
+            363.984091758728,
+            392.2962951660156
+          ],
+          [
+            382.8025745391846,
+            409.5628662109375
+          ],
+          [
+            358.40018358230594,
+            409.34222412109375
+          ],
+          [
+            394.04381246566777,
+            417.00870768229163
+          ],
+          [
+            367.3970343589783,
+            419.03542073567706
+          ],
+          [
+            375.3504273414612,
+            428.82586669921875
+          ],
+          [
+            363.0886173248291,
+            428.946533203125
+          ],
+          [
+            381.206520652771,
+            455.46240234375
+          ],
+          [
+            359.935195350647,
+            456.767822265625
+          ],
+          [
+            374.6893888473511,
+            480.86328125
+          ],
+          [
+            346.06922779083254,
+            483.89237467447913
+          ]
+        ],
+        "keypoint_confidences": [
+          0.9596250057220459,
+          0.5218062996864319,
+          0.9727574586868286,
+          0.0362740233540535,
+          0.9723891019821167,
+          0.9963077306747437,
+          0.9974601864814758,
+          0.9718735814094543,
+          0.9904850721359253,
+          0.9590432047843933,
+          0.9812474846839905,
+          0.9995515942573547,
+          0.9996291399002075,
+          0.9992709755897522,
+          0.9993533492088318,
+          0.9963111281394958,
+          0.9962058067321777
+        ],
+        "source_roi": "lower_left",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 324,
+        "bbox": [
+          341.27550759315494,
+          370.4862976074219,
+          409.9251472473145,
+          495.9403889973958
+        ],
+        "box_confidence": 0.8522355556488037,
+        "keypoints": [
+          [
+            382.8594223022461,
+            379.412851969401
+          ],
+          [
+            383.2549540519715,
+            377.474375406901
+          ],
+          [
+            380.2667000770569,
+            377.3671468098958
+          ],
+          [
+            382.3581765174866,
+            379.68488566080725
+          ],
+          [
+            373.92617912292485,
+            379.23439534505206
+          ],
+          [
+            382.49610157012944,
+            393.2837829589844
+          ],
+          [
+            366.3009231567383,
+            393.0758361816406
+          ],
+          [
+            385.0373513221741,
+            409.3878173828125
+          ],
+          [
+            360.5746105194092,
+            410.9660237630208
+          ],
+          [
+            397.6339767456055,
+            416.42250569661456
+          ],
+          [
+            370.79763822555543,
+            420.10404459635413
+          ],
+          [
+            377.7596567153931,
+            427.35939534505206
+          ],
+          [
+            365.6551553726197,
+            428.08441162109375
+          ],
+          [
+            384.48125314712524,
+            454.8141886393229
+          ],
+          [
+            361.27250232696537,
+            457.07460530598956
+          ],
+          [
+            376.2070938110352,
+            481.16943359375
+          ],
+          [
+            348.08813781738286,
+            484.9180908203125
+          ]
+        ],
+        "keypoint_confidences": [
+          0.9266681671142578,
+          0.3744167983531952,
+          0.9490795731544495,
+          0.03266797959804535,
+          0.9574785232543945,
+          0.994161069393158,
+          0.9969022274017334,
+          0.9680113196372986,
+          0.9950070381164551,
+          0.9609034061431885,
+          0.990718424320221,
+          0.9993847608566284,
+          0.9995580315589905,
+          0.9986549615859985,
+          0.9990400671958923,
+          0.9917716383934021,
+          0.9928247928619385
+        ],
+        "source_roi": "lower_left",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 325,
+        "bbox": [
+          342.6150339126587,
+          370.8648478190104,
+          414.8406869888306,
+          496.39337158203125
+        ],
+        "box_confidence": 0.8947818875312805,
+        "keypoints": [
+          [
+            386.4901455879212,
+            381.7454833984375
+          ],
+          [
+            387.09120073318485,
+            379.5253702799479
+          ],
+          [
+            383.8806052207947,
+            379.54386393229163
+          ],
+          [
+            385.62517185211186,
+            380.7295939127604
+          ],
+          [
+            376.96195554733276,
+            380.5196533203125
+          ],
+          [
+            385.4886313438416,
+            393.66762288411456
+          ],
+          [
+            368.7044107437134,
+            393.95734659830725
+          ],
+          [
+            389.61563234329225,
+            410.06292724609375
+          ],
+          [
+            364.8237364768982,
+            411.7923583984375
+          ],
+          [
+            403.1073657035828,
+            418.2356770833333
+          ],
+          [
+            375.4065013885498,
+            420.64101155598956
+          ],
+          [
+            379.73401699066164,
+            427.97733561197913
+          ],
+          [
+            367.26521759033204,
+            428.93072509765625
+          ],
+          [
+            386.52484064102174,
+            455.06681315104163
+          ],
+          [
+            363.75780019760134,
+            457.55743408203125
+          ],
+          [
+            377.53446464538575,
+            481.9287109375
+          ],
+          [
+            349.7046748161316,
+            485.579833984375
+          ]
+        ],
+        "keypoint_confidences": [
+          0.9521558284759521,
+          0.44408512115478516,
+          0.9671191573143005,
+          0.03164387494325638,
+          0.9655916094779968,
+          0.9953811168670654,
+          0.9969139099121094,
+          0.9779932498931885,
+          0.9958192110061646,
+          0.9755218625068665,
+          0.9935007691383362,
+          0.9993889331817627,
+          0.9995129108428955,
+          0.9985613226890564,
+          0.998879611492157,
+          0.9900336861610413,
+          0.9906021356582642
+        ],
+        "source_roi": "lower_left",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 326,
+        "bbox": [
+          345.00860595703125,
+          372.15020751953125,
+          412.79864501953125,
+          496.48565673828125
+        ],
+        "box_confidence": 0.8718081116676331,
+        "keypoints": [
+          [
+            390.0330810546875,
+            381.8449401855469
+          ],
+          [
+            390.6249084472656,
+            379.82659912109375
+          ],
+          [
+            387.5931396484375,
+            379.69964599609375
+          ],
+          [
+            389.35174560546875,
+            381.6409912109375
+          ],
+          [
+            381.00244140625,
+            381.03485107421875
+          ],
+          [
+            389.3330383300781,
+            394.29425048828125
+          ],
+          [
+            372.38873291015625,
+            394.4495544433594
+          ],
+          [
+            392.7021789550781,
+            411.4400634765625
+          ],
+          [
+            371.25384521484375,
+            413.6991271972656
+          ],
+          [
+            405.31396484375,
+            418.3299865722656
+          ],
+          [
+            385.7171630859375,
+            419.2117919921875
+          ],
+          [
+            382.124267578125,
+            426.6002197265625
+          ],
+          [
+            369.30621337890625,
+            427.2519836425781
+          ],
+          [
+            387.4947204589844,
+            455.2044982910156
+          ],
+          [
+            365.5813293457031,
+            457.2698669433594
+          ],
+          [
+            378.7055969238281,
+            482.43438720703125
+          ],
+          [
+            352.89422607421875,
+            485.2275390625
+          ]
+        ],
+        "keypoint_confidences": [
+          0.9382904171943665,
+          0.49283942580223083,
+          0.9493539333343506,
+          0.06449846923351288,
+          0.9482020735740662,
+          0.9937227368354797,
+          0.9959176182746887,
+          0.9647416472434998,
+          0.9915328621864319,
+          0.9602463245391846,
+          0.9868884682655334,
+          0.9986543655395508,
+          0.9989491105079651,
+          0.9974760413169861,
+          0.9980600476264954,
+          0.9888721108436584,
+          0.9898906946182251
+        ],
+        "source_roi": "full",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 327,
+        "bbox": [
+          345.0074768066406,
+          372.16845703125,
+          412.7170715332031,
+          496.4593505859375
+        ],
+        "box_confidence": 0.8717069029808044,
+        "keypoints": [
+          [
+            390.0326232910156,
+            381.86083984375
+          ],
+          [
+            390.6249694824219,
+            379.842041015625
+          ],
+          [
+            387.5990295410156,
+            379.7156982421875
+          ],
+          [
+            389.3492126464844,
+            381.6470031738281
+          ],
+          [
+            381.0194396972656,
+            381.04278564453125
+          ],
+          [
+            389.314697265625,
+            394.2942199707031
+          ],
+          [
+            372.4007873535156,
+            394.4532775878906
+          ],
+          [
+            392.6643371582031,
+            411.4358215332031
+          ],
+          [
+            371.2769775390625,
+            413.7113952636719
+          ],
+          [
+            405.2503662109375,
+            418.2969970703125
+          ],
+          [
+            385.7243347167969,
+            419.2189636230469
+          ],
+          [
+            382.1203918457031,
+            426.5677490234375
+          ],
+          [
+            369.32354736328125,
+            427.2205505371094
+          ],
+          [
+            387.4615173339844,
+            455.17828369140625
+          ],
+          [
+            365.6143798828125,
+            457.2413635253906
+          ],
+          [
+            378.7375183105469,
+            482.4060974121094
+          ],
+          [
+            352.9176025390625,
+            485.19598388671875
+          ]
+        ],
+        "keypoint_confidences": [
+          0.9381117224693298,
+          0.49266690015792847,
+          0.949278712272644,
+          0.06464557349681854,
+          0.9481416344642639,
+          0.9936633110046387,
+          0.9959132075309753,
+          0.9642577767372131,
+          0.9915058016777039,
+          0.9597120881080627,
+          0.9868085384368896,
+          0.9986415505409241,
+          0.9989435076713562,
+          0.997455894947052,
+          0.9980536699295044,
+          0.9888284206390381,
+          0.9898881316184998
+        ],
+        "source_roi": "full",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 328,
+        "bbox": [
+          347.37151393890383,
+          372.63336181640625,
+          416.63782558441164,
+          496.4385782877604
+        ],
+        "box_confidence": 0.8362597823143005,
+        "keypoints": [
+          [
+            393.6133820533753,
+            382.65702311197913
+          ],
+          [
+            394.8806880950928,
+            380.8408508300781
+          ],
+          [
+            391.32456731796265,
+            380.37198893229163
+          ],
+          [
+            395.1051878929138,
+            383.09698486328125
+          ],
+          [
+            385.8585083007813,
+            381.8112589518229
+          ],
+          [
+            394.8494136810303,
+            396.0132344563802
+          ],
+          [
+            377.22746229171753,
+            395.1797790527344
+          ],
+          [
+            399.41152811050415,
+            411.6258544921875
+          ],
+          [
+            377.06490049362185,
+            413.30804443359375
+          ],
+          [
+            410.9228743553162,
+            416.98148600260413
+          ],
+          [
+            391.34338083267215,
+            419.0774943033854
+          ],
+          [
+            384.71601486206055,
+            428.7725423177083
+          ],
+          [
+            371.43245182037356,
+            428.6636759440104
+          ],
+          [
+            389.7134870529175,
+            455.71661376953125
+          ],
+          [
+            368.04667072296144,
+            457.14579264322913
+          ],
+          [
+            382.6746670722962,
+            481.5819091796875
+          ],
+          [
+            354.55766572952274,
+            484.64394124348956
+          ]
+        ],
+        "keypoint_confidences": [
+          0.9656072854995728,
+          0.7254349589347839,
+          0.976531982421875,
+          0.1344931721687317,
+          0.9658197164535522,
+          0.9961853623390198,
+          0.9977102279663086,
+          0.9577552080154419,
+          0.9863885045051575,
+          0.9314863085746765,
+          0.9653099179267883,
+          0.9993576407432556,
+          0.9995089769363403,
+          0.9990050196647644,
+          0.9992221593856812,
+          0.9960334897041321,
+          0.9963332414627075
+        ],
+        "source_roi": "lower_left",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 329,
+        "bbox": [
+          349.68810100555424,
+          375.497812906901,
+          422.8334987640381,
+          496.92081705729163
+        ],
+        "box_confidence": 0.9003326296806335,
+        "keypoints": [
+          [
+            399.50290803909303,
+            384.63238525390625
+          ],
+          [
+            400.4933052062988,
+            382.8990580240885
+          ],
+          [
+            397.2038313865662,
+            382.40214029947913
+          ],
+          [
+            400.227920627594,
+            384.78643798828125
+          ],
+          [
+            391.47666358947754,
+            383.45050048828125
+          ],
+          [
+            400.07521352767947,
+            397.27436319986975
+          ],
+          [
+            383.31465234756473,
+            395.94999186197913
+          ],
+          [
+            404.8815371513367,
+            410.47489420572913
+          ],
+          [
+            384.6326978683472,
+            410.6547648111979
+          ],
+          [
+            415.85515079498293,
+            415.27054850260413
+          ],
+          [
+            397.1200257301331,
+            418.9943440755208
+          ],
+          [
+            388.8803985595703,
+            432.19718424479163
+          ],
+          [
+            375.8864496231079,
+            431.871337890625
+          ],
+          [
+            394.2837051391602,
+            457.81524658203125
+          ],
+          [
+            370.24406480789185,
+            460.034423828125
+          ],
+          [
+            385.5376605033875,
+            481.5792236328125
+          ],
+          [
+            356.95752906799316,
+            487.1607259114583
+          ]
+        ],
+        "keypoint_confidences": [
+          0.9694471955299377,
+          0.6365540027618408,
+          0.9832088351249695,
+          0.07712534815073013,
+          0.9790812134742737,
+          0.9955516457557678,
+          0.9986661672592163,
+          0.9434710741043091,
+          0.9962982535362244,
+          0.9274240732192993,
+          0.9899707436561584,
+          0.9993454813957214,
+          0.9996473789215088,
+          0.9984649419784546,
+          0.9992401599884033,
+          0.9931895732879639,
+          0.9954433441162109
+        ],
+        "source_roi": "lower_left",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 330,
+        "bbox": [
+          353.49234027862553,
+          374.65966796875,
+          429.53298320770267,
+          497.0108642578125
+        ],
+        "box_confidence": 0.8904456496238708,
+        "keypoints": [
+          [
+            406.21900701522827,
+            384.68715413411456
+          ],
+          [
+            407.5399030685425,
+            382.9402872721354
+          ],
+          [
+            403.72275495529175,
+            382.2475382486979
+          ],
+          [
+            407.778492641449,
+            384.96793619791663
+          ],
+          [
+            397.547890663147,
+            383.1718343098958
+          ],
+          [
+            407.7341872215271,
+            397.9063415527344
+          ],
+          [
+            388.48702507019044,
+            395.4019775390625
+          ],
+          [
+            415.71551542282106,
+            411.47216796875
+          ],
+          [
+            389.64751758575443,
+            409.0178019205729
+          ],
+          [
+            424.5972046852112,
+            417.0633544921875
+          ],
+          [
+            401.9640578269959,
+            419.1029052734375
+          ],
+          [
+            393.42410669326785,
+            431.2040608723958
+          ],
+          [
+            379.3120567321778,
+            430.3140665690104
+          ],
+          [
+            396.9147059440613,
+            457.1998087565104
+          ],
+          [
+            376.087086391449,
+            459.41569010416663
+          ],
+          [
+            387.6501494407654,
+            480.5634562174479
+          ],
+          [
+            361.39882164001466,
+            487.13372802734375
+          ]
+        ],
+        "keypoint_confidences": [
+          0.9747042655944824,
+          0.7772216796875,
+          0.9844925403594971,
+          0.12337121367454529,
+          0.9718157052993774,
+          0.9962071180343628,
+          0.9973487854003906,
+          0.9573311805725098,
+          0.9804470539093018,
+          0.935350239276886,
+          0.9561495780944824,
+          0.9993276596069336,
+          0.9994569420814514,
+          0.9990683197975159,
+          0.9992276430130005,
+          0.9966095685958862,
+          0.9966604709625244
+        ],
+        "source_roi": "lower_left",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 331,
+        "bbox": [
+          358.24515533447266,
+          373.3487548828125,
+          430.6428176879883,
+          495.5899251302083
+        ],
+        "box_confidence": 0.8714441061019897,
+        "keypoints": [
+          [
+            410.73925933837893,
+            386.1769816080729
+          ],
+          [
+            412.7442831993103,
+            384.624033610026
+          ],
+          [
+            409.14308328628545,
+            383.8865966796875
+          ],
+          [
+            414.23633337020874,
+            387.1962687174479
+          ],
+          [
+            405.40355110168457,
+            384.9845886230469
+          ],
+          [
+            413.8628321647644,
+            400.6119079589844
+          ],
+          [
+            396.0166253089905,
+            395.199951171875
+          ],
+          [
+            419.20477085113527,
+            414.4620361328125
+          ],
+          [
+            390.6790031433106,
+            395.9840596516927
+          ],
+          [
+            425.9226615905762,
+            421.8603108723958
+          ],
+          [
+            396.06435136795045,
+            390.6214904785156
+          ],
+          [
+            397.581323337555,
+            431.47511800130206
+          ],
+          [
+            384.6365664482117,
+            429.6508382161458
+          ],
+          [
+            400.0484185218811,
+            457.6259358723958
+          ],
+          [
+            380.8344447135926,
+            458.81998697916663
+          ],
+          [
+            392.12141332626345,
+            482.0391438802083
+          ],
+          [
+            365.918381690979,
+            485.9590861002604
+          ]
+        ],
+        "keypoint_confidences": [
+          0.8557107448577881,
+          0.6346032023429871,
+          0.8237489461898804,
+          0.30682340264320374,
+          0.7756119966506958,
+          0.9925776124000549,
+          0.9907723665237427,
+          0.9567393064498901,
+          0.9272841215133667,
+          0.9103408455848694,
+          0.8534643650054932,
+          0.9990835189819336,
+          0.9989851117134094,
+          0.9988446235656738,
+          0.9985718727111816,
+          0.995966911315918,
+          0.9948377013206482
+        ],
+        "source_roi": "lower_left",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 332,
+        "bbox": [
+          363.69407043457034,
+          374.665049235026,
+          427.474165725708,
+          496.0852864583333
+        ],
+        "box_confidence": 0.8457631468772888,
+        "keypoints": [
+          [
+            418.8331428527832,
+            392.4930725097656
+          ],
+          [
+            421.0431200027466,
+            390.6690673828125
+          ],
+          [
+            417.11553411483766,
+            389.47206624348956
+          ],
+          [
+            422.1932284355164,
+            391.59745279947913
+          ],
+          [
+            412.11761398315434,
+            388.080078125
+          ],
+          [
+            419.532297039032,
+            404.55716959635413
+          ],
+          [
+            401.53269081115724,
+            396.30521647135413
+          ],
+          [
+            418.9374723434448,
+            420.80069986979163
+          ],
+          [
+            392.2667904853821,
+            398.0968831380208
+          ],
+          [
+            422.6194644927979,
+            431.16068522135413
+          ],
+          [
+            396.205778503418,
+            398.27716064453125
+          ],
+          [
+            405.39455156326295,
+            432.609375
+          ],
+          [
+            392.77434816360477,
+            429.5550333658854
+          ],
+          [
+            404.8579184532166,
+            459.59330240885413
+          ],
+          [
+            390.3180035591126,
+            458.23419189453125
+          ],
+          [
+            395.479584980011,
+            482.79107666015625
+          ],
+          [
+            373.0677616119385,
+            483.6380208333333
+          ]
+        ],
+        "keypoint_confidences": [
+          0.9595084190368652,
+          0.7970199584960938,
+          0.9582133889198303,
+          0.2181340903043747,
+          0.9069051742553711,
+          0.9938977360725403,
+          0.9954521059989929,
+          0.9548227787017822,
+          0.9678451418876648,
+          0.9296708703041077,
+          0.9414575695991516,
+          0.9990965127944946,
+          0.9991843104362488,
+          0.9989172220230103,
+          0.998900294303894,
+          0.996067225933075,
+          0.9957035183906555
+        ],
+        "source_roi": "lower_left",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 333,
+        "bbox": [
+          363.6873106002808,
+          374.7508341471354,
+          427.5246608734131,
+          496.08888753255206
+        ],
+        "box_confidence": 0.8465173840522766,
+        "keypoints": [
+          [
+            418.84218311309814,
+            392.378428141276
+          ],
+          [
+            421.07691917419436,
+            390.540771484375
+          ],
+          [
+            417.12290477752686,
+            389.35011800130206
+          ],
+          [
+            422.29894247055057,
+            391.4794514973958
+          ],
+          [
+            412.15088376998904,
+            388.0138041178385
+          ],
+          [
+            419.5967597961426,
+            404.42201741536456
+          ],
+          [
+            401.5819235801697,
+            396.535898844401
+          ],
+          [
+            418.86535387039186,
+            420.6763712565104
+          ],
+          [
+            392.1641305923462,
+            399.71036783854163
+          ],
+          [
+            422.531097984314,
+            431.03507486979163
+          ],
+          [
+            395.5989001274109,
+            401.81520589192706
+          ],
+          [
+            405.3788329124451,
+            432.406005859375
+          ],
+          [
+            392.7523583412171,
+            429.45461018880206
+          ],
+          [
+            404.85865144729615,
+            459.43044026692706
+          ],
+          [
+            390.114679145813,
+            458.14111328125
+          ],
+          [
+            395.47192926406865,
+            482.7775472005208
+          ],
+          [
+            373.0260216712952,
+            483.7757364908854
+          ]
+        ],
+        "keypoint_confidences": [
+          0.9592065811157227,
+          0.7953293919563293,
+          0.9575083255767822,
+          0.22022397816181183,
+          0.9040970802307129,
+          0.9937998652458191,
+          0.9955716133117676,
+          0.9552949070930481,
+          0.9709038138389587,
+          0.9322745203971863,
+          0.9467876553535461,
+          0.9990819692611694,
+          0.9991883635520935,
+          0.9988773465156555,
+          0.9988892674446106,
+          0.9958279728889465,
+          0.9955359697341919
+        ],
+        "source_roi": "lower_left",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 334,
+        "bbox": [
+          369.6867042541504,
+          385.4894816080729,
+          432.70701045989995,
+          495.3835245768229
+        ],
+        "box_confidence": 0.9027941823005676,
+        "keypoints": [
+          [
+            429.0616680145264,
+            394.771006266276
+          ],
+          [
+            430.01561908721925,
+            392.92020670572913
+          ],
+          [
+            427.11422491073614,
+            392.37502034505206
+          ],
+          [
+            428.7971793174744,
+            394.7181193033854
+          ],
+          [
+            421.4915494918823,
+            393.1956888834635
+          ],
+          [
+            426.7917482376099,
+            408.18790690104163
+          ],
+          [
+            410.7437387466431,
+            403.5905354817708
+          ],
+          [
+            420.4132744789124,
+            426.6663411458333
+          ],
+          [
+            395.811997795105,
+            414.16107177734375
+          ],
+          [
+            421.33330421447755,
+            436.26300048828125
+          ],
+          [
+            388.8590195655823,
+            428.4358723958333
+          ],
+          [
+            412.3801073074341,
+            435.32071940104163
+          ],
+          [
+            400.5205074310303,
+            433.53041585286456
+          ],
+          [
+            415.5980734825134,
+            461.43349202473956
+          ],
+          [
+            394.475912475586,
+            461.55814615885413
+          ],
+          [
+            401.1058439254761,
+            479.4434611002604
+          ],
+          [
+            376.90030260086064,
+            483.5609944661458
+          ]
+        ],
+        "keypoint_confidences": [
+          0.8958365321159363,
+          0.40223047137260437,
+          0.9436324238777161,
+          0.05693773925304413,
+          0.9502803087234497,
+          0.9655895233154297,
+          0.9963576197624207,
+          0.6447926759719849,
+          0.9870579838752747,
+          0.6194576025009155,
+          0.9632133841514587,
+          0.9964278340339661,
+          0.9988139867782593,
+          0.9961820244789124,
+          0.9987397789955139,
+          0.9915615916252136,
+          0.9959343671798706
+        ],
+        "source_roi": "lower_left",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 335,
+        "bbox": [
+          371.735422706604,
+          375.01881917317706,
+          442.88398170471197,
+          497.10760498046875
+        ],
+        "box_confidence": 0.791700005531311,
+        "keypoints": [
+          [
+            431.4914212226868,
+            400.07098388671875
+          ],
+          [
+            434.0926136016846,
+            399.45380655924475
+          ],
+          [
+            430.85343132019045,
+            397.9710286458333
+          ],
+          [
+            436.37169580459596,
+            403.5392862955729
+          ],
+          [
+            428.7104009628296,
+            400.07244873046875
+          ],
+          [
+            432.3712177276612,
+            411.1278889973958
+          ],
+          [
+            415.46128864288335,
+            410.80816650390625
+          ],
+          [
+            425.3151723861695,
+            406.6709798177083
+          ],
+          [
+            399.163938999176,
+            419.2531331380208
+          ],
+          [
+            422.5040993690491,
+            388.62233479817706
+          ],
+          [
+            390.34097070693974,
+            430.59564208984375
+          ],
+          [
+            417.9696758270264,
+            436.3796183268229
+          ],
+          [
+            405.0328597068787,
+            436.37186686197913
+          ],
+          [
+            428.65412330627447,
+            459.6705118815104
+          ],
+          [
+            402.2946788787842,
+            462.33229573567706
+          ],
+          [
+            410.6268669128418,
+            478.23779296875
+          ],
+          [
+            380.12466211318974,
+            486.61671956380206
+          ]
+        ],
+        "keypoint_confidences": [
+          0.4958287179470062,
+          0.2653557062149048,
+          0.3932430148124695,
+          0.21391800045967102,
+          0.39059314131736755,
+          0.9321767091751099,
+          0.983055830001831,
+          0.6249575614929199,
+          0.8793970346450806,
+          0.5474088788032532,
+          0.714371919631958,
+          0.9983800649642944,
+          0.9992511868476868,
+          0.9989179372787476,
+          0.9994797110557556,
+          0.9982681274414062,
+          0.9989699125289917
+        ],
+        "source_roi": "lower_left",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 336,
+        "bbox": [
+          374.58318614959717,
+          379.5924377441406,
+          455.90106067657473,
+          499.36767578125
+        ],
+        "box_confidence": 0.8179901242256165,
+        "keypoints": [
+          [
+            447.9536945343018,
+            410.46828206380206
+          ],
+          [
+            448.72757339477545,
+            408.80385335286456
+          ],
+          [
+            447.1313566207886,
+            408.1199951171875
+          ],
+          [
+            447.1305829048157,
+            409.42592366536456
+          ],
+          [
+            444.4455441474915,
+            408.16127522786456
+          ],
+          [
+            442.2700584411621,
+            415.03263346354163
+          ],
+          [
+            432.6904366493225,
+            416.54715983072913
+          ],
+          [
+            421.63835191726685,
+            418.10711669921875
+          ],
+          [
+            413.42780017852783,
+            421.51957194010413
+          ],
+          [
+            404.90210170745854,
+            422.8747151692708
+          ],
+          [
+            396.9096564292908,
+            433.26456705729163
+          ],
+          [
+            423.6061559677124,
+            439.31911214192706
+          ],
+          [
+            413.78945131301884,
+            440.6290283203125
+          ],
+          [
+            442.4785545349121,
+            459.2364501953125
+          ],
+          [
+            405.203891658783,
+            467.0379231770833
+          ],
+          [
+            420.65060167312623,
+            476.65667724609375
+          ],
+          [
+            384.6076946258545,
+            491.87371826171875
+          ]
+        ],
+        "keypoint_confidences": [
+          0.3294704258441925,
+          0.06999070942401886,
+          0.41111695766448975,
+          0.06648670136928558,
+          0.7804420590400696,
+          0.90768963098526,
+          0.9890701770782471,
+          0.45165422558784485,
+          0.9321503043174744,
+          0.33168861269950867,
+          0.7799312472343445,
+          0.9975268244743347,
+          0.9991644620895386,
+          0.9982045888900757,
+          0.9993855953216553,
+          0.9975946545600891,
+          0.9987974166870117
+        ],
+        "source_roi": "lower_left",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 337,
+        "bbox": [
+          378.2352294921875,
+          395.798095703125,
+          465.29345703125,
+          500.6002197265625
+        ],
+        "box_confidence": 0.7391744256019592,
+        "keypoints": [
+          [
+            458.63641357421875,
+            415.5443115234375
+          ],
+          [
+            458.1799621582031,
+            413.2574768066406
+          ],
+          [
+            457.6213073730469,
+            413.089599609375
+          ],
+          [
+            448.81298828125,
+            412.6378479003906
+          ],
+          [
+            454.247802734375,
+            412.3665771484375
+          ],
+          [
+            435.8559875488281,
+            424.3534240722656
+          ],
+          [
+            447.5401611328125,
+            422.03802490234375
+          ],
+          [
+            419.6347961425781,
+            441.04046630859375
+          ],
+          [
+            437.2672424316406,
+            439.3142395019531
+          ],
+          [
+            418.3379211425781,
+            448.8573303222656
+          ],
+          [
+            435.321533203125,
+            451.3122253417969
+          ],
+          [
+            418.0203552246094,
+            455.45782470703125
+          ],
+          [
+            429.30889892578125,
+            453.65362548828125
+          ],
+          [
+            414.5006408691406,
+            471.5711669921875
+          ],
+          [
+            452.33074951171875,
+            465.55987548828125
+          ],
+          [
+            387.9209289550781,
+            490.319580078125
+          ],
+          [
+            440.5224914550781,
+            480.9625244140625
+          ]
+        ],
+        "keypoint_confidences": [
+          0.20720644295215607,
+          0.02760283648967743,
+          0.21582645177841187,
+          0.09361416101455688,
+          0.8610268235206604,
+          0.9548603892326355,
+          0.9793691039085388,
+          0.5612422227859497,
+          0.7974880933761597,
+          0.357481986284256,
+          0.5351625680923462,
+          0.9836896061897278,
+          0.988685131072998,
+          0.9834703803062439,
+          0.9882196187973022,
+          0.9773081541061401,
+          0.9812619090080261
+        ],
+        "source_roi": "full",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 338,
+        "bbox": [
+          384.8420083999634,
+          405.0512288411458,
+          476.2364339828492,
+          501.19523111979163
+        ],
+        "box_confidence": 0.7682745456695557,
+        "keypoints": [
+          [
+            470.4724535942078,
+            420.5963948567708
+          ],
+          [
+            469.8700546264649,
+            419.26416015625
+          ],
+          [
+            469.7886108398438,
+            418.71927897135413
+          ],
+          [
+            466.046065235138,
+            419.638427734375
+          ],
+          [
+            465.6647047042847,
+            418.8855997721354
+          ],
+          [
+            462.26572971343995,
+            428.725341796875
+          ],
+          [
+            452.4232481002808,
+            427.54119873046875
+          ],
+          [
+            460.56880769729617,
+            443.24330647786456
+          ],
+          [
+            441.77483949661257,
+            437.70233154296875
+          ],
+          [
+            462.8927247047425,
+            449.6487833658854
+          ],
+          [
+            440.96068668365484,
+            446.2354329427083
+          ],
+          [
+            442.12651376724244,
+            452.72941080729163
+          ],
+          [
+            431.1130741119385,
+            453.06876627604163
+          ],
+          [
+            465.16614656448365,
+            466.29166666666663
+          ],
+          [
+            418.52088737487793,
+            472.7938028971354
+          ],
+          [
+            459.36486492156985,
+            481.4693603515625
+          ],
+          [
+            395.5243383407593,
+            495.0140177408854
+          ]
+        ],
+        "keypoint_confidences": [
+          0.3425559103488922,
+          0.09356442838907242,
+          0.39288005232810974,
+          0.07853507995605469,
+          0.6928309798240662,
+          0.9437758326530457,
+          0.9796039462089539,
+          0.7496432065963745,
+          0.8969565033912659,
+          0.596143901348114,
+          0.7069577574729919,
+          0.9969853758811951,
+          0.9981644749641418,
+          0.9967955946922302,
+          0.9979762434959412,
+          0.9947267174720764,
+          0.9957839846611023
+        ],
+        "source_roi": "lower_left",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 339,
+        "bbox": [
+          384.67236099243166,
+          396.95707194010413,
+          476.22885971069337,
+          501.06791178385413
+        ],
+        "box_confidence": 0.7500710487365723,
+        "keypoints": [
+          [
+            471.38780031204226,
+            421.2299601236979
+          ],
+          [
+            470.3295197486878,
+            419.97119140625
+          ],
+          [
+            470.60003528594973,
+            419.4661458333333
+          ],
+          [
+            465.66063251495365,
+            420.3824055989583
+          ],
+          [
+            465.9319217681885,
+            419.7709554036458
+          ],
+          [
+            462.56768255233766,
+            429.4969278971354
+          ],
+          [
+            452.05630311965945,
+            427.1266682942708
+          ],
+          [
+            460.07774238586427,
+            443.0201416015625
+          ],
+          [
+            440.935927772522,
+            434.38124593098956
+          ],
+          [
+            463.0623721122742,
+            449.0099894205729
+          ],
+          [
+            440.08748712539676,
+            442.9517415364583
+          ],
+          [
+            442.20877199172975,
+            452.55143229166663
+          ],
+          [
+            430.62551088333134,
+            452.3411865234375
+          ],
+          [
+            464.9523566246033,
+            466.39430745442706
+          ],
+          [
+            417.27789230346684,
+            471.71453857421875
+          ],
+          [
+            460.8870492935181,
+            481.10382080078125
+          ],
+          [
+            396.4902209281922,
+            493.27445475260413
+          ]
+        ],
+        "keypoint_confidences": [
+          0.3556487262248993,
+          0.08261331915855408,
+          0.39448168873786926,
+          0.06131624057888985,
+          0.7259584665298462,
+          0.9567968249320984,
+          0.978050947189331,
+          0.7969021201133728,
+          0.8650882244110107,
+          0.6172804236412048,
+          0.6391472816467285,
+          0.9969995617866516,
+          0.997769832611084,
+          0.995201587677002,
+          0.99614417552948,
+          0.9898903369903564,
+          0.9903068542480469
+        ],
+        "source_roi": "lower_left",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 340,
+        "bbox": [
+          390.25541400909424,
+          412.3010050455729,
+          488.0676914215088,
+          501.74176025390625
+        ],
+        "box_confidence": 0.8327520489692688,
+        "keypoints": [
+          [
+            481.4887845039368,
+            423.83902994791663
+          ],
+          [
+            483.31829700469973,
+            421.5081787109375
+          ],
+          [
+            479.1963862419129,
+            421.15419514973956
+          ],
+          [
+            481.18923425674444,
+            422.5753173828125
+          ],
+          [
+            470.25829715728764,
+            422.08170572916663
+          ],
+          [
+            473.06835212707523,
+            435.65895589192706
+          ],
+          [
+            458.2225343704224,
+            434.34025065104163
+          ],
+          [
+            471.17453975677495,
+            456.3246663411458
+          ],
+          [
+            454.6625857353211,
+            448.5396525065104
+          ],
+          [
+            471.3105101585389,
+            469.55812581380206
+          ],
+          [
+            457.3908711433411,
+            460.44671630859375
+          ],
+          [
+            455.0413807868958,
+            455.2548624674479
+          ],
+          [
+            438.8440033912659,
+            455.6016845703125
+          ],
+          [
+            475.0723986625672,
+            465.9308675130208
+          ],
+          [
+            427.40127353668214,
+            474.4838663736979
+          ],
+          [
+            472.88502216339117,
+            486.21061197916663
+          ],
+          [
+            401.5344825744629,
+            492.0256144205729
+          ]
+        ],
+        "keypoint_confidences": [
+          0.8915937542915344,
+          0.6053045988082886,
+          0.921117901802063,
+          0.16653408110141754,
+          0.8794258832931519,
+          0.8530576229095459,
+          0.9724171161651611,
+          0.4767652451992035,
+          0.9128736853599548,
+          0.36161839962005615,
+          0.8005853891372681,
+          0.9725885987281799,
+          0.9880667924880981,
+          0.9714002013206482,
+          0.9872481226921082,
+          0.9693305492401123,
+          0.9794921875
+        ],
+        "source_roi": "lower_left",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 341,
+        "bbox": [
+          398.0361328125,
+          413.06036376953125,
+          502.855224609375,
+          503.46075439453125
+        ],
+        "box_confidence": 0.8236666321754456,
+        "keypoints": [
+          [
+            500.0063781738281,
+            423.5404052734375
+          ],
+          [
+            499.3372497558594,
+            420.97003173828125
+          ],
+          [
+            496.9107971191406,
+            421.831298828125
+          ],
+          [
+            489.8842468261719,
+            420.60150146484375
+          ],
+          [
+            489.95733642578125,
+            423.04669189453125
+          ],
+          [
+            477.1307678222656,
+            430.54315185546875
+          ],
+          [
+            489.61505126953125,
+            434.8505859375
+          ],
+          [
+            473.2971496582031,
+            445.1580810546875
+          ],
+          [
+            489.7640686035156,
+            453.68792724609375
+          ],
+          [
+            482.3628845214844,
+            452.59857177734375
+          ],
+          [
+            489.97747802734375,
+            459.73406982421875
+          ],
+          [
+            452.4611511230469,
+            453.9739990234375
+          ],
+          [
+            466.0079345703125,
+            455.1065673828125
+          ],
+          [
+            441.4758605957031,
+            473.6848449707031
+          ],
+          [
+            489.6650695800781,
+            475.24835205078125
+          ],
+          [
+            408.2176513671875,
+            490.0827941894531
+          ],
+          [
+            479.40338134765625,
+            492.1228942871094
+          ]
+        ],
+        "keypoint_confidences": [
+          0.6751976609230042,
+          0.0938957929611206,
+          0.7974764704704285,
+          0.08738475292921066,
+          0.9786721467971802,
+          0.957387387752533,
+          0.9973101615905762,
+          0.21104231476783752,
+          0.9441708922386169,
+          0.15084713697433472,
+          0.7504428029060364,
+          0.9843329191207886,
+          0.9960873126983643,
+          0.9899103045463562,
+          0.9976078271865845,
+          0.9897621273994446,
+          0.9961339235305786
+        ],
+        "source_roi": "full",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 342,
+        "bbox": [
+          398.0283203125,
+          413.15045166015625,
+          502.8760986328125,
+          503.490234375
+        ],
+        "box_confidence": 0.8218662738800049,
+        "keypoints": [
+          [
+            500.03289794921875,
+            423.5893249511719
+          ],
+          [
+            499.3154602050781,
+            421.0113220214844
+          ],
+          [
+            496.95867919921875,
+            421.8849792480469
+          ],
+          [
+            489.7401428222656,
+            420.6181335449219
+          ],
+          [
+            490.0074768066406,
+            423.0941162109375
+          ],
+          [
+            477.0950622558594,
+            430.56036376953125
+          ],
+          [
+            489.6522216796875,
+            434.8510437011719
+          ],
+          [
+            473.29486083984375,
+            445.266357421875
+          ],
+          [
+            489.8251647949219,
+            453.7208251953125
+          ],
+          [
+            482.2114562988281,
+            452.69921875
+          ],
+          [
+            489.92779541015625,
+            459.7915344238281
+          ],
+          [
+            452.6412353515625,
+            454.03778076171875
+          ],
+          [
+            466.2405700683594,
+            455.145263671875
+          ],
+          [
+            441.34014892578125,
+            473.8106384277344
+          ],
+          [
+            489.6201171875,
+            475.2835998535156
+          ],
+          [
+            408.2874755859375,
+            490.2189025878906
+          ],
+          [
+            479.35821533203125,
+            492.1356506347656
+          ]
+        ],
+        "keypoint_confidences": [
+          0.6588062644004822,
+          0.08822110295295715,
+          0.7841228246688843,
+          0.08601593971252441,
+          0.9778872132301331,
+          0.9563574194908142,
+          0.9972431659698486,
+          0.20682327449321747,
+          0.9422135353088379,
+          0.14609019458293915,
+          0.7414153814315796,
+          0.9844744205474854,
+          0.9961269497871399,
+          0.9900916814804077,
+          0.997643768787384,
+          0.9900069236755371,
+          0.9962199330329895
+        ],
+        "source_roi": "full",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 343,
+        "bbox": [
+          406.395751953125,
+          413.78997802734375,
+          537.1995849609375,
+          504.3670654296875
+        ],
+        "box_confidence": 0.8440053462982178,
+        "keypoints": [
+          [
+            516.3546142578125,
+            425.4416198730469
+          ],
+          [
+            515.8878173828125,
+            423.6712646484375
+          ],
+          [
+            512.8682861328125,
+            423.7083740234375
+          ],
+          [
+            506.769287109375,
+            424.769775390625
+          ],
+          [
+            504.33367919921875,
+            425.0959777832031
+          ],
+          [
+            495.883544921875,
+            435.4027404785156
+          ],
+          [
+            503.3906555175781,
+            436.80120849609375
+          ],
+          [
+            505.6702575683594,
+            448.80462646484375
+          ],
+          [
+            513.0843505859375,
+            454.0850830078125
+          ],
+          [
+            523.5234375,
+            451.6973571777344
+          ],
+          [
+            525.9075317382812,
+            448.6240539550781
+          ],
+          [
+            465.8247985839844,
+            462.1285400390625
+          ],
+          [
+            476.3267517089844,
+            461.8215637207031
+          ],
+          [
+            451.8061828613281,
+            479.569580078125
+          ],
+          [
+            503.441650390625,
+            479.15228271484375
+          ],
+          [
+            416.2200927734375,
+            493.0472106933594
+          ],
+          [
+            487.5648498535156,
+            492.73974609375
+          ]
+        ],
+        "keypoint_confidences": [
+          0.8861147165298462,
+          0.229074165225029,
+          0.9474789500236511,
+          0.08556914329528809,
+          0.9876769781112671,
+          0.958218514919281,
+          0.9981667995452881,
+          0.29585519433021545,
+          0.9880964756011963,
+          0.343339204788208,
+          0.9562753438949585,
+          0.9841436147689819,
+          0.9965580105781555,
+          0.988896369934082,
+          0.9979730248451233,
+          0.9865771532058716,
+          0.9958563446998596
+        ],
+        "source_roi": "full",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 344,
+        "bbox": [
+          419.9225756645203,
+          417.3970540364583,
+          560.1578627586365,
+          503.9536946614583
+        ],
+        "box_confidence": 0.8253998756408691,
+        "keypoints": [
+          [
+            534.207632637024,
+            425.8170166015625
+          ],
+          [
+            533.1939018249512,
+            424.77223714192706
+          ],
+          [
+            532.5392159461976,
+            424.30487060546875
+          ],
+          [
+            526.5314743041993,
+            427.1952718098958
+          ],
+          [
+            526.9727774620056,
+            426.36710611979163
+          ],
+          [
+            514.7850812911988,
+            437.6082763671875
+          ],
+          [
+            520.9855596542359,
+            435.73014322916663
+          ],
+          [
+            523.4328232765198,
+            448.47170003255206
+          ],
+          [
+            531.9221570968629,
+            444.35453287760413
+          ],
+          [
+            544.8793341636658,
+            446.08744303385413
+          ],
+          [
+            546.3529373168946,
+            441.8226318359375
+          ],
+          [
+            481.77045783996584,
+            463.314208984375
+          ],
+          [
+            490.63748722076417,
+            461.5827229817708
+          ],
+          [
+            473.7806594848633,
+            475.6689453125
+          ],
+          [
+            512.9113040924072,
+            475.71695963541663
+          ],
+          [
+            438.6177932739258,
+            488.6715087890625
+          ],
+          [
+            497.1711521148682,
+            493.1022542317708
+          ]
+        ],
+        "keypoint_confidences": [
+          0.4202120900154114,
+          0.06891121715307236,
+          0.44953975081443787,
+          0.09312159568071365,
+          0.7851048111915588,
+          0.877415657043457,
+          0.9718299508094788,
+          0.4823532998561859,
+          0.9354488849639893,
+          0.3494170606136322,
+          0.8264090418815613,
+          0.9844914078712463,
+          0.9928969740867615,
+          0.9806309938430786,
+          0.9916123151779175,
+          0.9669574499130249,
+          0.9777548909187317
+        ],
+        "source_roi": "lower_left",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 345,
+        "bbox": [
+          438.65838623046875,
+          413.68316650390625,
+          570.9051513671875,
+          505.17449951171875
+        ],
+        "box_confidence": 0.3121701180934906,
+        "keypoints": [
+          [
+            552.2965087890625,
+            429.0614013671875
+          ],
+          [
+            550.647705078125,
+            427.6311950683594
+          ],
+          [
+            550.7009887695312,
+            427.9240417480469
+          ],
+          [
+            540.6141357421875,
+            428.6821594238281
+          ],
+          [
+            545.5802001953125,
+            429.78173828125
+          ],
+          [
+            530.7503051757812,
+            438.4818420410156
+          ],
+          [
+            539.2042236328125,
+            438.49530029296875
+          ],
+          [
+            534.289794921875,
+            439.2651062011719
+          ],
+          [
+            546.855712890625,
+            438.4412536621094
+          ],
+          [
+            552.4512329101562,
+            433.45703125
+          ],
+          [
+            560.8170776367188,
+            429.26544189453125
+          ],
+          [
+            498.7066650390625,
+            462.2902526855469
+          ],
+          [
+            507.0989990234375,
+            461.5199890136719
+          ],
+          [
+            491.7828674316406,
+            481.0157165527344
+          ],
+          [
+            526.2623901367188,
+            480.999755859375
+          ],
+          [
+            448.4391174316406,
+            491.974853515625
+          ],
+          [
+            500.70361328125,
+            493.4499816894531
+          ]
+        ],
+        "keypoint_confidences": [
+          0.19083262979984283,
+          0.016713839024305344,
+          0.263225793838501,
+          0.06481598317623138,
+          0.8962650299072266,
+          0.9022969007492065,
+          0.9911406636238098,
+          0.29280540347099304,
+          0.9665760397911072,
+          0.24888426065444946,
+          0.8617681264877319,
+          0.9843097925186157,
+          0.9954010248184204,
+          0.9770341515541077,
+          0.9942538142204285,
+          0.9604538679122925,
+          0.9846014976501465
+        ],
+        "source_roi": "full",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 346,
+        "bbox": [
+          457.85672960281374,
+          420.1492513020833,
+          591.9363324165345,
+          506.0008138020833
+        ],
+        "box_confidence": 0.2660113573074341,
+        "keypoints": [
+          [
+            569.1054807662964,
+            426.7176106770833
+          ],
+          [
+            569.2410846710205,
+            425.61466471354163
+          ],
+          [
+            567.3617285728455,
+            425.00443522135413
+          ],
+          [
+            563.9402750968934,
+            427.6940714518229
+          ],
+          [
+            560.557222366333,
+            427.2532552083333
+          ],
+          [
+            550.9277976989747,
+            436.34549967447913
+          ],
+          [
+            558.4156172752381,
+            436.3533935546875
+          ],
+          [
+            555.8794984817505,
+            441.6004231770833
+          ],
+          [
+            565.564142036438,
+            445.95389811197913
+          ],
+          [
+            572.2458717346192,
+            438.04836018880206
+          ],
+          [
+            573.0969593048096,
+            439.16322835286456
+          ],
+          [
+            522.0401345252991,
+            464.0656331380208
+          ],
+          [
+            523.6544318199158,
+            462.6747843424479
+          ],
+          [
+            518.1346606254579,
+            478.79056803385413
+          ],
+          [
+            520.8102111816406,
+            479.611328125
+          ],
+          [
+            494.331125831604,
+            491.980224609375
+          ],
+          [
+            480.2662725448609,
+            490.29130045572913
+          ]
+        ],
+        "keypoint_confidences": [
+          0.39125242829322815,
+          0.1145157441496849,
+          0.40974360704421997,
+          0.13043706119060516,
+          0.727861225605011,
+          0.8599236607551575,
+          0.9687886238098145,
+          0.6136670112609863,
+          0.9434720277786255,
+          0.48299646377563477,
+          0.8363003730773926,
+          0.9829407334327698,
+          0.9920651316642761,
+          0.9671348929405212,
+          0.9843103885650635,
+          0.9379855990409851,
+          0.9572319984436035
+        ],
+        "source_roi": "lower_left",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 347,
+        "bbox": [
+          479.9700333952904,
+          427.7265218098958,
+          601.3419163703918,
+          505.94864908854163
+        ],
+        "box_confidence": 0.2915900945663452,
+        "keypoints": [
+          [
+            564.7888352632523,
+            434.19327799479163
+          ],
+          [
+            564.0056718111039,
+            432.9264933268229
+          ],
+          [
+            565.3640014648438,
+            433.62396240234375
+          ],
+          [
+            562.9276004076004,
+            434.26251220703125
+          ],
+          [
+            572.0734220504761,
+            436.164794921875
+          ],
+          [
+            558.8212861299514,
+            440.4140218098958
+          ],
+          [
+            574.3316444635391,
+            443.4832763671875
+          ],
+          [
+            560.7370272397995,
+            449.1987101236979
+          ],
+          [
+            587.3264994621277,
+            447.96071370442706
+          ],
+          [
+            571.3115968704224,
+            451.74945068359375
+          ],
+          [
+            594.2474092006684,
+            438.59037272135413
+          ],
+          [
+            539.599514079094,
+            466.0479736328125
+          ],
+          [
+            551.1672092437744,
+            466.1746419270833
+          ],
+          [
+            524.8513779640198,
+            481.32767740885413
+          ],
+          [
+            549.9751368999481,
+            487.2915852864583
+          ],
+          [
+            499.7811428666115,
+            488.93603515625
+          ],
+          [
+            527.9903640270234,
+            492.9226888020833
+          ]
+        ],
+        "keypoint_confidences": [
+          0.04088485240936279,
+          0.017169440165162086,
+          0.02568932995200157,
+          0.3153127133846283,
+          0.414019912481308,
+          0.9255975484848022,
+          0.9569658041000366,
+          0.6600350141525269,
+          0.8531970977783203,
+          0.2724674642086029,
+          0.4256133735179901,
+          0.9937566518783569,
+          0.9956472516059875,
+          0.9765061736106873,
+          0.9834052324295044,
+          0.936090350151062,
+          0.9441238045692444
+        ],
+        "source_roi": "lower_right",
+        "track_id": 1,
+        "association_source_track_id": 1
+      },
+      {
+        "frame": 348,
+        "bbox": [
+          483.62781128883364,
+          428.0460205078125,
+          588.7556343078613,
+          505.3795979817708
+        ],
+        "box_confidence": 0.2558698058128357,
+        "keypoints": [
+          [
+            566.3788623094558,
+            437.1502278645833
+          ],
+          [
+            566.1393157720565,
+            435.0371907552083
+          ],
+          [
+            566.7606504201889,
+            435.91064453125
+          ],
+          [
+            564.1765103340149,
+            434.7920735677083
+          ],
+          [
+            572.014069890976,
+            436.7502034505208
+          ],
+          [
+            559.9476435184479,
+            441.1783243815104
+          ],
+          [
+            572.0165539264679,
+            445.13397216796875
+          ],
+          [
+            556.0723038196563,
+            447.03444417317706
+          ],
+          [
+            577.2040548324585,
+            455.0104573567708
+          ],
+          [
+            564.2367889165878,
+            451.82545979817706
+          ],
+          [
+            581.9464552640915,
+            453.03946940104163
+          ],
+          [
+            540.2965914487838,
+            467.17213948567706
+          ],
+          [
+            549.3096902608871,
+            467.75065104166663
+          ],
+          [
+            529.0586214542388,
+            487.83428955078125
+          ],
+          [
+            550.3324307918549,
+            490.13995361328125
+          ],
+          [
+            505.60125329494474,
+            489.42350260416663
+          ],
+          [
+            529.0301975727082,
+            491.5871378580729
+          ]
+        ],
+        "keypoint_confidences": [
+          0.013131692074239254,
+          0.004903757479041815,
+          0.009650841355323792,
+          0.42641615867614746,
+          0.6192672848701477,
+          0.9484615921974182,
+          0.9879557490348816,
+          0.37686750292778015,
+          0.8402515649795532,
+          0.11335113644599915,
+          0.31228724122047424,
+          0.9917243123054504,
+          0.9961513876914978,
+          0.9653851389884949,
+          0.9841140508651733,
+          0.9194636344909668,
+          0.9522661566734314
+        ],
+        "source_roi": "lower_right",
+        "track_id": 1,
+        "field_support": 1.0,
+        "association_source_track_id": 1
+      }
+    ],
+    "decisions": [
+      {
+        "frame": 339,
+        "rejected": [
+          {
+            "source_track_id": 3,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 6,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 7,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 28,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 37,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 43,
+            "reason": "disconnected_body_motion"
+          }
+        ],
+        "selected_source_track_id": 1,
+        "appearance_similarity": 0.9164376258850098,
+        "motion_distance_body": 0.004086875612851014,
+        "id_switch": false
+      },
+      {
+        "frame": 340,
+        "rejected": [
+          {
+            "source_track_id": 3,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 6,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 7,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 28,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 33,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 37,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 43,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 45,
+            "reason": "disconnected_body_motion"
+          }
+        ],
+        "selected_source_track_id": 1,
+        "appearance_similarity": 0.9774827361106873,
+        "motion_distance_body": 0.0901291952133601,
+        "id_switch": false
+      },
+      {
+        "frame": 341,
+        "rejected": [
+          {
+            "source_track_id": 3,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 6,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 7,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 28,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 37,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 43,
+            "reason": "disconnected_body_motion"
+          }
+        ],
+        "selected_source_track_id": 1,
+        "appearance_similarity": 0.8523982763290405,
+        "motion_distance_body": 0.1015321385898466,
+        "id_switch": false
+      },
+      {
+        "frame": 342,
+        "rejected": [
+          {
+            "source_track_id": 3,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 6,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 7,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 28,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 37,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 43,
+            "reason": "disconnected_body_motion"
+          }
+        ],
+        "selected_source_track_id": 1,
+        "appearance_similarity": 0.8538143634796143,
+        "motion_distance_body": 0.0017517509450580356,
+        "id_switch": false
+      },
+      {
+        "frame": 343,
+        "rejected": [
+          {
+            "source_track_id": 3,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 6,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 7,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 37,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 43,
+            "reason": "disconnected_body_motion"
+          }
+        ],
+        "selected_source_track_id": 1,
+        "appearance_similarity": 0.8415578007698059,
+        "motion_distance_body": 0.11352807526486446,
+        "id_switch": false
+      },
+      {
+        "frame": 344,
+        "rejected": [
+          {
+            "source_track_id": 3,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 6,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 7,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 28,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 37,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 43,
+            "reason": "disconnected_body_motion"
+          }
+        ],
+        "selected_source_track_id": 1,
+        "appearance_similarity": 0.889535129070282,
+        "motion_distance_body": 0.12469689849303184,
+        "id_switch": false
+      },
+      {
+        "frame": 345,
+        "rejected": [
+          {
+            "source_track_id": 3,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 6,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 7,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 28,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 37,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 43,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 46,
+            "reason": "disconnected_body_motion"
+          }
+        ],
+        "selected_source_track_id": 1,
+        "appearance_similarity": 0.8801723122596741,
+        "motion_distance_body": 0.1376488256215568,
+        "id_switch": false
+      },
+      {
+        "frame": 346,
+        "rejected": [
+          {
+            "source_track_id": 3,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 6,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 7,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 28,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 37,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 43,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 46,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 47,
+            "reason": "disconnected_body_motion"
+          }
+        ],
+        "selected_source_track_id": 1,
+        "appearance_similarity": 0.9396451711654663,
+        "motion_distance_body": 0.16475804154335197,
+        "id_switch": false
+      },
+      {
+        "frame": 347,
+        "rejected": [
+          {
+            "source_track_id": 3,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 6,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 7,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 28,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 37,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 43,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 46,
+            "reason": "disconnected_body_motion"
+          }
+        ],
+        "selected_source_track_id": 1,
+        "appearance_similarity": 0.793268620967865,
+        "motion_distance_body": 0.18703516579471502,
+        "id_switch": false
+      },
+      {
+        "frame": 348,
+        "rejected": [
+          {
+            "source_track_id": 3,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 6,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 7,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 28,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 37,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 43,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 46,
+            "reason": "disconnected_body_motion"
+          }
+        ],
+        "selected_source_track_id": 1,
+        "appearance_similarity": 0.8064752221107483,
+        "motion_distance_body": 0.012106586490524778,
+        "id_switch": false
+      },
+      {
+        "frame": 349,
+        "rejected": [
+          {
+            "source_track_id": 3,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 6,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 7,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 28,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 37,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 43,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 46,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 47,
+            "reason": "disconnected_body_motion"
+          }
+        ],
+        "reason": "no_role_consistent_person_detection"
+      },
+      {
+        "frame": 350,
+        "rejected": [
+          {
+            "source_track_id": 3,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 6,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 7,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 37,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 43,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 46,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 47,
+            "reason": "disconnected_body_motion"
+          }
+        ],
+        "reason": "no_role_consistent_person_detection"
+      },
+      {
+        "frame": 351,
+        "rejected": [
+          {
+            "source_track_id": 3,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 6,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 7,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 37,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 43,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 46,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 47,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 48,
+            "reason": "weak_body_keypoints"
+          }
+        ],
+        "reason": "no_role_consistent_person_detection"
+      },
+      {
+        "frame": 352,
+        "rejected": [
+          {
+            "source_track_id": 3,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 6,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 7,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 37,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 43,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 46,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 48,
+            "reason": "weak_body_keypoints"
+          },
+          {
+            "source_track_id": 49,
+            "reason": "disconnected_body_motion"
+          }
+        ],
+        "reason": "no_role_consistent_person_detection"
+      },
+      {
+        "frame": 353,
+        "rejected": [
+          {
+            "source_track_id": 3,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 6,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 7,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 37,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 43,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 46,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 48,
+            "reason": "weak_body_keypoints"
+          }
+        ],
+        "reason": "no_role_consistent_person_detection"
+      },
+      {
+        "frame": 354,
+        "rejected": [
+          {
+            "source_track_id": 3,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 6,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 7,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 37,
+            "reason": "excluded_pre_kick_other_person"
+          },
+          {
+            "source_track_id": 43,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 46,
+            "reason": "disconnected_body_motion"
+          },
+          {
+            "source_track_id": 48,
+            "reason": "weak_body_keypoints"
+          }
+        ],
+        "reason": "no_role_consistent_person_detection"
+      }
+    ],
+    "status": "candidate_track",
+    "source_track_ids": [
+      1
+    ],
+    "identity_verified": false,
+    "max_gap_sec": 0.2,
+    "stop_reason": "long_observation_gap",
+    "last_observed_frame": 348,
+    "excluded_pre_person_ids": [
+      3,
+      6,
+      7,
+      33,
+      37
+    ],
+    "appearance_threshold": 0.35,
+    "association_cost_weights": {
+      "motion": 0.6,
+      "appearance": 0.4
+    },
+    "matched_reference_count": 10,
+    "pre_body_scale_px": 121.379145304362,
+    "source_pixels_decoded": true,
+    "appearance_features_are_not_person_identity_truth": true
+  },
+  "observed_keeper_frame_count": 26,
+  "reference": {
+    "ground_direction": [
+      0.9869635121551201,
+      -0.1609441694328502
+    ],
+    "ground_down_normal": [
+      0.1609441694328502,
+      0.9869635121551201
+    ],
+    "projected_upright_direction": [
+      -0.004769265378827162,
+      -0.9999886269892004
+    ],
+    "ground_offset_px": 520.3944417656922,
+    "body_scale_px": 108.20158515172818,
+    "reference_frames": [
+      323,
+      324,
+      325,
+      326,
+      327,
+      328,
+      329,
+      330,
+      331,
+      332,
+      333,
+      334,
+      335
+    ],
+    "ground_scatter_body": 0.04194182083152877,
+    "definition": "observed pre-contact ankle line parallel to visible goal baseline",
+    "body_scale_reference": "confident upright preparation only, not crouched or sideways bbox height",
+    "coordinate_system": "camera_stabilized_selected_shot_image_plane",
+    "physical_ground_plane_calibrated": false,
+    "assumption": "keeper stays approximately at the reference depth"
+  },
+  "pose_only_phase": {
+    "height_candidate": "unknown",
+    "supported": false,
+    "reasons": [
+      "grounded_landing_not_observed_in_connected_first_dive"
+    ],
+    "phases": [
+      {
+        "name": "preparation",
+        "start_frame": 323,
+        "end_frame": 335
+      },
+      {
+        "name": "first_extension",
+        "start_frame": 336,
+        "end_frame": 348
+      }
+    ],
+    "complete_first_dive_observed": false,
+    "samples": [
+      {
+        "frame": 323,
+        "hip": [
+          384.04486014401704,
+          417.32997150305596
+        ],
+        "shoulder": [
+          386.6593442201522,
+          384.98595372798593
+        ],
+        "torso_center": [
+          385.35210218208465,
+          401.15796261552094
+        ],
+        "hip_clearance_body": 0.43155750682512295,
+        "torso_clearance_body": 0.5771264435841726,
+        "torso_lean_degrees": 4.894637146796492,
+        "visible_body_extent_body": 1.0281542121703295,
+        "bottom_clearance_body": -0.0014508712243459325,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9963077306747437,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 324,
+        "hip": [
+          384.71235053534616,
+          415.9590112179025
+        ],
+        "shoulder": [
+          387.07888394024167,
+          384.95589011995116
+        ],
+        "torso_center": [
+          385.8956172377939,
+          400.45745066892687
+        ],
+        "hip_clearance_body": 0.443069899085149,
+        "torso_clearance_body": 0.582707731058426,
+        "torso_lean_degrees": 4.638302466221818,
+        "visible_body_extent_body": 1.0272283339795862,
+        "bottom_clearance_body": -0.0005117191233035143,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.994161069393158,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 325,
+        "hip": [
+          384.6640672405865,
+          416.23971308011335
+        ],
+        "shoulder": [
+          387.8409423869733,
+          385.1577472535612
+        ],
+        "torso_center": [
+          386.2525048137799,
+          400.69873016683727
+        ],
+        "hip_clearance_body": 0.44058128876908126,
+        "torso_clearance_body": 0.5799760424722362,
+        "torso_lean_degrees": 6.10917234632959,
+        "visible_body_extent_body": 1.0274540473241587,
+        "bottom_clearance_body": -0.0024413085975406564,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9953811168670654,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 326,
+        "hip": [
+          384.85884355427584,
+          414.6233358685022
+        ],
+        "shoulder": [
+          389.4228460746646,
+          385.42132134284213
+        ],
+        "torso_center": [
+          387.14084481447026,
+          400.02232860567216
+        ],
+        "hip_clearance_body": 0.45503539510693386,
+        "torso_clearance_body": 0.5848244974751272,
+        "torso_lean_degrees": 9.156193835738032,
+        "visible_body_extent_body": 1.0173537701219304,
+        "bottom_clearance_body": -0.0030983119133187018,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9937227368354797,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 327,
+        "hip": [
+          384.8529944277693,
+          414.5767558035655
+        ],
+        "shoulder": [
+          389.408352291304,
+          385.4051802565004
+        ],
+        "torso_center": [
+          387.1306733595367,
+          399.99096803003295
+        ],
+        "hip_clearance_body": 0.4554689766226583,
+        "torso_clearance_body": 0.5851256832682613,
+        "torso_lean_degrees": 9.148740651061178,
+        "visible_body_extent_body": 1.0169851956627503,
+        "bottom_clearance_body": -0.002726285708743534,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9936633110046387,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 328,
+        "hip": [
+          384.88554242352654,
+          416.0150511054395
+        ],
+        "shoulder": [
+          391.97208154970156,
+          386.3061129856717
+        ],
+        "torso_center": [
+          388.42881198661405,
+          401.1605820455556
+        ],
+        "hip_clearance_body": 0.4423011159965894,
+        "torso_clearance_body": 0.5725261063040417,
+        "torso_lean_degrees": 13.689449550371343,
+        "visible_body_extent_body": 1.0127941043736288,
+        "bottom_clearance_body": 0.003779631915961908,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9961853623390198,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 329,
+        "hip": [
+          386.37662066176557,
+          418.69082129218265
+        ],
+        "shoulder": [
+          394.66459747151424,
+          386.92474294421766
+        ],
+        "torso_center": [
+          390.5206090666399,
+          402.8077821182002
+        ],
+        "hip_clearance_body": 0.4156761096641867,
+        "torso_clearance_body": 0.5543896907438216,
+        "torso_lean_degrees": 14.89611597967011,
+        "visible_body_extent_body": 0.9930662327674762,
+        "bottom_clearance_body": -0.0016621489839412458,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9955516457557678,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 330,
+        "hip": [
+          387.2630626721285,
+          417.20723120849846
+        ],
+        "shoulder": [
+          397.72186851259494,
+          386.63729824422626
+        ],
+        "torso_center": [
+          392.4924655923617,
+          401.92226472636236
+        ],
+        "hip_clearance_body": 0.4278901784750087,
+        "torso_clearance_body": 0.5595339272498684,
+        "torso_lean_degrees": 19.160472830315758,
+        "visible_body_extent_body": 0.9999999999999996,
+        "bottom_clearance_body": 0.0,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9962071180343628,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 331,
+        "hip": [
+          388.4073128521017,
+          416.63129063904535
+        ],
+        "shoulder": [
+          400.73024137063345,
+          387.37391817255156
+        ],
+        "torso_center": [
+          394.5687771113676,
+          402.0026044057985
+        ],
+        "hip_clearance_body": 0.4314416230480438,
+        "torso_clearance_body": 0.5557127025930193,
+        "torso_lean_degrees": 23.113625364588437,
+        "visible_body_extent_body": 0.9984360906043369,
+        "bottom_clearance_body": 0.009665070043010591,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9907723665237427,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 332,
+        "hip": [
+          391.9195087764704,
+          416.54794363312527
+        ],
+        "shoulder": [
+          402.1076570915348,
+          389.1051661016258
+        ],
+        "torso_center": [
+          397.0135829340026,
+          402.82655486737553
+        ],
+        "hip_clearance_body": 0.426977668092438,
+        "torso_clearance_body": 0.5445604973618631,
+        "torso_lean_degrees": 20.640734985838606,
+        "visible_body_extent_body": 0.9912008332816689,
+        "bottom_clearance_body": 0.009597185851940398,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9938977360725403,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 333,
+        "hip": [
+          391.8853516141522,
+          416.4065309502855
+        ],
+        "shoulder": [
+          402.14185120728666,
+          389.1419481782133
+        ],
+        "torso_center": [
+          397.01360141071945,
+          402.7742395642494
+        ],
+        "hip_clearance_body": 0.42831837446041626,
+        "torso_clearance_body": 0.5450376652473482,
+        "torso_lean_degrees": 20.888756067548442,
+        "visible_body_extent_body": 0.9905420089508918,
+        "bottom_clearance_body": 0.009788678033583355,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9937998652458191,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 334,
+        "hip": [
+          394.4505868248382,
+          418.9917717069761
+        ],
+        "shoulder": [
+          405.4138911920975,
+          393.4526801468062
+        ],
+        "torso_center": [
+          399.93223900846783,
+          406.22222592689116
+        ],
+        "hip_clearance_body": 0.4009213826028872,
+        "torso_clearance_body": 0.5092454499212018,
+        "torso_lean_degrees": 23.505918594251913,
+        "visible_body_extent_body": 0.8966359088992832,
+        "bottom_clearance_body": 0.03884350891821007,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9655895233154297,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 335,
+        "hip": [
+          394.58912043869356,
+          420.0686216374038
+        ],
+        "shoulder": [
+          405.6384398027375,
+          397.3415406684526
+        ],
+        "torso_center": [
+          400.11378012071555,
+          408.7050811529282
+        ],
+        "hip_clearance_body": 0.3908928070945173,
+        "torso_clearance_body": 0.4863279899402449,
+        "torso_lean_degrees": 26.20108293629939,
+        "visible_body_extent_body": 0.995499037718806,
+        "bottom_clearance_body": 0.02243213771118346,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9321767091751099,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 336,
+        "hip": [
+          396.41486647153374,
+          422.59132031792115
+        ],
+        "shoulder": [
+          413.14472724783224,
+          400.9579718325704
+        ],
+        "torso_center": [
+          404.77979685968296,
+          411.77464607524576
+        ],
+        "hip_clearance_body": 0.36516624565108,
+        "torso_clearance_body": 0.4513884208033391,
+        "torso_lean_degrees": 37.98935429526669,
+        "visible_body_extent_body": 0.9760616948366636,
+        "bottom_clearance_body": -0.013056957109827225,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.90768963098526,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 337,
+        "hip": [
+          395.99980450989017,
+          434.8366920786026
+        ],
+        "shoulder": [
+          412.03416154968045,
+          406.8134481776956
+        ],
+        "torso_center": [
+          404.0169830297853,
+          420.8250701281491
+        ],
+        "hip_clearance_body": 0.25408715839895185,
+        "torso_clearance_body": 0.3699693929849542,
+        "torso_lean_degrees": 30.050613175944253,
+        "visible_body_extent_body": 0.8534821501024679,
+        "bottom_clearance_body": 0.009658916594942566,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9548603892326355,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 338,
+        "hip": [
+          402.3279485329847,
+          432.5389535794542
+        ],
+        "shoulder": [
+          420.7610521416836,
+          410.41112977696315
+        ],
+        "torso_center": [
+          411.54450033733417,
+          421.47504167820864
+        ],
+        "hip_clearance_body": 0.265633257040051,
+        "torso_clearance_body": 0.35284387470161205,
+        "torso_lean_degrees": 40.06851524128858,
+        "visible_body_extent_body": 0.7823868445441616,
+        "bottom_clearance_body": -0.023317656851380483,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9437758326530457,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 339,
+        "hip": [
+          402.1291071733134,
+          432.1380126583001
+        ],
+        "shoulder": [
+          420.71548715527877,
+          410.57253387325665
+        ],
+        "torso_center": [
+          411.4222971642961,
+          421.35527326577835
+        ],
+        "hip_clearance_body": 0.2695862159231428,
+        "torso_clearance_body": 0.354118116118416,
+        "torso_lean_degrees": 41.029929434929805,
+        "visible_body_extent_body": 0.8472307569467714,
+        "bottom_clearance_body": -0.01042633069575215,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9567968249320984,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 340,
+        "hip": [
+          405.8003538821373,
+          434.0561369692069
+        ],
+        "shoulder": [
+          422.4281038584325,
+          415.8088235095662
+        ],
+        "torso_center": [
+          414.11422887028493,
+          424.93248023938656
+        ],
+        "hip_clearance_body": 0.24662920974348096,
+        "torso_clearance_body": 0.31748442479670236,
+        "torso_lean_degrees": 42.614410675060896,
+        "visible_body_extent_body": 0.7274477346294463,
+        "bottom_clearance_body": -0.03763554718120443,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.8530576229095459,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 341,
+        "hip": [
+          410.71696097853976,
+          432.51463635647167
+        ],
+        "shoulder": [
+          432.17229742145446,
+          413.006635881728
+        ],
+        "torso_center": [
+          421.4446291999971,
+          422.76063611909984
+        ],
+        "hip_clearance_body": 0.25337685223090334,
+        "torso_clearance_body": 0.3263913710931397,
+        "torso_lean_degrees": 47.99496671733514,
+        "visible_body_extent_body": 0.7347905509246073,
+        "bottom_clearance_body": -0.07843635361030799,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.957387387752533,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 342,
+        "hip": [
+          410.9014867998958,
+          432.5175449233777
+        ],
+        "shoulder": [
+          432.17279712191635,
+          412.97278075669635
+        ],
+        "torso_center": [
+          421.53714196090607,
+          422.74516284003704
+        ],
+        "hip_clearance_body": 0.2530758492056675,
+        "torso_clearance_body": 0.32639490313364955,
+        "torso_lean_degrees": 47.69546404116974,
+        "visible_body_extent_body": 0.7342739731743616,
+        "bottom_clearance_body": -0.07808476436209026,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9563574194908142,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 343,
+        "hip": [
+          415.00653161344223,
+          438.4091633389787
+        ],
+        "shoulder": [
+          440.3753310661639,
+          415.31608687354037
+        ],
+        "torso_center": [
+          427.69093133980306,
+          426.86262510625954
+        ],
+        "hip_clearance_body": 0.1932292635696085,
+        "torso_clearance_body": 0.2796839281252793,
+        "torso_lean_degrees": 47.96183931924474,
+        "visible_body_extent_body": 0.7357530304920948,
+        "bottom_clearance_body": -0.07817966995056128,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.958218514919281,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 344,
+        "hip": [
+          422.19308205058894,
+          438.1015782614328
+        ],
+        "shoulder": [
+          450.3165622416649,
+          415.09774925125
+        ],
+        "torso_center": [
+          436.2548221461269,
+          426.5996637563414
+        ],
+        "hip_clearance_body": 0.18534529272411301,
+        "torso_clearance_body": 0.2693441994245187,
+        "torso_lean_degrees": 50.99153124893642,
+        "visible_body_extent_body": 0.7026151870068332,
+        "bottom_clearance_body": -0.07776788858504993,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.877415657043457,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 345,
+        "hip": [
+          430.74758817398526,
+          436.8458618394412
+        ],
+        "shoulder": [
+          459.20756442503,
+          415.95364213833784
+        ],
+        "torso_center": [
+          444.97757629950763,
+          426.39975198888953
+        ],
+        "hip_clearance_body": 0.18407496389643596,
+        "torso_clearance_body": 0.2581930614761653,
+        "torso_lean_degrees": 53.99119299417009,
+        "visible_body_extent_body": 0.7422317209147447,
+        "bottom_clearance_body": -0.06897412775077501,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9022969007492065,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 346,
+        "hip": [
+          442.3050261686984,
+          437.3879086908326
+        ],
+        "shoulder": [
+          470.514429383446,
+          413.3048983606768
+        ],
+        "torso_center": [
+          456.4097277760722,
+          425.3464035257547
+        ],
+        "hip_clearance_body": 0.1619395883409481,
+        "torso_clearance_body": 0.2507964819860846,
+        "torso_lean_degrees": 49.78511887555678,
+        "visible_body_extent_body": 0.6960477814656598,
+        "bottom_clearance_body": -0.03295861118196373,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.8599236607551575,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 347,
+        "hip": [
+          456.35871233432295,
+          439.0479055862058
+        ],
+        "shoulder": [
+          475.11689401436007,
+          417.5407510352296
+        ],
+        "torso_center": [
+          465.7378031743415,
+          428.2943283107177
+        ],
+        "hip_clearance_body": 0.1258937650939843,
+        "torso_clearance_body": 0.21003188929982694,
+        "torso_lean_degrees": 41.36765436660776,
+        "visible_body_extent_body": 0.6338295621860245,
+        "bottom_clearance_body": -0.06877815025796831,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9255975484848022,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      },
+      {
+        "frame": 348,
+        "hip": [
+          455.86979140302094,
+          440.2184211027411
+        ],
+        "shoulder": [
+          474.61314796857704,
+          418.58641436174156
+        ],
+        "torso_center": [
+          465.24146968579896,
+          429.40241773224136
+        ],
+        "hip_clearance_body": 0.11594412220737221,
+        "torso_clearance_body": 0.2006626934164934,
+        "torso_lean_degrees": 41.18101341577678,
+        "visible_body_extent_body": 0.6265749264992299,
+        "bottom_clearance_body": -0.059055493888718294,
+        "landing_bottom_source": "observed_confident_ankle",
+        "min_confidence": 0.9484615921974182,
+        "association_source_track_id": 1,
+        "locked_body_mask_available": false
+      }
+    ],
+    "physical_height_metres": null,
+    "thresholds": {
+      "min_pose_confidence": 0.4,
+      "pre_reference_seconds": 0.5,
+      "min_reference_samples": 3,
+      "max_pose_gap_seconds": 0.15,
+      "max_reference_ground_scatter_body": 0.08,
+      "max_reference_scale_scatter_fraction": 0.25,
+      "max_ground_line_angle_scatter_radians": 0.04,
+      "onset_shift_body": 0.15,
+      "onset_lean_degrees": 30,
+      "extension_lean_degrees": 45,
+      "landing_hip_clearance_body": 0.3,
+      "landing_bottom_clearance_body": 0.05,
+      "max_ground_depth_change_body": 0.2,
+      "landing_min_torso_lean_degrees": 60,
+      "landing_max_body_extent_body": 0.65,
+      "landing_sustained_samples": 5,
+      "landing_max_clearance_scatter_body": 0.08,
+      "low_torso_clearance_below_body": 0.35,
+      "high_torso_clearance_above_body": 0.75,
+      "category_boundary_margin_body": 0.04,
+      "min_connected_mask_component_fraction": 0.85
+    },
+    "height_definition": "maximum three-sample median torso-center ground clearance / pre-kick body height",
+    "category_thresholds_are_engineering_choices": true,
+    "grounded_ankles_are_pose_candidates_not_contact_truth": true,
+    "connected_pose_frames": [
+      332,
+      333,
+      334,
+      335,
+      336,
+      337,
+      338,
+      339,
+      340,
+      341,
+      342,
+      343,
+      344,
+      345,
+      346,
+      347,
+      348
+    ],
+    "onset_frame": 336,
+    "landing_frame": null
+  },
+  "observed_image_plane_signal": {
+    "candidate": "unknown",
+    "supported": false,
+    "reasons": [
+      "torso_clearance_near_category_boundary"
+    ],
+    "observed_maximum_torso_clearance_body": 0.3263913710931397,
+    "supporting_frames": [
+      341,
+      342,
+      343
+    ],
+    "continuous_samples": [
+      {
+        "frame": 332,
+        "torso_clearance_body": 0.5445604973618631,
+        "torso_lean_degrees": 20.640734985838606,
+        "min_torso_confidence": 0.9938977360725403,
+        "bottom_clearance_body": 0.009597185851940398
+      },
+      {
+        "frame": 333,
+        "torso_clearance_body": 0.5450376652473482,
+        "torso_lean_degrees": 20.888756067548442,
+        "min_torso_confidence": 0.9937998652458191,
+        "bottom_clearance_body": 0.009788678033583355
+      },
+      {
+        "frame": 334,
+        "torso_clearance_body": 0.5092454499212018,
+        "torso_lean_degrees": 23.505918594251913,
+        "min_torso_confidence": 0.9655895233154297,
+        "bottom_clearance_body": 0.03884350891821007
+      },
+      {
+        "frame": 335,
+        "torso_clearance_body": 0.4863279899402449,
+        "torso_lean_degrees": 26.20108293629939,
+        "min_torso_confidence": 0.9321767091751099,
+        "bottom_clearance_body": 0.02243213771118346
+      },
+      {
+        "frame": 336,
+        "torso_clearance_body": 0.4513884208033391,
+        "torso_lean_degrees": 37.98935429526669,
+        "min_torso_confidence": 0.90768963098526,
+        "bottom_clearance_body": -0.013056957109827225
+      },
+      {
+        "frame": 337,
+        "torso_clearance_body": 0.3699693929849542,
+        "torso_lean_degrees": 30.050613175944253,
+        "min_torso_confidence": 0.9548603892326355,
+        "bottom_clearance_body": 0.009658916594942566
+      },
+      {
+        "frame": 338,
+        "torso_clearance_body": 0.35284387470161205,
+        "torso_lean_degrees": 40.06851524128858,
+        "min_torso_confidence": 0.9437758326530457,
+        "bottom_clearance_body": -0.023317656851380483
+      },
+      {
+        "frame": 339,
+        "torso_clearance_body": 0.354118116118416,
+        "torso_lean_degrees": 41.029929434929805,
+        "min_torso_confidence": 0.9567968249320984,
+        "bottom_clearance_body": -0.01042633069575215
+      },
+      {
+        "frame": 340,
+        "torso_clearance_body": 0.31748442479670236,
+        "torso_lean_degrees": 42.614410675060896,
+        "min_torso_confidence": 0.8530576229095459,
+        "bottom_clearance_body": -0.03763554718120443
+      },
+      {
+        "frame": 341,
+        "torso_clearance_body": 0.3263913710931397,
+        "torso_lean_degrees": 47.99496671733514,
+        "min_torso_confidence": 0.957387387752533,
+        "bottom_clearance_body": -0.07843635361030799
+      },
+      {
+        "frame": 342,
+        "torso_clearance_body": 0.32639490313364955,
+        "torso_lean_degrees": 47.69546404116974,
+        "min_torso_confidence": 0.9563574194908142,
+        "bottom_clearance_body": -0.07808476436209026
+      },
+      {
+        "frame": 343,
+        "torso_clearance_body": 0.2796839281252793,
+        "torso_lean_degrees": 47.96183931924474,
+        "min_torso_confidence": 0.958218514919281,
+        "bottom_clearance_body": -0.07817966995056128
+      },
+      {
+        "frame": 344,
+        "torso_clearance_body": 0.2693441994245187,
+        "torso_lean_degrees": 50.99153124893642,
+        "min_torso_confidence": 0.877415657043457,
+        "bottom_clearance_body": -0.07776788858504993
+      },
+      {
+        "frame": 345,
+        "torso_clearance_body": 0.2581930614761653,
+        "torso_lean_degrees": 53.99119299417009,
+        "min_torso_confidence": 0.9022969007492065,
+        "bottom_clearance_body": -0.06897412775077501
+      },
+      {
+        "frame": 346,
+        "torso_clearance_body": 0.2507964819860846,
+        "torso_lean_degrees": 49.78511887555678,
+        "min_torso_confidence": 0.8599236607551575,
+        "bottom_clearance_body": -0.03295861118196373
+      },
+      {
+        "frame": 347,
+        "torso_clearance_body": 0.21003188929982694,
+        "torso_lean_degrees": 41.36765436660776,
+        "min_torso_confidence": 0.9255975484848022,
+        "bottom_clearance_body": -0.06877815025796831
+      },
+      {
+        "frame": 348,
+        "torso_clearance_body": 0.2006626934164934,
+        "torso_lean_degrees": 41.18101341577678,
+        "min_torso_confidence": 0.9484615921974182,
+        "bottom_clearance_body": -0.059055493888718294
+      }
+    ],
+    "complete_first_dive_observed": false,
+    "censored": true,
+    "censoring_reasons": [
+      "grounded_landing_not_observed_in_connected_first_dive"
+    ],
+    "physical_height_metres": null,
+    "physical_ground_plane_calibrated": false,
+    "human_verified": false,
+    "accuracy_validated": false,
+    "definition": "maximum three-sample median observed torso midpoint clearance from the pre-contact image reference line, normalized by preparation body height",
+    "coordinate_system": "camera_stabilized_selected_shot_image_plane",
+    "reference_line_offset_px": 520.3944417656922,
+    "reference_scale_px": 108.20158515172818,
+    "clearance_axis_ground_down_normal": [
+      0.1609441694328502,
+      0.9869635121551201
+    ],
+    "projected_vertical_direction": [
+      -0.004769265378827162,
+      -0.9999886269892004
+    ],
+    "category_is_observed_signal_not_complete_event_peak": true,
+    "category_thresholds_are_engineering_choices": true,
+    "lower_bound_scope": "sampled image-plane signal in the connected observed first extension; not physical height",
+    "fixed_reference_depth_assumption": "keeper stays approximately at the reference depth",
+    "onset_frame": 336,
+    "landing_candidate_frame": null,
+    "pose_prefix_stop_frame": null,
+    "reference_depth_assumption_failed": false
+  },
+  "reason": "pose_only_first_dive_support_inadequate",
+  "contact_provenance": {
+    "files": {
+      "result": {
+        "path": "/Users/gabric/Downloads/all/01_\u8bfe\u7a0b\u5b66\u4e60\u8d44\u6599/IND5003_\u6570\u636e\u5206\u6790\u4e0e\u610f\u4e49\u5efa\u6784/\u4f5c\u4e1a/\u6211\u7684\u7b54\u6848/Project_Improved_2026-10-12/outputs/fresh_course_experiment/ball_selected_v1/results/col_eng_p07_uribe_col15.json",
+        "sha256": "f46a3350c1d9b5f1f1ab446793d6ddc740da731442f3b5b272907aa0704ceaf4"
+      },
+      "search": {
+        "path": "/Users/gabric/Downloads/all/01_\u8bfe\u7a0b\u5b66\u4e60\u8d44\u6599/IND5003_\u6570\u636e\u5206\u6790\u4e0e\u610f\u4e49\u5efa\u6784/\u4f5c\u4e1a/\u6211\u7684\u7b54\u6848/Project_Improved_2026-10-12/outputs/fresh_course_experiment/ball_selected_v1/contact_search/col_eng_p07_uribe_col15.json",
+        "sha256": "78266b267f90412a2cdb247dd6ec89f54ee4bdc924f2919230bffa43e02bdbd0"
+      },
+      "event": {
+        "path": "/Users/gabric/Downloads/all/01_\u8bfe\u7a0b\u5b66\u4e60\u8d44\u6599/IND5003_\u6570\u636e\u5206\u6790\u4e0e\u610f\u4e49\u5efa\u6784/\u4f5c\u4e1a/\u6211\u7684\u7b54\u6848/Project_Improved_2026-10-12/outputs/fresh_course_experiment/ball_selected_v1/event_windows/col_eng_p07_uribe_col15.json",
+        "sha256": "77d5e2517af559f5bcf10aae7726f9478359d9f9970eea7486b0024a9096d072"
+      },
+      "detections": {
+        "path": "/Users/gabric/Downloads/all/01_\u8bfe\u7a0b\u5b66\u4e60\u8d44\u6599/IND5003_\u6570\u636e\u5206\u6790\u4e0e\u610f\u4e49\u5efa\u6784/\u4f5c\u4e1a/\u6211\u7684\u7b54\u6848/Project_Improved_2026-10-12/outputs/fresh_course_experiment/ball_selected_v1/detections/col_eng_p07_uribe_col15.json",
+        "sha256": "91f85592a3423f4efe307caa434e86a362d02064d509cc7637372c2937648d2b"
+      }
+    },
+    "status": "source_bound_independent_contact_candidate",
+    "neural_inference_this_run": true,
+    "fresh_neural_cache_used": false,
+    "original_neural_inference_producer": null,
+    "original_pose_selected_track_id": 3,
+    "independent_contact_actor_track_id": 7,
+    "actor_reselected_by_ball_evidence": true
+  },
+  "camera_provenance": {
+    "path": "/Users/gabric/Downloads/all/01_\u8bfe\u7a0b\u5b66\u4e60\u8d44\u6599/IND5003_\u6570\u636e\u5206\u6790\u4e0e\u610f\u4e49\u5efa\u6784/\u4f5c\u4e1a/\u6211\u7684\u7b54\u6848/Project_Improved_2026-10-12/outputs/fresh_course_experiment/phase_n_v7/camera_motion/col_eng_p07_uribe_col15.json",
+    "sha256": "9a6620568db81b3e838021cb45d5ad07bc702e4c4a548cef1d60efeeed0cac26",
+    "new_cpu_estimation": false
+  },
+  "mask_provenance": {
+    "status": "not_requested",
+    "new_neural_inference": false
+  },
+  "source_diagnostic": {
+    "path": "/Users/gabric/Downloads/all/01_\u8bfe\u7a0b\u5b66\u4e60\u8d44\u6599/IND5003_\u6570\u636e\u5206\u6790\u4e0e\u610f\u4e49\u5efa\u6784/\u4f5c\u4e1a/\u6211\u7684\u7b54\u6848/Project_Improved_2026-10-12/outputs/fresh_course_experiment/height_selected_v1/source_diagnostics/col_eng_p07_uribe_col15.jpg",
+    "sha256": "3796b99dfbc0124ae07b08659a3d2eaa510fe3585c0c32a282e40992a27b1fb5",
+    "source_frames": [
+      332,
+      336,
+      338,
+      344
+    ],
+    "human_verified": false,
+    "includes_ground_reference": true
+  },
+  "clip_id": "col_eng_p07_uribe_col15",
+  "event_id": 7,
+  "inference_identity": {
+    "source_manifest_sha256": "1affeb149a6fffea0a4b1814ec7b10be0c75ec8c0f2e6428cc920e62d325a38c",
+    "source_clip_sha256": "6cdcc34a157e389a026229decb67af6ee551972a2da26acb5b405ab4f5182c80",
+    "pose_sha256": "d87752a4798e63032c51f69f695113153d14edfa671e3b6f7add7f0dccf7fa6b",
+    "code_sha256": {
+      "src/fresh_keeper_height.py": "894a78177c4cccf8f70bb5220becad37da567bf1220c70fc3d7e402f27d15995",
+      "scripts/replay_fresh_height_reference_guard.py": "1fc77ccbfc5a9796bcfc23f449e047c32d4a765e787cb4397622ee967a470252"
+    },
+    "event_cache_sha256": "77d5e2517af559f5bcf10aae7726f9478359d9f9970eea7486b0024a9096d072",
+    "shot_interval": [
+      59,
+      411
+    ],
+    "original_height_sha256": "cee64ada327752311e7fa4d3e88563971eabba2747a3c07ce4573132880d57ac"
+  },
+  "pose_provenance": {
+    "status": "source_bound_automatic_pose_candidate",
+    "path": "/Users/gabric/Downloads/all/01_\u8bfe\u7a0b\u5b66\u4e60\u8d44\u6599/IND5003_\u6570\u636e\u5206\u6790\u4e0e\u610f\u4e49\u5efa\u6784/\u4f5c\u4e1a/\u6211\u7684\u7b54\u6848/Project_Improved_2026-10-12/outputs/fresh_course_experiment/pose_v7/col_eng_p07_uribe_col15.json",
+    "sha256": "d87752a4798e63032c51f69f695113153d14edfa671e3b6f7add7f0dccf7fa6b",
+    "model_sha256": "29b17eaf3a3117cbea906090dbedf9159f7c6a49db58ec8b99ed2dfde1cf6eb2",
+    "pose_algorithm_sha256": "866817be7de157b8455c2948532ced9b5ef04021ed69721863f01043ccaddcb4",
+    "selected_track_id": 3,
+    "human_verified": false
+  },
+  "held_out_test": false,
+  "reference_labels_read": false,
+  "new_neural_inference": false,
+  "schema_version": "fresh-keeper-height-v1",
+  "original_height_input": {
+    "path": "/Users/gabric/Downloads/all/01_\u8bfe\u7a0b\u5b66\u4e60\u8d44\u6599/IND5003_\u6570\u636e\u5206\u6790\u4e0e\u610f\u4e49\u5efa\u6784/\u4f5c\u4e1a/\u6211\u7684\u7b54\u6848/Project_Improved_2026-10-12/outputs/fresh_course_experiment/height_selected_v1/col_eng_p07_uribe_col15.json",
+    "sha256": "cee64ada327752311e7fa4d3e88563971eabba2747a3c07ce4573132880d57ac",
+    "inference_identity": {
+      "source_manifest_sha256": "1affeb149a6fffea0a4b1814ec7b10be0c75ec8c0f2e6428cc920e62d325a38c",
+      "source_clip_sha256": "6cdcc34a157e389a026229decb67af6ee551972a2da26acb5b405ab4f5182c80",
+      "pose_sha256": "d87752a4798e63032c51f69f695113153d14edfa671e3b6f7add7f0dccf7fa6b",
+      "code_sha256": {
+        "src/fresh_keeper_height.py": "5a6354d6b81e9ae0dfaefc7d78ffc22c20f112c1d60e85ef8ddf395807e1fdac",
+        "scripts/run_fresh_keeper_height_experiment.py": "26fe605cf87b48b616a43c1be52fcfc233f11913ff20ce8b2ec9c064d8db58af",
+        "src/goalkeeper_dive_phase.py": "1118d276e5afd55af41ae1adf1899a98bf22c9bfcc6d610ddbdc0d28d7b8bd9b",
+        "src/goalkeeper_sam2.py": "b40931b8be7ef154047f3d4c807e085f3f4736539ce8e54a5c1b9651cd6634f0",
+        "src/goalkeeper_role_association.py": "a2c2986346f34c478b8dd659fad356cd59d9be47f2e87e66179008c15a7a05bd",
+        "src/person_appearance.py": "71376c1574fbf0db60f6d2bb7a8494a1d7e4256c17b6d1e35a8807245a6ef2df",
+        "src/motion_stabilization.py": "04a4783b5c91b9a2b29d97715a557f82c0900e5faea586d4d8cb0b80cdb24d01",
+        "scripts/run_fresh_phase_experiment.py": "6551053b32328c81e90f33a85c87af29572b6adb4ea3e260a7bb069cb7fae8e6",
+        "scripts/run_fresh_pitch_experiment.py": "9450d05cc54757479064a4126b1ae3603843252e8141e8e89daea0415bb9d35d"
+      },
+      "event_cache_sha256": "77d5e2517af559f5bcf10aae7726f9478359d9f9970eea7486b0024a9096d072",
+      "shot_interval": [
+        59,
+        411
+      ]
+    }
+  },
+  "reference_guard_replay": {
+    "schema_version": "fresh-height-reference-guard-v2",
+    "measured_values_recomputed": false,
+    "original_pose_phase_recomputed": false,
+    "original_strict_height_recomputed": false,
+    "new_neural_inference": false,
+    "reference_labels_read": false,
+    "human_verified": false,
+    "accuracy_validated": false
+  }
+}

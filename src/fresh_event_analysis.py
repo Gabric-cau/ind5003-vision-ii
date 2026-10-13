@@ -176,6 +176,7 @@ def search_fresh_contact(cache, pose, frames):
 def canonicalize_contact_timing(proposal, hypothesis, observations, fps):
     """Bound timing by observed identity, not ankle proximity or backprojection."""
     proposal.update(scored_ankle_proximity_frame=proposal['contact_frame'],
+                    scored_ankle_proximity_time_sec=proposal.get('contact_time_sec', proposal['contact_frame']/fps),
                     scored_ankle_proximity_interval_frames=proposal.get('interval_frames'),
                     scored_ankle_proximity_warnings=list(proposal.get('warnings', [])),
                     contact_timing_status='unknown', contact_bracket_frames=None,
@@ -210,9 +211,11 @@ def canonicalize_contact_timing(proposal, hypothesis, observations, fps):
     if first_departure-last_stationary > proposal['maximum_contact_bracket_frames']:
         proposal['contact_timing_reason'] = 'stationary_departure_bracket_too_wide'
         return
+    contact_frame = (last_stationary+first_departure)//2
     proposal.update(contact_timing_status='bounded_stationary_departure_candidate',
                     contact_timing_reason=None, contact_bracket_frames=bracket,
-                    interval_frames=bracket, contact_frame=(last_stationary+first_departure)//2)
+                    interval_frames=bracket, contact_frame=contact_frame,
+                    contact_time_sec=contact_frame/fps)
 
 
 def goalward_departure_support(proposal, observations, transforms, cache):

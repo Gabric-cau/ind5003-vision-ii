@@ -1,0 +1,89 @@
+{
+  "schema_version": "fresh-foot-pose33-fusion-v1",
+  "clip_id": "esp_rus_p04_ignashevich_rus4",
+  "source_mapping": {
+    "clip_id": "esp_rus_p04_ignashevich_rus4",
+    "match_id": "esp_rus",
+    "event_id": 24,
+    "kicker": "ignashevich_rus4",
+    "team": "RUS",
+    "penalty_number": 4,
+    "slice_start_sec": 404.0,
+    "slice_end_sec": 425.0,
+    "source_filename": "esp_rus_pen.mp4",
+    "source_video_sha256": "91cbe6181d074c65e147575bf98e5b3ef6b18ad964f079db85dd4783d453afc2",
+    "fps": 30.0,
+    "source_start_frame": 11940,
+    "source_end_frame_exclusive": 12990,
+    "frame_count": 1050,
+    "original_slice_start_frame_in_clip": 180,
+    "original_slice_end_frame_in_clip": 810,
+    "semantic_event_start_verified": false,
+    "semantic_event_end_verified": false,
+    "context_is_not_event_boundary_ground_truth": true,
+    "clip_sha256": "170f5d55000ec74dea340f804d8e525adbfd7c3d7383b4103e3b044fdd9586b7",
+    "clip_bytes": 23446483,
+    "clip_filename": "esp_rus_p04_ignashevich_rus4.mp4"
+  },
+  "kicking_foot_candidate": "unknown",
+  "status": "completed_conservative_foot_fusion",
+  "reason": "both_methods_unavailable_or_abstained",
+  "new_neural_inference": false,
+  "human_verified": false,
+  "accuracy_validated": false,
+  "held_out_test": false,
+  "reference_labels_used_for_prediction": false,
+  "shoe_ball_contact_verified": false,
+  "inference_identity": {
+    "source_sha256": "170f5d55000ec74dea340f804d8e525adbfd7c3d7383b4103e3b044fdd9586b7",
+    "pose_sha256": "84171d127091e11fb7289741e5df01b936440c522573df952924b077865eb69b",
+    "source_manifest_sha256": "1affeb149a6fffea0a4b1814ec7b10be0c75ec8c0f2e6428cc920e62d325a38c",
+    "code_sha256": {
+      "src/shoe_pose33_fusion.py": "b9014a644b5dc76756939382b932f8a0cea3299c8943b09eea6be7fe2c66236b",
+      "scripts/replay_fresh_foot_pose33_fusion.py": "4545e3fe84c681b7526e9926600cd550303632113840c08dd9874d3e89cc6b62",
+      "src/fresh_results.py": "9bae58c02fe5700804adf3aaabfe4f3eaf55d5edd443c33462dc22322d8f0569",
+      "docs/SHOE_POSE33_FUSION_PROTOCOL_2026-10-13.md": "315b38f22210223d49eb1d5899c1b84a78069fecb47cb56dfc2383a29b5f2b04"
+    }
+  },
+  "temporal_evidence": {
+    "schema_version": "fresh-foot-pose33-fusion-v1",
+    "v2_candidate": "unknown",
+    "shoe_region_candidate": "unknown",
+    "shoe_swing_diagnostic_candidate": "unknown",
+    "selection_reason": "both_methods_unavailable_or_abstained",
+    "joint_shoe_region_frames": [],
+    "producer_bindings": {
+      "v2_result": {
+        "path": "outputs/fresh_course_experiment/foot_v2_selected/results/esp_rus_p04_ignashevich_rus4.json",
+        "sha256": "5323c98ceb593e072d96af3f61d31086f7658c497ed153ac79a74f452d6df887"
+      },
+      "original_neural_result": {
+        "path": "outputs/fresh_course_experiment/foot_v1_selected/results/esp_rus_p04_ignashevich_rus4.json",
+        "sha256": "686dc24d3a54a371553c7effeb5fd9af2588773a828e9219733feb121e098ab1"
+      },
+      "pose": {
+        "path": "outputs/fresh_course_experiment/pose_v7/esp_rus_p04_ignashevich_rus4.json",
+        "sha256": "84171d127091e11fb7289741e5df01b936440c522573df952924b077865eb69b"
+      },
+      "source_manifest": {
+        "path": "data/course_context_clips_2026-10-12/source_manifest.json",
+        "sha256": "1affeb149a6fffea0a4b1814ec7b10be0c75ec8c0f2e6428cc920e62d325a38c"
+      },
+      "shoe_cohort_protocol": {
+        "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/protocol.json",
+        "sha256": "469d2eab71ccd2908ab88cf6138f6a847d0d4e777da4594d9394b43cc921e8e1"
+      },
+      "shoe_cohort_summary": {
+        "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/summary.json",
+        "sha256": "49495ae69bca4aca32a6e934e910a3f270b235b9ada7353eee9029f6e4c92272"
+      },
+      "shoe_unavailable": {
+        "path": "outputs/fresh_course_experiment/shoe_pose33_video_guarded_cohort_v1/events/esp_rus_p04_ignashevich_rus4/unavailable.json",
+        "sha256": "9a5cf2657ac8b96ba6c3561774940bab3caae7d10702914bb731a090051b0ea7"
+      }
+    },
+    "shoe_ball_contact_verified": false,
+    "anatomical_side_verified": false,
+    "narrow_strike_window_diagnostic_used_as_vote": false
+  }
+}

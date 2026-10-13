@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "purpose": "Alternate-source pilot for the same penalty events; does not replace the supplied course cohort.",
+  "checked_at_utc": "2026-10-13T10:37:25.942613+00:00",
+  "acquisition_tools": {
+    "yt_dlp": "2026.08.19",
+    "ffmpeg": "7.1",
+    "cookies_or_authentication_used": false,
+    "access_restrictions_bypassed": false
+  },
+  "sources": [
+    {
+      "video_id": "NtvUzy00DuU",
+      "url": "https://www.youtube.com/watch?v=NtvUzy00DuU",
+      "title": "Colombia v England: Full Penalty Shoot-out | 2018 #FIFAWorldCup Round of 16",
+      "channel": "FIFA",
+      "channel_id": "UCpcTrCXblq78GZrTUTLWeBw",
+      "upload_date": "2022-11-13",
+      "status": "downloaded_and_sequentially_decoded",
+      "availability": "public",
+      "media": {
+        "bytes": 268730912,
+        "sha256": "6075b0d85ce05bc01880a395fea9e61e502ad20ab766cb4c34761cfa77f4b0f3",
+        "width": 1920,
+        "height": 1080,
+        "container_fps": 50.0,
+        "decoded_frames": 25607,
+        "video_duration_from_frames_s": 512.14,
+        "container_duration_including_audio_s": 512.21,
+        "video_codec": "H264 High",
+        "audio_codec": "AAC LC"
+      },
+      "adjacent_decoded_frame_check": {
+        "method": "Sequential OpenCV decode. CRC32 of full BGR frames detects exact adjacent repeats; motion is mean absolute difference on 320x180 area-resized frames with top 30 rows excluded.",
+        "pairs": 25606,
+        "exact_repeat_pairs": 0,
+        "motion_median_8bit": 4.810295138888889,
+        "odd_transition_motion_median_8bit": 4.720263888888889,
+        "even_transition_motion_median_8bit": 4.8818125,
+        "near_repeat_motion_below_0_1_pairs": 505,
+        "interpretation": "No exact repeats or global alternating duplicate pattern observed. This does not establish camera-native 50fps or the playback speed of individual replays.",
+        "native_capture_fps_verified": false,
+        "replay_playback_speed_verified": false
+      },
+      "pilot_intervals": [
+        {"clip_id": "col_eng_p01_falcao_col9", "view": "main_live_candidate", "start_s": 44.0, "end_s": 57.0, "start_frame": 2200, "end_frame_exclusive": 2850},
+        {"clip_id": "col_eng_p01_falcao_col9", "view": "replay_behind_kicker_candidate", "start_s": 65.0, "end_s": 71.5, "start_frame": 3250, "end_frame_exclusive": 3575},
+        {"clip_id": "col_eng_p02_kane_eng9", "view": "main_live_candidate", "start_s": 94.0, "end_s": 102.0, "start_frame": 4700, "end_frame_exclusive": 5100},
+        {"clip_id": "col_eng_p02_kane_eng9", "view": "replay_foot_closeup_candidate", "start_s": 104.5, "end_s": 109.5, "start_frame": 5225, "end_frame_exclusive": 5475},
+        {"clip_id": "col_eng_p03_cuadrado_col11", "view": "main_live_candidate", "start_s": 136.0, "end_s": 144.0, "start_frame": 6800, "end_frame_exclusive": 7200},
+        {"clip_id": "col_eng_p03_cuadrado_col11", "view": "replay_behind_kicker_candidate", "start_s": 149.0, "end_s": 154.5, "start_frame": 7450, "end_frame_exclusive": 7725}
+      ],
+      "interval_basis": "Assistant visual inspection of 2-second keyframe sheets; manual coarse experiment intervals, not contact truth or semantic event boundary annotations.",
+      "pilot_encoding": {
+        "codec": "libx264",
+        "crf": 10,
+        "resize": false,
+        "audio_included": false,
+        "reencoded": true,
+        "lossless": false,
+        "all_pilot_frames_decoded": true,
+        "output_frame_count_and_fps_match_plan": true,
+        "six_endpoint_comparisons_psnr_db_range": [42.256629892370825, 50.21122516376341],
+        "six_endpoint_comparisons_mean_absolute_error_8bit_range": [0.300356388092041, 1.209196925163269],
+        "decoded_pixel_identity_verified": false
+      }
+    },
+    {
+      "video_id": "lO36Q8Uj2bE",
+      "url": "https://www.youtube.com/watch?v=lO36Q8Uj2bE",
+      "title": "Croatia v Denmark: Full Penalty Shoot-out | 2018 #FIFAWorldCup Round of 16",
+      "channel": "FIFA",
+      "channel_id": "UCpcTrCXblq78GZrTUTLWeBw",
+      "upload_date": "2022-09-29",
+      "status": "public_metadata_accessible_not_downloaded",
+      "duration_metadata_s": 577,
+      "highest_observed_standard_h264_format": {"width": 1920, "height": 1080, "fps": 25.0},
+      "actual_media_decoded": false
+    }
+  ],
+  "human_gold_annotations_created": false,
+  "contact_truth_annotated": false,
+  "performance_improvement_measured_in_this_acquisition_record": false,
+  "alternate_source_automatically_synchronized_to_course_recording": false,
+  "third_party_footage_redistribution_license_verified": false,
+  "repository_contains_original_media": false
+}

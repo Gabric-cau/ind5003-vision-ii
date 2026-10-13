@@ -1,0 +1,54 @@
+{
+  "created_at_utc": "2026-10-13T10:56:21.378444+00:00",
+  "settings": {
+    "imgsz": 960,
+    "batch_size": 8,
+    "crop_margin": 0.45,
+    "confidence": 0.15,
+    "device": "cuda:0",
+    "allow_pose_timing": false
+  },
+  "model_sha256": "29b17eaf3a3117cbea906090dbedf9159f7c6a49db58ec8b99ed2dfde1cf6eb2",
+  "script_sha256": "a08fb4aa6182ac3fa37b31c9eee13d5c2c6a032d7451d65277bac18539fefef9",
+  "module_sha256": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52",
+  "source_manifest_sha256": "76e3250f328c226119ca27939e4f1ba710b870df5f3b26143ccb81a630420c4e",
+  "code_sha256": {
+    "scripts/run_fresh_foot_experiment.py": "a08fb4aa6182ac3fa37b31c9eee13d5c2c6a032d7451d65277bac18539fefef9",
+    "src/kicking_foot_evidence.py": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52",
+    "src/pose_refinement.py": "d71da9d1d116b3d777357b5104436c9b2999a67b005956d12d6e255d1422683a",
+    "src/kicking_foot_redetection.py": "ed587b59177377f538b33d03cb2b273070b6fc5c23ba42305078236eff26734d",
+    "src/runtime.py": "945db55a6449012c4ebad88e630378fa2da4f586b9d701fdb18b1977646c5dfb"
+  },
+  "cohort": [
+    "col_eng_p01_falcao_col9",
+    "col_eng_p02_kane_eng9",
+    "col_eng_p03_cuadrado_col11"
+  ],
+  "plan_only": false,
+  "reference_labels_read": false,
+  "human_verified": false,
+  "held_out_test": false,
+  "status": "completed",
+  "model_task_validation": {
+    "expected_task": "pose",
+    "actual_task": "pose",
+    "keypoint_shape": [
+      17,
+      3
+    ],
+    "model_loaded_and_checked": true
+  },
+  "runtime": {
+    "requested_device": "cuda:0",
+    "device": "cuda:0",
+    "python": "3.11.15",
+    "platform": "Linux",
+    "model_sha256": {
+      "../models/yolo11m-pose.pt": "29b17eaf3a3117cbea906090dbedf9159f7c6a49db58ec8b99ed2dfde1cf6eb2"
+    },
+    "source_sha256": {},
+    "torch_version": "2.7.0+cu128",
+    "cuda_runtime": "12.8",
+    "gpu_name": "NVIDIA GeForce RTX 4090"
+  }
+}

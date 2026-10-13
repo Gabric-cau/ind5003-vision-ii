@@ -1,6 +1,6 @@
 # 补充视频与后续实验
 
-这份清单记录目前能找到的素材，以及它们可能帮助解决的问题。这里只完成了来源和访问方式检查，还没有下载视频、比较画质或开展新的模型实验。当前的 39 次结果没有因为这份清单发生变化。
+这份清单记录目前能找到的素材，以及它们可能帮助解决的问题。10 月 13 日已下载哥伦比亚对英格兰的 FIFA 官方录像，并切出前三球开展独立推理。其他链接仍只是访问与元数据检查。新增录像尚未加入课程的 39 行主结果表。
 
 ## 课程允许补充数据吗
 
@@ -12,13 +12,15 @@
 
 | 比赛 | 素材 | 已确认的内容 |
 |---|---|---|
-| 哥伦比亚对英格兰 | [FIFA 完整点球大战](https://www.youtube.com/watch?v=NtvUzy00DuU) | YouTube oEmbed 返回完整点球标题，作者为 FIFA，频道为 `@fifa` |
-| 克罗地亚对丹麦 | [FIFA 完整点球大战](https://www.youtube.com/watch?v=lO36Q8Uj2bE) | YouTube oEmbed 返回完整点球标题，作者为 FIFA，频道为 `@fifa` |
+| 哥伦比亚对英格兰 | [FIFA 完整点球大战](https://www.youtube.com/watch?v=NtvUzy00DuU) | 已下载公开的 1920×1080、50 fps 版本，并顺序解码 25,607 帧 |
+| 克罗地亚对丹麦 | [FIFA 完整点球大战](https://www.youtube.com/watch?v=lO36Q8Uj2bE) | FIFA 频道的公开媒体元数据可访问，最高标准 H.264 1080p25；尚未下载 |
 | 克罗地亚对丹麦 | [FIFA+ 全场回放](https://www.plus.fifa.com/en/content/croatia-v-denmark-round-of-16-2018-fifa-world-cup-russia-full-match-replay/718d3bd3-8cf2-4639-b2c6-af6d5ccaab48) | 官方页面被索引，本次直接访问受限 |
 | 西班牙对俄罗斯 | [FIFA+ 全场回放](https://www.plus.fifa.com/en/content/spain-v-russia-round-of-16-2018-fifa-world-cup-russia-full-match-replay/b6b1bccf-72fd-4f60-a112-9242c6cd21c0) | 官方页面被索引，本次直接访问受限 |
 | 俄罗斯对克罗地亚 | [FIFA+ 全场回放](https://www.plus.fifa.com/en/content/russia-v-croatia-quarter-finals-2018-fifa-world-cup-russiatm-full-match-replay/49537884-4db8-4588-9243-c53a5a8b7f63) | 官方页面被索引，本次直接访问受限 |
 
-本地四个主视频实际均为 1280×720、30 fps。上面的在线版本还没有完成下载和逐帧检查，不能认定它们更高清、包含新机位，或一定能解决遮挡。FIFA+ 的归档入口还出现了跳转和访问限制。
+本地四个主视频实际均为 1280×720、30 fps。新下载文件为 268,730,912 bytes，SHA256 为 `6075b0d85ce05bc01880a395fea9e61e502ad20ab766cb4c34761cfa77f4b0f3`。完整顺序解码未发现相邻帧完全重复，全片运动强度也没有简单的奇偶交替重复规律。这支持继续测试更密的时间采样，但不能证明摄影机原生 50 fps，也不能排除局部慢动作或插帧。
+
+Falcao 的 44–57 秒、Kane 的 94–102 秒、Cuadrado 的 136–144 秒已切成 1080p50 试验片段。切片不缩放，使用 libx264 CRF10 有损重编码；六个首尾帧与原片对应帧比较的 PSNR 为 42.26–50.21 dB。粗片段边界来自关键帧查看，不是真实触球标签。新录像的剪辑和时钟不同，旧视频的帧号、模型缓存和候选不能直接搬过来。完整记录见[来源检查 JSON](ADDITIONAL_VIDEO_SOURCES_2026-10-13.json)，切片脚本是 [`prepare_additional_video_pilots.py`](../scripts/prepare_additional_video_pilots.py)。FIFA+ 的归档入口仍有跳转和访问限制。
 
 检查补充录像时，先看助跑起点、触球瞬间、第一次扑救和射门结束是否完整。新增片段需要建立与原罚球的对应关系，并分别记录机位、帧率和时间轴。慢动作回放中的一秒不能直接当成主镜头的一秒。
 

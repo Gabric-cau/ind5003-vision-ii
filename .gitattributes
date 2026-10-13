@@ -10,10 +10,11 @@
 *.js text eol=lf
 *.css text eol=lf
 *.ipynb -text
-*.pdf -text
+*.pdf binary
 *.png -text
 docs/REPORT_REVIEW_DRAFT.pdf binary
 # Preserve the bytes used by the frozen artifact and upstream-member hashes.
 outputs/camera_timing_2026-10-10/release/camera_timings_candidates.csv -text whitespace=cr-at-eol
 outputs/camera_timing_2026-10-10/release/camera_timings_candidates.json -text whitespace=cr-at-eol
 outputs/final_analysis/*.csv -text whitespace=cr-at-eol
+outputs/fresh_course_experiment/**/*.csv -text whitespace=cr-at-eol
