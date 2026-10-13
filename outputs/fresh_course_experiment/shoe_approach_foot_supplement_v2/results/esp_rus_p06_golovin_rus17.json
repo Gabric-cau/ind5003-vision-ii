@@ -1,0 +1,257 @@
+{
+  "schema_version": "fresh-foot-dense-approach-supplement-v1",
+  "clip_id": "esp_rus_p06_golovin_rus17",
+  "source_mapping": {
+    "clip_id": "esp_rus_p06_golovin_rus17",
+    "match_id": "esp_rus",
+    "event_id": 26,
+    "kicker": "golovin_rus17",
+    "team": "RUS",
+    "penalty_number": 6,
+    "slice_start_sec": 481.0,
+    "slice_end_sec": 499.0,
+    "source_filename": "esp_rus_pen.mp4",
+    "source_video_sha256": "91cbe6181d074c65e147575bf98e5b3ef6b18ad964f079db85dd4783d453afc2",
+    "fps": 30.0,
+    "source_start_frame": 14250,
+    "source_end_frame_exclusive": 15210,
+    "frame_count": 960,
+    "original_slice_start_frame_in_clip": 180,
+    "original_slice_end_frame_in_clip": 720,
+    "semantic_event_start_verified": false,
+    "semantic_event_end_verified": false,
+    "context_is_not_event_boundary_ground_truth": true,
+    "clip_sha256": "b6d8da690a5bd7ba45d3e881fa0e7459df74957b23580d2cd3900f9faa6d107f",
+    "clip_bytes": 23333524,
+    "clip_filename": "esp_rus_p06_golovin_rus17.mp4"
+  },
+  "kicking_foot_candidate": "left",
+  "dense_region_candidate": "unknown",
+  "selection_reason": "existing_fusion_retained_dense_abstained",
+  "selector_reason": "v2_retained_shoe_unavailable_or_abstained",
+  "legacy_contact_identity_ambiguous_frames": [],
+  "existing_fusion_candidate": "left",
+  "dense_region_raw_candidate": "unknown",
+  "joint_shoe_region_frames": [],
+  "contact_bracket_frames": [
+    274,
+    276
+  ],
+  "region_scale_definition": "median exact source actor box height over all unique normal approach observations before last stationary ball frame",
+  "status": "completed_source_bound_foot_supplement",
+  "producer_bindings": {
+    "source_manifest": {
+      "path": "data/course_context_clips_2026-10-12/source_manifest.json",
+      "sha256": "1affeb149a6fffea0a4b1814ec7b10be0c75ec8c0f2e6428cc920e62d325a38c"
+    },
+    "frozen_baseline": {
+      "path": "outputs/fresh_course_experiment/final_bundle_v3_shoe_fusion/features_39.json",
+      "sha256": "73a4743c1acc5435989833ccbe26fa797db3dc6e02bb1e9920de4e3581b3be47"
+    },
+    "dense_protocol": {
+      "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/protocol.json",
+      "sha256": "16dfc2155dee65626b3ad11516c74945e99b259875323b152ee08331b45f6126"
+    },
+    "dense_summary": {
+      "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/summary.json",
+      "sha256": "7e59ae90ac7b6b8aae5a970cae489668ae04b5ca4e879430a7fc54ac1bd86ed6"
+    },
+    "analysis_protocol": {
+      "path": "outputs/fresh_course_experiment/shoe_approach_analysis_v2/protocol.json",
+      "sha256": "2221eae6c943fff1b2d30a3972708b87c520f8991088a4c508fd2a6e48665bda"
+    },
+    "analysis_summary": {
+      "path": "outputs/fresh_course_experiment/shoe_approach_analysis_v2/summary.json",
+      "sha256": "23d182c4f01d240210c0fe9cdbffeddf7c8d69326616c453d6ae5fd39ef22e89"
+    },
+    "dense_code_snapshot": {
+      "scripts/run_fresh_shoe_approach_experiment.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/scripts/run_fresh_shoe_approach_experiment.py",
+        "sha256": "b1a429c63663ce9e7ca13a747702cb9d855da8899ffbf4534bb71cbc0b6232ed"
+      },
+      "scripts/run_fresh_phase_experiment.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/scripts/run_fresh_phase_experiment.py",
+        "sha256": "6551053b32328c81e90f33a85c87af29572b6adb4ea3e260a7bb069cb7fae8e6"
+      },
+      "scripts/run_fresh_pitch_experiment.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/scripts/run_fresh_pitch_experiment.py",
+        "sha256": "9450d05cc54757479064a4126b1ae3603843252e8141e8e89daea0415bb9d35d"
+      },
+      "scripts/run_penalty_phase_experiment.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/scripts/run_penalty_phase_experiment.py",
+        "sha256": "a6b9c7ab5447b17f06453601e1cb90093c7a9a2ec4198cee4528f536689ffa3d"
+      },
+      "src/fresh_cache_provenance.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/src/fresh_cache_provenance.py",
+        "sha256": "e69f59e55283474c915707d4132721469812408960f30984d5b6c694f804f41c"
+      },
+      "src/mediapipe_shoe_evidence.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/src/mediapipe_shoe_evidence.py",
+        "sha256": "fab407e46408ae3f1e3f92373c143dc64eb103bdbe7458f1eb1abc156f043974"
+      },
+      "src/pose_refinement.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/src/pose_refinement.py",
+        "sha256": "d71da9d1d116b3d777357b5104436c9b2999a67b005956d12d6e255d1422683a"
+      },
+      "src/motion_stabilization.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/src/motion_stabilization.py",
+        "sha256": "04a4783b5c91b9a2b29d97715a557f82c0900e5faea586d4d8cb0b80cdb24d01"
+      },
+      "src/penalty_phases.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/src/penalty_phases.py",
+        "sha256": "166bfce017941eea75fb1c598cbfa30719b5e7b2a852b932d1ea8b8aeb56f13c"
+      },
+      "src/phase_step_events.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/src/phase_step_events.py",
+        "sha256": "2513906f91c1da954a7f9e21e523079c66ceb604315fe27fcbfc80d0f74c1ee3"
+      },
+      "src/style_aware_steps.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/src/style_aware_steps.py",
+        "sha256": "fd08a1c842dd2500dcc29a9cdfe9250cfb0fb1792abeb1cb99b23c7c5cbb2d66"
+      },
+      "src/terminal_footwork.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/src/terminal_footwork.py",
+        "sha256": "21476dd0c0e244614a274beff2c38ecd6df22f6b9ec6fea0e2b1b4d99310a88b"
+      },
+      "src/final_results.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/src/final_results.py",
+        "sha256": "03f135e8e6a06644db4d1949d015a1eb38b4f072cccdaf64ba460d0098a00b47"
+      },
+      "src/step_pipeline.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/src/step_pipeline.py",
+        "sha256": "866817be7de157b8455c2948532ced9b5ef04021ed69721863f01043ccaddcb4"
+      },
+      "src/camera_angles.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/src/camera_angles.py",
+        "sha256": "adb99ad2b4277f0bba02e7f57aa75478d451f4f3e71e83c290c2aa5c552f1f73"
+      },
+      "src/kicker_analysis.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/src/kicker_analysis.py",
+        "sha256": "fa4cf7add9bb98abf8b115260180a9bcdd53e9f57d4c43cf57bbbb535376d963"
+      },
+      "src/video_utils.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/src/video_utils.py",
+        "sha256": "707b7b954ed68462db1fcf73a2a93fbf609e0102bb6888f7d8e8fc7353f491ed"
+      },
+      "src/homography.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/src/homography.py",
+        "sha256": "2d962aa52e26560b6d692bde502b6390c5affdf4eed36b8b8c77468ed4f74008"
+      },
+      "src/pitch_calibration.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/src/pitch_calibration.py",
+        "sha256": "c9f9a132267f103915fcbf0f23c9cbd73e0478ca483743b8fa85928c570cf467"
+      },
+      "requirements-pose33.txt": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/requirements-pose33.txt",
+        "sha256": "b6963bbdf69e3d2129b0d9eb187e066c4193bc5cf160e69dd76275fc92a2c407"
+      },
+      "docs/SHOE_APPROACH_PROTOCOL_2026-10-13.md": {
+        "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/source_snapshot/docs/SHOE_APPROACH_PROTOCOL_2026-10-13.md",
+        "sha256": "92731bef53916172d5c0099b90e31357280f87d5a50f3ceb5d589cfe8499a451"
+      }
+    },
+    "analysis_code_snapshot": {
+      "scripts/analyze_shoe_approach.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach_analysis_v2/source_snapshot/scripts/analyze_shoe_approach.py",
+        "sha256": "89d4e5895a1347f4f55858a13c69f137d9cbfeeb29dc5007cebc0eccfeef33f9"
+      },
+      "src/shoe_landing_events.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach_analysis_v2/source_snapshot/src/shoe_landing_events.py",
+        "sha256": "3ebe445d186161c6b82efa1947d729dec993d897413b2fbcd659bf5991202ab1"
+      },
+      "src/kicking_foot_strike_window.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach_analysis_v2/source_snapshot/src/kicking_foot_strike_window.py",
+        "sha256": "2d10454afef9df862baa00eea79692756926f2368a10ca4af8c18df09310fd15"
+      },
+      "src/mediapipe_shoe_evidence.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach_analysis_v2/source_snapshot/src/mediapipe_shoe_evidence.py",
+        "sha256": "fab407e46408ae3f1e3f92373c143dc64eb103bdbe7458f1eb1abc156f043974"
+      },
+      "src/kicking_foot_evidence.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach_analysis_v2/source_snapshot/src/kicking_foot_evidence.py",
+        "sha256": "4f60d42f0eb5413903756117085f5e9b76d252a4a7de271e6194148de6dcfd52"
+      },
+      "src/kicking_foot_evidence_v2.py": {
+        "path": "outputs/fresh_course_experiment/shoe_approach_analysis_v2/source_snapshot/src/kicking_foot_evidence_v2.py",
+        "sha256": "7c8ad16ec2f72c1f00024fa3b7eccd1caaa584eea163bc42eeeb88c2d29fe0b7"
+      },
+      "docs/SHOE_APPROACH_PROTOCOL_2026-10-13.md": {
+        "path": "outputs/fresh_course_experiment/shoe_approach_analysis_v2/source_snapshot/docs/SHOE_APPROACH_PROTOCOL_2026-10-13.md",
+        "sha256": "2471f10119227891c3240cde5fad73b676e8ba5c37a3a1f641b6685eed172665"
+      }
+    },
+    "model": {
+      "path": "models/weights/pose_landmarker_heavy.task",
+      "sha256": "64437af838a65d18e5ba7a0d39b465540069bc8aae8308de3e318aad31fcbc7b"
+    },
+    "supplement_protocol": {
+      "path": "outputs/fresh_course_experiment/shoe_approach_foot_supplement_v2/protocol.json",
+      "sha256": "dd1d5f58d019b0c0c9a693d8f435405718fec647cbdea1c90029ef8b6b355c9f"
+    },
+    "baseline_foot": {
+      "path": "outputs/fresh_course_experiment/foot_pose33_fused_v1/results/esp_rus_p06_golovin_rus17.json",
+      "sha256": "f9d356ef8054aa34ad6704777e5bc20c38df91e62b7736ce461288cb1ee76a92"
+    },
+    "legacy_neural_foot": {
+      "path": "outputs/fresh_course_experiment/foot_v1_selected/results/esp_rus_p06_golovin_rus17.json",
+      "sha256": "0c8cc2070d0de6fc6b47a88c17a3f3256b5fde0c6d1566da596c64cf6f4047fe"
+    },
+    "pose": {
+      "path": "outputs/fresh_course_experiment/pose_v7/esp_rus_p06_golovin_rus17.json",
+      "sha256": "54e1f32ea58d6132a9f9fc8839db926bf106b61974f45e20f328bc88dbd99daf"
+    },
+    "analysis_result": {
+      "path": "outputs/fresh_course_experiment/shoe_approach_analysis_v2/events/esp_rus_p06_golovin_rus17/landing_result.json",
+      "sha256": "097614c03bd4150ad531337cf7178e9cf1e8c138d830f9b1e790597933bffb45"
+    },
+    "input_receipts": {
+      "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/events/esp_rus_p06_golovin_rus17/input_receipts.json",
+      "sha256": "12e3bf0ce8aa25aefe04aa86507859c5391d6960d95c310804baf477162f36d7"
+    },
+    "dense_inputs": {
+      "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/events/esp_rus_p06_golovin_rus17/inputs.json",
+      "sha256": "aa3ee8420ae7bef3a77aefbdcde107305e82ce7de1fa66aafa5f1b05b11ef314"
+    },
+    "dense_poses33": {
+      "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/events/esp_rus_p06_golovin_rus17/poses33.json",
+      "sha256": "00441d031d5bde2b44bbd0bc4904d75e8b3f2da275fa8373d40b45211ce03125"
+    },
+    "dense_roi_plan": {
+      "path": "outputs/fresh_course_experiment/shoe_approach33_cohort_v1/events/esp_rus_p06_golovin_rus17/roi_plan.json",
+      "sha256": "af5fe0ec5a92f758c45d0152ed47c1639f9d09b325588cb1745bf2f22df401c0"
+    },
+    "contact_export": {
+      "path": "outputs/fresh_course_experiment/ball_selected_v1/contacts/esp_rus_p06_golovin_rus17.json",
+      "sha256": "5ef40d0dba5071e30a07ca1470502d6ea977f3c63f5472fbd8190827dfb9172d"
+    },
+    "phase": {
+      "path": "outputs/fresh_course_experiment/phase_selected_v1/esp_rus_p06_golovin_rus17.json",
+      "sha256": "73acbfffb65836dde2b61427cd502b6bb405f4ba1071064ece431c9485f0c5e0"
+    },
+    "camera_motion": {
+      "path": "outputs/fresh_course_experiment/phase_selected_v1/camera_motion/esp_rus_p06_golovin_rus17.json",
+      "sha256": "164782029108c857ca6e8364879649e1ba2822bb109b30c792c74b36c5afae1f"
+    }
+  },
+  "observation_validation": {
+    "actual_inference_calls": 112,
+    "accepted_roi_pose_calls": 104,
+    "decoded_interval_frames": 56,
+    "distinct_decoded_pixel_frames": 56,
+    "repeated_decoded_pixel_frames": 0,
+    "roi_identity_status_counts": {
+      "accepted": 104,
+      "no_identity_consistent_crop_detection": 8
+    }
+  },
+  "new_neural_inference": false,
+  "supplement_only": true,
+  "main_feature_table_modified": false,
+  "step_counts_modified": false,
+  "reference_labels_used_for_prediction": false,
+  "human_verified": false,
+  "accuracy_validated": false,
+  "held_out_test": false,
+  "shoe_ball_contact_verified": false,
+  "anatomical_side_verified": false
+}

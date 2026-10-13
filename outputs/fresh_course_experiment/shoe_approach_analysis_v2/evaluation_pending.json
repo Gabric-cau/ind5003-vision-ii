@@ -1,0 +1,565 @@
+{
+  "schema_version": "shoe-landing-evaluation-v1",
+  "held_out_test": false,
+  "development_cohort": true,
+  "evaluation_scope": "Same-video development agreement, not held-out accuracy.",
+  "human_review_provenance": "Reviewer declarations are supplied by people; this script cannot authenticate their identity or independence.",
+  "prediction_freeze_sha256": "ea0b281f2ec4df4e867cb25c65c75a4a2388246e4ea2dfde34da8414e3967279",
+  "reference_sha256": "f38c62c63b352af9aa3a375d474dd7c1c845f785a48d0232b2065da316d88d8a",
+  "evaluator_sha256": "601bcb9672c049b9f9fbceed633f758ce34cfca4928c31f53116334bf48aba08",
+  "timing_tolerance_sec": 0.08,
+  "reviewer_agreement_tolerance_sec": 0.08,
+  "events": 39,
+  "reference_events_supplied": 39,
+  "reviewed_events": 0,
+  "pending_review_rows": 39,
+  "proposal_coverage": {
+    "known_count_events": 27,
+    "unknown_count_events": 12,
+    "striking_foot_candidates": 5,
+    "striking_foot_coverage": 0.1282051282051282
+  },
+  "jointly_reviewed_landing_metrics": {
+    "evaluated_events": 0,
+    "jointly_reviewed_reference_events": 0,
+    "unknown_prediction_reference_events": 0,
+    "prediction_coverage_on_jointly_reviewed_events": null,
+    "visible_window_count_mae": null,
+    "true_positive": 0,
+    "false_positive": 0,
+    "false_negative": 0,
+    "event_precision": null,
+    "event_recall": null,
+    "matched_timing_mae_sec": null,
+    "matched_known_side_pairs": 0,
+    "matched_known_side_agreement": null,
+    "full_runup_evaluated_events": 0,
+    "full_runup_count_mae": null
+  },
+  "jointly_reviewed_striking_foot_metrics": {
+    "events_with_any_known_human_foot": 0,
+    "reviewer_disagreement_events": 0,
+    "consensus_events": 0,
+    "predicted_on_consensus_events": 0,
+    "coverage_on_consensus_events": null,
+    "agreement_on_known_predictions": null
+  },
+  "individual_review_diagnostics": [
+    {
+      "clip_id": "col_eng_p01_falcao_col9",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "col_eng_p02_kane_eng9",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "col_eng_p03_cuadrado_col11",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "col_eng_p04_rashford_eng19",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "col_eng_p05_muriel_col14",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "col_eng_p06_henderson_eng8",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "col_eng_p07_uribe_col15",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "col_eng_p08_trippier_eng12",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "col_eng_p09_bacca_col7",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "col_eng_p10_dier_eng4",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "cro_den_p01_eriksen_den10",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "cro_den_p02_badelj_cro19",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "cro_den_p03_kjaer_den4",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "cro_den_p04_kramaric_cro9",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "cro_den_p05_krohndehli_den2",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "cro_den_p06_modric_cro10",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "cro_den_p07_schone_den19",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "cro_den_p08_pivaric_cro22",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "cro_den_p09_jorgensen_den9",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "cro_den_p10_rakitic_cro7",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "esp_rus_p01_iniesta_esp6",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "esp_rus_p02_smolov_rus10",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "esp_rus_p03_pique_esp3",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "esp_rus_p04_ignashevich_rus4",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "esp_rus_p05_koke_esp8",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "esp_rus_p06_golovin_rus17",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "esp_rus_p07_ramos_esp15",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "esp_rus_p08_cheryshev_rus6",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "esp_rus_p09_aspas_esp17",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "rus_cro_p01_smolov_rus10",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "rus_cro_p02_brozovic_cro11",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "rus_cro_p03_dzagoev_rus9",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "rus_cro_p04_kovacic_cro8",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "rus_cro_p05_fernandes_rus2",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "rus_cro_p06_modric_cro10",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "rus_cro_p07_ignashevich_rus4",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "rus_cro_p08_vida_cro21",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "rus_cro_p09_kuzyaev_rus7",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    },
+    {
+      "clip_id": "rus_cro_p10_rakitic_cro7",
+      "reviewer_id": "",
+      "review_status": "pending",
+      "striking_foot": "unknown"
+    }
+  ],
+  "per_event": [
+    {
+      "clip_id": "col_eng_p01_falcao_col9",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "col_eng_p02_kane_eng9",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "col_eng_p03_cuadrado_col11",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "col_eng_p04_rashford_eng19",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "col_eng_p05_muriel_col14",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "col_eng_p06_henderson_eng8",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "col_eng_p07_uribe_col15",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "col_eng_p08_trippier_eng12",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "col_eng_p09_bacca_col7",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "col_eng_p10_dier_eng4",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "cro_den_p01_eriksen_den10",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "cro_den_p02_badelj_cro19",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": false
+    },
+    {
+      "clip_id": "cro_den_p03_kjaer_den4",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": false
+    },
+    {
+      "clip_id": "cro_den_p04_kramaric_cro9",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": false
+    },
+    {
+      "clip_id": "cro_den_p05_krohndehli_den2",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "cro_den_p06_modric_cro10",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": false
+    },
+    {
+      "clip_id": "cro_den_p07_schone_den19",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": false
+    },
+    {
+      "clip_id": "cro_den_p08_pivaric_cro22",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "cro_den_p09_jorgensen_den9",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": false
+    },
+    {
+      "clip_id": "cro_den_p10_rakitic_cro7",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": false
+    },
+    {
+      "clip_id": "esp_rus_p01_iniesta_esp6",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "esp_rus_p02_smolov_rus10",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "esp_rus_p03_pique_esp3",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "esp_rus_p04_ignashevich_rus4",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": false
+    },
+    {
+      "clip_id": "esp_rus_p05_koke_esp8",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "esp_rus_p06_golovin_rus17",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "esp_rus_p07_ramos_esp15",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": false
+    },
+    {
+      "clip_id": "esp_rus_p08_cheryshev_rus6",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "esp_rus_p09_aspas_esp17",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": false
+    },
+    {
+      "clip_id": "rus_cro_p01_smolov_rus10",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "rus_cro_p02_brozovic_cro11",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "rus_cro_p03_dzagoev_rus9",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "rus_cro_p04_kovacic_cro8",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "rus_cro_p05_fernandes_rus2",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "rus_cro_p06_modric_cro10",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "rus_cro_p07_ignashevich_rus4",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": false
+    },
+    {
+      "clip_id": "rus_cro_p08_vida_cro21",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    },
+    {
+      "clip_id": "rus_cro_p09_kuzyaev_rus7",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": false
+    },
+    {
+      "clip_id": "rus_cro_p10_rakitic_cro7",
+      "landing_reference_status": "fewer_than_two_reviewers",
+      "known_foot_reviewers": 0,
+      "striking_foot_consensus": null,
+      "prediction_available": true
+    }
+  ],
+  "limitations": [
+    "Empty or pending references produce null agreement metrics; they do not establish accuracy.",
+    "Landing precision, recall and MAE are conditional on available predictions; unavailable windows are reported separately in coverage.",
+    "Detection matching uses time only; anatomical side agreement is reported separately.",
+    "A visible-window count is not a complete run-up count.",
+    "Two reviewers must agree within tolerance before an event enters aggregate landing metrics."
+  ]
+}
