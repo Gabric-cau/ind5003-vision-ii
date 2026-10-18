@@ -31,8 +31,9 @@ def test_visible_swing_then_stance_is_a_proposal_not_a_contact_or_total_count():
     assert result["candidate_count"] == 1
     event = result["landings"][0]
     assert (event["frame"], event["foot"]) == (4, "left")
-    assert event["stance_frames"] == [4, 5, 6]
-    assert event["distinct_decoded_stance_observations"] == 3
+    assert event["stance_frames"] == [4, 5, 6, 7]
+    assert event["distinct_decoded_stance_observations"] == 4
+    assert event["common_stance_seconds"] == pytest.approx(.12)
     assert result["striking_foot"] == "unknown"
     assert result["full_approach_visible"] is False
     assert result["count_complete"] is False
@@ -147,6 +148,64 @@ def test_paired_coordinates_do_not_replace_independent_motion_agreement():
     assert result["candidate_count"] == 0
     assert result["view_proposals"]["normal"]["left"]
     assert not result["view_proposals"]["mirrored_inverse_mapped"]["left"]
+
+
+def test_one_frame_onset_difference_retains_the_same_sustained_stance():
+    value = fixture([80, 80, 92, 104, 116, 116, 116, 116, 116])
+    for row in value["records"]:
+        if row["reflected"] and row["frame"] >= 5:
+            for index in (29, 31):
+                row["landmarks_source_xy"][index][0] += 12
+    result = propose_shoe_landings(**value)
+    assert result["candidate_count"] == 1
+    event = result["landings"][0]
+    assert event["normal"]["frame"] == 4
+    assert event["mirrored_inverse_mapped"]["frame"] == 5
+    assert event["frame"] == 5
+    assert event["stance_frames"] == [5, 6, 7, 8]
+    assert event["common_stance_seconds"] == pytest.approx(.12)
+
+
+def test_three_common_frames_must_also_satisfy_the_shared_duration():
+    value = fixture([80, 80, 92, 104, 116, 116, 116, 116, 128], fps=50.)
+    for row in value["records"]:
+        if row["reflected"] and 5 <= row["frame"] <= 7:
+            for index in (29, 31):
+                row["landmarks_source_xy"][index][0] += 12
+    result = propose_shoe_landings(**value)
+    assert result["view_proposals"]["normal"]["left"][0]["stance_frames"] == [4, 5, 6, 7]
+    assert result["view_proposals"]["mirrored_inverse_mapped"]["left"][0]["stance_frames"] == [5, 6, 7, 8]
+    assert result["candidate_count"] == 0
+    assert any(item["reason"] == "insufficient_common_stance_support" for item in result["diagnostics"])
+
+
+@pytest.mark.parametrize("interruption", ["camera", "confidence", "identity", "missing_actor", "repeated_rejected_actor"])
+def test_qualified_stance_is_retained_but_not_extended_across_an_interruption(interruption):
+    value = fixture([80, 80, 92, 104, 116, 116, 116, 116, 116, 116])
+    if interruption == "camera":
+        value["transforms"]["7"] = None
+    elif interruption == "missing_actor":
+        value["records"] = [row for row in value["records"] if row["frame"] != 7]
+    else:
+        for row in value["records"]:
+            if row["frame"] == 7:
+                if interruption == "confidence":
+                    row["landmark_confidence"][29] = .1
+                else:
+                    row["roi_identity_status"] = "rejected"
+        if interruption == "repeated_rejected_actor":
+            value["decoded_frame_hashes"]["7"] = value["decoded_frame_hashes"]["6"]
+    result = propose_shoe_landings(**value)
+    assert result["candidate_count"] == 1
+    assert result["landings"][0]["stance_frames"] == [4, 5, 6]
+
+
+def test_new_swing_ends_previous_support_without_merging_two_landings():
+    result = propose_shoe_landings(**fixture([80, 80, 92, 104, 116, 116, 116, 116,
+                                              128, 140, 152, 152, 152, 152]))
+    assert result["candidate_count"] == 2
+    assert [(event["frame"], event["stance_frames"]) for event in result["landings"]] == [
+        (4, [4, 5, 6, 7]), (10, [10, 11, 12, 13])]
 
 
 def test_temporal_anatomical_channel_swap_abstains():

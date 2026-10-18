@@ -151,7 +151,12 @@ def _near_bottom(row, indices, cfg):
 def _series(records, first, last, matrices, hashes, cfg):
     views = {False: [], True: []}
     diagnostics, seen_hashes = [], set()
+    identity_segment = 0
     for frame in range(first, last + 1):
+        pair = [records.get((frame, flag)) for flag in (False, True)]
+        missing_actor = any(row is None or not row["accepted"] for row in pair)
+        if missing_actor:
+            identity_segment += 1
         digest = _lookup(hashes, frame)
         if not isinstance(digest, str) or not digest:
             diagnostics.append(dict(frame=frame, reason="missing_decoded_pixel_hash"))
@@ -164,8 +169,7 @@ def _series(records, first, last, matrices, hashes, cfg):
         if matrix is None:
             diagnostics.append(dict(frame=frame, reason="missing_measurable_camera_transform"))
             continue
-        pair = [records.get((frame, flag)) for flag in (False, True)]
-        if any(row is None or not row["accepted"] for row in pair):
+        if missing_actor:
             diagnostics.append(dict(frame=frame, reason="missing_paired_accepted_actor_pose"))
             continue
         if any(row["pixel_hash"] is not None and row["pixel_hash"] != digest for row in pair):
@@ -207,13 +211,14 @@ def _series(records, first, last, matrices, hashes, cfg):
                 diagnostics.append(dict(frame=frame, foot=side, reason=reason))
         for flag, row, points in zip((False, True), pair, projected):
             views[flag].append(dict(frame=frame, points=points, hip=points[HIPS].mean(axis=0),
-                scale=common_scale, valid=side_valid.copy(),
+                scale=common_scale, valid=side_valid.copy(), identity_segment=identity_segment,
                 near_bottom={side: _near_bottom(row, indices, cfg) for side, indices in SHOES.items()}))
     return views, diagnostics
 
 
 def _connected(previous, current, matrices, fps, cfg):
     return ((current["frame"] - previous["frame"]) / fps <= cfg.maximum_pair_gap_seconds
+            and previous.get("identity_segment") == current.get("identity_segment")
             and all(matrices.get(frame) is not None for frame in range(previous["frame"], current["frame"] + 1)))
 
 
@@ -236,10 +241,11 @@ def _channel_swaps(rows, matrices, fps, cfg):
 def _propose_view(rows, side, matrices, fps, cfg):
     indices, previous, fast, armed, stance = SHOES[side], None, [], None, []
     events, diagnostics, analyzable_segments, segment = [], [], [], []
-    last_event_frame = None
+    last_event_frame = active_stance_event = None
     for row in rows:
         if not row["valid"][side]:
             previous, fast, armed, stance = None, [], None, []
+            active_stance_event = None
             if segment:
                 analyzable_segments.append(segment)
                 segment = []
@@ -250,6 +256,7 @@ def _propose_view(rows, side, matrices, fps, cfg):
                 analyzable_segments.append(segment)
             segment = [row["frame"]]
             previous, fast, armed, stance = row, [], None, []
+            active_stance_event = None
             continue
         scale = (previous["scale"] + row["scale"]) / 2
         dt = (row["frame"] - previous["frame"]) / fps
@@ -263,8 +270,24 @@ def _propose_view(rows, side, matrices, fps, cfg):
             analyzable_segments.append(segment)
             segment = [row["frame"]]
             previous, fast, armed, stance = row, [], None, []
+            active_stance_event = None
             continue
         segment.append(row["frame"])
+        # Keep later support from the same stance: paired views can detect its
+        # onset one frame apart without describing different landing events.
+        if active_stance_event is not None:
+            extended = stance + [row]
+            cloud = np.array([item["points"][indices] for item in extended])
+            spread = np.max(np.linalg.norm(cloud[:, None] - cloud[None, :], axis=3)) / scale
+            if (max(speeds) <= cfg.stance_speed_max_body_per_second
+                    and row["near_bottom"][side] and spread <= cfg.maximum_stance_spread_body):
+                stance = extended
+                active_stance_event.update(stance_frames=[item["frame"] for item in stance],
+                    stance_seconds=float((stance[-1]["frame"] - stance[0]["frame"]) / fps),
+                    stance_spread_body=float(spread))
+                previous = row
+                continue
+            active_stance_event, stance = None, []
         if min(speeds) >= cfg.swing_speed_min_body_per_second:
             stance = []
             fast = fast + [row] if fast else [previous, row]
@@ -289,12 +312,13 @@ def _propose_view(rows, side, matrices, fps, cfg):
                         and spread <= cfg.maximum_stance_spread_body
                         and hip_progress >= cfg.minimum_hip_progress_body
                         and separation >= cfg.minimum_same_foot_separation_seconds):
-                    events.append(dict(frame=stance[0]["frame"], foot=side,
+                    active_stance_event = dict(frame=stance[0]["frame"], foot=side,
                         swing_frames=armed["frames"], stance_frames=[item["frame"] for item in stance],
                         stance_seconds=float(duration), stance_spread_body=float(spread),
-                        hip_progress_body=float(hip_progress)))
+                        hip_progress_body=float(hip_progress))
+                    events.append(active_stance_event)
                     last_event_frame = stance[0]["frame"]
-                    armed, stance = None, []
+                    armed = None
         else:
             fast, stance = [], []
             if armed and (row["frame"] - armed["last"]["frame"]) / fps > cfg.maximum_swing_to_stance_seconds:
@@ -329,7 +353,7 @@ def propose_shoe_landings(records, fps, interval_frames, transforms, decoded_fra
     matrices = _transform_map(transforms)
     rows = _read_records(records, first, last)
     views, diagnostics = _series(rows, first, last, matrices, decoded_frame_hashes, cfg)
-    base = dict(schema_version="shoe-landing-proposals-v1", fps=float(fps),
+    base = dict(schema_version="shoe-landing-proposals-v1", method_version="complete_stance_support_v2", fps=float(fps),
         observable_window=dict(start_frame=first, end_frame=last),
         full_approach_visible=False, count_complete=False, total_run_up_steps=None,
         striking_foot="unknown", candidate_count=None, observed_proposal_count=0, landings=None,
@@ -363,23 +387,31 @@ def propose_shoe_landings(records, fps, interval_frames, transforms, decoded_fra
         mirrors = proposals["mirrored_inverse_mapped"][side]
         used = set()
         for normal in proposals["normal"][side]:
-            candidates = [(abs(normal["frame"] - mirror["frame"]), index, mirror)
-                          for index, mirror in enumerate(mirrors) if index not in used
-                          and abs(normal["frame"] - mirror["frame"]) / fps <= cfg.maximum_pair_gap_seconds]
-            if not candidates:
+            nearby = [(abs(normal["frame"] - mirror["frame"]), index, mirror)
+                      for index, mirror in enumerate(mirrors) if index not in used
+                      and abs(normal["frame"] - mirror["frame"]) / fps <= cfg.maximum_pair_gap_seconds]
+            if not nearby:
                 base["diagnostics"].append(dict(frame=normal["frame"], foot=side,
                                                  reason="normal_proposal_without_mirror_support"))
                 continue
-            _, index, mirror = min(candidates, key=lambda item: (item[0], item[1]))
-            overlap = sorted(set(normal["stance_frames"]) & set(mirror["stance_frames"]))
-            if len(overlap) < cfg.minimum_stance_observations:
+            candidates = []
+            for difference, index, mirror in nearby:
+                overlap = sorted(set(normal["stance_frames"]) & set(mirror["stance_frames"]))
+                if (len(overlap) >= cfg.minimum_stance_observations
+                        and (overlap[-1] - overlap[0]) / fps >= cfg.minimum_stance_seconds
+                        and all((last - first) / fps <= cfg.maximum_pair_gap_seconds
+                                for first, last in zip(overlap, overlap[1:]))):
+                    candidates.append((difference, index, mirror, overlap))
+            if not candidates:
                 base["diagnostics"].append(dict(frame=normal["frame"], foot=side,
                                                  reason="insufficient_common_stance_support"))
                 continue
+            _, index, mirror, overlap = min(candidates, key=lambda item: (item[0], item[1]))
             used.add(index)
             matched.append(dict(frame=max(normal["frame"], mirror["frame"]), foot=side,
                 stance_frames=overlap, normal=normal, mirrored_inverse_mapped=mirror,
                 distinct_decoded_stance_observations=len(overlap),
+                common_stance_seconds=float((overlap[-1] - overlap[0]) / fps),
                 evidence_type="paired_image_plane_swing_to_stance_candidate"))
     matched.sort(key=lambda event: (event["frame"], event["foot"]))
     base.update(landings=matched, candidate_count=len(matched), observed_proposal_count=len(matched),

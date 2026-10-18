@@ -2,16 +2,17 @@
 
 分析课程提供的四场 2018 年世界杯点球大战，共 39 次罚球：哥伦比亚对英格兰 10 次、克罗地亚对丹麦 10 次、西班牙对俄罗斯 9 次、俄罗斯对克罗地亚 10 次。程序提取触球时刻、射门脚别、可见助跑步数、门将动作和球的位置，保存逐帧证据及结果表。
 
-代码基于小组原项目继续修改。当前结果来自 10 月 13 日完成的实验，本文于 10 月 18 日重新核对。
+代码基于小组原项目继续修改。主结果来自 10 月 13 日的实验；10 月 18 日修复了落地候选的支撑记录与配对逻辑，用相同的逐帧输入完成回放。
 
 ## 结果文件
 
 | 文件 | 内容 |
 |---|---|
-| [报告 PDF](outputs/fresh_course_experiment/report_v4_continuous_shoe/REPORT_FRESH_REVIEW_DRAFT.pdf) / [Word](outputs/fresh_course_experiment/report_v4_continuous_shoe/REPORT_FRESH_REVIEW_DRAFT.docx) | 九页审阅稿 |
+| [报告 PDF](outputs/fresh_course_experiment/report_v4_continuous_shoe/REPORT_FRESH_REVIEW_DRAFT.pdf) / [Word](outputs/fresh_course_experiment/report_v4_continuous_shoe/REPORT_FRESH_REVIEW_DRAFT.docx) | 10 月 13 日的九页审阅稿，未包含本轮回放 |
 | [主结果表](outputs/fresh_course_experiment/final_bundle_v3_shoe_fusion/features_39.csv) / [JSON](outputs/fresh_course_experiment/final_bundle_v3_shoe_fusion/features_39.json) | 39 次罚球的特征及来源记录 |
 | [脚别补充表](outputs/fresh_course_experiment/shoe_approach_foot_supplement_v2/foot_candidates_39.csv) | 连续推理后的脚别结果，增加 Dzagoev 一段 |
-| [主结果查看页](outputs/fresh_course_experiment/review_v3_shoe_fusion_ui3/index.html) / [连续助跑对照](outputs/fresh_course_experiment/shoe_approach_analysis_v2/review_v2/index.html) | 下载仓库后在浏览器打开，查看原画面及叠图 |
+| [落地修复对照](outputs/fresh_course_experiment/shoe_landing_replay_2026-10-18_v1/comparison_39.csv) / [实验说明](docs/SHOE_LANDING_REPLAY_2026-10-18.md) | 同一批输入，比较完整支撑记录与旧版三帧截断 |
+| [主结果查看页](outputs/fresh_course_experiment/review_v3_shoe_fusion_ui3/index.html) / [10 月 13 日助跑对照](outputs/fresh_course_experiment/shoe_approach_analysis_v2/review_v2/index.html) | 下载仓库后在浏览器打开，查看主结果和修复前的叠图 |
 | [人工复核页](outputs/fresh_course_experiment/shoe_approach_analysis_v2/blind_review/index.html) | 隐藏预测的原视频播放器，需另备课程片段 |
 
 ![Kane 片段的姿态、球和触球区间检测](outputs/fresh_course_experiment/review_v1/evidence/col_eng_p02_kane_eng9_evidence.jpg)
@@ -40,7 +41,7 @@
 | 触球时刻 | 33/39 | 84.6% |
 | 射门脚别 | 14/39 | 35.9%；主表 13 段，补充表增加 1 段；10 右、4 左 |
 | 旧版助跑计数 | 32/39 | 82.1%；统计脚踝极值，待核对落地事件 |
-| 连续助跑落地候选 | 7 段，共 12 个 | 32 段有输入区间；其余输出状态见下文 |
+| 连续助跑落地候选 | 12 段，共 22 个 | 修复前为 7 段、12 个；使用相同的 32 段输入区间 |
 | 门将触球前移动 | 29/39 | 74.4% |
 | 门将扑救方向 | 23/39 | 59.0%；按画面左、右、中间记录 |
 | 球轨迹 | 33/39 | 84.6%；保留观测点与跟踪中断记录 |
@@ -52,19 +53,21 @@
 | 球轨迹赛果 | 10/39 | 与 FIFA 记录一致 9/10 |
 | 融合赛果 | 35/39 | 与 FIFA 记录一致 35/35 |
 
-连续助跑的 39 段中，7 段有落地候选、20 段未检出、5 段关键点左右通道不稳、7 段没有可用输入区间。未检出表示当前规则未找到合格候选，实际步数仍待核对。
+连续助跑的 39 段中，12 段有落地候选、15 段未检出、5 段关键点左右通道不稳、7 段没有可用输入区间。未检出表示当前规则未找到合格候选，实际步数仍待核对。
 
-赛果一致率是在参与开发的这批视频上计算的，尚无独立测试集。比分板和融合赛果各覆盖 35 段，两组事件有所不同：Koke 的球轨迹与比分板冲突，融合结果保留未知；Rakitic 的比分板缺失，由球轨迹规则补入。数据见[主结果表](outputs/fresh_course_experiment/final_bundle_v3_shoe_fusion/features_39.csv)和[人工评估状态](outputs/fresh_course_experiment/shoe_approach_analysis_v2/evaluation_pending.json)。
+赛果一致率是在参与开发的这批视频上计算的，尚无独立测试集。比分板和融合赛果各覆盖 35 段，两组事件有所不同：Koke 的球轨迹与比分板冲突，融合结果保留未知；Rakitic 的比分板缺失，由球轨迹规则补入。数据见[主结果表](outputs/fresh_course_experiment/final_bundle_v3_shoe_fusion/features_39.csv)；本轮落地回放的[人工评估状态](outputs/fresh_course_experiment/shoe_landing_replay_2026-10-18_v1/evaluation_pending.json)仍为待标注。
 
 ## 主要问题与后续工作
 
-Rashford 的旧计数为 15，Pivaric 为 13，连续鞋部推理各留下 3 个落地候选。这些候选的共同支撑只有三帧，约 0.067 秒，空中变向也可能满足短暂低运动条件。两套结果需要逐帧标注来比较误差。目前保留两列，未用新值覆盖旧值。
+旧程序满足三帧低运动条件后就截断支撑记录，导致正常与镜像两路起点相差一帧时漏配。10 月 18 日的修复保留同一阶段的完整支撑，并检查共同持续时间。原有 12 个候选全部保留，增加 10 个。[回放对照](docs/SHOE_LANDING_REPLAY_2026-10-18.md)记录了每段变化。
+
+Rashford 的旧脚踝计数为 15，鞋部候选由 3 个变为 6 个。新增候选中仍有仅约 0.067 秒的短支撑，空中变向也可能满足低运动条件。两套结果需要逐帧标注来比较误差，主表的旧计数保留原值。
 
 脚别覆盖从 8 段增加到 13 段，再增加到 14 段，剩余 25 段未知。新增的 Dzagoev 右脚候选依赖第 262 帧的近球证据；Kane 仍然未知。后续先核对原录像里的触球区间、下肢遮挡和人物身份，再针对失败片段调整裁剪与跟踪。
 
 地面投影和门将高度都依赖相机几何。目前地面标定在 609 个采样帧中接受了 521 帧，仍需核对投影误差与时间连续性。门将高度缺少完整落地阶段和稳定地面参考。下一步按完整动作重新检查镜头和人物连续性，跨镜头结果分别保存。
 
-评估先由两名同学独立标注原课程视频，记录可见助跑区间、落地帧和触球脚。预测已冻结，[复核页](outputs/fresh_course_experiment/shoe_approach_analysis_v2/blind_review/index.html)隐藏自动结果，[评估脚本](scripts/evaluate_shoe_landings.py)保留标注分歧。标注完成后计算脚别一致率、落地事件精确率与召回率、可见区间步数 MAE，再比较方法改动。门将方向需另表标注，当前评估脚本尚未覆盖。
+评估先由两名同学独立标注原课程视频，记录可见助跑区间、落地帧和触球脚。预测已冻结，[复核页](outputs/fresh_course_experiment/shoe_approach_analysis_v2/blind_review/index.html)隐藏自动结果，本轮使用[新版标注模板](outputs/fresh_course_experiment/shoe_landing_replay_2026-10-18_v1/human_reference_template.json)。[评估脚本](scripts/evaluate_shoe_landings.py)保留标注分歧。标注完成后计算脚别一致率、落地事件精确率与召回率、可见区间步数 MAE，再比较方法改动。门将方向需另表标注，当前评估脚本尚未覆盖。
 
 ## 运行
 
