@@ -1,65 +1,74 @@
 # IND5003 Vision II：点球视频分析
 
-这是 IND5003 Vision II 的点球视频分析项目，使用 2018 年世界杯四场点球大战的 39 次罚球：哥伦比亚对英格兰、克罗地亚对丹麦、西班牙对俄罗斯，以及俄罗斯对克罗地亚。
+分析课程提供的四场 2018 年世界杯点球大战，共 39 次罚球：哥伦比亚对英格兰 10 次、克罗地亚对丹麦 10 次、西班牙对俄罗斯 9 次、俄罗斯对克罗地亚 10 次。程序提取触球时刻、射门脚别、可见助跑步数、门将动作和球的位置，保存逐帧证据及结果表。
 
-一脚点球从助跑到扑救只有几秒，但里面有不少值得比较的细节：球员走了多少步、用哪只脚触球、门将什么时候开始移动。项目尝试把这些细节从转播画面里提取出来，再看看它们和射门结果有没有关系。代码在小组原项目的基础上继续修改，当前版本重新处理了全部 39 次罚球。
+代码基于小组原项目继续修改。当前结果来自 10 月 13 日完成的实验，本文于 10 月 18 日重新核对。
 
-## 查看结果
+## 结果文件
 
 | 文件 | 内容 |
 |---|---|
-| [报告 PDF](outputs/fresh_course_experiment/report_v4_continuous_shoe/REPORT_FRESH_REVIEW_DRAFT.pdf) / [Word](outputs/fresh_course_experiment/report_v4_continuous_shoe/REPORT_FRESH_REVIEW_DRAFT.docx) | 方法、分析和遇到的问题，目前为审阅稿 |
-| [结果表](outputs/fresh_course_experiment/final_bundle_v3_shoe_fusion/features_39.csv) | 每次罚球一行，共 39 行 |
-| [完整 JSON](outputs/fresh_course_experiment/final_bundle_v3_shoe_fusion/features_39.json) | 各模块的输出、帧号及来源记录 |
-| [逐段查看](outputs/fresh_course_experiment/review_v3_shoe_fusion_ui3/index.html) | 下载仓库后在浏览器打开，查看检测图片和对应结果 |
-| [统计图](outputs/fresh_course_experiment/final_eda_v3_shoe_fusion/) | 特征覆盖、步数比较和赛果分析 |
-| [连续助跑实验](docs/SHOE_APPROACH_RESULTS_2026-10-13.md) / [原画面对照](outputs/fresh_course_experiment/shoe_approach_analysis_v2/review_v2/index.html) | 原课程视频上的新推理，逐段比较脚踝极值与落地候选 |
-| [人工复核](outputs/fresh_course_experiment/shoe_approach_analysis_v2/blind_review/index.html) | 本地原视频，不显示预测；尚未完成人工标注 |
-| [脚别补充表](outputs/fresh_course_experiment/shoe_approach_foot_supplement_v2/foot_candidates_39.csv) | 保留原 13 个候选，增加 Dzagoev，共 14/39；未经人工确认 |
+| [报告 PDF](outputs/fresh_course_experiment/report_v4_continuous_shoe/REPORT_FRESH_REVIEW_DRAFT.pdf) / [Word](outputs/fresh_course_experiment/report_v4_continuous_shoe/REPORT_FRESH_REVIEW_DRAFT.docx) | 九页审阅稿 |
+| [主结果表](outputs/fresh_course_experiment/final_bundle_v3_shoe_fusion/features_39.csv) / [JSON](outputs/fresh_course_experiment/final_bundle_v3_shoe_fusion/features_39.json) | 39 次罚球的特征及来源记录 |
+| [脚别补充表](outputs/fresh_course_experiment/shoe_approach_foot_supplement_v2/foot_candidates_39.csv) | 连续推理后的脚别结果，增加 Dzagoev 一段 |
+| [主结果查看页](outputs/fresh_course_experiment/review_v3_shoe_fusion_ui3/index.html) / [连续助跑对照](outputs/fresh_course_experiment/shoe_approach_analysis_v2/review_v2/index.html) | 下载仓库后在浏览器打开，查看原画面及叠图 |
+| [人工复核页](outputs/fresh_course_experiment/shoe_approach_analysis_v2/blind_review/index.html) | 隐藏预测的原视频播放器，需另备课程片段 |
 
-下面是 Kane 罚球片段的检测输出，图中保留了视频帧号，方便回看原画面。
+![Kane 片段的姿态、球和触球区间检测](outputs/fresh_course_experiment/review_v1/evidence/col_eng_p02_kane_eng9_evidence.jpg)
 
-![Kane 罚球片段的检测输出](outputs/fresh_course_experiment/review_v1/evidence/col_eng_p02_kane_eng9_evidence.jpg)
+## 程序使用的方法
 
-## 怎么看当前结果
+| 环节 | 实现 |
+|---|---|
+| 视频准备 | FFmpeg 切片，OpenCV 解码；记录原录像帧号、片段偏移和 SHA256 |
+| 人物姿态与身份 | YOLO11m-pose 提取 17 个关键点；按位置、框大小和运动连续性关联人物，结合球场与球门位置区分罚球者、门将 |
+| 足球检测与触球时刻 | YOLO11n、YOLO11m 分别检测足球；追踪静止球到离开罚球点的过程，比较两路检测的身份和时间区间 |
+| 脚别与助跑 | MediaPipe Pose Landmarker Heavy 提取 33 个关键点；正常、镜像两路推理检查摆腿、脚跟、脚尖和近球证据；SciPy 提取旧版脚踝极值 |
+| 相机运动与地面投影 | OpenCV 光流和 RANSAC 估计背景运动；球场白线、球门几何和单应矩阵生成地面投影点 |
+| 门将动作 | 目标关联、姿态位移和动作阶段规则；SAM2-t 用于局部门将轮廓试验 |
+| 赛果 | 球轨迹规则；OpenCV 提取转播比分板的红绿圆形图标，按顺序和稳定性判断结果 |
+| 汇总与检查 | NumPy、pandas、Matplotlib；pytest 检查代码行为、坐标变换、来源对应和冲突处理 |
 
-视频按罚球切片后，用 YOLO11 提取人物姿态和足球位置。脚本根据球从静止到离开罚球点的过程估计触球时刻，再计算助跑步数和门将动作。现在有 33 次罚球给出了触球时间候选，32 次给出了步数候选；门将触球前移动和扑救方向分别有 29 次、23 次输出。具体数字都在结果表里，遮挡和判断冲突的片段保留为 `unknown`。
+模型使用已有权重进行推理，项目没有训练或微调模型。比分板处理使用图标几何和颜色。SAM2 的轮廓试验单独保存，完整扑救高度尚未测出。具体参数见[主实验设置](docs/FRESH_EXPERIMENT_PROTOCOL.md)和[连续助跑实验](docs/SHOE_APPROACH_RESULTS_2026-10-13.md)。
 
-现在看，结果还很不均衡。左右脚这一列尤其需要核对：原来的脚踝规则得到 8 次候选，加入脚跟和脚尖后补上了 5 次，当前共 13 次。离球最近的脚可能是支撑脚，射门后的摆腿和支撑脚回收也会混在同一个运动窗口里。Rashford 在新方法下有了右脚候选，Kane 仍然未知。人物检测得清楚不等于触球脚就能判断正确，触球前后的动作还是要分开看。
+## 当前指标
 
-步数里，Rashford 的 15 次和 Pivaric 的 13 次需要重点检查。它们在三个阈值设置下都得到相同数字，但算法目前数的是脚踝信号的极值，还不能确认每个极值都对应一次落地。可能有连续的小碎步，也可能把一次摆动重复计数。看到这种数字，还是得回到原画面逐帧检查，不能只因为几次运行都一样就认为数对了。
+以下数量表示有候选输出的罚球数。覆盖率以 39 次罚球为分母。独立人工复核目前为 0 段，脚别准确率、真实步数误差和门将动作准确率尚未测得。
 
-按赛果分组，有步数输出的 20 次进球中位数是 5，12 次未进球中位数是 5.5。这个差别不大，而且两组缺失的片段不一样，步数本身也还没核实。现阶段据此讨论哪种助跑更容易进球，结论会太早。[步数比较图](outputs/fresh_course_experiment/final_eda_v3_shoe_fusion/04_fresh_approach_outcomes.png)保留了这部分观察。
+| 项目 | 当前输出 | 覆盖率或说明 |
+|---|---:|---|
+| 触球时刻 | 33/39 | 84.6% |
+| 射门脚别 | 14/39 | 35.9%；主表 13 段，补充表增加 1 段；10 右、4 左 |
+| 旧版助跑计数 | 32/39 | 82.1%；统计脚踝极值，待核对落地事件 |
+| 连续助跑落地候选 | 7 段，共 12 个 | 32 段有输入区间；其余输出状态见下文 |
+| 门将触球前移动 | 29/39 | 74.4% |
+| 门将扑救方向 | 23/39 | 59.0%；按画面左、右、中间记录 |
+| 球轨迹 | 33/39 | 84.6%；保留观测点与跟踪中断记录 |
+| 地面投影 | 32/39 | 226 个触球前地面候选点；完整俯视路线待完成 |
+| 完整扑救高度 | 0/39 | Brozovic 有 1 段带条件的局部图像高度信号 |
+| 球的最终位置 | 0/39 | 14 段遮挡、8 段镜头切换、17 段未知 |
+| 自动慢动作判断 | 0/320 个镜头区间 | 跨镜头动作对齐尚未建立 |
+| 比分板赛果 | 35/39 | 与 FIFA 记录一致 35/35 |
+| 球轨迹赛果 | 10/39 | 与 FIFA 记录一致 9/10 |
+| 融合赛果 | 35/39 | 与 FIFA 记录一致 35/35 |
 
-进球这一列看起来最完整：从转播比分板的红绿图标读出了 35 次结果，与 FIFA 技术报告的记录一致。不过球轨迹规则本身只对 10 次罚球作出了判断。Koke 这一球尤其说明问题：球轨迹给出了进球候选，比分板显示未进，两者冲突，合并结果就保留了未知。比分板能补赛果，却不能证明球已经跟踪正确。35/35 是这批调试视频上的一致性，还没有在新比赛上验证。
+连续助跑的 39 段中，7 段有落地候选、20 段未检出、5 段关键点左右通道不稳、7 段没有可用输入区间。未检出表示当前规则未找到合格候选，实际步数仍待核对。
 
-俯视图目前只有 32 次罚球的部分地面投影点，不能连成完整的助跑路线。高度检查发现，原来 6 段局部信号里有 5 段的地面参考已经失效，旧代码却仍给出了“低扑救”。现在已撤回这 5 个类别，只保留 Brozovic 一段条件信号，原始数值留作诊断。完整扑救、慢动作和球的最终位置仍没有可用的自动结果。门将方向按画面左、右记录，步数只统计可见的助跑部分。
+赛果一致率是在参与开发的这批视频上计算的，尚无独立测试集。比分板和融合赛果各覆盖 35 段，两组事件有所不同：Koke 的球轨迹与比分板冲突，融合结果保留未知；Rakitic 的比分板缺失，由球轨迹规则补入。数据见[主结果表](outputs/fresh_course_experiment/final_bundle_v3_shoe_fusion/features_39.csv)和[人工评估状态](outputs/fresh_course_experiment/shoe_approach_analysis_v2/evaluation_pending.json)。
 
-## 10 月 13 日的新实验
+## 主要问题与后续工作
 
-左右脚先试了一项很小但有针对性的改变：投票在球第一次离开时停止，不再混入后续支撑腿回弹。Trippier、Dier 和西班牙对俄罗斯的 Smolov 得到了新的右脚候选，但窄窗口也失去了旧规则的八个候选。这个结果提醒我，缩小窗口能解释一些失败，却不是直接提升整体识别率。三段的[逐帧证据和完整比较](outputs/fresh_course_experiment/foot_strike_window_verified_inputs_v1/README.md)单独保留，主表还没有采用它们。
+Rashford 的旧计数为 15，Pivaric 为 13，连续鞋部推理各留下 3 个落地候选。这些候选的共同支撑只有三帧，约 0.067 秒，空中变向也可能满足短暂低运动条件。两套结果需要逐帧标注来比较误差。目前保留两列，未用新值覆盖旧值。
 
-接着用 MediaPipe 的 33 个关键点重新处理了全部 39 段，增加了脚跟和脚尖的位置。两路独立的正常、镜像推理使用固定裁剪，并检查人物身份和原画面里的球。Rashford、Dier、Pivaric、西班牙对俄罗斯的 Smolov 和 Vida 同时通过摆腿与鞋区域检查，补到了主表；新增的是四个右脚、一个左脚候选。Ramos 只有摆腿证据，没有通过鞋区域检查，所以没有靠新模型补值。这次覆盖从 8/39 提高到 13/39，但还有 26 段未知，也还没有独立人工标签来算准确率。[实验设置](docs/FRESH_SHOE_POSE33_PROTOCOL_2026-10-13.md)和[五段原画面对照](outputs/fresh_course_experiment/shoe33_guarded_source_review_v1/README.md)保留了判断依据。
+脚别覆盖从 8 段增加到 13 段，再增加到 14 段，剩余 25 段未知。新增的 Dzagoev 右脚候选依赖第 262 帧的近球证据；Kane 仍然未知。后续先核对原录像里的触球区间、下肢遮挡和人物身份，再针对失败片段调整裁剪与跟踪。
 
-随后把推理窗口向前延伸到可见助跑，仍然只用原来的四份课程录像。32 段有可用区间，共重新处理 2,121 帧，完成 4,242 次正常、镜像推理。落地规则改为寻找鞋从摆动转为短暂低运动的过程，并检查相机运动和重复画面；7 段留下了 12 个候选。Rashford 和 Pivaric 各有 3 个，与旧规则的 15、13 相差很大。但这些支撑都只有三帧，约 0.067 秒，脚在空中改变方向也可能出现低运动，所以现在不能把 3 写成真实步数。另有 20 段没有检测到符合条件的候选，这也不代表没有迈步。
+地面投影和门将高度都依赖相机几何。目前地面标定在 609 个采样帧中接受了 521 帧，仍需核对投影误差与时间连续性。门将高度缺少完整落地阶段和稳定地面参考。下一步按完整动作重新检查镜头和人物连续性，跨镜头结果分别保存。
 
-连续推理还在 Dzagoev 一段得到新的右脚候选，近球证据在第 262 帧，位于球的静止帧 261 与离开帧 263 之间。它说明较长的追踪历史会改变模型输出，但还不能证明脚和球实际接触。新实验保留了逐帧来源、正常与镜像坐标以及拒绝原因；[复核模板和评估结果](outputs/fresh_course_experiment/shoe_approach_analysis_v2/evaluation_pending.json)目前 39 段均待人工复核，准确率和步数误差留空。
+评估先由两名同学独立标注原课程视频，记录可见助跑区间、落地帧和触球脚。预测已冻结，[复核页](outputs/fresh_course_experiment/shoe_approach_analysis_v2/blind_review/index.html)隐藏自动结果，[评估脚本](scripts/evaluate_shoe_landings.py)保留标注分歧。标注完成后计算脚别一致率、落地事件精确率与召回率、可见区间步数 MAE，再比较方法改动。门将方向需另表标注，当前评估脚本尚未覆盖。
 
-重新解码原视频、核对模型坐标和旧输出后，脚别补充表保留原来的 13 个候选，只新增 Dzagoev，合计 14/39，没有已确定脚别之间的冲突。主表仍保留原版本，便于检查到底增加了什么。候选覆盖只多了一段，离可靠地分析全部罚球还有明显距离。
+## 运行
 
-门将局部推理在 Kane、Rashford 和 Cuadrado 三段上加入了旋转视角。Kane 的触球前身体参考终于能建立，但落地阶段仍然不完整，三段都没有新增高度类别。人物身份检查也收紧了：新检测只能改善同一帧的原人物，不能给裁判换个 ID 后把他当门将。这轮结果比增加一个看似完整的数字更有用，它把剩下的问题定位到了动作连续性和地面参考。
-
-高清录像也实际跑了新推理。前三球中，中型足球检测器给出了 Falcao、Kane 两段触球候选，小型检测器只给出 Falcao，Cuadrado 两者都没有解决。Kane 的高清主视角仍没有得到可靠脚别。换高清素材有帮助，但清晰度本身解决不了遮挡和关键点跳变，[三球对照](docs/HD_PILOT_RESULTS_2026-10-13.md)记录了这些没有成功的尝试。
-
-## 接下来怎么核对
-
-这轮实验没有新增视频。接下来先由两名同学分别查看原课程片段，记录能看清的落地帧和触球脚，再比较自动结果。复核时先隐藏预测和叠图，避免照着模型填答案。已经看过这些视频、调整过方法，所以即使人工复核后表现不错，也只能报告这批视频上的一致性。
-
-早先的 FIFA 高清试验单独保留，没有进入主表或本轮连续助跑实验。课程简章允许补充数据作为证据和背景，但具体提交范围仍应遵守教学团队的要求。[素材说明](docs/ADDITIONAL_VIDEO_SOURCES.md)区分了原课程录像和外部剪辑；不能把不同剪辑的时间、位置直接混用，也不能用额外比赛代替指定的 39 次罚球。
-
-## 在本机运行
-
-查看报告、结果表和检测图片不需要 GPU。重新生成统计图可以直接使用仓库里的结果文件：
+结果表、报告和检测图片可直接查看。重生成统计图：
 
 ```sh
 git clone https://github.com/Gabric-cau/ind5003-vision-ii.git
@@ -72,19 +81,17 @@ python -m src.fresh_eda \
   --output-dir outputs/my_eda
 ```
 
-Windows 的虚拟环境激活命令为 `.venv-analysis\Scripts\Activate.ps1`。统计图会写入 `outputs/my_eda`，重复运行会覆盖同名文件。
-
-如果要运行测试，再安装 OpenCV 和 SciPy：
+Windows 激活命令为 `.venv-analysis\Scripts\Activate.ps1`。统计图写入 `outputs/my_eda`，同名文件会被覆盖。
 
 ```sh
 python -m pip install -r requirements-experiments.txt
 python -m pytest -q
 ```
 
-从原视频重新提取特征需要另外准备视频、模型权重和 FFmpeg。各阶段的脚本位于 `scripts/run_fresh_*`，运行参数可通过 `--help` 查看。具体的特征定义和实验设置见[实验说明](docs/FRESH_EXPERIMENT_PROTOCOL.md)。
+重新提取特征需另备原视频、模型权重和 FFmpeg。推理依赖分别在 `requirements-cuda.txt` 与 `requirements-pose33.txt`，运行入口在 `scripts/run_fresh_*`。代码模块位于 `src/`，配置位于 `configs/`，当前结果位于 `outputs/fresh_course_experiment/`。
 
-## 文件组织与来源
+## 来源
 
-`src/` 放分析模块，`scripts/` 放运行脚本，`configs/` 放切片和分析配置，`tests/` 放测试。当前结果统一放在 `outputs/fresh_course_experiment/` 下，其他实验目录保留用于比较早期版本。
+主结果及连续助跑实验使用原课程的四份录像。早先下载的 FIFA 高清剪辑作为[单独三球对照](docs/HD_PILOT_RESULTS_2026-10-13.md)保存，未进入这两项实验；素材记录见[视频来源](docs/ADDITIONAL_VIDEO_SOURCES.md)。
 
-原小组仓库：[RX422040/vision-ii-penalty-analysis](https://github.com/RX422040/vision-ii-penalty-analysis)。这里保留了原提交历史，后续修改主要涉及触球时间、足球跟踪、相机运动补偿、地面标定、比分板分析和结果整理。代码与文档更新使用了 AI 辅助。
+原小组仓库：[RX422040/vision-ii-penalty-analysis](https://github.com/RX422040/vision-ii-penalty-analysis)。修改基于原项目，代码与文档更新使用了 AI 辅助。报告仍为审阅稿，课程提交由小组另行完成。
