@@ -79,9 +79,18 @@ accuracy. This version does not establish 90% performance on the course outputs.
 
 ## Verification Status
 
-The lab's existing Linux RTX 4090 environments completed the earlier v4
-inference runs. The v5 clean Windows installation and end-to-end check are in
-progress. A successful installer writes `environment_check.json`; it records
-dependency/import/CUDA checks and explicitly does not claim end-to-end inference
-or accuracy. The final release validation report will record the actual machine,
-input hash, stage results and runtime after that test finishes.
+The v5 archive passed a fresh installation into two empty virtual environments
+on Windows 11 with an RTX 2060 (6 GB), driver 555.99 and Python 3.11.9. Both
+environments passed their dependency/import checks, and a real CUDA operation
+passed using PyTorch 2.7.0+cu118. One known development video then completed all
+14 stages in 220.95 seconds, without supplied human annotations or an image-size
+reduction. See the [Dell validation report](DELL_PORTABLE_V5_VALIDATION_2026-10-28.md)
+for the exact archive/input hashes and the scope of the check.
+
+A successful installer writes `environment_check.json`; it records environment
+checks and deliberately does not claim video execution or accuracy. The separate
+validation report records the subsequent video test. The tested ZIP remains
+immutable, so its build manifest still describes the checks made at packaging
+time. This does not establish 90% accuracy or a fresh installation on every
+other operating system/GPU variant. The lab's existing Linux RTX 4090
+environments completed the earlier v4 inference runs.
