@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 import sys
 import time
+from types import SimpleNamespace
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
@@ -16,12 +17,13 @@ import cv2
 import numpy as np
 
 from src.ball_pipeline import _read_window
+from src.ball_specialist import predict_images
 from src.final_results import sha256
 from src.fresh_event_analysis import contact_window, partition_predictions, merge_ball_candidates, analyze_fresh_ball, analyze_fresh_keeper, search_fresh_contact, local_event_cache, contact_pose
 from src.goal_geometry import detect_goal_frame
 from src.runtime import inference_provenance, resolve_device
 
-CODE_FILES = ['scripts/run_fresh_ball_experiment.py', 'src/fresh_event_analysis.py',
+CODE_FILES = ['scripts/run_fresh_ball_experiment.py', 'src/fresh_event_analysis.py', 'src/ball_specialist.py',
               'src/ball_pipeline.py', 'src/ball_continuity_v4.py', 'src/ball_continuity.py',
               'src/ball_direction_corridor.py', 'src/ball_mask_seed.py', 'src/ball_shot_focus.py',
               'src/ball_keeper_rebound.py', 'src/ball_goal_decision.py', 'src/event_ball_tracking.py',
@@ -52,6 +54,25 @@ def validate_detection_model(model):
         raise ValueError('Fresh ball inference requires a COCO detection model with person=0 and sports ball=32')
 
 
+def validate_ball_specialist(model):
+    names = ({int(key): value for key, value in model.names.items()}
+             if isinstance(model.names, dict) else dict(enumerate(model.names)))
+    if model.task != 'detect' or len(names) != 1 or names.get(0) not in {'ball', 'sports ball'}:
+        raise ValueError('Ball specialist must be a single-class detection model with ball=0')
+
+
+def partition_specialist(ids, frames, specialist, settings):
+    config = settings['ball_specialist']
+    rows = predict_images(specialist, frames, config['mode'], config['imgsz'],
+                          settings['device'], settings['batch_size'])
+    predictions = [SimpleNamespace(boxes=SimpleNamespace(
+        xyxy=np.asarray([item['bbox'] for item in items], dtype=float).reshape(-1, 4),
+        conf=np.asarray([item['confidence'] for item in items], dtype=float),
+        cls=np.zeros(len(items), dtype=int))) for items in rows]
+    return partition_predictions(ids, predictions, frames, mode='ball_specialist_'+config['mode'],
+                                 ball_class_id=0, person_class_id=None)
+
+
 def propose_crops(pose, goals, kick, width, height):
     options = [(abs(int(f)-kick), int(f), g['selected']) for f, g in goals.items() if g.get('selected')]
     crops = [('full', [0, 0, width, height])]
@@ -77,10 +98,12 @@ def propose_crops(pose, goals, kick, width, height):
     return [(mode, bbox) for mode, bbox in crops if bbox[2] > bbox[0] and bbox[3] > bbox[1]]
 
 
-def detect_event(video, pose, record, model, settings):
+def detect_event(video, pose, record, model, settings, *, ball_specialist=None):
     interval, reason = contact_window(pose, record)
     if interval is None:
         return None, {}, reason
+    if ball_specialist is not None:
+        validate_ball_specialist(ball_specialist)
     start, end = interval
     ids, frames, fps, width, height = _read_window(str(video), start, end-1)
     if len(ids) != end-start:
@@ -103,6 +126,15 @@ def detect_event(video, pose, record, model, settings):
             for fid in batch_ids:
                 key = str(fid)
                 detections[key].extend(balls[key]); people[key].extend(persons[key]); raw[key].extend(observations[key])
+    if ball_specialist is not None:
+        for index in range(0, len(frames), settings['batch_size']):
+            batch = frames[index:index+settings['batch_size']]
+            batch_ids = ids[index:index+settings['batch_size']]
+            balls, _, observations = partition_specialist(batch_ids, batch, ball_specialist, settings)
+            for fid in batch_ids:
+                key = str(fid)
+                detections[key].extend(balls[key])
+                raw[key].extend(observations[key])
     # A long shot can have several camera-chain breaks. Contact search and
     # event analysis establish their own fresh, explicitly bounded chains.
     camera = {'transforms': {}, 'scope': 'estimated_independently_in_global_contact_search_windows'}
@@ -113,7 +145,7 @@ def detect_event(video, pose, record, model, settings):
             candidate['stabilized_xy'] = None
             candidate['motion_mean_abs_gray'] = None
         detections[key] = merged
-    return {'clip_id': pose['clip_id'], 'status': 'cached_candidates', 'video_path': str(video),
+    cache = {'clip_id': pose['clip_id'], 'status': 'cached_candidates', 'video_path': str(video),
             'source_sha256': record['clip_sha256'], 'start_frame': start, 'end_frame_exclusive': end,
             'pose_kick_proposal': pose.get('kick_frame'), 'fps': fps, 'width': width, 'height': height,
             'source_mapping': record, 'contact': {'contact_frame': None,
@@ -124,7 +156,13 @@ def detect_event(video, pose, record, model, settings):
             'source_times': {str(f): {'clip_frame': f, 'clip_time_sec': f/fps,
                'course_recording_frame': record['source_start_frame']+f,
                'course_recording_time_sec': (record['source_start_frame']+f)/record['fps']} for f in ids},
-            'fresh_model_inference': True, 'old_ball_trajectory_input': False}, dict(zip(ids, frames)), reason
+            'fresh_model_inference': True, 'old_ball_trajectory_input': False}
+    if ball_specialist is not None:
+        cache['ball_specialist'] = {**settings['ball_specialist'], 'combination': 'merge_with_coco_ball_candidates',
+                                    'person_detection_source': 'original_coco_model',
+                                    'existing_ball_candidate_gates_retained': True,
+                                    'coordinate_transform': 'tile_translation_to_original_clip_pixels'}
+    return cache, dict(zip(ids, frames)), reason
 
 
 def write_contact_sheet(cache, result, frames, path):
@@ -158,6 +196,10 @@ def main(argv=None):
     parser.add_argument('--pose-dir', type=Path, required=True)
     parser.add_argument('--output-dir', type=Path, required=True)
     parser.add_argument('--model', type=Path, required=True)
+    parser.add_argument('--ball-specialist', type=Path,
+                        help='Optional trained single-class ball detector; original COCO model remains active')
+    parser.add_argument('--specialist-mode', choices=['full', 'tiles'], default='full')
+    parser.add_argument('--specialist-imgsz', type=int, default=1280)
     parser.add_argument('--device', default='cuda:0')
     parser.add_argument('--imgsz', type=int, default=1280)
     parser.add_argument('--batch-size', type=int, default=4)
@@ -166,7 +208,7 @@ def main(argv=None):
     parser.add_argument('--clips', nargs='+')
     parser.add_argument('--resume', action='store_true')
     args = parser.parse_args(argv)
-    if min(args.batch_size, args.imgsz) <= 0 or not 0 < args.pre_sec <= 2 or not 0 < args.post_sec <= 3:
+    if min(args.batch_size, args.imgsz, args.specialist_imgsz) <= 0 or not 0 < args.pre_sec <= 2 or not 0 < args.post_sec <= 3:
         raise ValueError('Invalid bounded inference settings')
     source_manifest = args.clips_dir/'source_manifest.json'
     source = load(source_manifest)
@@ -183,8 +225,17 @@ def main(argv=None):
                 'confidence': .01, 'pre_sec': args.pre_sec, 'post_sec': args.post_sec}
     code_hashes = {name: sha256(ROOT/name) for name in CODE_FILES}
     model_hash, manifest_hash = sha256(args.model), sha256(source_manifest)
+    model_paths = [args.model]
+    specialist_hash = None
+    if args.ball_specialist is not None:
+        specialist_hash = sha256(args.ball_specialist)
+        model_paths.append(args.ball_specialist)
+        settings['ball_specialist'] = {'mode': args.specialist_mode, 'imgsz': args.specialist_imgsz,
+            'weights_sha256': specialist_hash, 'native_ball_class_id': 0, 'canonical_ball_class_id': 32,
+            'person_class_id': None, 'confidence': .05, 'nms_iou': .6, 'max_det': 20,
+            'tile_edge': 960, 'tile_overlap': .25, 'includes_full_frame': True}
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    protocol = inference_provenance(args.device, device, [args.model])
+    protocol = inference_provenance(args.device, device, model_paths)
     protocol.update(created_at_utc=datetime.now(timezone.utc).isoformat(), settings=settings,
                     source_manifest_sha256=manifest_hash, cohort_clip_ids=ids, code_sha256=code_hashes,
                     old_caches_used=False, reference_labels_used_for_prediction=False, manual_ball_points_used=False,
@@ -196,6 +247,10 @@ def main(argv=None):
     from ultralytics import YOLO
     model = YOLO(str(args.model))
     validate_detection_model(model)
+    ball_specialist = None
+    if args.ball_specialist is not None:
+        ball_specialist = YOLO(str(args.ball_specialist))
+        validate_ball_specialist(ball_specialist)
     cv2.setNumThreads(3)
     rows = []
     for index, cid in enumerate(ids, 1):
@@ -217,6 +272,8 @@ def main(argv=None):
         identity = {'source_sha256': record['clip_sha256'], 'pose_sha256': sha256(pose_path),
                     'model_sha256': model_hash, 'source_manifest_sha256': manifest_hash,
                     'settings': settings, 'code_sha256': code_hashes}
+        if specialist_hash is not None:
+            identity['ball_specialist_sha256'] = specialist_hash
         target = args.output_dir/'results'/f'{cid}.json'
         if target.exists():
             result = load(target)
@@ -224,7 +281,8 @@ def main(argv=None):
                 raise FileExistsError(f'Existing fresh event result is not reusable: {target}')
         else:
             started = time.monotonic()
-            cache, frames, reason = detect_event(video, pose, record, model, settings)
+            cache, frames, reason = detect_event(video, pose, record, model, settings,
+                                                ball_specialist=ball_specialist)
             if cache is None:
                 result = {'clip_id': cid, 'status': 'abstain_contact', 'reason': reason,
                           'new_neural_inference': False, 'rule_decision': {'rule_outcome': 'unknown'},
@@ -232,7 +290,7 @@ def main(argv=None):
                           'keeper': {'status': 'abstain', 'dive_direction': 'unknown', 'dive_height': 'unknown'}}
             else:
                 cache['pose_sha256'] = identity['pose_sha256']
-                cache['runtime'] = inference_provenance(args.device, device, [args.model], [video])
+                cache['runtime'] = inference_provenance(args.device, device, model_paths, [video])
                 cache['inference_identity'] = identity
                 save(args.output_dir/'detections'/f'{cid}.json', cache)
                 search = search_fresh_contact(cache, pose, frames)

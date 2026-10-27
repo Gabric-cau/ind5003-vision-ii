@@ -92,7 +92,7 @@ def compact_stage(stage, data):
                   "supported_frame_count_in_selected_pose_frames", "pre_kick_contact_candidate_count",
                   "sparse_ground_contact_candidates", "ground_contact_candidate_count", "pose_input", "independent_contact"],
         "camera": ["timeline_coverage", "contact_anchor"],
-        "endpoint": ["last_observed_frame", "last_observed_image_xy", "stationary_end_candidate",
+        "endpoint": ["last_observed_frame", "last_observed_position", "stationary_end_candidate",
                      "boundary_evidence", "contact_bracket_frames", "final_position", "final_position_verified"],
         "height": ["strict_height_candidate", "ordinal_pose_height_candidate", "pose_only_phase",
                    "mask_phase", "reference", "mask_provenance", "physical_height_metres",

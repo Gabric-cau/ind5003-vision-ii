@@ -437,6 +437,8 @@ def select_goalkeeper_track(
             **seed,
             "track_id": "stitched:" + "+".join(str(item) for item in used_ids),
             "source_track_ids": used_ids,
+            "source_track_id_by_frame": {str(int(round(row[0]*fps))): int(row[4])
+                                         for row in backward + forward},
             "pre_trajectory": pre_trajectory,
             "post_trajectory": post_trajectory,
             "pre_count": len(pre_trajectory),

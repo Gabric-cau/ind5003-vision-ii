@@ -238,8 +238,9 @@ def _channel_swaps(rows, matrices, fps, cfg):
     return ambiguous
 
 
-def _propose_view(rows, side, matrices, fps, cfg):
-    indices, previous, fast, armed, stance = SHOES[side], None, [], None, []
+def _propose_view(rows, side, matrices, fps, cfg, support_indices=None):
+    indices = SHOES[side] if support_indices is None else support_indices
+    previous, fast, armed, stance = None, [], None, []
     events, diagnostics, analyzable_segments, segment = [], [], [], []
     last_event_frame = active_stance_event = None
     for row in rows:

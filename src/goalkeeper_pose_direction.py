@@ -29,6 +29,12 @@ def pose_direction_evidence(record, pose):
         return reject('no_qualified_onset_connected_track')
     selected = record['selected_candidate']
     ids = set(selected.get('source_track_ids', []))
+    source_by_frame = selected.get('source_track_id_by_frame')
+    if source_by_frame is not None:
+        if not isinstance(source_by_frame, dict) or any(
+                isinstance(tid, bool) or not isinstance(tid, int) or tid not in ids
+                for tid in source_by_frame.values()):
+            return reject('invalid_selected_source_frame_binding')
     fps = float(record['fps']); kick = int(record['kick_frame'])
     if pose.get('fps') is not None and not math.isclose(float(pose['fps']),fps,rel_tol=1e-6):
         return reject('pose_fps_mismatch')
@@ -40,6 +46,10 @@ def pose_direction_evidence(record, pose):
             continue
         for o in track.get('observations', []):
             f = o['frame']
+            # The stitched trajectory selects one source observation per frame.
+            # Other detector views of that person are not extra selected people.
+            if source_by_frame is not None and source_by_frame.get(str(f)) != track['track_id']:
+                continue
             if kick-round(.5*fps) <= f <= frames[-1]:
                 by_frame.setdefault(f, []).append((track['track_id'], o))
     def axes(o):

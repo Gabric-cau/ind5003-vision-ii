@@ -295,10 +295,13 @@ def local_event_cache(cache, pose, contact, before_sec, after_sec):
     return result
 
 
-def partition_predictions(ids, predictions, frames, *, offset=(0, 0), mode='full'):
+def partition_predictions(ids, predictions, frames, *, offset=(0, 0), mode='full',
+                          ball_class_id=32, person_class_id=0):
     """Keep all raw boxes; apply the existing ball candidate size/visual gates."""
-    if len(ids) != len(predictions):
+    if not len(ids) == len(predictions) == len(frames):
         raise ValueError('Detector batch output length mismatch')
+    if ball_class_id == person_class_id:
+        raise ValueError('Ball and person classes must be distinct')
     balls, people, raw = {}, {}, {}
     for fid, result, frame in zip(ids, predictions, frames):
         boxes = getattr(result, 'boxes', None)
@@ -312,11 +315,19 @@ def partition_predictions(ids, predictions, frames, *, offset=(0, 0), mode='full
         raw[str(fid)] = [{'bbox': box.tolist(), 'confidence': float(cf), 'class_id': int(cls),
                           'mode': mode, 'crop_translation_xy': list(offset)}
                          for box, cf, cls in zip(xyxy, confidence, classes)]
-        selected = classes == 32
+        if (ball_class_id, person_class_id) != (32, 0):
+            for row in raw[str(fid)]:
+                row['native_class_id'] = row['class_id']
+                if row['native_class_id'] == ball_class_id:
+                    row['class_id'] = 32
+                elif person_class_id is not None and row['native_class_id'] == person_class_id:
+                    row['class_id'] = 0
+        selected = classes == ball_class_id
         adapted = SimpleNamespace(boxes=SimpleNamespace(xyxy=xyxy[selected], conf=confidence[selected]))
         balls[str(fid)] = [{**q, 'sources': [mode]} for q in _extract_detections([fid], [adapted], [frame])[fid]]
         people[str(fid)] = [{'bbox': box.tolist(), 'confidence': float(cf), 'sources': [mode]}
-                            for box, cf, cls in zip(xyxy, confidence, classes) if cls == 0]
+                            for box, cf, cls in zip(xyxy, confidence, classes)
+                            if person_class_id is not None and cls == person_class_id]
     return balls, people, raw
 
 

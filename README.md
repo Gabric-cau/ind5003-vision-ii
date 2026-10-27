@@ -4,11 +4,38 @@
 
 代码基于小组原项目继续修改。主结果来自 10 月 13 日的实验；10 月 18 日修复了落地候选的支撑记录与配对逻辑，用相同的逐帧输入完成回放。
 
+## 本地复现当前模型
+
+下载 [v5 完整模型运行包](https://github.com/Gabric-cau/ind5003-vision-ii/releases/tag/v2026.10.28-portable-v5)，解压后进入 `portable_bundle_v5`。模型权重随 Release ZIP 提供；GitHub 自动生成的 Source code ZIP 仅包含源码，不能代替运行包。完整安装、输入范围和验证记录见[复现说明](docs/REPRODUCE_PORTABLE_V5_2026-10-28.md)。
+
+Windows PowerShell，Python 3.11，RTX 2060/4060 等显卡：
+
+```powershell
+py -3.11 install.py --torch cu118
+.\.venv\Scripts\python.exe run_video.py --video C:\videos\penalty.mp4 --output runs\my_penalty --device cuda:0 --batch-size 1
+```
+
+RTX 5060 等较新显卡选择 `--torch cu128` 并确保驱动支持；没有 NVIDIA GPU 的机器选择 `--torch cpu`，运行时使用 `--device cpu`。安装依赖需要联网；安装完成后，推理读取本地视频和权重。
+
+Linux/macOS 的命令使用 `python3.11 install.py --torch cpu` 和 `.venv/bin/python run_video.py ... --device cpu`。Linux NVIDIA 机器可改用 `--torch cu118` 或 `--torch cu128`。
+
+输入应为已经切好的单次罚球 MP4，从射门主镜头开始，包含助跑、触球和可见结果。结果写入 `analysis.json`，最终字段在 `required_outputs` 和 `final_feature_table`，阶段日志在 `logs/`。每次选择新的输出目录。视频、人工答案和账号配置不包含在运行包中。
+
+这个版本发布当前训练权重与流程修复，不宣称达到 90% 准确率。刚收到的小皮复核包尚未用于新一轮训练。历史脚别参考的部分字段待裁决；下面的历史分数应结合其版本和参考标签阅读。
+
+## 10 月 26 日训练与离线运行
+
+已新增触球、脚别、落地、门将、球类别和镜头分类的监督训练，以及无需人工答案的新视频入口。训练结果、十段完整运行和独立比赛测试分别记录在[训练与部署说明](docs/TRAINING_AND_DEPLOYMENT_2026-10-26.md)。预训练视觉网络保持冻结，训练的是下游分类器；以下主表和审阅稿保留历史版本，不代表最新模型的全部表现。离线包位于 `outputs/offline_deployment_2026-10-26`，具体运行方法见包内 README。
+
+完整 v3 流程已在另一场比赛的 8 段视频上完成 8/8、0 失败。冻结评分和运行时间见[完整流程评估](docs/WORLDCUP_FULL_PIPELINE_EVALUATION_2026-10-27.md)：脚别严格准确率 3/8，赛果与门将定性高度当前均因证据门槛输出 0/8；中位端到端时间 287.15 秒，p95 468.41 秒。这个结果是用于暴露模型和数据边界的独立检查，不是把未知值当成正确答案。
+
 ## 结果文件
 
 | 文件 | 内容 |
 |---|---|
-| [报告 PDF](outputs/fresh_course_experiment/report_v4_continuous_shoe/REPORT_FRESH_REVIEW_DRAFT.pdf) / [Word](outputs/fresh_course_experiment/report_v4_continuous_shoe/REPORT_FRESH_REVIEW_DRAFT.docx) | 10 月 13 日的九页审阅稿，未包含本轮回放 |
+| [报告 PDF](outputs/fresh_course_experiment/submission_review_2026-10-22/IND5003_Vision_II_Review_2026-10-22.pdf) / [Word](outputs/fresh_course_experiment/submission_review_2026-10-22/IND5003_Vision_II_Review_2026-10-22.docx) | 10 月 22 日更新的 12 页审阅稿，已纳入单评审诊断及落地改进；待组员审核 |
+| [提交准备与未完成项](docs/SUBMISSION_READINESS.md) / [视频展示提纲](docs/VIDEO_PRESENTATION_OUTLINE_2026-10-21.md) | 报告、视频、代码和数据的具体状态及咨询待确认要求 |
+| [人工标注整合及新诊断](docs/HUMAN_REFERENCE_INTEGRATION_2026-10-22.md) / [保存结果审阅 ZIP](outputs/fresh_course_experiment/submission_review_2026-10-22/IND5003_Saved_Result_Review_2026-10-22.zip) | 标注来源、单评审对照、复现包与边界；未上传 |
 | [主结果表](outputs/fresh_course_experiment/final_bundle_v3_shoe_fusion/features_39.csv) / [JSON](outputs/fresh_course_experiment/final_bundle_v3_shoe_fusion/features_39.json) | 39 次罚球的特征及来源记录 |
 | [脚别补充表](outputs/fresh_course_experiment/shoe_approach_foot_supplement_v2/foot_candidates_39.csv) | 连续推理后的脚别结果，增加 Dzagoev 一段 |
 | [落地修复对照](outputs/fresh_course_experiment/shoe_landing_replay_2026-10-18_v1/comparison_39.csv) / [实验说明](docs/SHOE_LANDING_REPLAY_2026-10-18.md) | 同一批输入，比较完整支撑记录与旧版三帧截断 |
@@ -30,11 +57,13 @@
 | 赛果 | 球轨迹规则；OpenCV 提取转播比分板的红绿圆形图标，按顺序和稳定性判断结果 |
 | 汇总与检查 | NumPy、pandas、Matplotlib；pytest 检查代码行为、坐标变换、来源对应和冲突处理 |
 
-模型使用已有权重进行推理，项目没有训练或微调模型。比分板处理使用图标几何和颜色。SAM2 的轮廓试验单独保存，完整扑救高度尚未测出。具体参数见[主实验设置](docs/FRESH_EXPERIMENT_PROTOCOL.md)和[连续助跑实验](docs/SHOE_APPROACH_RESULTS_2026-10-13.md)。
+上述历史主结果使用已有权重推理，当时没有训练或微调模型。10 月 26 日的新增监督模型单独记录。比分板处理使用图标几何和颜色。SAM2 的轮廓试验单独保存，完整扑救高度尚未测出。具体参数见[主实验设置](docs/FRESH_EXPERIMENT_PROTOCOL.md)和[连续助跑实验](docs/SHOE_APPROACH_RESULTS_2026-10-13.md)。
 
 ## 当前指标
 
-以下数量表示有候选输出的罚球数。覆盖率以 39 次罚球为分母。独立人工复核目前为 0 段，脚别准确率、真实步数误差和门将动作准确率尚未测得。
+以下数量表示有候选输出的罚球数。覆盖率以 39 次罚球为分母。10 月 22 日已整合一名人工评审的 39 段标注；双评审共识和独立测试准确率仍未建立。与单评审对照，脚别补充 12/14、门将方向 19/23 一致。27 个可比较窗口中，22 个落地候选匹配人工列表 156 次中的 13 次，列表计数 MAE 4.963；落地仍明显漏检。[完整诊断](docs/HUMAN_REFERENCE_INTEGRATION_2026-10-22.md)保留未知、分歧及人工/AI 辅助来源。
+
+随后完成的[固定脚跟/脚尖支撑补充](docs/DEVELOPMENT_COMPLETION_2026-10-22.md)保留原候选并增加 43 个，总计 65 个、覆盖 23 段；同 27 窗口匹配数提升到 41，列表计数 MAE 降至 3.370。下表继续描述冻结主结果，新增开发实验单独记录，不混写版本。
 
 | 项目 | 当前输出 | 覆盖率或说明 |
 |---|---:|---|
@@ -55,19 +84,19 @@
 
 连续助跑的 39 段中，12 段有落地候选、15 段未检出、5 段关键点左右通道不稳、7 段没有可用输入区间。未检出表示当前规则未找到合格候选，实际步数仍待核对。
 
-赛果一致率是在参与开发的这批视频上计算的，尚无独立测试集。比分板和融合赛果各覆盖 35 段，两组事件有所不同：Koke 的球轨迹与比分板冲突，融合结果保留未知；Rakitic 的比分板缺失，由球轨迹规则补入。数据见[主结果表](outputs/fresh_course_experiment/final_bundle_v3_shoe_fusion/features_39.csv)；本轮落地回放的[人工评估状态](outputs/fresh_course_experiment/shoe_landing_replay_2026-10-18_v1/evaluation_pending.json)仍为待标注。
+赛果一致率是在参与开发的这批视频上计算的，尚无独立测试集。比分板和融合赛果各覆盖 35 段，两组事件有所不同：Koke 的球轨迹与比分板冲突，融合结果保留未知；Rakitic 的比分板缺失，由球轨迹规则补入。数据见[主结果表](outputs/fresh_course_experiment/final_bundle_v3_shoe_fusion/features_39.csv)；最新[人工评估状态](outputs/fresh_course_experiment/human_evaluation_2026-10-22/evaluation_consensus.json)为 39 段单评审已完成，双评审共识为空。旧 `evaluation_pending.json` 仅为保留的历史记录。
 
 ## 主要问题与后续工作
 
 旧程序满足三帧低运动条件后就截断支撑记录，导致正常与镜像两路起点相差一帧时漏配。10 月 18 日的修复保留同一阶段的完整支撑，并检查共同持续时间。原有 12 个候选全部保留，增加 10 个。[回放对照](docs/SHOE_LANDING_REPLAY_2026-10-18.md)记录了每段变化。
 
-Rashford 的旧脚踝计数为 15，鞋部候选由 3 个变为 6 个。新增候选中仍有仅约 0.067 秒的短支撑，空中变向也可能满足低运动条件。两套结果需要逐帧标注来比较误差，主表的旧计数保留原值。
+Rashford 的旧脚踝计数为 15，鞋部候选由 3 个变为 6 个。新增候选中仍有仅约 0.067 秒的短支撑，空中变向也可能满足低运动条件。新人工列表已用于新版鞋部候选诊断，仍须逐项分析漏检和错误支撑；主表的旧计数保留原值。
 
 脚别覆盖从 8 段增加到 13 段，再增加到 14 段，剩余 25 段未知。新增的 Dzagoev 右脚候选依赖第 262 帧的近球证据；Kane 仍然未知。后续先核对原录像里的触球区间、下肢遮挡和人物身份，再针对失败片段调整裁剪与跟踪。
 
 地面投影和门将高度都依赖相机几何。目前地面标定在 609 个采样帧中接受了 521 帧，仍需核对投影误差与时间连续性。门将高度缺少完整落地阶段和稳定地面参考。下一步按完整动作重新检查镜头和人物连续性，跨镜头结果分别保存。
 
-评估先由两名同学独立标注原课程视频，记录可见助跑区间、落地帧和触球脚。预测已冻结，[复核页](outputs/fresh_course_experiment/shoe_approach_analysis_v2/blind_review/index.html)隐藏自动结果，本轮使用[新版标注模板](outputs/fresh_course_experiment/shoe_landing_replay_2026-10-18_v1/human_reference_template.json)。[评估脚本](scripts/evaluate_shoe_landings.py)保留标注分歧。标注完成后计算脚别一致率、落地事件精确率与召回率、可见区间步数 MAE，再比较方法改动。门将方向需另表标注，当前评估脚本尚未覆盖。
+已有一名评审提供原课程视频的落地帧、触球脚和四项定性射门/扑救标签。新[整合脚本](scripts/integrate_human_reference_2026_10_22.py)检查原文件哈希、来源和坐标语义，并分别计算单评审脚别、门将方向及落地列表诊断。原[评估脚本](scripts/evaluate_shoe_landings.py)的双评审共识规则保持不变；第二人复核后可按其格式保留分歧并重新评价。不要拿历史空模板覆盖已经完成的人工标签。
 
 ## 运行
 
