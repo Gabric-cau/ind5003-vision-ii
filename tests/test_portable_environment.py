@@ -23,6 +23,8 @@ def test_install_creates_two_environments_and_checks_them_separately(tmp_path, m
     monkeypatch.setenv("PYTHONPATH", "unrelated-packages")
     monkeypatch.setenv("PIP_TARGET", "unrelated-target")
     monkeypatch.setenv("PIP_CACHE_DIR", "unrelated-windows-store-cache")
+    for name in ("MPLCONFIGDIR", "YOLO_CONFIG_DIR", "TORCH_HOME"):
+        monkeypatch.setenv(name, "unrelated-user-cache")
     for name in ("main", "shoes"):
         (tmp_path / f"requirements-{name}.txt").write_text("numpy==1.0\n")
     calls = []
@@ -31,6 +33,9 @@ def test_install_creates_two_environments_and_checks_them_separately(tmp_path, m
         calls.append((command, kwargs))
         assert "PYTHONPATH" not in kwargs["env"] and "PIP_TARGET" not in kwargs["env"]
         assert kwargs["env"]["PIP_CACHE_DIR"] == str(tmp_path / ".pip-cache")
+        for name, folder in (("MPLCONFIGDIR", "matplotlib"), ("YOLO_CONFIG_DIR", "ultralytics"),
+                             ("TORCH_HOME", "torch")):
+            assert kwargs["env"][name] == str(tmp_path / ".runtime-cache" / folder)
         if command[1:3] == ["-m", "venv"]:
             directory = Path(command[3])
             executable = installer.environment_python(tmp_path, directory.name)
@@ -48,6 +53,8 @@ def test_install_creates_two_environments_and_checks_them_separately(tmp_path, m
     assert set(receipt["environments"]) == {"main", "shoes"}
     assert json.loads((tmp_path / "environment_check.json").read_text()) == receipt
     assert installer.os.environ["PIP_CACHE_DIR"] == "unrelated-windows-store-cache"
+    assert all(installer.os.environ[name] == "unrelated-user-cache"
+               for name in ("MPLCONFIGDIR", "YOLO_CONFIG_DIR", "TORCH_HOME"))
     pip_installs = [command for command, _ in calls if command[1:4] == ["-m", "pip", "install"]]
     torch_installs = [command for command in pip_installs if any("requirements-torch-" in arg for arg in command)]
     assert len(torch_installs) == 1

@@ -78,6 +78,10 @@ def isolated_environment(root):
         env.pop(name, None)
     env["PYTHONNOUSERSITE"] = "1"
     env["PYTHONUTF8"] = "1"
+    runtime_cache = root / ".runtime-cache"
+    env["MPLCONFIGDIR"] = str(runtime_cache / "matplotlib")
+    env["YOLO_CONFIG_DIR"] = str(runtime_cache / "ultralytics")
+    env["TORCH_HOME"] = str(runtime_cache / "torch")
     if sys.platform == "win32":
         system_root = next((value for key, value in env.items() if key.upper() == "SYSTEMROOT"), None)
         if not system_root or not ntpath.isabs(system_root) or ";" in system_root:

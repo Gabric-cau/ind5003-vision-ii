@@ -233,6 +233,12 @@ video test or accuracy measurement. Packaging itself does not establish that a
 clean install has passed; target-machine test receipts are supplied separately.
 The previous Linux shoe dependency dry-run did not install the packages.
 
+Installation uses `.pip-cache` inside this bundle. Installation checks and video
+stages use `.runtime-cache` here for Matplotlib, Ultralytics and Torch settings.
+On Windows, installer subprocesses use a minimal PATH containing the two virtual
+environments, base Python and Windows system directories. These settings apply
+only to child processes; the system PATH and other projects are not changed.
+
 The requirements are direct pins, not a fully locked transitive dependency set.
 Use this bundle's `requirements-main.txt`, `requirements-shoes.txt`, and selected
 torch file, rather than the repository's general development requirements.

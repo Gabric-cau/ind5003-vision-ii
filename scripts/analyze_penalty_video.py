@@ -23,6 +23,13 @@ def write_json(path, value):
     path.write_text(json.dumps(value, indent=2, ensure_ascii=False, allow_nan=False) + "\n")
 
 
+def stage_environment(threads):
+    cache = ROOT / ".runtime-cache"
+    return {**os.environ, "OMP_NUM_THREADS": str(threads), "MKL_NUM_THREADS": str(threads),
+            "OPENBLAS_NUM_THREADS": str(threads), "MPLCONFIGDIR": str(cache / "matplotlib"),
+            "YOLO_CONFIG_DIR": str(cache / "ultralytics"), "TORCH_HOME": str(cache / "torch")}
+
+
 def prepare_source(video, folder):
     if video.suffix.lower() != ".mp4":
         raise ValueError("This pipeline requires an MP4 video; convert or remux the source to .mp4 before running")
@@ -315,8 +322,7 @@ def main():
         setattr(args, name, getattr(args, name).resolve())
     started = time.perf_counter()
     source = prepare_source(args.video, args.output / "source")
-    env = {**os.environ, "OMP_NUM_THREADS": str(args.threads), "MKL_NUM_THREADS": str(args.threads),
-           "OPENBLAS_NUM_THREADS": str(args.threads)}
+    env = stage_environment(args.threads)
     commands = [contact_stage_command(args.video, args.contact_model, args.pose_model,
                                      args.ball_model, args.output, args.device, args.threads)]
     commands += stage_commands(args.output / "source", args.output, args.pose_model, args.ball_model, args.device,

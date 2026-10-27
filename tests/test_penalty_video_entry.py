@@ -1,4 +1,5 @@
 import json
+import os
 from pathlib import Path
 
 import cv2
@@ -6,6 +7,19 @@ import numpy as np
 import pytest
 
 from scripts.analyze_penalty_video import prepare_source, stage_commands, summarize, endpoint_output, contact_stage_command
+from scripts import analyze_penalty_video as entry
+
+
+def test_inference_isolates_user_caches_for_all_stage_processes(tmp_path, monkeypatch):
+    monkeypatch.setattr(entry, "ROOT", tmp_path)
+    for key in ("MPLCONFIGDIR", "YOLO_CONFIG_DIR", "TORCH_HOME"):
+        monkeypatch.setenv(key, "unusable-user-directory")
+    env = entry.stage_environment(2)
+    for key, folder in (("MPLCONFIGDIR", "matplotlib"), ("YOLO_CONFIG_DIR", "ultralytics"),
+                        ("TORCH_HOME", "torch")):
+        assert env[key] == str(tmp_path / ".runtime-cache" / folder)
+        assert os.environ[key] == "unusable-user-directory"
+    assert env["OMP_NUM_THREADS"] == env["MKL_NUM_THREADS"] == env["OPENBLAS_NUM_THREADS"] == "2"
 
 
 def test_new_video_manifest_does_not_supply_answers_or_invent_shootout_order(tmp_path):
