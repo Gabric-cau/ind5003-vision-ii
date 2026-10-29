@@ -21,7 +21,7 @@ Linux/macOS 的命令使用 `python3.11 install.py --torch cpu` 和 `.venv/bin/p
 
 输入应为已经切好的单次罚球 MP4，从射门主镜头开始，包含助跑、触球和可见结果。结果写入 `analysis.json`，最终字段在 `required_outputs` 和 `final_feature_table`，阶段日志在 `logs/`。每次选择新的输出目录。视频、人工答案和账号配置不包含在运行包中。
 
-这个版本发布当前训练权重与流程修复，不宣称达到 90% 准确率。刚收到的小皮复核包尚未用于新一轮训练。历史脚别参考的部分字段待裁决；下面的历史分数应结合其版本和参考标签阅读。
+这个版本发布当前流程修复、最终训练审计和提交材料初稿，不宣称达到 90% 准确率。最新球/门将增广训练没有超过保留基线，因此默认流程没有被替换；严格扑救高度和事件最终球位置仍保留为 unknown。历史脚别参考的部分字段待裁决；下面的历史分数应结合其版本和参考标签阅读。
 
 已在 Dell RTX 2060（6GB、Windows 11）上从两套空虚拟环境完成安装验证，并用一段不带人工答案的视频跑通全部 14 个阶段，用时约 3 分 41 秒。[实机验证记录](docs/DELL_PORTABLE_V5_VALIDATION_2026-10-28.md)记录了运行包哈希、环境和限制；这项检查证明可运行，不是新视频准确率评估。
 
@@ -37,6 +37,12 @@ Linux/macOS 的命令使用 `python3.11 install.py --torch cpu` 和 `.venv/bin/p
 |---|---|
 | [报告 PDF](outputs/fresh_course_experiment/submission_review_2026-10-22/IND5003_Vision_II_Review_2026-10-22.pdf) / [Word](outputs/fresh_course_experiment/submission_review_2026-10-22/IND5003_Vision_II_Review_2026-10-22.docx) | 10 月 22 日更新的 12 页审阅稿，已纳入单评审诊断及落地改进；待组员审核 |
 | [提交准备与未完成项](docs/SUBMISSION_READINESS.md) / [视频展示提纲](docs/VIDEO_PRESENTATION_OUTLINE_2026-10-21.md) | 报告、视频、代码和数据的具体状态及咨询待确认要求 |
+| [报告初稿（2026-10-29）](docs/REPORT_DRAFT_2026-10-29.md) | 按老师六章节重新整理，纳入最终训练审计、严格 unknown 和独立测试边界；待组员补成员贡献、引用和最终表述 |
+| [PPT 初稿源稿](docs/PRESENTATION_DRAFT_2026-10-29.md) / [可编辑 PPTX](docs/PRESENTATION_DRAFT_2026-10-29.pptx) | 12 页、十分钟版本；使用真实 EDA 图表，替换成员姓名后排练 |
+| [最终视频大纲](docs/VIDEO_OUTLINE_2026-10-29.md) | 十分钟真人讲述时间轴、画面和讲述要点；现有无声底片不是最终视频 |
+| [最终增广训练审计](docs/FINAL_AUGMENTED_TRAINING_2026-10-29.md) | 球和门将两组增广对照、选择规则、未晋级原因及 label-free smoke 结果 |
+| [provisional coverage 说明](outputs/provisional_coverage_2026-10-29/README.md) | 17/39 高度候选和 27/39 最后可见球帧仅作为 provisional observation，不是准确率 |
+| [GitHub 发布范围](docs/GITHUB_PUBLISH_SCOPE_2026-10-29.md) | 说明本次保留的代码、审计和初稿，以及原视频/权重/压缩包的排除原因 |
 | [人工标注整合及新诊断](docs/HUMAN_REFERENCE_INTEGRATION_2026-10-22.md) / [保存结果审阅 ZIP](outputs/fresh_course_experiment/submission_review_2026-10-22/IND5003_Saved_Result_Review_2026-10-22.zip) | 标注来源、单评审对照、复现包与边界；未上传 |
 | [主结果表](outputs/fresh_course_experiment/final_bundle_v3_shoe_fusion/features_39.csv) / [JSON](outputs/fresh_course_experiment/final_bundle_v3_shoe_fusion/features_39.json) | 39 次罚球的特征及来源记录 |
 | [脚别补充表](outputs/fresh_course_experiment/shoe_approach_foot_supplement_v2/foot_candidates_39.csv) | 连续推理后的脚别结果，增加 Dzagoev 一段 |

@@ -1,0 +1,33 @@
+{
+  "selected_model": "control",
+  "groups_used_for_selection": [
+    "development_external_match",
+    "development_subject_02"
+  ],
+  "macro_clip_top1_by_group": {
+    "control": {
+      "development_external_match": 0.20472796989824854,
+      "development_subject_02": 0.9302325581395349
+    },
+    "photometric": {
+      "development_external_match": 0.1509473621122228,
+      "development_subject_02": 0.9302325581395349
+    }
+  },
+  "equal_group_mean_macro_clip_top1": {
+    "control": 0.5674802640188917,
+    "photometric": 0.5405899601258788
+  },
+  "photometric_regressing_groups": [
+    "development_external_match"
+  ],
+  "photometric_strict_mean_improvement": false,
+  "rule": "Photometric only if both development clip-macro top1 recalls do not decrease and their equal-weight mean strictly increases; otherwise control",
+  "selection_status": "development_candidate_pending_full_video_smoke",
+  "default_pipeline_changed": false,
+  "independent_test": false,
+  "whole_pipeline_accuracy_measured": false,
+  "training_diagnostics_used_for_selection": false,
+  "weights": "/Users/gabric/Downloads/all/01_课程学习资料/IND5003_数据分析与意义建构/作业/我的答案/ind5003-vision-ii/outputs/keeper_detector_final_mps_2026-10-29/control/fit/weights/last.pt",
+  "weights_sha256": "906ddbc7ad79e6431686a61921e98c58b45425c88861e9275845b818d9cf3523"
+}

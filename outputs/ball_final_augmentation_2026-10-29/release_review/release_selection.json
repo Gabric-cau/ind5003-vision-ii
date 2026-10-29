@@ -1,0 +1,34 @@
+{
+  "selected_model": "initializer",
+  "eligible_new_models": [],
+  "reasons": {
+    "control_full": [
+      "Does not reach both historical gates: core 65/91 and ARS 62/88",
+      "Regresses on core_development versus this run's initializer",
+      "Regresses on arsenal_development versus this run's initializer",
+      "Equal-group mean does not strictly improve over this run's initializer"
+    ],
+    "augmented_mixed": [
+      "Does not reach both historical gates: core 65/91 and ARS 62/88",
+      "Regresses on core_development versus this run's initializer",
+      "Regresses on arsenal_development versus this run's initializer",
+      "Equal-group mean does not strictly improve over this run's initializer"
+    ]
+  },
+  "equal_group_mean_recall": {
+    "initializer": 0.7037337662337663,
+    "control_full": 0.6702047952047953,
+    "augmented_mixed": 0.6702047952047953
+  },
+  "runner_historical_decision": {
+    "eligible_arms": [],
+    "selected_candidate": null
+  },
+  "rule": "Tiles: historical dual gate; no group below current initializer; strictly higher equal-group mean; new-arm ties prefer control; otherwise keep initializer",
+  "selection_status": "development_candidate_pending_full_video_smoke",
+  "default_pipeline_changed": false,
+  "independent_test_evaluated": false,
+  "overall_project_accuracy_measured": false,
+  "weights": "/Users/gabric/Downloads/all/01_\u8bfe\u7a0b\u5b66\u4e60\u8d44\u6599/IND5003_\u6570\u636e\u5206\u6790\u4e0e\u610f\u4e49\u5efa\u6784/\u4f5c\u4e1a/\u6211\u7684\u7b54\u6848/ind5003-vision-ii/outputs/ball_controlled_round2_mps_2026-10-28/B_round1_balanced/fit/weights/last.pt",
+  "weights_sha256": "875fa95ef1adf8127b20167991cef3e8be393b4cca7466f992d1d683e5c020d3"
+}
