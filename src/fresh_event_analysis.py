@@ -48,7 +48,8 @@ def contact_window(pose, source):
                      if attempt['shot_index'] == selection.get('selected_shot_index')), {})
     if selection.get('found_qualified_shot') is not True or selected.get('qualifies') is not True or selected.get('scene_rejections') != []:
         return None, 'selected_shot_qualification_not_established'
-    if (selected.get('goal_context') or {}).get('supported') is not True:
+    context = selected.get('goal_context') or {}
+    if context.get('analysis_allowed', context.get('supported')) is not True:
         return None, 'selected_shot_goal_context_not_established'
     actor = next((row for row in pose.get('track_candidates', [])
                   if row['track_id'] == pose['selected_track_id']), {})

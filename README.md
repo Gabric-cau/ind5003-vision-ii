@@ -6,6 +6,8 @@
 
 ## 本地复现当前模型
 
+10 月 30 日补丁：[球门候选有歧义时继续姿态分析](docs/GOAL_CONTEXT_HOTFIX_2026-10-30.md)。保留球门几何和相关结果的 `unknown`，不会任意选一个球门。已有 v5 运行包需使用补丁更新器同步代码绑定；仅拉取源码不能更新旧运行包。组员报告的具体失败片段仍待复测。
+
 下载 [v5 完整模型运行包](https://github.com/Gabric-cau/ind5003-vision-ii/releases/tag/v2026.10.28-portable-v5)，解压后进入 `portable_bundle_v5`。模型权重随 Release ZIP 提供；GitHub 自动生成的 Source code ZIP 仅包含源码，不能代替运行包。完整安装、输入范围和验证记录见[复现说明](docs/REPRODUCE_PORTABLE_V5_2026-10-28.md)。
 
 Windows PowerShell，Python 3.11，RTX 2060/4060 等显卡：

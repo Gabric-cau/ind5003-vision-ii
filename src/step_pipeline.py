@@ -1800,7 +1800,7 @@ def _scan_adaptive_shots(video_path: str, max_shot_sec: float) -> List[Dict[str,
 
 
 def _shot_goal_context(video_path: str, shot: Mapping[str, Any]) -> Dict[str, Any]:
-    """Check spatial goal evidence before accepting an approach camera shot."""
+    """Separate a plausible penalty scene from uniquely selected goal geometry."""
     from src.goal_geometry import detect_goal_frame
 
     start, end = int(shot["shot_start_frame"]), int(shot["shot_end_frame"])
@@ -1823,8 +1823,18 @@ def _shot_goal_context(video_path: str, shot: Mapping[str, Any]) -> Dict[str, An
         capture.release()
     supported = [row for row in observations if row["goal"]["status"] == "candidate_supported"
                  and row["green_fraction"] >= .18]
-    return {"supported": bool(supported), "samples": observations,
-            "rule": "visible_goal_geometry_and_field_context",
+    # Rival goal proposals can justify analysing the people, but cannot supply
+    # a goal plane, keeper identity or ball destination.
+    ambiguous = [row for row in observations if row["green_fraction"] >= .18
+                 and row["goal"]["status"] == "abstain"
+                 and row["goal"].get("reason") == "insufficient_or_ambiguous_geometry"
+                 and not row["goal"].get("selected")
+                 and sum(candidate["score"] >= .72
+                         for candidate in row["goal"].get("candidates", [])) >= 2]
+    return {"supported": bool(supported), "analysis_allowed": bool(supported or ambiguous),
+            "ambiguous_goal_frames": [row["frame"] for row in ambiguous],
+            "samples": observations,
+            "rule": "goal_candidates_and_field_allow_analysis_unique_geometry_still_required",
             "actor_identity_verified": False, "human_verified": False}
 
 
@@ -1889,7 +1899,7 @@ def process_video_steps(
                 "reason": "camera_shot_outside_manual_event_slice"})
             continue
         context = _shot_goal_context(video_path, shot) if require_goal_context else None
-        if context is not None and not context["supported"]:
+        if context is not None and not context.get("analysis_allowed", context["supported"]):
             attempts.append({"shot_index": shot["shot_index"],
                 "start_frame": shot["shot_start_frame"], "end_frame_exclusive": shot["shot_end_frame"],
                 "status": "skipped", "qualifies": False, "error": None,
@@ -1970,6 +1980,13 @@ def process_video_steps(
     }
     if shot_selection == "first_viable" and (selected_index != 0 or not found_qualified):
         _append_warning(best_result["qa_warnings"], "shot_selection_requires_review")
+        best_result["review_required"] = True
+        best_result["auto_accepted"] = False
+    selected_context = next((row.get("goal_context") for row in attempts
+                             if row["shot_index"] == selected_index), None)
+    if (selected_context and not selected_context["supported"]
+            and selected_context.get("analysis_allowed")):
+        _append_warning(best_result["qa_warnings"], "ambiguous_goal_geometry_analysis_only")
         best_result["review_required"] = True
         best_result["auto_accepted"] = False
     return _json_safe(best_result)

@@ -191,7 +191,89 @@ class ShotSelectionTests(unittest.TestCase):
         shot = sp._scan_camera_shots(str(self.video), 8, 30)[0]
         result = sp._shot_goal_context(str(self.video), shot)
         self.assertFalse(result["supported"])
+        self.assertFalse(result["analysis_allowed"])
         self.assertEqual(len(result["samples"]), 3)
+
+    def test_ambiguous_goals_allow_pose_without_promoting_geometry(self):
+        writer = cv2.VideoWriter(str(self.video), cv2.VideoWriter_fourcc(*"MJPG"), 30, (160, 90))
+        for _ in range(120):
+            writer.write(np.full((90, 160, 3), (40, 120, 40), np.uint8))
+        writer.release()
+        goal = {"status": "abstain", "selected": None,
+                "reason": "insufficient_or_ambiguous_geometry",
+                "candidates": [{"score": .91}, {"score": .90}]}
+        original = copy.deepcopy(goal)
+        with patch("src.goal_geometry.detect_goal_frame", return_value=goal), \
+             patch.object(sp, "_process_shot_steps",
+                          side_effect=lambda *a, shot, **kw: self.fake_result(shot, True)) as process:
+            result = sp.process_video_steps(str(self.video), object(), require_goal_context=True)
+        process.assert_called_once()
+        context = result["shot_selection"]["attempts"][0]["goal_context"]
+        self.assertTrue(context["analysis_allowed"])
+        self.assertFalse(context["supported"])
+        self.assertEqual(context["ambiguous_goal_frames"], [0, 59, 119])
+        self.assertEqual(goal, original)
+        self.assertTrue(all(row["goal"]["selected"] is None for row in context["samples"]))
+        self.assertTrue(result["shot_selection"]["found_qualified_shot"])
+        self.assertIn("ambiguous_goal_geometry_analysis_only", result["qa_warnings"])
+        self.assertTrue(result["review_required"])
+        self.assertFalse(result["auto_accepted"])
+
+    def test_ambiguous_goals_still_require_field_and_strong_candidates(self):
+        goal = {"status": "abstain", "selected": None,
+                "reason": "insufficient_or_ambiguous_geometry",
+                "candidates": [{"score": .91}, {"score": .90}]}
+        shot = sp._scan_camera_shots(str(self.video), 8, 30)[0]
+        with patch("src.goal_geometry.detect_goal_frame", return_value=goal):
+            self.assertFalse(sp._shot_goal_context(str(self.video), shot)["analysis_allowed"])
+        writer = cv2.VideoWriter(str(self.video), cv2.VideoWriter_fourcc(*"MJPG"), 30, (160, 90))
+        for _ in range(120):
+            writer.write(np.full((90, 160, 3), (40, 120, 40), np.uint8))
+        writer.release()
+        for scores in ([], [.70, .69], [.91]):
+            with self.subTest(scores=scores), patch("src.goal_geometry.detect_goal_frame",
+                    return_value={**goal, "candidates": [{"score": value} for value in scores]}):
+                context = sp._shot_goal_context(str(self.video), shot)
+                self.assertFalse(context["supported"])
+                self.assertFalse(context["analysis_allowed"])
+
+    def test_two_drawn_goals_are_decoded_and_analysed_without_geometry_selection(self):
+        frame = np.full((360, 640, 3), (40, 120, 40), np.uint8)
+        for left, right in ((40, 250), (370, 580)):
+            cv2.rectangle(frame, (left, 120), (right, 210), (255, 255, 255), 5)
+            for x in range(left + 10, right, 10):
+                cv2.line(frame, (x, 125), (x, 205), (210, 210, 210), 1)
+        writer = cv2.VideoWriter(str(self.video), cv2.VideoWriter_fourcc(*"MJPG"), 30, (640, 360))
+        self.assertTrue(writer.isOpened())
+        for _ in range(60):
+            writer.write(frame)
+        writer.release()
+        with patch.object(sp, "_process_shot_steps",
+                          side_effect=lambda *a, shot, **kw: self.fake_result(shot, True)) as process:
+            result = sp.process_video_steps(str(self.video), object(), require_goal_context=True)
+        process.assert_called_once()
+        context = result["shot_selection"]["attempts"][0]["goal_context"]
+        self.assertFalse(context["supported"])
+        self.assertTrue(context["analysis_allowed"])
+        for sample in context["samples"]:
+            self.assertIsNone(sample["goal"]["selected"])
+            self.assertGreaterEqual(len(sample["goal"]["candidates"]), 2)
+        self.assertFalse(result["auto_accepted"])
+
+    def test_unique_goal_context_keeps_existing_acceptance(self):
+        writer = cv2.VideoWriter(str(self.video), cv2.VideoWriter_fourcc(*"MJPG"), 30, (160, 90))
+        for _ in range(120):
+            writer.write(np.full((90, 160, 3), (40, 120, 40), np.uint8))
+        writer.release()
+        with patch("src.goal_geometry.detect_goal_frame", return_value={"status": "candidate_supported"}), \
+             patch.object(sp, "_process_shot_steps",
+                          side_effect=lambda *a, shot, **kw: self.fake_result(shot, True)):
+            result = sp.process_video_steps(str(self.video), object(), require_goal_context=True)
+        context = result["shot_selection"]["attempts"][0]["goal_context"]
+        self.assertTrue(context["supported"])
+        self.assertTrue(context["analysis_allowed"])
+        self.assertTrue(result["auto_accepted"])
+        self.assertNotIn("ambiguous_goal_geometry_analysis_only", result["qa_warnings"])
 
     def test_manual_event_slice_excludes_preceding_shot_but_retains_earlier_context(self):
         with patch.object(sp, "_process_shot_steps", side_effect=lambda *a, shot, **kw: self.fake_result(shot, True)) as process:

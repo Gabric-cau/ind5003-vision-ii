@@ -55,6 +55,19 @@ class FreshEventAnalysisTest(unittest.TestCase):
         self.pose['shot_selection']['found_qualified_shot'] = False
         self.assertEqual(fresh.contact_window(self.pose, self.source)[1], 'selected_shot_qualification_not_established')
 
+    def test_ambiguous_scene_allows_search_but_cannot_supply_goalward_evidence(self):
+        context = self.pose['shot_selection']['attempts'][0]['goal_context']
+        context.update(supported=False, analysis_allowed=True, ambiguous_goal_frames=[10, 54, 99])
+        self.assertEqual(fresh.contact_window(self.pose, self.source)[0], (10, 100))
+        goal = {'status': 'abstain', 'selected': None,
+                'candidates': [{'score': .91}, {'score': .90}]}
+        result = fresh.goalward_departure_support({'contact_frame': 40}, [], {40: np.eye(3)},
+                                                  {'goal_proposals': {'40': goal}})
+        self.assertEqual(result['status'], 'unknown')
+        self.assertEqual(result['reason'], 'missing_same_window_goal_geometry')
+        self.assertIsNone(result['selected_hypothesis'])
+        self.assertIsNone(goal['selected'])
+
     def test_source_pose_fps_mismatch_is_integrity_failure(self):
         with self.assertRaisesRegex(ValueError, 'fps mismatch'):
             fresh.contact_window(self.pose, {**self.source, 'fps': 50.})
